@@ -147,35 +147,31 @@ export default function GalleryPage() {
   return (
     <div className="pt-24 md:pt-32 pb-24">
 
-      {/* Hero Banner */}
-      <section className="relative bg-[#001b31] py-20 px-5 md:px-16 mb-16 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#0094B8]/15 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#b4ebfd]/10 blur-3xl pointer-events-none" />
+      {/* Hero Banner — real photo background (before/after transformation) */}
+      <section className="relative py-24 md:py-32 px-5 md:px-16 mb-16 overflow-hidden">
+        {/* Background photo */}
+        <img
+          src="/gallery-banner.png"
+          alt="Before and after carpet cleaning transformation in a Brisbane home"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Neutral dark overlay — readable text, natural photo colors */}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/45" />
+
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6 backdrop-blur-sm">
             <div className="flex text-[#D5A85A]">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
             </div>
             <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">Real Results, Real Homes</span>
           </div>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight">
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight drop-shadow-lg">
             Before & After <span className="text-[#b4ebfd]">Showcase</span>
           </h1>
-          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             Drag the slider on each photo to reveal the transformation — real results from real Brisbane homes and businesses.
           </p>
-          <div className="flex flex-wrap justify-center gap-8">
-            {[
-              { val: '500+', label: 'Jobs Completed' },
-              { val: '99%', label: 'Customer Satisfaction' },
-              { val: '4', label: 'Service Categories' },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <p className="font-display font-bold text-3xl text-[#b4ebfd]">{s.val}</p>
-                <p className="text-xs text-white/60 mt-1 uppercase tracking-widest">{s.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -186,11 +182,10 @@ export default function GalleryPage() {
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
-                filter === tab.id
-                  ? 'bg-[#001b31] text-white shadow-md scale-105'
-                  : 'bg-white text-[#43474d] hover:bg-[#e9f6fd] border border-[#d7e4ec]'
-              }`}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${filter === tab.id
+                ? 'bg-[#001b31] text-white shadow-md scale-105'
+                : 'bg-white text-[#43474d] hover:bg-[#e9f6fd] border border-[#d7e4ec]'
+                }`}
             >
               {tab.label}
             </button>
