@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Home, Sparkles, Image as ImageIcon, Info, Mail, Star, MapPin, CalendarCheck, Phone } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,13 +51,8 @@ export default function Navbar() {
             >
               <Menu className="w-6 h-6" />
             </button>
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-full bg-[#001b31] flex items-center justify-center text-white font-display font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
-                C
-              </div>
-              <span className="font-display font-bold text-2xl md:text-3xl text-[#001b31] tracking-tight">
-                Carpet Cleaner
-              </span>
+            <Link href="/" className="group">
+              <Logo />
             </Link>
           </div>
 
@@ -107,11 +103,8 @@ export default function Navbar() {
         }`}
       >
         <div className="flex justify-between items-center mb-8 border-b border-[#ddeaf2] pb-4">
-          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#001b31] flex items-center justify-center text-white font-display font-bold text-lg">
-              C
-            </div>
-            <span className="font-display font-bold text-2xl text-[#001b31]">Carpet Cleaner</span>
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            <Logo />
           </Link>
           <button
             onClick={() => setIsOpen(false)}
