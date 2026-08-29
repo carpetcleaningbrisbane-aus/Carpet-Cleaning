@@ -137,32 +137,42 @@ export default function ServicesPage() {
   return (
     <div className="pt-24 md:pt-32 pb-24">
 
-      {/* Header Banner */}
-      <section className="relative bg-[#001b31] py-20 px-5 md:px-16 mb-20 overflow-hidden">
-        {/* decorative circles */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#0094B8]/15 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#b4ebfd]/10 blur-3xl pointer-events-none" />
+      {/* Header Banner — real photo background */}
+      <section className="relative py-24 md:py-32 px-5 md:px-16 mb-20 overflow-hidden">
+        {/* Background photo */}
+        <img
+          src="/services-banner.png"
+          alt="Professional carpet cleaning services in Brisbane"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Neutral dark overlay — readable text, no blue tint */}
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
+
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6 backdrop-blur-sm">
             <div className="flex text-[#D5A85A]">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
             </div>
             <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">Brisbane Carpet Care Solutions</span>
           </div>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight">
+
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
             Professional Carpet<br />
             <span className="text-[#b4ebfd]">Cleaning Services</span>
           </h1>
-          <p className="text-base md:text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+
+          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
             A full range of professional carpet cleaning services for homes, rentals, offices and commercial spaces throughout Brisbane — from deep steam cleaning to emergency water extraction.
           </p>
+
           {/* Quick-jump pills */}
           <div className="flex flex-wrap justify-center gap-2 mt-10">
             {services.map((s) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="px-4 py-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold rounded-full transition-all"
+                className="px-4 py-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold rounded-full transition-all backdrop-blur-sm"
               >
                 {s.tag}
               </a>
@@ -192,7 +202,7 @@ export default function ServicesPage() {
                 <div className={`absolute inset-0 ${isEven
                   ? 'bg-gradient-to-r from-transparent to-[#001b31]/10'
                   : 'bg-gradient-to-l from-transparent to-[#001b31]/10'
-                }`} />
+                  }`} />
                 {/* tag badge on image */}
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#001b31] rounded-full font-bold text-xs shadow-sm">
