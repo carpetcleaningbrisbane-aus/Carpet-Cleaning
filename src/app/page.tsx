@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Star, Waves, Sparkles, Armchair, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2, Home as HomeIcon, Sparkle } from 'lucide-react';
+import { Star, Waves, Sparkles, Armchair, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2, Home as HomeIcon, ChevronRight } from 'lucide-react';
 import { SERVICES } from '@/data/siteData';
 import TestimonialMarquee from '@/components/ui/marquee-01';
 
@@ -85,7 +85,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SERVICES.slice(0, 3).map((service) => (
+          {SERVICES.map((service) => (
             <div
               key={service.id}
               className="bg-white p-8 rounded-2xl border border-[#d7e4ec] ambient-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group"
@@ -94,6 +94,9 @@ export default function HomePage() {
                 {service.iconName === 'Waves' && <Waves className="w-8 h-8 text-[#2d6675]" />}
                 {service.iconName === 'Sparkles' && <Sparkles className="w-8 h-8 text-[#2d6675]" />}
                 {service.iconName === 'Armchair' && <Armchair className="w-8 h-8 text-[#2d6675]" />}
+                {service.iconName === 'Layers' && <Sparkles className="w-8 h-8 text-[#2d6675]" />}
+                {service.iconName === 'ShieldCheck' && <ShieldCheck className="w-8 h-8 text-[#2d6675]" />}
+                {service.iconName === 'CheckCircle2' && <CheckCircle2 className="w-8 h-8 text-[#2d6675]" />}
               </div>
               <div className="inline-block px-3 py-1 bg-[#b4ebfd]/40 text-[#001b31] rounded-xl font-semibold text-xs mb-4 w-max">
                 {service.tag}
@@ -163,183 +166,280 @@ export default function HomePage() {
 
       {/* Professional Steam Carpet Cleaning */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
-        <div className="bg-[#e9f6fd] p-8 md:p-14 rounded-3xl border border-[#b1e8fa]">
-          <div className="max-w-3xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">
-              Advanced Technology
-            </span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-4">
-              Professional Steam Carpet Cleaning
-            </h2>
-            <p className="text-base text-[#43474d] leading-relaxed">
-              Our primary carpet cleaning process uses professional hot water extraction, commonly referred to as steam carpet cleaning. During the process, heated water and an appropriate cleaning solution are applied into the carpet fibres. The powerful extraction system then removes the loosened dirt, moisture and contaminants.
-            </p>
+        {/* Section header */}
+        <div className="text-center mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">Advanced Technology</span>
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-4">
+            Professional Steam Carpet Cleaning
+          </h2>
+          <p className="text-base text-[#43474d] max-w-2xl mx-auto leading-relaxed">
+            Our primary process uses professional hot water extraction — heated water and a cleaning solution are injected deep into carpet fibres, then powerfully extracted along with loosened dirt, moisture and contaminants.
+          </p>
+        </div>
+
+        {/* Top image banner */}
+        <div className="group relative h-72 md:h-96 lg:h-[420px] rounded-2xl overflow-hidden mb-8 border border-[#d7e4ec] ambient-shadow">
+          <img
+            src="/steam-cleaning.jpg"
+            alt="Professional steam carpet cleaning"
+            className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#001b31]/60 via-[#001b31]/20 to-transparent" />
+          <div className="absolute inset-0 flex items-center px-8 md:px-14">
+            <div className="max-w-md">
+              <p className="text-white font-display font-bold text-xl md:text-2xl leading-snug mb-4">
+                Reaches deeper than any vacuum can
+              </p>
+              <Link
+                href="/book-now"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#001b31] rounded-xl font-bold text-sm hover:bg-[#e9f6fd] transition-all shadow-md"
+              >
+                Book a Steam Clean <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Three info cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1 — What it treats */}
+          <div className="bg-white rounded-2xl border border-[#d7e4ec] ambient-shadow p-7 flex flex-col gap-5">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center">
+                <Waves className="w-5 h-5 text-[#2d6675]" />
+              </div>
+              <h3 className="font-display font-bold text-lg text-[#001b31]">What It Treats</h3>
+            </div>
+            <ul className="space-y-2.5">
+              {[
+                'Ground-in dirt & embedded sand',
+                'Dust mites, pollen & allergens',
+                'Coffee, tea & food spills',
+                'Pet accidents & protein marks',
+                'Heavy foot-traffic wear',
+                'Persistent odours',
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-2.5 text-sm text-[#43474d]">
+                  <Check className="w-4 h-4 text-[#2d6675] shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 md:p-8 rounded-2xl border border-[#d7e4ec]">
-              <h3 className="font-display font-bold text-xl text-[#001b31] mb-4">
-                Particularly Useful for Carpets Affected By:
-              </h3>
-              <ul className="space-y-3">
-                {[
-                  'Ground-in dirt & embedded sand',
-                  'Heavy foot traffic wear',
-                  'Dust mites, pollen and allergens',
-                  'Food spills & liquid spots',
-                  'Coffee and tea stains',
-                  'Pet accidents and protein marks',
-                  'General grime & discolouration',
-                  'Unpleasant persistent odours'
-                ].map((point, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-sm text-[#43474d]">
-                    <Sparkle className="w-4 h-4 text-[#D5A85A] shrink-0" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+          {/* Card 2 — Tailored process */}
+          <div className="bg-[#f4faff] rounded-2xl border border-[#d7e4ec] ambient-shadow p-7 flex flex-col gap-5">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-[#2d6675]" />
+              </div>
+              <h3 className="font-display font-bold text-lg text-[#001b31]">Tailored Process</h3>
             </div>
+            <p className="text-sm text-[#43474d] leading-relaxed">
+              The cleaning process is adapted to carpet condition, fibre type, and soiling level — ensuring a thorough result without overwetting or damaging delicate pile.
+            </p>
+            <div className="mt-auto p-4 bg-white rounded-xl border border-[#ddeaf2]">
+              <p className="text-xs text-[#43474d] leading-relaxed">
+                Careful preparation ensures consistent results. Every job is assessed on-site before work begins.
+              </p>
+            </div>
+          </div>
 
-            <div className="bg-white p-6 md:p-8 rounded-2xl border border-[#d7e4ec] flex flex-col justify-between">
-              <div>
-                <h3 className="font-display font-bold text-xl text-[#001b31] mb-4">
-                  Tailored Cleaning Process
-                </h3>
-                <p className="text-sm text-[#43474d] leading-relaxed mb-6">
-                  This deep-cleaning process can reach areas of the carpet that ordinary vacuuming cannot. The cleaning process is adapted according to the carpet condition, fibre type, level of soiling and areas requiring additional treatment.
-                </p>
+          {/* Card 3 — Why steam stats */}
+          <div className="bg-white rounded-2xl border border-[#d7e4ec] ambient-shadow p-7 flex flex-col gap-5">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-[#2d6675]" />
               </div>
-              <div className="p-4 bg-[#f4faff] rounded-xl border border-[#ddeaf2]">
-                <p className="text-xs font-semibold text-[#001b31]">
-                  Careful preparation ensures consistent cleaning results without overwetting or damaging delicate carpet pile.
-                </p>
-              </div>
+              <h3 className="font-display font-bold text-lg text-[#001b31]">Why Steam?</h3>
+            </div>
+            <div className="flex flex-col gap-3">
+              {[
+                { label: 'Deeper than vacuuming', val: '5×' },
+                { label: 'Allergen reduction', val: '99%' },
+                { label: 'Average dry time', val: '2–4 hrs' },
+                { label: 'Safe for kids & pets', val: '✓' },
+              ].map((stat) => (
+                <div key={stat.label} className="flex items-center justify-between py-3 border-b border-[#ddeaf2] last:border-0 last:pb-0">
+                  <span className="text-sm text-[#43474d]">{stat.label}</span>
+                  <span className="text-base font-bold text-[#001b31]">{stat.val}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Residential vs Commercial Sections */}
+      {/* Residential · Families & Pets */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="text-center mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">Who We Serve</span>
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31]">
+            Cleaning Built Around Your Life
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Residential */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-[#d7e4ec] ambient-shadow flex flex-col justify-between">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-[#b4ebfd]/30 flex items-center justify-center text-[#2d6675] mb-6">
-                <HomeIcon className="w-6 h-6" />
+          <div className="group relative overflow-hidden rounded-3xl border border-[#d7e4ec] bg-white ambient-shadow flex flex-col">
+            <div className="h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+                alt="Residential carpet cleaning"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-white/60" />
+            </div>
+            <div className="p-8 md:p-10 flex flex-col flex-grow">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center text-[#2d6675]">
+                  <HomeIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#2d6675]">Home</p>
+                  <h3 className="font-display font-bold text-xl text-[#001b31] leading-tight">Residential Carpet Cleaning</h3>
+                </div>
               </div>
-              <h3 className="font-display font-bold text-2xl text-[#001b31] mb-4">
-                Residential Carpet Cleaning
-              </h3>
               <p className="text-sm text-[#43474d] leading-relaxed mb-6">
-                Your home carpet sees everyday use. From living rooms and bedrooms to hallways and stairs, carpets can gradually become darker in areas that receive frequent foot traffic. Our residential service refreshes carpets throughout your home.
+                From living rooms to hallways and stairs, carpets gradually darken in high-traffic areas. Our residential service brings life back to every room in your home.
               </p>
-              <h4 className="text-xs font-bold text-[#001b31] uppercase tracking-wider mb-3">We Clean:</h4>
-              <div className="grid grid-cols-2 gap-2 text-xs text-[#43474d] mb-8">
-                <span>• Living rooms</span>
-                <span>• Family rooms</span>
-                <span>• Bedrooms</span>
-                <span>• Apartment carpets</span>
-                <span>• Hallways & Stairs</span>
-                <span>• High-traffic areas</span>
-                <span>• Dining areas</span>
-                <span>• Rental properties</span>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-8">
+                {['Living rooms', 'Family rooms', 'Bedrooms', 'Apartment carpets', 'Hallways & Stairs', 'Dining areas', 'High-traffic areas', 'Rental properties'].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-xs text-[#43474d]">
+                    <Check className="w-3.5 h-3.5 text-[#2d6675] shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-auto">
+                <Link
+                  href="/book-now"
+                  className="w-full py-3.5 bg-[#001b31] text-white text-center rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all block"
+                >
+                  Book Residential Clean
+                </Link>
               </div>
             </div>
-            <Link
-              href="/book-now"
-              className="w-full py-3.5 bg-[#001b31] text-white text-center rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all"
-            >
-              Book Residential Clean
-            </Link>
           </div>
 
           {/* Families & Pets */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-[#d7e4ec] ambient-shadow flex flex-col justify-between">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-[#b4ebfd]/30 flex items-center justify-center text-[#2d6675] mb-6">
-                <ShieldCheck className="w-6 h-6" />
+          <div className="group relative overflow-hidden rounded-3xl border border-[#d7e4ec] bg-white ambient-shadow flex flex-col">
+            <div className="h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
+                alt="Pet friendly carpet cleaning"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-white/60" />
+            </div>
+            <div className="p-8 md:p-10 flex flex-col flex-grow">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center text-[#2d6675]">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#2d6675]">Families & Pets</p>
+                  <h3 className="font-display font-bold text-xl text-[#001b31] leading-tight">Carpet Cleaning for Families & Pets</h3>
+                </div>
               </div>
-              <h3 className="font-display font-bold text-2xl text-[#001b31] mb-4">
-                Carpet Cleaning for Families & Pets
-              </h3>
               <p className="text-sm text-[#43474d] leading-relaxed mb-6">
-                Homes with children and pets place additional demands on carpets. Food spills, muddy footprints, pet hair and accidents quickly leave carpets looking tired. We give particular attention to areas affected by stubborn stains and odours.
+                Homes with children and pets demand more from their carpets. We give extra attention to stubborn stains and odours — leaving carpets fresh and safe for the whole family.
               </p>
-              <h4 className="text-xs font-bold text-[#001b31] uppercase tracking-wider mb-3">Common Problems We Treat:</h4>
-              <div className="grid grid-cols-2 gap-2 text-xs text-[#43474d] mb-8">
-                <span>• Pet accidents</span>
-                <span>• Pet odours</span>
-                <span>• Food & drink spills</span>
-                <span>• Mud & outdoor soil</span>
-                <span>• High-traffic marks</span>
-                <span>• General household dirt</span>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-8">
+                {['Pet accidents', 'Pet odours', 'Food & drink spills', 'Mud & outdoor soil', 'High-traffic marks', 'General household dirt'].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-xs text-[#43474d]">
+                    <Check className="w-3.5 h-3.5 text-[#2d6675] shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-auto">
+                <Link
+                  href="/services"
+                  className="w-full py-3.5 border border-[#001b31] text-[#001b31] text-center rounded-xl font-semibold text-sm hover:bg-[#e9f6fd] transition-colors block"
+                >
+                  View Pet & Stain Treatments
+                </Link>
               </div>
             </div>
-            <Link
-              href="/services"
-              className="w-full py-3.5 border border-[#73777e] text-[#001b31] text-center rounded-xl font-semibold text-sm hover:bg-[#e9f6fd] transition-colors"
-            >
-              View Pet & Stain Treatments
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Commercial & Business Cleaning */}
-      <section className="bg-[#f4faff] py-20 px-5 md:px-16 border-y border-[#d7e4ec] mb-24 md:mb-32">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="w-12 h-12 rounded-xl bg-[#b4ebfd]/40 flex items-center justify-center text-[#2d6675] mb-6">
-              <Building2 className="w-6 h-6" />
-            </div>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-6">
-              Carpet Cleaning for Brisbane Businesses
-            </h2>
-            <p className="text-base text-[#43474d] mb-6 leading-relaxed">
-              Clean carpets make a noticeable difference in offices and commercial environments. Reception areas, hallways, meeting rooms and other high-traffic spaces quickly accumulate dirt and develop visible traffic marks.
-            </p>
-            <p className="text-sm font-semibold text-[#001b31] mb-4">We provide carpet cleaning for:</p>
-            <div className="grid grid-cols-2 gap-3 text-sm text-[#43474d] mb-8">
-              <span>• Offices & Corporate Suites</span>
-              <span>• Showrooms</span>
-              <span>• Retail Businesses</span>
-              <span>• Workplaces</span>
-              <span>• Commercial Properties</span>
-              <span>• Common Areas</span>
-              <span>• Reception Areas</span>
-              <span>• Meeting Rooms</span>
-            </div>
-            <p className="text-xs text-[#73777e]">
-              Appointments can be arranged around your business operating requirements where possible to minimize workplace downtime.
-            </p>
-          </div>
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
+        <div className="relative overflow-hidden rounded-3xl bg-[#f4faff] border border-[#d7e4ec]">
+          {/* accent stripe */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#001b31] via-[#0094B8] to-[#b4ebfd]" />
 
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-[#d7e4ec] ambient-shadow">
-            <h3 className="font-display font-bold text-2xl text-[#001b31] mb-6">
-              Our 8-Step Cleaning Approach
-            </h3>
-            <div className="space-y-3.5">
-              {[
-                { step: '1', title: 'Carpet Inspection', desc: 'Detailed assessment of carpet material and fiber type.' },
-                { step: '2', title: 'Stain & Problem Identification', desc: 'Pinpointing high-traffic marks and specific stains.' },
-                { step: '3', title: 'Pre-Vacuuming', desc: 'Lifting dry surface soils and loose particle debris.' },
-                { step: '4', title: 'Pre-Treatment Application', desc: 'Applying eco-friendly solutions to loosen embedded grime.' },
-                { step: '5', title: 'Professional Steam Cleaning', desc: 'Deep hot water agitation across carpet fibers.' },
-                { step: '6', title: 'Hot Water Extraction', desc: 'High-power suction extracting moisture and dirt.' },
-                { step: '7', title: 'Stain & Odour Treatment', desc: 'Targeted spot neutralization for residual marks.' },
-                { step: '8', title: 'Final Quality Inspection', desc: 'Ensuring pristine results and client satisfaction.' },
-              ].map((s) => (
-                <div key={s.step} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#001b31] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                    {s.step}
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-bold text-[#001b31]">{s.title}</h4>
-                    <p className="text-xs text-[#43474d]">{s.desc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {/* Left content */}
+            <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#b4ebfd]/50 text-[#2d6675] text-xs font-bold uppercase tracking-widest mb-5 w-max">
+                Commercial
+              </span>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-5 leading-tight">
+                Carpet Cleaning for<br />Brisbane Businesses
+              </h2>
+              <p className="text-base text-[#43474d] leading-relaxed mb-8">
+                Clean carpets make a noticeable difference in offices and commercial environments. Reception areas, hallways and meeting rooms quickly accumulate dirt — we restore them to a professional standard with minimal disruption.
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                {['Offices & Corporate Suites', 'Showrooms', 'Retail Businesses', 'Workplaces', 'Commercial Properties', 'Common Areas', 'Reception Areas', 'Meeting Rooms'].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-sm text-[#43474d]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#0094B8] shrink-0" />
+                    {item}
                   </div>
+                ))}
+              </div>
+
+              <p className="text-xs text-[#73777e] mb-8 leading-relaxed">
+                Appointments can be arranged around your business operating hours to minimise workplace downtime.
+              </p>
+
+              <Link
+                href="/book-now"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#001b31] text-white rounded-xl font-bold text-sm hover:bg-[#12304a] transition-all w-max shadow-md"
+              >
+                Get a Commercial Quote <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Right — 8-step process */}
+            <div className="bg-white border-t lg:border-t-0 lg:border-l border-[#d7e4ec] p-8 md:p-12 lg:p-14">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-[#e9f6fd] flex items-center justify-center text-[#2d6675]">
+                  <Building2 className="w-5 h-5" />
                 </div>
-              ))}
+                <h3 className="font-display font-bold text-xl text-[#001b31]">Our 8-Step Cleaning Approach</h3>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  { step: '1', title: 'Carpet Inspection', desc: 'Assessing material, fibre type and condition.' },
+                  { step: '2', title: 'Stain & Problem Identification', desc: 'Pinpointing traffic marks and specific stains.' },
+                  { step: '3', title: 'Pre-Vacuuming', desc: 'Lifting dry surface soils and loose debris.' },
+                  { step: '4', title: 'Pre-Treatment Application', desc: 'Eco-friendly solutions loosen embedded grime.' },
+                  { step: '5', title: 'Professional Steam Cleaning', desc: 'Deep hot water agitation across carpet fibres.' },
+                  { step: '6', title: 'Hot Water Extraction', desc: 'High-power suction removes moisture and dirt.' },
+                  { step: '7', title: 'Stain & Odour Treatment', desc: 'Targeted spot neutralisation for residual marks.' },
+                  { step: '8', title: 'Final Quality Inspection', desc: 'Ensuring pristine results and client satisfaction.' },
+                ].map((s, i) => (
+                  <div key={s.step} className="flex items-start gap-4">
+                    <div className="relative shrink-0">
+                      <span className="w-8 h-8 rounded-full bg-[#001b31] text-white text-xs font-bold flex items-center justify-center">
+                        {s.step}
+                      </span>
+                      {i < 7 && <div className="absolute left-1/2 -translate-x-1/2 top-8 w-px h-4 bg-[#ddeaf2]" />}
+                    </div>
+                    <div className="pb-1">
+                      <h4 className="text-sm font-bold text-[#001b31]">{s.title}</h4>
+                      <p className="text-xs text-[#73777e] mt-0.5">{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
