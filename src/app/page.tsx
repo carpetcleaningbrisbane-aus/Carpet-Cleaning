@@ -193,14 +193,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Link
-            href="/feedback"
-            className="inline-flex items-center gap-2 text-[#001b31] font-semibold text-sm hover:text-[#2d6675] transition-colors"
-          >
-            Read All Customer Reviews <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+
       </section>
 
       {/* Final Call to Action */}

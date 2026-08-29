@@ -87,16 +87,6 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/feedback" className="text-white/80 hover:text-white transition-colors">
-                Customer Reviews
-              </Link>
-            </li>
-            <li>
-              <Link href="/locations" className="text-white/80 hover:text-white transition-colors">
-                Service Areas
-              </Link>
-            </li>
-            <li>
               <Link href="/contact" className="text-white/80 hover:text-white transition-colors">
                 Contact Us
               </Link>
