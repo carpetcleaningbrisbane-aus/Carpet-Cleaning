@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --primary: #001b31;
+  --primary-container: #12304a;
+  --on-primary: #ffffff;
+  --on-primary-container: #7d98b7;
+  --secondary: #2d6675;
+  --secondary-container: #b1e8fa;
+  --on-secondary-container: #316a79;
+  --secondary-fixed: #b4ebfd;
+  --accent-gold: #D5A85A;
+  --surface: #f4faff;
+  --surface-dim: #cfdce4;
+  --surface-bright: #f4faff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #e9f6fd;
+  --surface-container: #e3f0f8;
+  --surface-container-high: #ddeaf2;
+  --surface-container-highest: #d7e4ec;
+  --on-surface: #111d23;
+  --on-surface-variant: #43474d;
+  --outline: #73777e;
+  --outline-variant: #c3c7ce;
+  --warm-white: #FAFAF7;
+}
+
+@theme {
+  --color-primary: #001b31;
+  --color-primary-container: #12304a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #7d98b7;
+  --color-secondary: #2d6675;
+  --color-secondary-container: #b1e8fa;
+  --color-on-secondary-container: #316a79;
+  --color-secondary-fixed: #b4ebfd;
+  --color-accent-gold: #D5A85A;
+  --color-surface: #f4faff;
+  --color-surface-dim: #cfdce4;
+  --color-surface-bright: #f4faff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #e9f6fd;
+  --color-surface-container: #e3f0f8;
+  --color-surface-container-high: #ddeaf2;
+  --color-surface-container-highest: #d7e4ec;
+  --color-on-surface: #111d23;
+  --color-on-surface-variant: #43474d;
+  --color-outline: #73777e;
+  --color-outline-variant: #c3c7ce;
+  --color-warm-white: #FAFAF7;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  --spacing-section-gap: 120px;
+  --spacing-container-max: 1280px;
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 20px;
+  --spacing-gutter: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--warm-white);
+  color: #111d23;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-pattern {
+  background-image: radial-gradient(rgba(18, 48, 74, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ambient-shadow {
+  box-shadow: 0 20px 40px rgba(18, 48, 74, 0.05);
+}
+
