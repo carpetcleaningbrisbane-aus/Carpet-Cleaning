@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Star, Waves, Sparkles, Armchair, ArrowRight, ShieldCheck, CheckCircle2, Award, Clock } from 'lucide-react';
 import { SERVICES, REVIEWS } from '@/data/siteData';
+import TestimonialMarquee from '@/components/ui/marquee-01';
 
 export default function HomePage() {
   return (
@@ -155,7 +156,7 @@ export default function HomePage() {
 
       {/* Testimonial Highlights */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="font-display font-semibold text-3xl md:text-4xl text-[#001b31] mb-4">
             What Our Clients Say
           </h2>
@@ -164,36 +165,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {REVIEWS.slice(0, 3).map((review) => (
-            <div
-              key={review.id}
-              className="bg-white p-8 rounded-2xl border border-[#d7e4ec] ambient-shadow flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex text-[#D5A85A] mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-sm text-[#43474d] italic mb-6 leading-relaxed">
-                  &ldquo;{review.comment}&rdquo;
-                </p>
-              </div>
-              <div className="border-t border-[#ddeaf2] pt-4 flex justify-between items-center">
-                <div>
-                  <h4 className="font-bold text-sm text-[#001b31]">{review.author}</h4>
-                  <span className="text-xs text-[#73777e]">{review.location}</span>
-                </div>
-                <span className="text-xs bg-[#e9f6fd] text-[#316a79] px-2.5 py-1 rounded-md font-semibold">
-                  Verified Client
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-
+        <TestimonialMarquee />
       </section>
 
       {/* Final Call to Action */}
