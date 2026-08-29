@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'FreshNest Carpet Care | Professional Serenity & Steam Cleaning',
+  title: 'Carpet Cleaner | Professional Serenity & Steam Cleaning',
   description: 'Premium carpet cleaning, stain removal, upholstery restoration, and pet odor elimination services. Professional serenity for your home.',
 };
 

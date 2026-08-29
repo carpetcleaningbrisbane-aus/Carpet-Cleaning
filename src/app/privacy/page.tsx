@@ -8,7 +8,7 @@ export default function PrivacyPage() {
 
       <div className="space-y-6 text-sm text-[#43474d] leading-relaxed">
         <p>
-          At FreshNest Carpet Care, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our website or book our cleaning services.
+          At Carpet Cleaner, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our website or book our cleaning services.
         </p>
 
         <h2 className="font-display font-bold text-xl text-[#001b31] pt-4">1. Information We Collect</h2>

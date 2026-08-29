@@ -8,7 +8,7 @@ export default function TermsPage() {
 
       <div className="space-y-6 text-sm text-[#43474d] leading-relaxed">
         <p>
-          Welcome to FreshNest Carpet Care. By accessing our website or booking our services, you agree to comply with and be bound by the following terms and conditions.
+          Welcome to Carpet Cleaner. By accessing our website or booking our services, you agree to comply with and be bound by the following terms and conditions.
         </p>
 
         <h2 className="font-display font-bold text-xl text-[#001b31] pt-4">1. Service Quotations & On-Site Scope</h2>

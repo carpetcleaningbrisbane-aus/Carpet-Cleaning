@@ -4,8 +4,8 @@ import { ShieldCheck, Award, HeartHandshake, Sparkles, CheckCircle2 } from 'luci
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us | FreshNest Premium Carpet Care',
-  description: 'Learn about FreshNest story, our eco-friendly carpet cleaning methodology, certified team, and commitment to professional serenity.',
+  title: 'About Us | Carpet Cleaner',
+  description: 'Learn about Carpet Cleaner story, our eco-friendly carpet cleaning methodology, certified team, and commitment to professional serenity.',
 };
 
 export default function AboutPage() {
@@ -21,7 +21,7 @@ export default function AboutPage() {
             Elevating the Standard of Clean
           </h1>
           <p className="text-base md:text-lg text-[#43474d] max-w-2xl mx-auto leading-relaxed">
-            FreshNest was founded on a simple philosophy: home should be a serene sanctuary. We combine cutting-edge textile science with eco-safe care.
+            Carpet Cleaner was founded on a simple philosophy: home should be a serene sanctuary. We combine cutting-edge textile science with eco-safe care.
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function AboutPage() {
               Meticulous Care for Every Fiber
             </h2>
             <p className="text-base text-[#43474d] mb-6 leading-relaxed">
-              Established in Melbourne, FreshNest set out to replace harsh chemical carpet cleaning with refined, eco-friendly steam extraction techniques. We believe clean carpets are essential to healthy indoor living.
+              Established in Melbourne, Carpet Cleaner set out to replace harsh chemical carpet cleaning with refined, eco-friendly steam extraction techniques. We believe clean carpets are essential to healthy indoor living.
             </p>
             <p className="text-base text-[#43474d] mb-8 leading-relaxed">
               Our technicians undergo rigorous IICRC training, mastering color-fastness inspection, fiber chemistry, and underlayment sanitization.
@@ -53,7 +53,7 @@ export default function AboutPage() {
           <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl border border-[#d7e4ec]">
             <img
               src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80"
-              alt="FreshNest Carpet Care Technician at work"
+              alt="Carpet Cleaner Technician at work"
               className="w-full h-full object-cover"
             />
           </div>

@@ -122,7 +122,7 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">
-              The FreshNest Difference
+              The Carpet Cleaner Difference
             </span>
             <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-6">
               Why Discerning Homeowners Choose Us

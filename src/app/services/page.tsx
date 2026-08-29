@@ -4,7 +4,7 @@ import { Waves, Sparkles, Armchair, Layers, ShieldCheck, CheckCircle2, ArrowRigh
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Professional Carpet & Upholstery Services | FreshNest',
+  title: 'Professional Carpet & Upholstery Services | Carpet Cleaner',
   description: 'Explore our premium steam carpet cleaning, stain removal, upholstery care, pet odor elimination, and bond cleaning services.',
 };
 

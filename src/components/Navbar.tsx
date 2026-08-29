@@ -52,10 +52,10 @@ export default function Navbar() {
             </button>
             <Link href="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-full bg-[#001b31] flex items-center justify-center text-white font-display font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
-                F
+                C
               </div>
               <span className="font-display font-bold text-2xl md:text-3xl text-[#001b31] tracking-tight">
-                FreshNest
+                Carpet Cleaner
               </span>
             </Link>
           </div>
@@ -109,9 +109,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center mb-8 border-b border-[#ddeaf2] pb-4">
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-[#001b31] flex items-center justify-center text-white font-display font-bold text-lg">
-              F
+              C
             </div>
-            <span className="font-display font-bold text-2xl text-[#001b31]">FreshNest</span>
+            <span className="font-display font-bold text-2xl text-[#001b31]">Carpet Cleaner</span>
           </Link>
           <button
             onClick={() => setIsOpen(false)}

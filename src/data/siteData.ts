@@ -191,7 +191,7 @@ export const REVIEWS: Review[] = [
     rating: 5,
     date: 'August 14, 2026',
     service: 'Steam Carpet Cleaning',
-    comment: 'FreshNest transformed our living room carpet! We were considering replacing it, but after their steam clean, it looks brand new. Punctual and extremely professional.',
+    comment: 'Carpet Cleaner transformed our living room carpet! We were considering replacing it, but after their steam clean, it looks brand new. Punctual and extremely professional.',
     verified: true
   },
   {
@@ -201,7 +201,7 @@ export const REVIEWS: Review[] = [
     rating: 5,
     date: 'August 02, 2026',
     service: 'Pet Odor Elimination',
-    comment: 'Our new puppy had a few accidents on our wool rug. FreshNest used their enzyme treatment and the smell is 100% gone. Highly recommended!',
+    comment: 'Our new puppy had a few accidents on our wool rug. Carpet Cleaner used their enzyme treatment and the smell is 100% gone. Highly recommended!',
     verified: true
   },
   {
@@ -221,7 +221,7 @@ export const REVIEWS: Review[] = [
     rating: 5,
     date: 'July 19, 2026',
     service: 'End of Lease Cleaning',
-    comment: 'Real estate passed our inspection with flying colors and returned the full bond immediately. Thank you FreshNest!',
+    comment: 'Real estate passed our inspection with flying colors and returned the full bond immediately. Thank you Carpet Cleaner!',
     verified: true
   }
 ];
