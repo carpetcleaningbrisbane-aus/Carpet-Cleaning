@@ -100,7 +100,7 @@ export default function GalleryPage() {
                 </p>
                 <div className="flex items-center justify-between pt-4 border-t border-[#ddeaf2]">
                   <span className="text-xs font-semibold text-[#001b31] inline-flex items-center gap-1">
-                    <Sparkles className="w-4 h-4 text-[#D5A85A]" /> FreshNest Verified
+                    <Sparkles className="w-4 h-4 text-[#D5A85A]" /> Carpet Cleaner Verified
                   </span>
                   <span className="text-xs text-[#2d6675] font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                     Expand Details <ArrowRight className="w-3.5 h-3.5" />

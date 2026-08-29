@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Camera, Globe, Phone, Mail, MapPin, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Camera, Globe, Phone, Mail, MapPin, ShieldCheck } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
@@ -7,11 +8,8 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1 flex flex-col">
-          <Link href="/" className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-full bg-[#b4ebfd] flex items-center justify-center text-[#001b31] font-display font-bold text-xl">
-              F
-            </div>
-            <span className="font-display font-bold text-2xl text-white">FreshNest</span>
+          <Link href="/" className="mb-6">
+            <Logo lightMode />
           </Link>
           <p className="font-body text-sm text-white/80 mb-6 leading-relaxed max-w-xs">
             Elevating the standard of clean for homes that value professional serenity, meticulous care, and eco-friendly solutions.
@@ -123,7 +121,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-[1280px] mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/70">
-        <p>© 2026 FreshNest Carpet Care. Professional Serenity. All rights reserved.</p>
+        <p>© 2026 Carpet Cleaner. Professional Serenity. All rights reserved.</p>
         <div className="flex items-center gap-6">
           <Link href="/privacy" className="hover:text-white transition-colors">
             Privacy Policy

@@ -5,13 +5,13 @@ const reviews = [
   {
     name: "Sarah Jenkins",
     username: "@sjenkins_toorak",
-    body: "“FreshNest transformed our living room carpet! We were considering replacing it, but after their steam clean, it looks brand new. Punctual and extremely professional.”",
+    body: "“Carpet Cleaner transformed our living room carpet! We were considering replacing it, but after their steam clean, it looks brand new. Punctual and extremely professional.”",
     profile: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
   },
   {
     name: "Marcus Vance",
     username: "@marcus_brighton",
-    body: "“Our new puppy had a few accidents on our wool rug. FreshNest used their enzyme treatment and the smell is 100% gone. Highly recommended!”",
+    body: "“Our new puppy had a few accidents on our wool rug. Carpet Cleaner used their enzyme treatment and the smell is 100% gone. Highly recommended!”",
     profile: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
   },
   {
@@ -23,7 +23,7 @@ const reviews = [
   {
     name: "David Chen",
     username: "@david_hawthorn",
-    body: "“Real estate passed our inspection with flying colors and returned the full bond immediately. Thank you FreshNest!”",
+    body: "“Real estate passed our inspection with flying colors and returned the full bond immediately. Thank you Carpet Cleaner!”",
     profile: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
   },
   {
