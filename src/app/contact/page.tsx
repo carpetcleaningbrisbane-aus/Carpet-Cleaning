@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, AlertCircle, MessageSquare, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ export default function ContactPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (status === 'error') setStatus('idle');
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,224 +28,244 @@ export default function ContactPage() {
       setErrorMessage('Please fill in all required fields.');
       return;
     }
-
     setStatus('submitting');
-    // Simulate UI form submission
-    setTimeout(() => {
-      setStatus('success');
-    }, 1000);
+    setTimeout(() => setStatus('success'), 1000);
   };
+
+  const contactItems = [
+    {
+      icon: <Phone className="w-5 h-5" />,
+      label: 'Call Us',
+      primary: '(03) 9123 4567',
+      secondary: 'Mon–Sat: 7:00 AM – 7:00 PM',
+    },
+    {
+      icon: <Mail className="w-5 h-5" />,
+      label: 'Email Support',
+      primary: 'hello@carpetcleaner.com.au',
+      secondary: 'Average response: 2 hours',
+    },
+    {
+      icon: <MapPin className="w-5 h-5" />,
+      label: 'Service Area',
+      primary: 'Brisbane & Surrounds',
+      secondary: 'Greater Brisbane Region',
+    },
+    {
+      icon: <Clock className="w-5 h-5" />,
+      label: 'Opening Hours',
+      primary: 'Mon – Fri: 7am – 7pm',
+      secondary: 'Sat: 8am – 5pm · Sun: Emergencies',
+    },
+  ];
 
   return (
     <div className="pt-24 md:pt-32 pb-24">
-      {/* Header Banner */}
-      <section className="bg-[#e9f6fd] py-16 px-5 md:px-16 border-b border-[#d7e4ec] mb-16">
-        <div className="max-w-[1280px] mx-auto text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">
-            We Are Here to Help
-          </span>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-[#001b31] mb-6">
-            Get In Touch
+
+      {/* Hero Banner */}
+      <section className="relative bg-[#001b31] py-20 px-5 md:px-16 mb-20 overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#0094B8]/15 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#b4ebfd]/10 blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-[1280px] mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
+            <MessageSquare className="w-3.5 h-3.5 text-[#b4ebfd]" />
+            <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">We Are Here to Help</span>
+          </div>
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight">
+            Get In <span className="text-[#b4ebfd]">Touch</span>
           </h1>
-          <p className="text-base md:text-lg text-[#43474d] max-w-2xl mx-auto leading-relaxed">
-            Have questions about our steam cleaning process or custom stain treatments? Send us a message and our team will respond within 2 business hours.
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-10">
+            Have questions about our services or want to get a quote? Send us a message and our team will respond within 2 business hours.
           </p>
+          {/* Quick contact chips */}
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="tel:0391234567" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
+              <Phone className="w-4 h-4 text-[#b4ebfd]" /> (03) 9123 4567
+            </a>
+            <a href="mailto:hello@carpetcleaner.com.au" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
+              <Mail className="w-4 h-4 text-[#b4ebfd]" /> Email Us
+            </a>
+            <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#b4ebfd] hover:bg-white rounded-full text-[#001b31] text-sm font-bold transition-all">
+              Book Online <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Details Column */}
-          <div className="lg:col-span-1 space-y-8">
-            <div className="bg-white p-8 rounded-3xl border border-[#d7e4ec] ambient-shadow">
-              <h3 className="font-display font-bold text-2xl text-[#001b31] mb-6">
-                Contact Information
-              </h3>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#b4ebfd]/30 flex items-center justify-center text-[#2d6675] shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[#73777e] uppercase tracking-wider">Call Us</h4>
-                    <p className="text-base font-semibold text-[#001b31] mt-1">(03) 9123 4567</p>
-                    <p className="text-xs text-[#43474d]">Mon-Sat: 7:00 AM - 7:00 PM</p>
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#b4ebfd]/30 flex items-center justify-center text-[#2d6675] shrink-0">
-                    <Mail className="w-5 h-5" />
+          {/* Left sidebar — contact info */}
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            {/* Info cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              {contactItems.map((item) => (
+                <div key={item.label} className="bg-white rounded-2xl border border-[#d7e4ec] p-5 flex items-start gap-4 ambient-shadow hover:border-[#b1e8fa] transition-all">
+                  <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center text-[#2d6675] shrink-0">
+                    {item.icon}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#73777e] uppercase tracking-wider">Email Support</h4>
-                    <p className="text-base font-semibold text-[#001b31] mt-1">hello@freshnestclean.com.au</p>
-                    <p className="text-xs text-[#43474d]">Average response: 2 hours</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#73777e] mb-1">{item.label}</p>
+                    <p className="text-sm font-bold text-[#001b31]">{item.primary}</p>
+                    <p className="text-xs text-[#73777e] mt-0.5">{item.secondary}</p>
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#b4ebfd]/30 flex items-center justify-center text-[#2d6675] shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[#73777e] uppercase tracking-wider">Headquarters</h4>
-                    <p className="text-sm font-semibold text-[#001b31] mt-1">
-                      120 Collins Street, Suite 1400<br />
-                      Melbourne VIC 3000
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#b4ebfd]/30 flex items-center justify-center text-[#2d6675] shrink-0">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[#73777e] uppercase tracking-wider">Hours of Operation</h4>
-                    <p className="text-xs text-[#43474d] mt-1">Monday - Friday: 7:00am - 7:00pm</p>
-                    <p className="text-xs text-[#43474d]">Saturday: 8:00am - 5:00pm</p>
-                    <p className="text-xs text-[#43474d]">Sunday: Emergency cleans only</p>
-                  </div>
-                </div>
+            {/* Book CTA card */}
+            <div className="bg-[#001b31] rounded-2xl p-7 text-white relative overflow-hidden">
+              <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-[#0094B8]/20 blur-2xl pointer-events-none" />
+              <div className="relative z-10">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#b4ebfd] mb-3">Skip the Queue</p>
+                <h3 className="font-display font-bold text-xl mb-3 leading-snug">Ready to book? Go online in 2 minutes.</h3>
+                <p className="text-white/60 text-xs mb-5 leading-relaxed">No upfront payment. Pick your service, date and time instantly.</p>
+                <Link
+                  href="/book-now"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[#b4ebfd] text-[#001b31] rounded-xl font-bold text-sm hover:bg-white transition-all"
+                >
+                  Book Now <ChevronRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Form Column */}
-          <div className="lg:col-span-2">
-            <div className="bg-white p-8 md:p-12 rounded-3xl border border-[#d7e4ec] ambient-shadow">
-              <h3 className="font-display font-bold text-2xl text-[#001b31] mb-2">
-                Send Us a Message
-              </h3>
-              <p className="text-sm text-[#43474d] mb-8">
-                Fill out the form below and our customer care team will get back to you shortly.
-              </p>
+          {/* Right — form */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-3xl border border-[#d7e4ec] ambient-shadow overflow-hidden">
+              {/* Form header strip */}
+              <div className="bg-[#f4faff] border-b border-[#ddeaf2] px-8 md:px-10 py-6">
+                <h2 className="font-display font-bold text-2xl text-[#001b31]">Send Us a Message</h2>
+                <p className="text-sm text-[#73777e] mt-1">We'll get back to you within 2 business hours.</p>
+              </div>
 
-              {status === 'success' ? (
-                <div className="bg-[#e9f6fd] border border-[#b1e8fa] text-[#001b31] p-8 rounded-2xl text-center space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-[#b4ebfd] flex items-center justify-center mx-auto text-[#2d6675]">
-                    <CheckCircle2 className="w-6 h-6" />
+              <div className="px-8 md:px-10 py-8">
+                {status === 'success' ? (
+                  <div className="text-center py-10 space-y-5">
+                    <div className="w-16 h-16 rounded-full bg-[#e9f6fd] border border-[#b1e8fa] flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="w-8 h-8 text-[#2d6675]" />
+                    </div>
+                    <h3 className="font-display font-bold text-2xl text-[#001b31]">Message Sent!</h3>
+                    <p className="text-sm text-[#43474d] max-w-sm mx-auto leading-relaxed">
+                      Thanks, <span className="font-bold text-[#001b31]">{formData.name}</span>. We received your enquiry about <span className="font-semibold">{formData.service}</span> and will be in touch shortly.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setStatus('idle');
+                        setFormData({ name: '', email: '', phone: '', service: 'Steam Carpet Cleaning', message: '' });
+                      }}
+                      className="px-6 py-3 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-colors"
+                    >
+                      Send Another Message
+                    </button>
                   </div>
-                  <h4 className="font-display font-bold text-2xl">Message Sent Successfully!</h4>
-                  <p className="text-sm text-[#43474d] max-w-md mx-auto">
-                    Thank you for reaching out, {formData.name}. We have received your message regarding {formData.service} and will contact you via phone or email shortly.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setStatus('idle');
-                      setFormData({ name: '', email: '', phone: '', service: 'Steam Carpet Cleaning', message: '' });
-                    }}
-                    className="px-6 py-2.5 bg-[#001b31] text-white rounded-lg font-semibold text-sm hover:bg-[#12304a] transition-colors"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {status === 'error' && (
-                    <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm flex items-center gap-2">
-                      <AlertCircle className="w-5 h-5 shrink-0" />
-                      <span>{errorMessage}</span>
-                    </div>
-                  )}
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Jane Doe"
-                        className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/50 text-[#001b31] focus:outline-none focus:border-[#001b31] focus:bg-white text-sm"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="jane@example.com"
-                        className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/50 text-[#001b31] focus:outline-none focus:border-[#001b31] focus:bg-white text-sm"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="(04) 0000 0000"
-                        className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/50 text-[#001b31] focus:outline-none focus:border-[#001b31] focus:bg-white text-sm"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
-                        Service Required
-                      </label>
-                      <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/50 text-[#001b31] focus:outline-none focus:border-[#001b31] focus:bg-white text-sm"
-                      >
-                        <option value="Steam Carpet Cleaning">Steam Carpet Cleaning</option>
-                        <option value="Stain & Spot Removal">Stain & Spot Removal</option>
-                        <option value="Upholstery Care">Upholstery Care</option>
-                        <option value="Area Rug Cleaning">Area Rug & Specialty Care</option>
-                        <option value="Pet Odor Elimination">Pet Odor Elimination</option>
-                        <option value="End of Lease Cleaning">End of Lease Cleaning</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
-                      Your Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Please tell us about your carpets, room count, or any specific stains..."
-                      className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/50 text-[#001b31] focus:outline-none focus:border-[#001b31] focus:bg-white text-sm"
-                      required
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="w-full py-4 bg-[#001b31] text-white font-semibold rounded-xl text-base hover:bg-[#12304a] transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50"
-                  >
-                    {status === 'submitting' ? (
-                      'Sending Message...'
-                    ) : (
-                      <>
-                        Send Message <Send className="w-4 h-4" />
-                      </>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {status === 'error' && (
+                      <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 shrink-0" />
+                        {errorMessage}
+                      </div>
                     )}
-                  </button>
-                </form>
-              )}
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">Full Name *</label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Jane Doe"
+                          className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">Email Address *</label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="jane@example.com"
+                          className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">Phone Number *</label>
+                        <input
+                          type="tel"
+                          inputMode="numeric"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={(e) => {
+                            const digits = e.target.value.replace(/\D/g, '');
+                            setFormData({ ...formData, phone: digits });
+                          }}
+                          placeholder="0400000000"
+                          className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">Service Required</label>
+                        <select
+                          name="service"
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
+                        >
+                          <option>Steam Carpet Cleaning</option>
+                          <option>Stain & Spot Removal</option>
+                          <option>Upholstery Care</option>
+                          <option>Area Rug & Specialty Care</option>
+                          <option>Pet Odor Elimination</option>
+                          <option>End of Lease Cleaning</option>
+                          <option>Commercial Cleaning</option>
+                          <option>Water Extraction</option>
+                          <option>Other / Not Sure</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">Your Message *</label>
+                      <textarea
+                        name="message"
+                        rows={5}
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Tell us about your carpets, room count, stains, or any questions..."
+                        className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors resize-none"
+                        required
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={status === 'submitting'}
+                      className="w-full py-4 bg-[#001b31] text-white font-bold rounded-xl text-sm hover:bg-[#12304a] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {status === 'submitting' ? (
+                        <span className="flex items-center gap-2">
+                          <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        <>Send Message <Send className="w-4 h-4" /></>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>

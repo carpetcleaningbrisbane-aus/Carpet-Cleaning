@@ -1,51 +1,194 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { GALLERY_ITEMS, GalleryItem } from '@/data/siteData';
-import { Sparkles, ArrowRight, Layers } from 'lucide-react';
+import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical } from 'lucide-react';
+
+const FILTERS = [
+  { id: 'all', label: 'All Results' },
+  { id: 'carpet', label: 'Carpet' },
+  { id: 'stain', label: 'Stain Removal' },
+  { id: 'upholstery', label: 'Upholstery' },
+  { id: 'rug', label: 'Rugs' },
+];
+
+const CATEGORY_COLORS: Record<string, string> = {
+  carpet: 'bg-blue-100 text-blue-800',
+  stain: 'bg-amber-100 text-amber-800',
+  upholstery: 'bg-purple-100 text-purple-800',
+  rug: 'bg-emerald-100 text-emerald-800',
+};
+
+/* ── Drag-to-reveal Before/After Slider ── */
+function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: string; afterImage: string; title: string }) {
+  const [position, setPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const updatePosition = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+    setPosition((x / rect.width) * 100);
+  }, []);
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+    updatePosition(e.clientX);
+  };
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging) return;
+    updatePosition(e.clientX);
+  }, [isDragging, updatePosition]);
+
+  const onMouseUp = useCallback(() => setIsDragging(false), []);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    updatePosition(e.touches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    updatePosition(e.touches[0].clientX);
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative h-64 md:h-80 overflow-hidden select-none cursor-col-resize bg-[#f4faff]"
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onMouseUp}
+    >
+      {/* AFTER image — full width base */}
+      <img
+        src={afterImage}
+        alt={`${title} after`}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        draggable={false}
+      />
+
+      {/* BEFORE image — clipped to left of slider */}
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        style={{ width: `${position}%` }}
+      >
+        <img
+          src={beforeImage}
+          alt={`${title} before`}
+          className="absolute inset-0 h-full object-cover pointer-events-none"
+          style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100%', maxWidth: 'none' }}
+          draggable={false}
+        />
+      </div>
+
+      {/* Divider line */}
+      <div
+        className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_12px_rgba(0,0,0,0.4)] pointer-events-none"
+        style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
+      />
+
+      {/* Drag handle */}
+      <div
+        className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-white shadow-xl flex items-center justify-center z-10 transition-transform duration-100 ${isDragging ? 'scale-110' : 'scale-100'}`}
+        style={{ left: `${position}%` }}
+        onMouseDown={onMouseDown}
+        onTouchStart={onTouchStart}
+      >
+        <GripVertical className="w-5 h-5 text-[#2d6675]" />
+      </div>
+
+      {/* Labels */}
+      <div className="absolute top-4 left-4 pointer-events-none">
+        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-black/60 text-white rounded-full backdrop-blur-sm">
+          Before
+        </span>
+      </div>
+      <div className="absolute top-4 right-4 pointer-events-none">
+        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#2d6675]/90 text-white rounded-full backdrop-blur-sm">
+          After
+        </span>
+      </div>
+
+      {/* Drag hint — fades after first interaction */}
+      {position === 50 && !isDragging && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg flex items-center gap-2 animate-pulse">
+            <ChevronLeft className="w-3.5 h-3.5 text-[#2d6675]" />
+            <span className="text-xs font-bold text-[#001b31]">Drag to compare</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#2d6675]" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function GalleryPage() {
-  const [filter, setFilter] = useState<'all' | 'carpet' | 'stain' | 'upholstery' | 'rug'>('all');
-  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const [filter, setFilter] = useState<string>('all');
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   const filteredItems = filter === 'all'
     ? GALLERY_ITEMS
     : GALLERY_ITEMS.filter((item) => item.category === filter);
 
+  const closeModal = () => setSelectedIdx(null);
+  const prevModal = () => setSelectedIdx((i) => (i !== null ? (i > 0 ? i - 1 : filteredItems.length - 1) : 0));
+  const nextModal = () => setSelectedIdx((i) => (i !== null ? (i < filteredItems.length - 1 ? i + 1 : 0) : 0));
+
+  const selectedItem = selectedIdx !== null ? filteredItems[selectedIdx] : null;
+
   return (
     <div className="pt-24 md:pt-32 pb-24">
-      {/* Header Banner */}
-      <section className="bg-[#e9f6fd] py-16 px-5 md:px-16 border-b border-[#d7e4ec] mb-12">
-        <div className="max-w-[1280px] mx-auto text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">
-            Visual Results Gallery
-          </span>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-[#001b31] mb-6">
-            Before & After Showcase
+
+      {/* Hero Banner */}
+      <section className="relative bg-[#001b31] py-20 px-5 md:px-16 mb-16 overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#0094B8]/15 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#b4ebfd]/10 blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-[1280px] mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
+            <div className="flex text-[#D5A85A]">
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
+            </div>
+            <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">Real Results, Real Homes</span>
+          </div>
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight">
+            Before & After <span className="text-[#b4ebfd]">Showcase</span>
           </h1>
-          <p className="text-base md:text-lg text-[#43474d] max-w-2xl mx-auto leading-relaxed">
-            Witness the transformational power of our deep steam extraction and specialized stain restoration techniques.
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-10">
+            Drag the slider on each photo to reveal the transformation — real results from real Brisbane homes and businesses.
           </p>
+          <div className="flex flex-wrap justify-center gap-8">
+            {[
+              { val: '500+', label: 'Jobs Completed' },
+              { val: '99%', label: 'Customer Satisfaction' },
+              { val: '4', label: 'Service Categories' },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="font-display font-bold text-3xl text-[#b4ebfd]">{s.val}</p>
+                <p className="text-xs text-white/60 mt-1 uppercase tracking-widest">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Filter Tabs */}
-      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-12">
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-10">
         <div className="flex flex-wrap justify-center gap-3">
-          {[
-            { id: 'all', label: 'All Results' },
-            { id: 'carpet', label: 'Carpet Restoration' },
-            { id: 'stain', label: 'Stain Lifting' },
-            { id: 'upholstery', label: 'Upholstery Care' },
-            { id: 'rug', label: 'Specialty Rugs' },
-          ].map((tab) => (
+          {FILTERS.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setFilter(tab.id as any)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+              onClick={() => setFilter(tab.id)}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                 filter === tab.id
-                  ? 'bg-[#001b31] text-white shadow-md'
+                  ? 'bg-[#001b31] text-white shadow-md scale-105'
                   : 'bg-white text-[#43474d] hover:bg-[#e9f6fd] border border-[#d7e4ec]'
               }`}
             >
@@ -57,135 +200,117 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {filteredItems.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filteredItems.map((item, idx) => (
             <div
               key={item.id}
-              className="bg-white rounded-3xl overflow-hidden border border-[#d7e4ec] ambient-shadow hover:shadow-xl transition-all duration-300 flex flex-col group cursor-pointer"
-              onClick={() => setSelectedItem(item)}
+              className="group bg-white rounded-3xl overflow-hidden border border-[#d7e4ec] shadow-sm hover:shadow-xl hover:border-[#b1e8fa] transition-all duration-300"
             >
-              {/* Before / After Dual Image Display */}
-              <div className="grid grid-cols-2 h-[260px] sm:h-[320px] relative overflow-hidden bg-gray-100">
-                <div className="relative border-r-2 border-white overflow-hidden">
-                  <img
-                    src={item.beforeImage}
-                    alt={`${item.title} Before`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <span className="absolute top-4 left-4 bg-black/70 text-white text-xs font-bold px-3 py-1 rounded-md backdrop-blur-sm">
-                    BEFORE
-                  </span>
-                </div>
-                <div className="relative overflow-hidden">
-                  <img
-                    src={item.afterImage}
-                    alt={`${item.title} After`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <span className="absolute top-4 right-4 bg-[#2d6675] text-white text-xs font-bold px-3 py-1 rounded-md shadow-md">
-                    AFTER
-                  </span>
-                </div>
-              </div>
+              {/* Drag-to-reveal slider */}
+              <BeforeAfterSlider
+                beforeImage={item.beforeImage}
+                afterImage={item.afterImage}
+                title={item.title}
+              />
 
-              <div className="p-8 flex flex-col flex-grow">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#2d6675] mb-2">
-                  {item.category}
-                </span>
-                <h3 className="font-display font-bold text-2xl text-[#001b31] mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-[#43474d] leading-relaxed mb-6 flex-grow">
-                  {item.description}
-                </p>
-                <div className="flex items-center justify-between pt-4 border-t border-[#ddeaf2]">
-                  <span className="text-xs font-semibold text-[#001b31] inline-flex items-center gap-1">
-                    <Sparkles className="w-4 h-4 text-[#D5A85A]" /> Carpet Cleaner Verified
-                  </span>
-                  <span className="text-xs text-[#2d6675] font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                    Expand Details <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+              {/* Card footer */}
+              <div className="p-6">
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div>
+                    <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full capitalize inline-block mb-2 ${CATEGORY_COLORS[item.category]}`}>
+                      {item.category}
+                    </span>
+                    <h3 className="font-display font-bold text-lg text-[#001b31] leading-snug">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={() => setSelectedIdx(idx)}
+                    className="shrink-0 w-9 h-9 rounded-full bg-[#e9f6fd] flex items-center justify-center group-hover:bg-[#001b31] transition-colors duration-300"
+                    aria-label="Expand"
+                  >
+                    <ArrowRight className="w-4 h-4 text-[#2d6675] group-hover:text-white transition-colors duration-300" />
+                  </button>
                 </div>
+                <p className="text-xs text-[#73777e] leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
         </div>
 
+        {filteredItems.length === 0 && (
+          <div className="text-center py-20 text-[#73777e]">
+            <p className="text-base">No results found for this category yet.</p>
+          </div>
+        )}
+
         {/* CTA */}
-        <div className="mt-16 text-center bg-[#e9f6fd] p-10 rounded-3xl border border-[#d7e4ec]">
-          <h3 className="font-display font-bold text-2xl text-[#001b31] mb-3">
-            Want Similar Results for Your Home?
-          </h3>
-          <p className="text-sm text-[#43474d] mb-6 max-w-md mx-auto">
-            Book our certified cleaning team today and experience pristine carpet restoration firsthand.
-          </p>
-          <Link
-            href="/book-now"
-            className="px-8 py-3.5 bg-[#001b31] text-white rounded-lg font-semibold text-sm hover:bg-[#12304a] transition-all shadow-md inline-block"
-          >
-            Schedule Your Clean
-          </Link>
+        <div className="mt-16 relative overflow-hidden bg-[#001b31] rounded-3xl p-10 md:p-14 text-center">
+          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#0094B8]/20 blur-3xl pointer-events-none" />
+          <div className="relative z-10">
+            <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-3">Want Results Like These?</h3>
+            <p className="text-white/65 text-sm mb-8 max-w-md mx-auto leading-relaxed">
+              Book our certified cleaning team and experience the same transformation in your home or business.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/book-now" className="px-8 py-3.5 bg-[#b4ebfd] text-[#001b31] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md">
+                Book Your Clean Now
+              </Link>
+              <Link href="/contact" className="px-8 py-3.5 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">
+                Ask Us a Question
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Modal Preview */}
+      {/* Lightbox Modal */}
       {selectedItem && (
         <div
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-5"
-          onClick={() => setSelectedItem(null)}
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={closeModal}
         >
           <div
-            className="bg-white rounded-3xl max-w-3xl w-full p-6 md:p-8 relative"
+            className="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setSelectedItem(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#e9f6fd] text-[#001b31] font-bold flex items-center justify-center hover:bg-[#b4ebfd] transition-colors"
-            >
-              ✕
-            </button>
-            <h3 className="font-display font-bold text-2xl text-[#001b31] mb-4">
-              {selectedItem.title}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 h-[300px]">
-              <div className="relative rounded-xl overflow-hidden">
-                <img
-                  src={selectedItem.beforeImage}
-                  alt="Before"
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute top-3 left-3 bg-black/70 text-white text-xs font-bold px-2.5 py-1 rounded">
-                  BEFORE CLEANING
+            <div className="flex items-center justify-between px-7 py-5 border-b border-[#ddeaf2]">
+              <div className="flex items-center gap-3">
+                <span className={`text-xs font-bold px-3 py-1 rounded-full capitalize ${CATEGORY_COLORS[selectedItem.category]}`}>
+                  {selectedItem.category}
                 </span>
+                <h3 className="font-display font-bold text-xl text-[#001b31]">{selectedItem.title}</h3>
               </div>
-              <div className="relative rounded-xl overflow-hidden">
-                <img
-                  src={selectedItem.afterImage}
-                  alt="After"
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute top-3 left-3 bg-[#2d6675] text-white text-xs font-bold px-2.5 py-1 rounded">
-                  AFTER FRESHNEST CLEAN
-                </span>
-              </div>
-            </div>
-            <p className="text-sm text-[#43474d] mb-6 leading-relaxed">
-              {selectedItem.description}
-            </p>
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="px-5 py-2.5 border border-[#73777e] text-[#001b31] rounded-lg font-semibold text-sm hover:bg-[#e9f6fd]"
-              >
-                Close
+              <button onClick={closeModal} className="w-9 h-9 rounded-full bg-[#f4faff] hover:bg-[#e9f6fd] flex items-center justify-center transition-colors">
+                <X className="w-4 h-4 text-[#001b31]" />
               </button>
+            </div>
+
+            {/* Full slider in modal */}
+            <div className="h-80 md:h-[420px]">
+              <BeforeAfterSlider
+                beforeImage={selectedItem.beforeImage}
+                afterImage={selectedItem.afterImage}
+                title={selectedItem.title}
+              />
+            </div>
+
+            <div className="px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <p className="text-sm text-[#43474d] leading-relaxed max-w-lg">{selectedItem.description}</p>
               <Link
                 href="/book-now"
-                className="px-5 py-2.5 bg-[#001b31] text-white rounded-lg font-semibold text-sm hover:bg-[#12304a]"
+                className="px-5 py-2.5 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all inline-flex items-center gap-2 shrink-0"
               >
-                Book This Service
+                Book This Service <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+
+            <button onClick={prevModal} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-[#e9f6fd] transition-colors">
+              <ChevronLeft className="w-5 h-5 text-[#001b31]" />
+            </button>
+            <button onClick={nextModal} className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-[#e9f6fd] transition-colors">
+              <ChevronRight className="w-5 h-5 text-[#001b31]" />
+            </button>
           </div>
         </div>
       )}
