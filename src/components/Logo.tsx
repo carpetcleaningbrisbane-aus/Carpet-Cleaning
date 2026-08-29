@@ -13,7 +13,7 @@ export default function Logo({ className = '', iconOnly = false, lightMode = fal
   return (
     <div className={`inline-flex items-center gap-3 ${className}`}>
       {/* Bright & High Contrast Logo Graphic */}
-      <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border-2 border-[#00D2FF]/60 shadow-md transition-transform duration-300 group-hover:scale-105 bg-white">
+      <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105 bg-white -my-3">
         <img
           src="/logo.jpg"
           alt="Carpet Cleaner Logo"
