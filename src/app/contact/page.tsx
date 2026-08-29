@@ -21,7 +21,7 @@ export default function ContactPage() {
     if (status === 'error') setStatus('idle');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       setStatus('error');
@@ -29,7 +29,23 @@ export default function ContactPage() {
       return;
     }
     setStatus('submitting');
-    setTimeout(() => setStatus('success'), 1000);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus('success');
+      } else {
+        const data = await res.json();
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setStatus('error');
+      setErrorMessage('Network error. Please try again.');
+    }
   };
 
   const contactItems = [
