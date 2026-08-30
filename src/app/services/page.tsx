@@ -24,7 +24,7 @@ const services = [
     ],
     cta: 'Book Steam Cleaning',
     href: '/book-now?service=steam-carpet-cleaning',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
+    image: '/steam-carpet-service.jpg',
     icon: 'waves',
     accent: '#e9f6fd',
   },
@@ -80,7 +80,7 @@ const services = [
     ],
     cta: 'Book Stain Treatment',
     href: '/book-now?service=stain-spot-removal',
-    image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80',
+    image: '/stain-odour-removal.jpg',
     icon: 'sparkles',
     accent: '#f4faff',
   },
@@ -98,7 +98,7 @@ const services = [
     ],
     cta: 'Book Carpet Shampooing',
     href: '/book-now?service=carpet-shampooing',
-    image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=900&q=80',
+    image: '/carpet-shampooing.jpg',
     icon: 'sparkle',
     accent: '#e9f6fd',
   },
@@ -116,7 +116,7 @@ const services = [
     ],
     cta: 'Request Water Extraction',
     href: '/contact?subject=water-extraction',
-    image: 'https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=900&q=80',
+    image: '/water-extraction.jpg',
     icon: 'droplets',
     accent: '#f4faff',
   },
@@ -150,13 +150,6 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6 backdrop-blur-sm">
-            <div className="flex text-[#D5A85A]">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-            </div>
-            <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">Brisbane Carpet Care Solutions</span>
-          </div>
-
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
             Professional Carpet<br />
             <span className="text-[#b4ebfd]">Cleaning Services</span>

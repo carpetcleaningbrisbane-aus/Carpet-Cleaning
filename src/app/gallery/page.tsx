@@ -160,12 +160,6 @@ export default function GalleryPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/45" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6 backdrop-blur-sm">
-            <div className="flex text-[#D5A85A]">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-            </div>
-            <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">Real Results, Real Homes</span>
-          </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight drop-shadow-lg">
             Before & After <span className="text-[#b4ebfd]">Showcase</span>
           </h1>
