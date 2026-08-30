@@ -10,6 +10,12 @@ import familyRoomBefore from '@/assets/gallery/04-family-room-before.png';
 import familyRoomAfter from '@/assets/gallery/04-family-room-after.png';
 import coffeeBefore from '@/assets/gallery/05-coffee-stain-before.png';
 import coffeeAfter from '@/assets/gallery/05-coffee-stain-after.png';
+import foodDrinkBefore from '@/assets/gallery/06-food-drink-before.png';
+import foodDrinkAfter from '@/assets/gallery/06-food-drink-after.png';
+import petStainBefore from '@/assets/gallery/07-pet-stain-before.png';
+import petStainAfter from '@/assets/gallery/07-pet-stain-after.png';
+import carpetCleaningBefore from '@/assets/gallery/08-carpet-cleaning-before.png';
+import carpetCleaningAfter from '@/assets/gallery/08-carpet-cleaning-after.png';
 
 export interface Service {
   id: string;
@@ -209,29 +215,31 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     description:
       'A noticeable coffee spill treated with professional stain-removal techniques. The affected area was pre-treated and professionally extracted to significantly improve the appearance of the carpet.'
   },
+
   {
     id: '6',
     title: 'Food and Drink Stain Removal',
     category: 'stain',
-    beforeImage: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80',
-    description: 'Multiple food and drink marks were treated to refresh a heavily used carpet area. Professional pre-treatment and extraction helped reduce visible staining and restore a cleaner appearance.'
+    beforeImage: imgSrc(foodDrinkBefore),
+    afterImage: imgSrc(foodDrinkAfter),
+    description:
+      'Multiple food and drink marks were treated to refresh a heavily used carpet area. Professional pre-treatment and extraction helped reduce visible staining and restore a cleaner appearance.'
   },
   {
     id: '7',
     title: 'Pet Stain and Odour Treatment',
     category: 'stain',
-    beforeImage: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80',
+    beforeImage: imgSrc(petStainBefore),
+    afterImage: imgSrc(petStainAfter),
     description: 'A carpet affected by pet accidents received targeted stain and odour treatment followed by professional extraction. The process focused on removing the contaminants contributing to visible marks and unpleasant smells.'
   },
   {
     id: '8',
-    title: 'Fresh Carpet After Odour Treatment',
-    category: 'stain',
-    beforeImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-    description: 'A carpet with persistent household and pet-related odours was professionally treated and cleaned. The cleaning process helped remove accumulated contaminants and leave the carpet feeling noticeably fresher.'
+    title: 'Professional Carpet Extraction Clean',
+    category: 'carpet',
+    beforeImage: imgSrc(carpetCleaningBefore),
+    afterImage: imgSrc(carpetCleaningAfter),
+    description: 'A full room carpet cleaning demonstration showing the dramatic difference between dull, traffic-worn carpet and freshly extracted, bright carpet fibers.'
   },
   {
     id: '9',
