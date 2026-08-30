@@ -1,4 +1,14 @@
 // src/data/siteData.ts
+// ── Gallery images (stored in src/assets/gallery) ──
+import livingRoomBefore from '@/assets/gallery/01-living-room-before.png';
+import livingRoomAfter from '@/assets/gallery/01-living-room-after.png';
+import hallwayBefore from '@/assets/gallery/02-hallway-before.png';
+import hallwayAfter from '@/assets/gallery/02-hallway-after.png';
+import bedroomBefore from '@/assets/gallery/03-bedroom-before.png';
+import bedroomAfter from '@/assets/gallery/03-bedroom-after.png';
+import familyRoomBefore from '@/assets/gallery/04-family-room-before.png';
+import familyRoomAfter from '@/assets/gallery/04-family-room-after.png';
+
 
 export interface Service {
   id: string;
@@ -150,38 +160,44 @@ export const SERVICES: Service[] = [
   }
 ];
 
+const imgSrc = (img: any): string => (typeof img === 'string' ? img : img.src);
+
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '1',
     title: 'Living Room Carpet Deep Clean',
     category: 'carpet',
-    beforeImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-    description: 'A tired and heavily used living room carpet refreshed with professional steam cleaning and hot water extraction. Built-up dirt, everyday grime and high-traffic marks were treated to restore a cleaner and fresher appearance.'
+    beforeImage: imgSrc(livingRoomBefore),
+    afterImage: imgSrc(livingRoomAfter),
+    description:
+      'A tired and heavily used living room carpet refreshed with professional steam cleaning and hot water extraction. Built-up dirt, everyday grime and high-traffic marks were treated to restore a cleaner and fresher appearance.'
   },
   {
     id: '2',
     title: 'High-Traffic Hallway Transformation',
     category: 'carpet',
-    beforeImage: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
-    description: 'Hallways receive constant foot traffic and can quickly develop darker, dirtier areas. This carpet received a thorough professional clean focused on embedded dirt and visible traffic marks.'
+    beforeImage: imgSrc(hallwayBefore),
+    afterImage: imgSrc(hallwayAfter),
+    description:
+      'Hallways receive constant foot traffic and can quickly develop darker, dirtier areas. This carpet received a thorough professional clean focused on embedded dirt and visible traffic marks.'
   },
   {
     id: '3',
     title: 'Bedroom Carpet Refresh',
     category: 'carpet',
-    beforeImage: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80',
-    description: 'A residential bedroom carpet cleaned to remove accumulated dust, everyday dirt and general soiling. Professional steam cleaning helped leave the carpet looking fresher and cleaner.'
+    beforeImage: imgSrc(bedroomBefore),
+    afterImage: imgSrc(bedroomAfter),
+    description:
+      'A residential bedroom carpet cleaned to remove accumulated dust, everyday dirt and general soiling. Professional steam cleaning helped leave the carpet looking fresher and cleaner.'
   },
   {
     id: '4',
     title: 'Family Room Deep Carpet Clean',
     category: 'carpet',
-    beforeImage: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1579656592043-a20e25a4aa4b?auto=format&fit=crop&w=800&q=80',
-    description: 'A frequently used family room carpet treated with professional hot water extraction to remove accumulated dirt, dust and everyday household grime from the carpet fibres.'
+    beforeImage: imgSrc(familyRoomBefore),
+    afterImage: imgSrc(familyRoomAfter),
+    description:
+      'A frequently used family room carpet treated with professional hot water extraction to remove accumulated dirt, dust and everyday household grime from the carpet fibres.'
   },
   {
     id: '5',
