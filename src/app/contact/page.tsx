@@ -161,9 +161,9 @@ export default function ContactPage() {
                     <div className="w-16 h-16 rounded-full bg-[#e9f6fd] border border-[#b1e8fa] flex items-center justify-center mx-auto">
                       <CheckCircle2 className="w-8 h-8 text-[#2d6675]" />
                     </div>
-                    <h3 className="font-display font-bold text-2xl text-[#001b31]">Message Sent!</h3>
+                    <h3 className="font-display font-bold text-2xl text-[#001b31]">Thanks, we'll be in touch soon.</h3>
                     <p className="text-sm text-[#43474d] max-w-sm mx-auto leading-relaxed">
-                      Thanks, <span className="font-bold text-[#001b31]">{formData.name}</span>. We received your enquiry about <span className="font-semibold">{formData.service}</span> and will be in touch shortly.
+                      Hi <span className="font-bold text-[#001b31]">{formData.name}</span>, your message about <span className="font-semibold">{formData.service}</span> has come through. One of our team will get back to you at <span className="font-semibold text-[#001b31]">{formData.email}</span> or <span className="font-semibold text-[#001b31]">{formData.phone}</span> — usually within 2 business hours.
                     </p>
                     <button
                       onClick={() => {

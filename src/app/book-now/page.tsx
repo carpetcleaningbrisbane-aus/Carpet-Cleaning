@@ -109,20 +109,19 @@ export default function BookNowPage() {
               <CheckCircle2 className="w-10 h-10" />
             </div>
             <h2 className="font-display font-bold text-3xl text-[#001b31]">
-              Booking Request Confirmed!
+              We've Got Your Booking!
             </h2>
             <p className="text-base text-[#43474d] max-w-md mx-auto leading-relaxed">
-              Thank you, <span className="font-bold text-[#001b31]">{formData.fullName}</span>. Your cleaning appointment has been provisionally scheduled for{' '}
-              <span className="font-bold text-[#001b31]">{formData.preferredDate}</span> ({formData.preferredTime}).
+              Thanks, <span className="font-bold text-[#001b31]">{formData.fullName}</span>. We've received your request and our team will review it shortly. We'll confirm your appointment via phone or email within a few hours.
             </p>
             <div className="p-6 bg-[#e9f6fd] rounded-2xl text-left max-w-md mx-auto text-sm space-y-2 border border-[#b1e8fa]">
               <p><strong>Services:</strong> {selectedServices.map((s) => s.title).join(', ')}</p>
-              <p><strong>Property Address:</strong> {formData.address}</p>
-              <p><strong>Contact Email:</strong> {formData.email}</p>
-              <p><strong>Contact Phone:</strong> {formData.phone}</p>
+              <p><strong>Preferred Date:</strong> {formData.preferredDate} — {formData.preferredTime}</p>
+              <p><strong>Address:</strong> {formData.address}</p>
+              <p><strong>We'll reach you at:</strong> {formData.phone} or {formData.email}</p>
             </div>
-            <p className="text-xs text-[#73777e]">
-              A confirmation text message and email receipt have been sent to your details.
+            <p className="text-xs text-[#73777e] max-w-sm mx-auto leading-relaxed">
+              If you need to make any changes or have questions before your appointment, feel free to call us directly on <span className="font-semibold text-[#001b31]">(03) 9123 4567</span>.
             </p>
             <div className="pt-4">
               <Link
