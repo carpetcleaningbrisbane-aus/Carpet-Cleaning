@@ -192,7 +192,7 @@ export default function ContactPage() {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="Jane Doe"
+                          placeholder="Full Name"
                           className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
                           required
                         />
@@ -204,7 +204,7 @@ export default function ContactPage() {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="jane@example.com"
+                          placeholder="Email Address"
                           className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
                           required
                         />
@@ -223,7 +223,7 @@ export default function ContactPage() {
                             const digits = e.target.value.replace(/\D/g, '');
                             setFormData({ ...formData, phone: digits });
                           }}
-                          placeholder="0400000000"
+                          placeholder="Phone Number"
                           className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
                           required
                         />
@@ -254,7 +254,7 @@ export default function ContactPage() {
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Tell us about your carpets, room count, stains, or any questions..."
+                        placeholder="Your Message"
                         className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors resize-none"
                         required
                       />

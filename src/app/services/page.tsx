@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Waves, Sparkles, Building2, ShieldCheck, Droplets, ArrowRight, CheckCircle2, Sparkle, Star } from 'lucide-react';
+import { Waves, Eraser, Building2, ShieldCheck, Droplets, ArrowRight, CheckCircle2, Brush, Star } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -81,7 +81,7 @@ const services = [
     cta: 'Book Stain Treatment',
     href: '/book-now?service=stain-spot-removal',
     image: '/stain-odour-removal.jpg',
-    icon: 'sparkles',
+    icon: 'eraser',
     accent: '#f4faff',
   },
   {
@@ -99,7 +99,7 @@ const services = [
     cta: 'Book Carpet Shampooing',
     href: '/book-now?service=carpet-shampooing',
     image: '/carpet-shampooing.jpg',
-    icon: 'sparkle',
+    icon: 'brush',
     accent: '#e9f6fd',
   },
   {
@@ -127,8 +127,8 @@ function ServiceIcon({ name }: { name: string }) {
   if (name === 'waves') return <Waves className={cls} />;
   if (name === 'shield') return <ShieldCheck className={cls} />;
   if (name === 'building') return <Building2 className={cls} />;
-  if (name === 'sparkles') return <Sparkles className={cls} />;
-  if (name === 'sparkle') return <Sparkle className={cls} />;
+  if (name === 'eraser') return <Eraser className={cls} />;
+  if (name === 'brush') return <Brush className={cls} />;
   if (name === 'droplets') return <Droplets className={cls} />;
   return null;
 }

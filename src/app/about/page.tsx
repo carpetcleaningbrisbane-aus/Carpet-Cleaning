@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import {
   ShieldCheck, HeartHandshake, CheckCircle2, Droplets, Search,
-  UserCheck, Quote, ArrowRight, Sparkles, Leaf, Award, Clock
+  UserCheck, Quote, ArrowRight, Leaf, Award, Clock
 } from 'lucide-react';
 import aboutBanner from '@/assets/about/about_banner.png';
 import structuredApproach from '@/assets/about/structured_approach.png';
@@ -45,40 +45,41 @@ export default function AboutPage() {
     <div className="pt-24 md:pt-32 pb-24 bg-white">
 
       {/* Header Banner */}
-      {/* Header Banner */}
-      <section
-        className="relative py-32 md:py-40 px-5 md:px-16 overflow-hidden"
-        style={{
-          backgroundImage: `url(${aboutBanner.src})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 20%',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        {/* Reduced opacity overlay - more natural look */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/40"></div>
+      <section className="relative py-24 md:py-32 px-5 md:px-16 mb-20 overflow-hidden">
+        <img
+          src={aboutBanner.src}
+          alt="Professional carpet cleaners serving Brisbane"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto text-center pt-8">
-          {/* Removed Sparkles icon as requested */}
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-white mb-6 px-6 py-3 border border-white/30 rounded-full bg-white/10 backdrop-blur-md">
-            About Our Company
-          </span>
-          <h1 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight">
-            Professional Carpet Cleaners<br className="hidden md:block" /> Serving Brisbane
+        <div className="relative z-10 max-w-[1280px] mx-auto text-center">
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
+            Professional Carpet Cleaners<br />
+            <span className="text-[#b4ebfd]">Serving Brisbane</span>
           </h1>
-          <p className="text-base md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
-            Providing thorough, reliable carpet cleaning services for homes, rental properties,
-            offices, and businesses throughout Brisbane. We go beyond a quick surface clean
-            to properly address accumulated dirt and stains.
+          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            Providing thorough, reliable carpet cleaning services for homes, rental properties, offices and businesses throughout Brisbane. We go beyond a quick surface clean to properly address accumulated dirt and stains.
           </p>
-        </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+          {/* Quick-nav pills */}
+          <div className="flex flex-wrap justify-center gap-2 mt-10">
+            {['Our Approach', 'Why Choose Us', 'Our Process', 'Service Areas'].map((label) => (
+              <span
+                key={label}
+                className="px-4 py-1.5 bg-white/10 border border-white/20 text-white text-xs font-semibold rounded-full backdrop-blur-sm"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
       </section>
 
 
       {/* Floating Stats Strip */}
-      <section className="max-w-[1280px] mx-auto px-5 md:px-16 -mt-16 relative z-20">
+      <section className="max-w-[1280px] mx-auto px-5 md:px-16 relative z-20">
         <div className="bg-white rounded-2xl shadow-xl border border-[#d7e4ec] p-8 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {STATS.map((stat, i) => {
             const Icon = stat.icon;
@@ -100,7 +101,6 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#d97706] mb-4 px-4 py-2 rounded-full bg-[#d97706]/10">
-              <Sparkles className="w-4 h-4" />
               Our Approach
             </span>
             <h2 className="font-display font-bold text-3xl md:text-5xl text-[#001b31] mb-8 leading-tight">
@@ -168,7 +168,6 @@ export default function AboutPage() {
         <div className="max-w-[1280px] mx-auto">
           <div className="text-center mb-20">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#d97706] mb-4 px-4 py-2 rounded-full bg-[#d97706]/10">
-              <Sparkles className="w-4 h-4" />
               How We Work
             </span>
             <h2 className="font-display font-bold text-3xl md:text-5xl text-[#001b31] mb-6">

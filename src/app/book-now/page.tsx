@@ -236,7 +236,7 @@ export default function BookNowPage() {
                       type="text"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="John Smith"
+                      placeholder="Full Name"
                       className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
                       required
                     />
@@ -252,7 +252,7 @@ export default function BookNowPage() {
                         setFormData({ ...formData, email: e.target.value });
                         setEmailError('');
                       }}
-                      placeholder="john@example.com"
+                      placeholder="Email Address"
                       className={`w-full px-4 py-3 rounded-xl border text-sm ${
                         emailError ? 'border-red-400' : 'border-[#c3c7ce]'
                       }`}
@@ -277,7 +277,7 @@ export default function BookNowPage() {
                       const digits = e.target.value.replace(/\D/g, '');
                       setFormData({ ...formData, phone: digits });
                     }}
-                    placeholder="0400000000"
+                    placeholder="Phone Number"
                     className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
                     required
                   />
@@ -291,7 +291,7 @@ export default function BookNowPage() {
                     type="text"
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    placeholder="e.g. 45 High Street, Melbourne VIC 3000"
+                    placeholder="Property Address"
                     className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
                     required
                   />
@@ -305,7 +305,7 @@ export default function BookNowPage() {
                     rows={3}
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    placeholder="Any specific stains, parking instructions, or pet info..."
+                    placeholder="Special Instructions (Optional)"
                     className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
                   />
                 </div>
