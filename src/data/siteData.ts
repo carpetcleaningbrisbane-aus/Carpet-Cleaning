@@ -8,7 +8,8 @@ import bedroomBefore from '@/assets/gallery/03-bedroom-before.png';
 import bedroomAfter from '@/assets/gallery/03-bedroom-after.png';
 import familyRoomBefore from '@/assets/gallery/04-family-room-before.png';
 import familyRoomAfter from '@/assets/gallery/04-family-room-after.png';
-
+import coffeeBefore from '@/assets/gallery/05-coffee-stain-before.png';
+import coffeeAfter from '@/assets/gallery/05-coffee-stain-after.png';
 
 export interface Service {
   id: string;
@@ -203,9 +204,10 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: '5',
     title: 'Coffee Spill Stain Treatment',
     category: 'stain',
-    beforeImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
-    description: 'A noticeable coffee spill treated with professional stain-removal techniques. The affected area was pre-treated and professionally extracted to significantly improve the appearance of the carpet.'
+    beforeImage: imgSrc(coffeeBefore),
+    afterImage: imgSrc(coffeeAfter),
+    description:
+      'A noticeable coffee spill treated with professional stain-removal techniques. The affected area was pre-treated and professionally extracted to significantly improve the appearance of the carpet.'
   },
   {
     id: '6',
