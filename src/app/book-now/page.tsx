@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { SERVICES, LOCATIONS } from '@/data/siteData';
 import { CheckCircle2, ChevronRight, ChevronLeft, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 export default function BookNowPage() {
+  const searchParams = useSearchParams();
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState({
     serviceIds: ['steam-carpet-cleaning'] as string[],
@@ -18,8 +20,15 @@ export default function BookNowPage() {
     notes: '',
   });
   const [emailError, setEmailError] = useState('');
-
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Pre-select service from query param e.g. /book-now?service=end-of-lease-cleaning
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam && SERVICES.find((s) => s.id === serviceParam)) {
+      setFormData((prev) => ({ ...prev, serviceIds: [serviceParam] }));
+    }
+  }, [searchParams]);
 
   const selectedServices = SERVICES.filter((s) => formData.serviceIds.includes(s.id));
 
