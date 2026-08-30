@@ -1,3 +1,5 @@
+// src/data/siteData.ts
+
 export interface Service {
   id: string;
   title: string;
@@ -151,35 +153,99 @@ export const SERVICES: Service[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '1',
-    title: 'Living Room Plush Carpet Restoration',
+    title: 'Living Room Carpet Deep Clean',
     category: 'carpet',
     beforeImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
     afterImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-    description: 'Deep steam extraction restored matted fibers and removed 5 years of accumulated dirt.'
+    description: 'A tired and heavily used living room carpet refreshed with professional steam cleaning and hot water extraction. Built-up dirt, everyday grime and high-traffic marks were treated to restore a cleaner and fresher appearance.'
   },
   {
     id: '2',
-    title: 'Red Wine Stain Extraction',
-    category: 'stain',
+    title: 'High-Traffic Hallway Transformation',
+    category: 'carpet',
     beforeImage: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80',
     afterImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
-    description: 'Targeted tannin neutralizer completely lifted dried red wine spill without color loss.'
+    description: 'Hallways receive constant foot traffic and can quickly develop darker, dirtier areas. This carpet received a thorough professional clean focused on embedded dirt and visible traffic marks.'
   },
   {
     id: '3',
-    title: 'Linen Couch Deep Clean',
-    category: 'upholstery',
+    title: 'Bedroom Carpet Refresh',
+    category: 'carpet',
     beforeImage: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80',
     afterImage: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80',
-    description: 'Low-moisture microfiber cleaning removed body oil discoloration and brightened fabric.'
+    description: 'A residential bedroom carpet cleaned to remove accumulated dust, everyday dirt and general soiling. Professional steam cleaning helped leave the carpet looking fresher and cleaner.'
   },
   {
     id: '4',
-    title: 'Hand-Knotted Oriental Rug',
-    category: 'rug',
+    title: 'Family Room Deep Carpet Clean',
+    category: 'carpet',
     beforeImage: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80',
     afterImage: 'https://images.unsplash.com/photo-1579656592043-a20e25a4aa4b?auto=format&fit=crop&w=800&q=80',
-    description: 'Delicate wool wash and fringe detailing brought back vibrant traditional dyes.'
+    description: 'A frequently used family room carpet treated with professional hot water extraction to remove accumulated dirt, dust and everyday household grime from the carpet fibres.'
+  },
+  {
+    id: '5',
+    title: 'Coffee Spill Stain Treatment',
+    category: 'stain',
+    beforeImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+    description: 'A noticeable coffee spill treated with professional stain-removal techniques. The affected area was pre-treated and professionally extracted to significantly improve the appearance of the carpet.'
+  },
+  {
+    id: '6',
+    title: 'Food and Drink Stain Removal',
+    category: 'stain',
+    beforeImage: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80',
+    description: 'Multiple food and drink marks were treated to refresh a heavily used carpet area. Professional pre-treatment and extraction helped reduce visible staining and restore a cleaner appearance.'
+  },
+  {
+    id: '7',
+    title: 'Pet Stain and Odour Treatment',
+    category: 'stain',
+    beforeImage: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80',
+    description: 'A carpet affected by pet accidents received targeted stain and odour treatment followed by professional extraction. The process focused on removing the contaminants contributing to visible marks and unpleasant smells.'
+  },
+  {
+    id: '8',
+    title: 'Fresh Carpet After Odour Treatment',
+    category: 'stain',
+    beforeImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    description: 'A carpet with persistent household and pet-related odours was professionally treated and cleaned. The cleaning process helped remove accumulated contaminants and leave the carpet feeling noticeably fresher.'
+  },
+  {
+    id: '9',
+    title: 'Office Carpet Cleaning',
+    category: 'upholstery',
+    beforeImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80',
+    description: 'A busy office carpet cleaned to remove accumulated dirt from daily foot traffic. Professional steam cleaning refreshed the carpet and improved the overall appearance of the workplace.'
+  },
+  {
+    id: '10',
+    title: 'Commercial Reception Carpet Clean',
+    category: 'upholstery',
+    beforeImage: 'https://images.unsplash.com/photo-1497366754035-f200968a6i72?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=800&q=80',
+    description: 'A high-traffic reception area received professional carpet cleaning to address visible dirt, traffic marks and general commercial soiling, creating a cleaner and more presentable entrance.'
+  },
+  {
+    id: '11',
+    title: 'Deep Carpet Shampooing',
+    category: 'carpet',
+    beforeImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80',
+    description: 'A heavily soiled carpet received professional shampoo treatment to help loosen accumulated dirt, soil and grime before thorough extraction. The result was a noticeably cleaner and refreshed carpet surface.'
+  },
+  {
+    id: '12',
+    title: 'Carpet Water Extraction',
+    category: 'rug',
+    beforeImage: 'https://images.unsplash.com/photo-1584622965147-af3548e0b757?auto=format&fit=crop&w=800&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80',
+    description: 'A water-affected carpet was treated with professional extraction equipment to remove excess moisture. The affected area was carefully assessed and extracted to assist the carpet drying and recovery process.'
   }
 ];
 
