@@ -121,7 +121,7 @@ export default function BookNowPage() {
               <p><strong>We'll reach you at:</strong> {formData.phone} or {formData.email}</p>
             </div>
             <p className="text-xs text-[#73777e] max-w-sm mx-auto leading-relaxed">
-              If you need to make any changes or have questions before your appointment, feel free to call us directly on <span className="font-semibold text-[#001b31]">(03) 9123 4567</span>.
+              If you need to make any changes or have questions before your appointment, feel free to call us directly on <span className="font-semibold text-[#001b31]">0435 071 625</span>.
             </p>
             <div className="pt-4">
               <Link

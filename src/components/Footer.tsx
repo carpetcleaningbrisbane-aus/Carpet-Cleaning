@@ -110,11 +110,11 @@ export default function Footer() {
           <ul className="flex flex-col gap-3 text-sm font-body text-white/80 mb-5">
             <li className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-[#b4ebfd]" />
-              <span>(03) 9123 4567</span>
+              <span>0435 071 625</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-[#b4ebfd]" />
-              <span>hello@freshnestclean.com.au</span>
+              <span>info.theexpertcleaner@gmail.com</span>
             </li>
             <li className="flex items-start gap-3">
               <MapPin className="w-4 h-4 text-[#b4ebfd] mt-1 shrink-0" />

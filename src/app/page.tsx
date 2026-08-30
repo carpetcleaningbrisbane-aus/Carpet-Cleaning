@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2, Home as HomeIcon, ChevronRight } from 'lucide-react';
 import TestimonialMarquee from '@/components/ui/marquee-01';
+import FaqSection from '@/components/FaqSection';
 import imgSteam from '@/assets/services/steam-cleaning.png';
 import imgStain from '@/assets/services/stain-removal.png';
 import imgLease from '@/assets/services/end-of-lease.png';
@@ -546,6 +547,9 @@ export default function HomePage() {
 
         <TestimonialMarquee />
       </section>
+
+      {/* FAQ Section */}
+      <FaqSection />
 
       {/* Final Call to Action */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-20">

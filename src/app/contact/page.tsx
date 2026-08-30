@@ -52,13 +52,13 @@ export default function ContactPage() {
     {
       icon: <Phone className="w-5 h-5" />,
       label: 'Call Us',
-      primary: '(03) 9123 4567',
+      primary: '0435 071 625',
       secondary: 'Mon–Sat: 7:00 AM – 7:00 PM',
     },
     {
       icon: <Mail className="w-5 h-5" />,
       label: 'Email Support',
-      primary: 'hello@carpetcleaner.com.au',
+      primary: 'info.theexpertcleaner@gmail.com',
       secondary: 'Average response: 2 hours',
     },
     {
@@ -95,10 +95,10 @@ export default function ContactPage() {
           </p>
           {/* Quick contact chips */}
           <div className="flex flex-wrap justify-center gap-3">
-            <a href="tel:0391234567" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
-              <Phone className="w-4 h-4 text-[#b4ebfd]" /> (03) 9123 4567
+            <a href="tel:0435071625" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
+              <Phone className="w-4 h-4 text-[#b4ebfd]" /> 0435 071 625
             </a>
-            <a href="mailto:hello@carpetcleaner.com.au" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
+            <a href="mailto:info.theexpertcleaner@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
               <Mail className="w-4 h-4 text-[#b4ebfd]" /> Email Us
             </a>
             <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#b4ebfd] hover:bg-white rounded-full text-[#001b31] text-sm font-bold transition-all">
@@ -237,13 +237,11 @@ export default function ContactPage() {
                           className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] bg-[#f4faff]/60 text-[#001b31] text-sm focus:outline-none focus:border-[#2d6675] focus:bg-white transition-colors"
                         >
                           <option>Steam Carpet Cleaning</option>
-                          <option>Stain & Spot Removal</option>
-                          <option>Upholstery Care</option>
-                          <option>Area Rug & Specialty Care</option>
-                          <option>Pet Odor Elimination</option>
                           <option>End of Lease Cleaning</option>
-                          <option>Commercial Cleaning</option>
-                          <option>Water Extraction</option>
+                          <option>Office & Commercial Cleaning</option>
+                          <option>Stain & Odour Removal</option>
+                          <option>Carpet Shampooing</option>
+                          <option>Carpet Water Extraction</option>
                           <option>Other / Not Sure</option>
                         </select>
                       </div>
