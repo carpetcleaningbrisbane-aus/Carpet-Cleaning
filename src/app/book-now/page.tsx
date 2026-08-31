@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { SERVICES, LOCATIONS } from '@/data/siteData';
 import { CheckCircle2, ChevronRight, ChevronLeft, ShieldCheck } from 'lucide-react';
@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 function BookNowForm() {
   const searchParams = useSearchParams();
+  const formTopRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState({
     serviceIds: ['steam-carpet-cleaning'] as string[],
@@ -44,6 +45,12 @@ function BookNowForm() {
   const isValidEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+  const scrollToForm = () => {
+    if (formTopRef.current) {
+      formTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const handleNext = () => {
     if (step === 1 && formData.serviceIds.length === 0) return;
     if (step === 2 && !formData.preferredDate) return;
@@ -55,11 +62,17 @@ function BookNowForm() {
       }
     }
     setEmailError('');
-    if (step < 4) setStep(step + 1);
+    if (step < 4) {
+      setStep(step + 1);
+      scrollToForm();
+    }
   };
 
   const handleBack = () => {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) {
+      setStep(step - 1);
+      scrollToForm();
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -94,6 +107,8 @@ function BookNowForm() {
       </section>
 
       <section className="px-5 md:px-16 max-w-[960px] mx-auto">
+        {/* Scroll anchor */}
+        <div ref={formTopRef} className="scroll-mt-28" />
         {/* Progress Bar */}
         {!isSubmitted && (
           <div className="mb-10">
