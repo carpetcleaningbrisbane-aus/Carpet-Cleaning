@@ -76,12 +76,12 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="pt-24 md:pt-32 pb-24">
+    <div className="pt-24 md:pt-32 pb-24 bg-[#FAFAF7]">
 
       {/* Hero Banner */}
-      <section className="relative bg-[#001b31] py-20 px-5 md:px-16 mb-20 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#0094B8]/15 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#b4ebfd]/10 blur-3xl pointer-events-none" />
+      <section className="relative bg-[#001b31] py-20 px-5 md:px-16 mb-20">
+        <div className="hidden md:block absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#0094B8]/15 blur-3xl pointer-events-none" />
+        <div className="hidden md:block absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#b4ebfd]/10 blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
             <MessageSquare className="w-3.5 h-3.5 text-[#b4ebfd]" />
@@ -95,13 +95,13 @@ export default function ContactPage() {
           </p>
           {/* Quick contact chips */}
           <div className="flex flex-wrap justify-center gap-3">
-            <a href="tel:0435071625" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
+            <a href="tel:0435071625" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold">
               <Phone className="w-4 h-4 text-[#b4ebfd]" /> 0435 071 625
             </a>
-            <a href="mailto:info.theexpertcleaner@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white text-sm font-semibold transition-all">
+            <a href="mailto:info.theexpertcleaner@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold">
               <Mail className="w-4 h-4 text-[#b4ebfd]" /> Email Us
             </a>
-            <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#b4ebfd] hover:bg-white rounded-full text-[#001b31] text-sm font-bold transition-all">
+            <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#b4ebfd] rounded-full text-[#001b31] text-sm font-bold">
               Book Online <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
