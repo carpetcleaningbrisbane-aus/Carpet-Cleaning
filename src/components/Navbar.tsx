@@ -89,7 +89,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/book-now"
-              className="bg-[#001b31] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#12304a] transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 inline-block"
+              className="bg-[#001b31] text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#12304a] transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 inline-block"
             >
               Book Now
             </Link>

@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Carpet Cleaner Brisbane',
+  description: 'Read the Privacy Policy for Carpet Cleaner Brisbane. Learn how we collect, use and protect your personal information.',
+  alternates: { canonical: '/privacy' },
+  robots: { index: false, follow: false },
+};
 
 export default function PrivacyPage() {
   return (

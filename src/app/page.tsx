@@ -1,13 +1,29 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2, Home as HomeIcon, ChevronRight } from 'lucide-react';
 import TestimonialMarquee from '@/components/ui/marquee-01';
 import FaqSection from '@/components/FaqSection';
+import { LocalBusinessSchema, WebSiteSchema, FAQSchema } from '@/app/structured-data';
 import imgSteam from '@/assets/services/steam-cleaning.png';
 import imgStain from '@/assets/services/stain-removal.png';
 import imgLease from '@/assets/services/end-of-lease.png';
 import imgShampoo from '@/assets/services/carpet-shampooing.png';
 import imgCommercial from '@/assets/services/commercial-cleaning.png';
 import imgExtraction from '@/assets/services/water-extraction.png';
+
+export const metadata: Metadata = {
+  title: 'Professional Carpet Cleaning Brisbane | Steam & Stain Removal',
+  description: 'Expert carpet cleaning in Brisbane. Steam cleaning, stain removal, end of lease, pet odour & commercial services. Fast drying, eco-friendly. Book online today.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Professional Carpet Cleaning Brisbane | Steam & Stain Removal',
+    description: 'Expert carpet cleaning in Brisbane. Steam cleaning, stain removal, end of lease, pet odour & commercial services. Book online today.',
+    url: '/',
+    images: [{ url: '/hero.jpg', width: 1200, height: 630, alt: 'Professional carpet cleaning service in Brisbane' }],
+  },
+};
 
 const CARPET_SERVICES = [
   {
@@ -50,6 +66,10 @@ const CARPET_SERVICES = [
 
 export default function HomePage() {
   return (
+    <>
+      <LocalBusinessSchema />
+      <WebSiteSchema />
+      <FAQSchema />
     <div className="pt-24 md:pt-32">
       {/* Hero Section */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-20 md:mb-28">
@@ -579,5 +599,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

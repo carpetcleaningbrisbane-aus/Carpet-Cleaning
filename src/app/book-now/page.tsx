@@ -1,13 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { SERVICES, LOCATIONS } from '@/data/siteData';
 import { CheckCircle2, ChevronRight, ChevronLeft, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
-export default function BookNowPage() {
+function BookNowForm() {
   const searchParams = useSearchParams();
+  const formTopRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState({
     serviceIds: ['steam-carpet-cleaning'] as string[],
@@ -44,6 +45,12 @@ export default function BookNowPage() {
   const isValidEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+  const scrollToForm = () => {
+    if (formTopRef.current) {
+      formTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const handleNext = () => {
     if (step === 1 && formData.serviceIds.length === 0) return;
     if (step === 2 && !formData.preferredDate) return;
@@ -55,11 +62,17 @@ export default function BookNowPage() {
       }
     }
     setEmailError('');
-    if (step < 4) setStep(step + 1);
+    if (step < 4) {
+      setStep(step + 1);
+      scrollToForm();
+    }
   };
 
   const handleBack = () => {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) {
+      setStep(step - 1);
+      scrollToForm();
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -94,6 +107,8 @@ export default function BookNowPage() {
       </section>
 
       <section className="px-5 md:px-16 max-w-[960px] mx-auto">
+        {/* Scroll anchor */}
+        <div ref={formTopRef} className="scroll-mt-28" />
         {/* Progress Bar */}
         {!isSubmitted && (
           <div className="mb-10">
@@ -363,7 +378,7 @@ export default function BookNowPage() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="px-6 py-3 border border-[#73777e] text-[#001b31] rounded-xl font-semibold text-sm hover:bg-[#e9f6fd] flex items-center gap-2"
+                  className="px-4 py-2.5 md:px-6 md:py-3 border border-[#73777e] text-[#001b31] rounded-xl font-semibold text-xs md:text-sm hover:bg-[#e9f6fd] flex items-center gap-2"
                 >
                   <ChevronLeft className="w-4 h-4" /> Previous
                 </button>
@@ -373,7 +388,7 @@ export default function BookNowPage() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-8 py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all flex items-center gap-2"
+                  className="px-5 py-2.5 md:px-8 md:py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#12304a] transition-all flex items-center gap-2"
                 >
                   Next Step <ChevronRight className="w-4 h-4" />
                 </button>
@@ -381,9 +396,11 @@ export default function BookNowPage() {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="px-8 py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all shadow-md flex items-center gap-2"
+                  className="px-4 py-2.5 md:px-8 md:py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#12304a] transition-all shadow-md flex items-center gap-2"
                 >
-                  Confirm & Reserve Booking <CheckCircle2 className="w-4 h-4" />
+                  <span className="hidden sm:inline">Confirm & Reserve Booking</span>
+                  <span className="sm:hidden">Confirm Booking</span>
+                  <CheckCircle2 className="w-4 h-4" />
                 </button>
               )}
             </div>
@@ -391,5 +408,13 @@ export default function BookNowPage() {
         )}
       </section>
     </div>
+  );
+}
+
+export default function BookNowPage() {
+  return (
+    <Suspense fallback={<div className="pt-32 text-center text-[#43474d]">Loading booking form...</div>}>
+      <BookNowForm />
+    </Suspense>
   );
 }

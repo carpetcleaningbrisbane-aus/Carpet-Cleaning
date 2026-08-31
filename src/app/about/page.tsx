@@ -8,8 +8,14 @@ import aboutBanner from '@/assets/about/about_banner.png';
 import structuredApproach from '@/assets/about/structured_approach.png';
 
 export const metadata: Metadata = {
-  title: 'About Us | Professional Carpet Cleaning Brisbane',
-  description: 'Expert carpet cleaning services for homes, rentals, and offices in Brisbane. Deep steam cleaning, eco-friendly solutions, and meticulous attention to detail.',
+  title: 'About Us | Professional Carpet Cleaners in Brisbane',
+  description: 'Learn about Carpet Cleaner Brisbane — a professional carpet cleaning team serving homes, rentals and businesses across Brisbane with eco-friendly steam cleaning.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Us | Professional Carpet Cleaners in Brisbane',
+    description: 'Professional carpet cleaning team serving homes, rentals and businesses across Brisbane. Eco-friendly solutions, fully insured, locally based.',
+    url: '/about',
+  },
 };
 
 const STATS = [
