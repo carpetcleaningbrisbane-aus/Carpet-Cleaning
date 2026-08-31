@@ -1,10 +1,17 @@
 import Link from 'next/link';
 import { Waves, Eraser, Building2, ShieldCheck, Droplets, ArrowRight, CheckCircle2, Brush, Star } from 'lucide-react';
 import { Metadata } from 'next';
+import { BreadcrumbSchema } from '@/app/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Professional Carpet Cleaning Services Brisbane | Carpet Cleaner',
-  description: 'Explore our steam carpet cleaning, end of lease cleaning, commercial office care, stain & odour removal, carpet shampooing, and water extraction services.',
+  title: 'Carpet Cleaning Services Brisbane | Steam, Stain & Commercial',
+  description: 'Explore our full range of carpet cleaning services in Brisbane — steam cleaning, end of lease, commercial, stain & odour removal, carpet shampooing and water extraction.',
+  alternates: { canonical: '/services' },
+  openGraph: {
+    title: 'Carpet Cleaning Services Brisbane | Steam, Stain & Commercial',
+    description: 'Professional carpet cleaning services in Brisbane for homes, rentals, offices and businesses. Steam cleaning, stain removal, end of lease and more.',
+    url: '/services',
+  },
 };
 
 const services = [
@@ -135,6 +142,11 @@ function ServiceIcon({ name }: { name: string }) {
 
 export default function ServicesPage() {
   return (
+    <>
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: 'https://[WEBSITE_URL]/' },
+        { name: 'Services', url: 'https://[WEBSITE_URL]/services' },
+      ]} />
     <div className="pt-24 md:pt-32 pb-24">
 
       {/* Header Banner — real photo background */}
@@ -274,5 +286,6 @@ export default function ServicesPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

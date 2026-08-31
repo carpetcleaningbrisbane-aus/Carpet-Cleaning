@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { SERVICES, LOCATIONS } from '@/data/siteData';
 import { CheckCircle2, ChevronRight, ChevronLeft, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
-export default function BookNowPage() {
+function BookNowForm() {
   const searchParams = useSearchParams();
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState({
@@ -391,5 +391,13 @@ export default function BookNowPage() {
         )}
       </section>
     </div>
+  );
+}
+
+export default function BookNowPage() {
+  return (
+    <Suspense fallback={<div className="pt-32 text-center text-[#43474d]">Loading booking form...</div>}>
+      <BookNowForm />
+    </Suspense>
   );
 }

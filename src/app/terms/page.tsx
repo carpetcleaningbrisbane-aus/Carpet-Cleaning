@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | Carpet Cleaner Brisbane',
+  description: 'Read the Terms of Service for Carpet Cleaner Brisbane. Understand our service terms, conditions and customer responsibilities.',
+  alternates: { canonical: '/terms' },
+  robots: { index: false, follow: false },
+};
 
 export default function TermsPage() {
   return (
