@@ -7,8 +7,8 @@ const reviews = [
     name: "Sarah Mitchell",
     username: "Brisbane Northside",
     initials: "SM",
-    color: "#2d6675",
-    body: "Carpet Cleaner completely transformed our lounge carpet. We were about to replace it, but after the steam clean it looks brand new. On time, professional, and no harsh smells.",
+    color: "#159A9C",
+    body: "Honestly didn't think the carpet was salvageable. Steam clean brought it back — looks way better than I expected. Will definitely use again.",
     rating: 5,
     service: "Steam Carpet Cleaning",
   },
@@ -16,8 +16,8 @@ const reviews = [
     name: "James Nguyen",
     username: "Sunnybank Hills, QLD",
     initials: "JN",
-    color: "#0094B8",
-    body: "Used them for end-of-lease and got our full bond back without a single issue. The property manager was impressed. Would absolutely recommend to anyone moving out.",
+    color: "#159A9C",
+    body: "End of lease job done the day before inspection. Got the full bond back, no issues. Property manager didn't flag anything.",
     rating: 5,
     service: "End of Lease Cleaning",
   },
@@ -26,7 +26,7 @@ const reviews = [
     username: "Chermside, Brisbane",
     initials: "PS",
     color: "#7c5cbf",
-    body: "Our dog had quite a few accidents on the rug. The enzyme treatment completely removed the smell — even our dog stopped going back to the same spot. Really happy.",
+    body: "Dog kept going back to the same spot on the rug. After the treatment the smell is gone and he's stopped doing it. Didn't think that would actually work.",
     rating: 5,
     service: "Pet Odour Elimination",
   },
@@ -35,7 +35,7 @@ const reviews = [
     username: "New Farm, QLD",
     initials: "TG",
     color: "#b05a3a",
-    body: "Red wine on a cream carpet — I thought it was ruined. Carpet Cleaner came out the next morning and you honestly cannot tell anything happened. Incredible result.",
+    body: "Red wine on a light carpet, I panicked. They came the next day and got it out completely. You genuinely can't see where it was.",
     rating: 5,
     service: "Stain Removal",
   },
@@ -44,7 +44,7 @@ const reviews = [
     username: "Carindale, Brisbane",
     initials: "LO",
     color: "#2a7a4b",
-    body: "Had the whole house done before moving in. Three bedrooms, hallway and stairs — all finished in under 3 hours and dry well before dinner. Very efficient team.",
+    body: "Three bedrooms, hallway and stairs done in about 2.5 hours. Carpets were dry by the time we finished unpacking. No complaints.",
     rating: 5,
     service: "Steam Carpet Cleaning",
   },
@@ -53,7 +53,7 @@ const reviews = [
     username: "Fortitude Valley, QLD",
     initials: "MA",
     color: "#c0624a",
-    body: "Our office carpets were embarrassingly dirty. They came after hours so we didn't have to close. The reception area looks completely refreshed — clients have commented on it.",
+    body: "Office carpets were a bit embarrassing for clients. They came after hours, no disruption to the business. Noticeable difference the next morning.",
     rating: 5,
     service: "Commercial Cleaning",
   },
@@ -80,7 +80,7 @@ const ReviewCard = ({
   service: string;
 }) => {
   return (
-    <Card className="relative h-full w-80 cursor-pointer overflow-hidden border border-[#d7e4ec] bg-white shadow-none p-5 hover:shadow-md transition-shadow">
+    <Card className="relative h-full w-80 cursor-pointer overflow-hidden border border-[#D6E8E8] bg-white shadow-none p-5 hover:shadow-md transition-shadow">
       <CardContent className="p-0 flex flex-col gap-3">
         <div className="flex flex-row items-center gap-3">
           <div
@@ -90,17 +90,17 @@ const ReviewCard = ({
             {initials}
           </div>
           <div className="flex flex-col">
-            <p className="text-sm font-bold text-[#001b31]">{name}</p>
-            <p className="text-xs text-[#73777e]">{username}</p>
+            <p className="text-sm font-bold text-[#0B253A]">{name}</p>
+            <p className="text-xs text-[#60727F]">{username}</p>
           </div>
         </div>
         <div className="flex items-center gap-1">
           {[...Array(rating)].map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-[#D5A85A] text-[#D5A85A]" />
+            <Star key={i} className="w-3.5 h-3.5 fill-[#E9B949] text-[#E9B949]" />
           ))}
-          <span className="text-[10px] text-[#73777e] ml-1 font-medium">{service}</span>
+          <span className="text-[10px] text-[#60727F] ml-1 font-medium">{service}</span>
         </div>
-        <p className="text-sm text-[#43474d] leading-relaxed">{body}</p>
+        <p className="text-sm text-[#102A3A] leading-relaxed">{body}</p>
       </CardContent>
     </Card>
   );
@@ -119,8 +119,8 @@ export default function TestimonialMarqueeDemo() {
           <ReviewCard key={review.name} {...review} />
         ))}
       </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-[#FAFAF7] to-transparent z-10"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-[#FAFAF7] to-transparent z-10"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-[#F7FAFA] to-transparent z-10"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-[#F7FAFA] to-transparent z-10"></div>
     </div>
   );
 }

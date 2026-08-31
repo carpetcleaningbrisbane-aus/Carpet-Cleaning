@@ -92,15 +92,15 @@ function BookNowForm() {
   return (
     <div className="pt-24 md:pt-32 pb-24">
       {/* Header */}
-      <section className="bg-[#e9f6fd] py-12 px-5 md:px-16 border-b border-[#d7e4ec] mb-12">
+      <section className="bg-[#F0FAFA] py-12 px-5 md:px-16 border-b border-[#D6E8E8] mb-12">
         <div className="max-w-[1280px] mx-auto text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-2 block">
             Instant Online Booking
           </span>
-          <h1 className="font-display font-bold text-3xl md:text-5xl text-[#001b31] mb-4">
+          <h1 className="font-display font-bold text-3xl md:text-5xl text-[#0B253A] mb-4">
             Book Your Cleaning
           </h1>
-          <p className="text-sm md:text-base text-[#43474d] max-w-xl mx-auto">
+          <p className="text-sm md:text-base text-[#102A3A] max-w-xl mx-auto">
             Reserve your preferred date and time in 4 simple steps. No upfront payment required.
           </p>
         </div>
@@ -112,15 +112,15 @@ function BookNowForm() {
         {/* Progress Bar */}
         {!isSubmitted && (
           <div className="mb-10">
-            <div className="flex justify-between items-center mb-4 text-xs font-bold text-[#001b31]">
-              <span className={step >= 1 ? 'text-[#2d6675]' : ''}>1. Service</span>
-              <span className={step >= 2 ? 'text-[#2d6675]' : ''}>2. Schedule</span>
-              <span className={step >= 3 ? 'text-[#2d6675]' : ''}>3. Details</span>
-              <span className={step >= 4 ? 'text-[#2d6675]' : ''}>4. Summary</span>
+            <div className="flex justify-between items-center mb-4 text-xs font-bold text-[#0B253A]">
+              <span className={step >= 1 ? 'text-[#159A9C]' : ''}>1. Service</span>
+              <span className={step >= 2 ? 'text-[#159A9C]' : ''}>2. Schedule</span>
+              <span className={step >= 3 ? 'text-[#159A9C]' : ''}>3. Details</span>
+              <span className={step >= 4 ? 'text-[#159A9C]' : ''}>4. Summary</span>
             </div>
-            <div className="w-full bg-[#ddeaf2] h-2.5 rounded-full overflow-hidden">
+            <div className="w-full bg-[#D6E8E8] h-2.5 rounded-full overflow-hidden">
               <div
-                className="bg-[#001b31] h-full transition-all duration-300"
+                className="bg-[#0B253A] h-full transition-all duration-300"
                 style={{ width: `${(step / 4) * 100}%` }}
               />
             </div>
@@ -128,45 +128,45 @@ function BookNowForm() {
         )}
 
         {isSubmitted ? (
-          <div className="bg-white p-10 md:p-16 rounded-3xl border border-[#d7e4ec] ambient-shadow text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-[#b4ebfd]/50 text-[#2d6675] flex items-center justify-center mx-auto">
+          <div className="bg-white p-10 md:p-16 rounded-3xl border border-[#D6E8E8] ambient-shadow text-center space-y-6">
+            <div className="w-16 h-16 rounded-full bg-[#E8F7F7]/50 text-[#159A9C] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h2 className="font-display font-bold text-3xl text-[#001b31]">
+            <h2 className="font-display font-bold text-3xl text-[#0B253A]">
               We've Got Your Booking!
             </h2>
-            <p className="text-base text-[#43474d] max-w-md mx-auto leading-relaxed">
-              Thanks, <span className="font-bold text-[#001b31]">{formData.fullName}</span>. We've received your request and our team will review it shortly. We'll confirm your appointment via phone or email within a few hours.
+            <p className="text-base text-[#102A3A] max-w-md mx-auto leading-relaxed">
+              Thanks, <span className="font-bold text-[#0B253A]">{formData.fullName}</span>. We've received your request and our team will review it shortly. We'll confirm your appointment via phone or email within a few hours.
             </p>
-            <div className="p-6 bg-[#e9f6fd] rounded-2xl text-left max-w-md mx-auto text-sm space-y-2 border border-[#b1e8fa]">
+            <div className="p-6 bg-[#F0FAFA] rounded-2xl text-left max-w-md mx-auto text-sm space-y-2 border border-[#D1EFEF]">
               <p><strong>Services:</strong> {selectedServices.map((s) => s.title).join(', ')}</p>
               <p><strong>Preferred Date:</strong> {formData.preferredDate} — {formData.preferredTime}</p>
               <p><strong>Address:</strong> {formData.address}</p>
               <p><strong>We'll reach you at:</strong> {formData.phone} or {formData.email}</p>
             </div>
-            <p className="text-xs text-[#73777e] max-w-sm mx-auto leading-relaxed">
-              If you need to make any changes or have questions before your appointment, feel free to call us directly on <span className="font-semibold text-[#001b31]">0435 071 625</span>.
+            <p className="text-xs text-[#60727F] max-w-sm mx-auto leading-relaxed">
+              If you need to make any changes or have questions before your appointment, feel free to call us directly on <span className="font-semibold text-[#0B253A]">0435 071 625</span>.
             </p>
             <div className="pt-4">
               <Link
                 href="/"
-                className="px-8 py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all"
+                className="px-8 py-3.5 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all"
               >
                 Return to Home
               </Link>
             </div>
           </div>
         ) : (
-          <div className="bg-white p-8 md:p-12 rounded-3xl border border-[#d7e4ec] ambient-shadow">
+          <div className="bg-white p-8 md:p-12 rounded-3xl border border-[#D6E8E8] ambient-shadow">
 
             {/* Step 1: Select Services (multi-select) */}
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-display font-bold text-2xl text-[#001b31]">
+                  <h3 className="font-display font-bold text-2xl text-[#0B253A]">
                     Step 1: Choose Your Services
                   </h3>
-                  <p className="text-sm text-[#73777e] mt-1">You can select multiple services.</p>
+                  <p className="text-sm text-[#60727F] mt-1">You can select multiple services.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {SERVICES.map((s) => {
@@ -177,14 +177,14 @@ function BookNowForm() {
                         onClick={() => toggleService(s.id)}
                         className={`p-5 rounded-2xl border cursor-pointer transition-all ${
                           isSelected
-                            ? 'border-[#001b31] bg-[#e9f6fd] shadow-md'
-                            : 'border-[#c3c7ce] bg-white hover:border-[#73777e]'
+                            ? 'border-[#0B253A] bg-[#F0FAFA] shadow-md'
+                            : 'border-[#C8D4D4] bg-white hover:border-[#60727F]'
                         }`}
                       >
                         <div className="flex items-start gap-3">
                           {/* Checkbox indicator */}
                           <div className={`mt-0.5 w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${
-                            isSelected ? 'bg-[#001b31] border-[#001b31]' : 'border-[#c3c7ce]'
+                            isSelected ? 'bg-[#0B253A] border-[#0B253A]' : 'border-[#C8D4D4]'
                           }`}>
                             {isSelected && (
                               <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
@@ -193,8 +193,8 @@ function BookNowForm() {
                             )}
                           </div>
                           <div>
-                            <h4 className="font-bold text-base text-[#001b31]">{s.title}</h4>
-                            <p className="text-xs text-[#43474d] leading-relaxed mt-1">{s.description}</p>
+                            <h4 className="font-bold text-base text-[#0B253A]">{s.title}</h4>
+                            <p className="text-xs text-[#102A3A] leading-relaxed mt-1">{s.description}</p>
                           </div>
                         </div>
                       </div>
@@ -210,31 +210,31 @@ function BookNowForm() {
             {/* Step 2: Date and Time */}
             {step === 2 && (
               <div className="space-y-6">
-                <h3 className="font-display font-bold text-2xl text-[#001b31]">
+                <h3 className="font-display font-bold text-2xl text-[#0B253A]">
                   Step 2: Preferred Schedule
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
                       Preferred Date *
                     </label>
                     <input
                       type="date"
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
                       Time Slot
                     </label>
                     <select
                       value={formData.preferredTime}
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
                     >
                       <option value="Morning (8:00 AM - 12:00 PM)">Morning (8:00 AM - 12:00 PM)</option>
                       <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
@@ -248,12 +248,12 @@ function BookNowForm() {
             {/* Step 3: Customer Details */}
             {step === 3 && (
               <div className="space-y-6">
-                <h3 className="font-display font-bold text-2xl text-[#001b31]">
+                <h3 className="font-display font-bold text-2xl text-[#0B253A]">
                   Step 3: Customer Information
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
                       Full Name *
                     </label>
                     <input
@@ -261,12 +261,12 @@ function BookNowForm() {
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       placeholder="Full Name"
-                      className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
                       Email Address *
                     </label>
                     <input
@@ -278,7 +278,7 @@ function BookNowForm() {
                       }}
                       placeholder="Email Address"
                       className={`w-full px-4 py-3 rounded-xl border text-sm ${
-                        emailError ? 'border-red-400' : 'border-[#c3c7ce]'
+                        emailError ? 'border-red-400' : 'border-[#C8D4D4]'
                       }`}
                       required
                     />
@@ -289,7 +289,7 @@ function BookNowForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
                     Mobile Phone *
                   </label>
                   <input
@@ -302,13 +302,13 @@ function BookNowForm() {
                       setFormData({ ...formData, phone: digits });
                     }}
                     placeholder="Phone Number"
-                    className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
                     Property Address *
                   </label>
                   <input
@@ -316,13 +316,13 @@ function BookNowForm() {
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     placeholder="Property Address"
-                    className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#001b31] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
                     Special Instructions / Stain Notes (Optional)
                   </label>
                   <textarea
@@ -330,7 +330,7 @@ function BookNowForm() {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Special Instructions (Optional)"
-                    className="w-full px-4 py-3 rounded-xl border border-[#c3c7ce] text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
                   />
                 </div>
               </div>
@@ -339,33 +339,33 @@ function BookNowForm() {
             {/* Step 4: Summary */}
             {step === 4 && (
               <div className="space-y-6">
-                <h3 className="font-display font-bold text-2xl text-[#001b31]">
+                <h3 className="font-display font-bold text-2xl text-[#0B253A]">
                   Step 4: Review Booking Summary
                 </h3>
-                <div className="bg-[#e9f6fd] p-6 rounded-2xl border border-[#b1e8fa] space-y-3 text-sm">
-                  <div className="flex justify-between border-b border-[#ddeaf2] pb-2">
-                    <span className="text-[#73777e]">Selected Services:</span>
-                    <span className="font-bold text-[#001b31] text-right max-w-[60%]">
+                <div className="bg-[#F0FAFA] p-6 rounded-2xl border border-[#D1EFEF] space-y-3 text-sm">
+                  <div className="flex justify-between border-b border-[#D6E8E8] pb-2">
+                    <span className="text-[#60727F]">Selected Services:</span>
+                    <span className="font-bold text-[#0B253A] text-right max-w-[60%]">
                       {selectedServices.map((s) => s.title).join(', ')}
                     </span>
                   </div>
-                  <div className="flex justify-between border-b border-[#ddeaf2] pb-2">
-                    <span className="text-[#73777e]">Date & Time:</span>
-                    <span className="font-bold text-[#001b31]">{formData.preferredDate} ({formData.preferredTime})</span>
+                  <div className="flex justify-between border-b border-[#D6E8E8] pb-2">
+                    <span className="text-[#60727F]">Date & Time:</span>
+                    <span className="font-bold text-[#0B253A]">{formData.preferredDate} ({formData.preferredTime})</span>
                   </div>
-                  <div className="flex justify-between border-b border-[#ddeaf2] pb-2">
-                    <span className="text-[#73777e]">Address:</span>
-                    <span className="font-bold text-[#001b31]">{formData.address}</span>
+                  <div className="flex justify-between border-b border-[#D6E8E8] pb-2">
+                    <span className="text-[#60727F]">Address:</span>
+                    <span className="font-bold text-[#0B253A]">{formData.address}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#73777e]">Contact Details:</span>
-                    <span className="font-bold text-[#001b31]">{formData.fullName} ({formData.phone})</span>
+                    <span className="text-[#60727F]">Contact Details:</span>
+                    <span className="font-bold text-[#0B253A]">{formData.fullName} ({formData.phone})</span>
                   </div>
                 </div>
 
-                <div className="p-4 bg-[#f4faff] rounded-xl border border-[#d7e4ec] flex items-center gap-3">
-                  <ShieldCheck className="w-6 h-6 text-[#2d6675] shrink-0" />
-                  <p className="text-xs text-[#43474d]">
+                <div className="p-4 bg-[#F7FAFA] rounded-xl border border-[#D6E8E8] flex items-center gap-3">
+                  <ShieldCheck className="w-6 h-6 text-[#159A9C] shrink-0" />
+                  <p className="text-xs text-[#102A3A]">
                     No immediate charge. Our technician will confirm final scope on-site before commencing work.
                   </p>
                 </div>
@@ -373,12 +373,12 @@ function BookNowForm() {
             )}
 
             {/* Step Navigation Controls */}
-            <div className="flex justify-between items-center mt-10 pt-6 border-t border-[#ddeaf2]">
+            <div className="flex justify-between items-center mt-10 pt-6 border-t border-[#D6E8E8]">
               {step > 1 ? (
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="px-4 py-2.5 md:px-6 md:py-3 border border-[#73777e] text-[#001b31] rounded-xl font-semibold text-xs md:text-sm hover:bg-[#e9f6fd] flex items-center gap-2"
+                  className="px-4 py-2.5 md:px-6 md:py-3 border border-[#60727F] text-[#0B253A] rounded-xl font-semibold text-xs md:text-sm hover:bg-[#F0FAFA] flex items-center gap-2"
                 >
                   <ChevronLeft className="w-4 h-4" /> Previous
                 </button>
@@ -388,7 +388,7 @@ function BookNowForm() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-5 py-2.5 md:px-8 md:py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#12304a] transition-all flex items-center gap-2"
+                  className="px-5 py-2.5 md:px-8 md:py-3.5 bg-[#0B253A] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#159A9C] transition-all flex items-center gap-2"
                 >
                   Next Step <ChevronRight className="w-4 h-4" />
                 </button>
@@ -396,7 +396,7 @@ function BookNowForm() {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="px-4 py-2.5 md:px-8 md:py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#12304a] transition-all shadow-md flex items-center gap-2"
+                  className="px-4 py-2.5 md:px-8 md:py-3.5 bg-[#0B253A] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#159A9C] transition-all shadow-md flex items-center gap-2"
                 >
                   <span className="hidden sm:inline">Confirm & Reserve Booking</span>
                   <span className="sm:hidden">Confirm Booking</span>
@@ -413,7 +413,7 @@ function BookNowForm() {
 
 export default function BookNowPage() {
   return (
-    <Suspense fallback={<div className="pt-32 text-center text-[#43474d]">Loading booking form...</div>}>
+    <Suspense fallback={<div className="pt-32 text-center text-[#102A3A]">Loading booking form...</div>}>
       <BookNowForm />
     </Suspense>
   );

@@ -29,37 +29,37 @@ const CARPET_SERVICES = [
   {
     id: 'steam-cleaning',
     title: 'Steam Carpet Cleaning',
-    description: 'Professional steam carpet cleaning that extracts embedded dirt, bacteria and allergens from within the fibres.',
+    description: 'Hot water extraction that gets into the fibres and pulls out the dirt, dust and allergens your vacuum can\'t reach.',
     image: imgSteam,
   },
   {
     id: 'stain-removal',
-    title: 'Stain and Odour Removal',
-    description: 'Say goodbye to stubborn stains from pets, food, coffee, wine, and unpleasant carpet odours for a fresher quality of living.',
+    title: 'Stain & Odour Removal',
+    description: 'Pet accidents, wine, coffee, mud — we treat the stain and the smell, not just the surface.',
     image: imgStain,
   },
   {
     id: 'end-of-lease',
-    title: 'End of Lease Carpet Cleaning',
-    description: 'Moving out of a rental? Get professional carpet cleaning for real-estate approved inspections and get your bond back. We are approved to meet your requirements.',
+    title: 'End of Lease Cleaning',
+    description: 'Moving out? We clean to real estate inspection standard so you get your bond back without a fight.',
     image: imgLease,
   },
   {
     id: 'carpet-shampooing',
     title: 'Carpet Shampooing',
-    description: 'A powerful process that flushes out deeply embedded dirt, bacteria and allergens from carpet fibres. Our carpet shampoo cleaning services Brisbane deliver top results with eco-friendly solutions.',
+    description: 'For heavily soiled carpets that need more than a standard steam — deep agitation followed by full extraction.',
     image: imgShampoo,
   },
   {
     id: 'commercial',
-    title: 'Office/Commercial Carpet Cleaning',
-    description: 'Professional carpet cleaning for offices and businesses with fast, flexible service.',
+    title: 'Commercial Carpet Cleaning',
+    description: 'Office, retail or reception — we work around your hours and leave the place looking sharp.',
     image: imgCommercial,
   },
   {
     id: 'water-extraction',
     title: 'Carpet Water Extraction',
-    description: 'Revive worn, stained, or water-damaged carpets with expert carpet restoration.',
+    description: 'Flooded or water-damaged carpet? We extract the moisture fast to prevent lasting damage and mould.',
     image: imgExtraction,
   },
 ];
@@ -76,64 +76,64 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[65vh]">
           <div className="order-2 lg:order-1 flex flex-col justify-center hero-pattern relative">
             <div className="relative z-10 py-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#b4ebfd]/30 rounded-full mb-6 border border-[#b1e8fa]/40">
-                <div className="flex text-[#D5A85A]">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E8F7F7]/30 rounded-full mb-6 border border-[#D1EFEF]/40">
+                <div className="flex text-[#E9B949]">
                   <Star className="w-4 h-4 fill-current" />
                   <Star className="w-4 h-4 fill-current" />
                   <Star className="w-4 h-4 fill-current" />
                   <Star className="w-4 h-4 fill-current" />
                   <Star className="w-4 h-4 fill-current" />
                 </div>
-                <span className="font-semibold text-xs text-[#001b31] uppercase tracking-widest ml-1">
+                <span className="font-semibold text-xs text-[#0B253A] uppercase tracking-widest ml-1">
                   Trusted Brisbane Carpet Cleaners
                 </span>
               </div>
-              <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-[#001b31] mb-6 leading-[1.15] tracking-tight">
+              <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-[#0B253A] mb-6 leading-[1.15] tracking-tight">
                 Professional Carpet <br />
-                <span className="text-[#2d6675]">Cleaning Brisbane</span>
+                <span className="text-[#159A9C]">Cleaning Brisbane</span>
               </h1>
-              <p className="text-base md:text-lg text-[#43474d] mb-8 max-w-xl leading-relaxed">
-                Clean carpets can completely change the look, comfort and feel of a home or workplace. Our professional steam cleaning & hot water extraction reach deep into carpet fibres to loosen accumulated dirt, tough stains and allergens.
+              <p className="text-base md:text-lg text-[#102A3A] mb-8 max-w-xl leading-relaxed">
+                Dirty carpets are more than just an eyesore. We use professional hot water extraction to pull out the dirt, stains and allergens that vacuuming leaves behind — leaving your carpets clean, fresh and fast-drying.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-now"
-                  className="inline-flex justify-center items-center px-8 py-4 bg-[#001b31] text-white rounded-lg font-semibold text-base hover:bg-[#12304a] transition-all shadow-lg shadow-[#001b31]/20 hover:shadow-xl hover:-translate-y-0.5"
+                  className="inline-flex justify-center items-center px-8 py-4 bg-[#0B253A] text-white rounded-lg font-semibold text-base hover:bg-[#159A9C] transition-all shadow-lg shadow-[#0B253A]/20 hover:shadow-xl hover:-translate-y-0.5"
                 >
                   Book a Cleaning
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex justify-center items-center px-8 py-4 border border-[#73777e] bg-transparent text-[#001b31] rounded-lg font-semibold text-base hover:bg-[#e9f6fd] transition-colors"
+                  className="inline-flex justify-center items-center px-8 py-4 border border-[#60727F] bg-transparent text-[#0B253A] rounded-lg font-semibold text-base hover:bg-[#F0FAFA] transition-colors"
                 >
                   Explore Our Services
                 </Link>
               </div>
               {/* Key Trust Highlights */}
-              <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-[#ddeaf2]">
+              <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-[#D6E8E8]">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-[#2d6675]" />
-                  <span className="text-xs font-semibold text-[#111d23]">Deep Extraction</span>
+                  <ShieldCheck className="w-5 h-5 text-[#159A9C]" />
+                  <span className="text-xs font-semibold text-[#102A3A]">Deep Extraction</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-[#2d6675]" />
-                  <span className="text-xs font-semibold text-[#111d23]">Fast Drying</span>
+                  <Clock className="w-5 h-5 text-[#159A9C]" />
+                  <span className="text-xs font-semibold text-[#102A3A]">Fast Drying</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award className="w-5 h-5 text-[#2d6675]" />
-                  <span className="text-xs font-semibold text-[#111d23]">End of Lease</span>
+                  <Award className="w-5 h-5 text-[#159A9C]" />
+                  <span className="text-xs font-semibold text-[#102A3A]">End of Lease</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 relative h-[380px] sm:h-[480px] lg:h-[580px] rounded-2xl overflow-hidden ambient-shadow border border-[#d7e4ec]">
+          <div className="order-1 lg:order-2 relative h-[380px] sm:h-[480px] lg:h-[580px] rounded-2xl overflow-hidden ambient-shadow border border-[#D6E8E8]">
             <img
               src="/hero.jpg"
               alt="Professional Steam Carpet Cleaning Brisbane"
               className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#001b31]/40 via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B253A]/40 via-transparent to-transparent lg:hidden" />
           </div>
         </div>
       </section>
@@ -141,12 +141,12 @@ export default function HomePage() {
       {/* Our Carpet Cleaning Services — photo cards, lighter overlay, no icon boxes */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
         <div className="text-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-3 block">What We Offer</span>
-          <h2 className="font-display font-semibold text-3xl md:text-4xl text-[#001b31] mb-4">
-            Our Carpet Cleaning Services
+          <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-3 block">What We Do</span>
+          <h2 className="font-display font-semibold text-3xl md:text-4xl text-[#0B253A] mb-4">
+            Our Services
           </h2>
-          <p className="text-base text-[#43474d] max-w-2xl mx-auto">
-            Professional solutions for every carpet — homes, rentals, offices and businesses across Brisbane.
+          <p className="text-base text-[#102A3A] max-w-2xl mx-auto">
+            From a single room to a full commercial fit-out — we clean carpets the right way, every time.
           </p>
         </div>
 
@@ -155,7 +155,7 @@ export default function HomePage() {
             <Link
               key={service.id}
               href={`/services#${service.id}`}
-              className="group relative rounded-2xl overflow-hidden border border-[#d7e4ec] shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 min-h-[250px] flex"
+              className="group relative rounded-2xl overflow-hidden border border-[#D6E8E8] shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 min-h-[250px] flex"
             >
               {/* Background photo */}
               <img
@@ -164,24 +164,24 @@ export default function HomePage() {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Lighter navy overlay — photo stays visible, text stays readable */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#001b31]/90 via-[#001b31]/60 to-[#001b31]/15 transition-opacity duration-500 group-hover:opacity-80" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#001b31]/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B253A]/90 via-[#0B253A]/60 to-[#0B253A]/15 transition-opacity duration-500 group-hover:opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B253A]/40 via-transparent to-transparent" />
 
               {/* Number watermark (replaces the icon box) */}
-              <span className="absolute top-7 right-8 font-display font-bold text-4xl text-white/25 group-hover:text-[#b4ebfd]/60 transition-colors duration-300 select-none">
+              <span className="absolute top-7 right-8 font-display font-bold text-4xl text-white/25 group-hover:text-[#E8F7F7]/60 transition-colors duration-300 select-none">
                 0{i + 1}
               </span>
 
               {/* Content */}
               <div className="relative z-10 p-8 md:p-9 w-full flex flex-col justify-center">
-                <div className="w-10 h-[3px] bg-[#b4ebfd] rounded-full mb-4" />
+                <div className="w-10 h-[3px] bg-[#E8F7F7] rounded-full mb-4" />
                 <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-2.5 leading-snug pr-14">
                   {service.title}
                 </h3>
                 <p className="text-sm text-white/85 leading-relaxed mb-4 max-w-lg">
                   {service.description}
                 </p>
-                <span className="inline-flex items-center gap-1 text-[#b4ebfd] font-semibold text-sm w-max group-hover:gap-2.5 transition-all duration-300">
+                <span className="inline-flex items-center gap-1 text-[#E8F7F7] font-semibold text-sm w-max group-hover:gap-2.5 transition-all duration-300">
                   Learn More <ChevronRight className="w-4 h-4" />
                 </span>
               </div>
@@ -191,19 +191,19 @@ export default function HomePage() {
       </section>
 
       {/* Deep Carpet Cleaning Overview */}
-      <section className="bg-white py-20 px-5 md:px-16 border-y border-[#d7e4ec] mb-24 md:mb-32">
+      <section className="bg-white py-20 px-5 md:px-16 border-y border-[#D6E8E8] mb-24 md:mb-32">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-2 block">
               Deep Clean Solutions
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-6 leading-tight">
-              Deep Carpet Cleaning for Homes and Businesses
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-6 leading-tight">
+              What a Professional Clean Actually Does
             </h2>
-            <p className="text-base text-[#43474d] mb-6 leading-relaxed">
-              Carpets experience a lot of everyday wear. Foot traffic, children, pets, food and drink spills, dust and general household activity gradually build up inside the fibres. A professional carpet clean can help remove the dirt and buildup that everyday vacuuming leaves behind.
+            <p className="text-base text-[#102A3A] mb-6 leading-relaxed">
+              Regular vacuuming removes surface dirt, but it doesn't reach what's deep in the pile — the ground-in grit, dried spills, pet dander and allergens that build up over time. A proper carpet clean gets all of that out.
             </p>
-            <p className="text-sm font-semibold text-[#001b31] mb-4">Our carpet cleaning service can help with:</p>
+            <p className="text-sm font-semibold text-[#0B253A] mb-4">We deal with:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
                 'Everyday dirt and dust',
@@ -220,13 +220,13 @@ export default function HomePage() {
                 'Water-affected carpets'
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#2d6675] shrink-0" />
-                  <span className="text-sm text-[#43474d]">{item}</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#159A9C] shrink-0" />
+                  <span className="text-sm text-[#102A3A]">{item}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="relative h-[400px] lg:h-[480px] rounded-2xl overflow-hidden shadow-xl border border-[#c3c7ce]">
+          <div className="relative h-[400px] lg:h-[480px] rounded-2xl overflow-hidden shadow-xl border border-[#C8D4D4]">
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80"
               alt="Deep Carpet Cleaning for Homes and Businesses"
@@ -242,22 +242,20 @@ export default function HomePage() {
         {/* Section header — left aligned with accent + CTA on right */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
           <div className="max-w-2xl">
-            <div className="w-10 h-[3px] bg-[#2d6675] rounded-full mb-5" />
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-3 block">
+            <div className="w-10 h-[3px] bg-[#159A9C] rounded-full mb-5" />
+            <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-3 block">
               Advanced Technology
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-4 leading-tight">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-4 leading-tight">
               Professional Steam Carpet Cleaning
             </h2>
-            <p className="text-base text-[#43474d] leading-relaxed">
-              Our primary process uses professional hot water extraction — heated water and a cleaning
-              solution are injected deep into carpet fibres, then powerfully extracted along with
-              loosened dirt, moisture and contaminants.
+            <p className="text-base text-[#102A3A] leading-relaxed">
+              We use hot water extraction — the industry standard for a reason. Heated water and a cleaning agent go deep into the carpet, then get pulled straight back out along with whatever was in there. No residue, no wet carpet smell, dries in a few hours.
             </p>
           </div>
           <Link
             href="/book-now"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#001b31] text-white rounded-xl font-bold text-sm hover:bg-[#2d6675] transition-colors w-max shadow-md shrink-0"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0B253A] text-white rounded-xl font-bold text-sm hover:bg-[#159A9C] transition-colors w-max shadow-md shrink-0"
           >
             Book a Steam Clean <ChevronRight className="w-4 h-4" />
           </Link>
@@ -265,7 +263,7 @@ export default function HomePage() {
 
         {/* Banner — real photo, neutral overlay (no blue tint) */}
         {/* Banner — compact & professional */}
-        <div className="group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden border border-[#d7e4ec] ambient-shadow mb-8">
+        <div className="group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden border border-[#D6E8E8] ambient-shadow mb-8">
           <img
             src="/steam-cleaning.jpg"
             alt="Professional steam carpet cleaning in a Brisbane home"
@@ -289,7 +287,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/book-now"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-[#001b31] rounded-lg font-bold text-sm hover:bg-[#e9f6fd] transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-[#0B253A] rounded-lg font-bold text-sm hover:bg-[#F0FAFA] transition-colors shadow-lg"
               >
                 Book a Steam Clean <ChevronRight className="w-4 h-4" />
               </Link>
@@ -314,11 +312,11 @@ export default function HomePage() {
         {/* Three info cards — numbered, no icon boxes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 — What it treats */}
-          <div className="relative overflow-hidden bg-white rounded-2xl border border-[#d7e4ec] ambient-shadow p-7 flex flex-col gap-5 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-            <span className="absolute top-6 right-7 font-display font-bold text-4xl text-[#001b31]/5 group-hover:text-[#2d6675]/15 transition-colors duration-300 select-none">01</span>
+          <div className="relative overflow-hidden bg-white rounded-2xl border border-[#D6E8E8] ambient-shadow p-7 flex flex-col gap-5 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+            <span className="absolute top-6 right-7 font-display font-bold text-4xl text-[#0B253A]/5 group-hover:text-[#159A9C]/15 transition-colors duration-300 select-none">01</span>
             <div>
-              <div className="w-10 h-[3px] bg-[#2d6675] rounded-full mb-4" />
-              <h3 className="font-display font-bold text-lg text-[#001b31]">What It Treats</h3>
+              <div className="w-10 h-[3px] bg-[#159A9C] rounded-full mb-4" />
+              <h3 className="font-display font-bold text-lg text-[#0B253A]">What It Treats</h3>
             </div>
             <ul className="space-y-2.5">
               {[
@@ -329,8 +327,8 @@ export default function HomePage() {
                 'Heavy foot-traffic wear',
                 'Persistent odours',
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2.5 text-sm text-[#43474d]">
-                  <Check className="w-4 h-4 text-[#2d6675] shrink-0" />
+                <li key={i} className="flex items-center gap-2.5 text-sm text-[#102A3A]">
+                  <Check className="w-4 h-4 text-[#159A9C] shrink-0" />
                   {item}
                 </li>
               ))}
@@ -338,29 +336,29 @@ export default function HomePage() {
           </div>
 
           {/* Card 2 — Tailored process */}
-          <div className="relative overflow-hidden bg-[#f4faff] rounded-2xl border border-[#d7e4ec] ambient-shadow p-7 flex flex-col gap-5 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-            <span className="absolute top-6 right-7 font-display font-bold text-4xl text-[#001b31]/5 group-hover:text-[#2d6675]/15 transition-colors duration-300 select-none">02</span>
+          <div className="relative overflow-hidden bg-[#F7FAFA] rounded-2xl border border-[#D6E8E8] ambient-shadow p-7 flex flex-col gap-5 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+            <span className="absolute top-6 right-7 font-display font-bold text-4xl text-[#0B253A]/5 group-hover:text-[#159A9C]/15 transition-colors duration-300 select-none">02</span>
             <div>
-              <div className="w-10 h-[3px] bg-[#2d6675] rounded-full mb-4" />
-              <h3 className="font-display font-bold text-lg text-[#001b31]">Tailored Process</h3>
+              <div className="w-10 h-[3px] bg-[#159A9C] rounded-full mb-4" />
+              <h3 className="font-display font-bold text-lg text-[#0B253A]">Tailored Process</h3>
             </div>
-            <p className="text-sm text-[#43474d] leading-relaxed">
+            <p className="text-sm text-[#102A3A] leading-relaxed">
               The cleaning process is adapted to carpet condition, fibre type, and soiling level —
               ensuring a thorough result without overwetting or damaging delicate pile.
             </p>
-            <div className="mt-auto p-4 bg-white rounded-xl border border-[#ddeaf2]">
-              <p className="text-xs text-[#43474d] leading-relaxed">
+            <div className="mt-auto p-4 bg-white rounded-xl border border-[#D6E8E8]">
+              <p className="text-xs text-[#102A3A] leading-relaxed">
                 Careful preparation ensures consistent results. Every job is assessed on-site before work begins.
               </p>
             </div>
           </div>
 
           {/* Card 3 — Why steam stats */}
-          <div className="relative overflow-hidden bg-white rounded-2xl border border-[#d7e4ec] ambient-shadow p-7 flex flex-col gap-5 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-            <span className="absolute top-6 right-7 font-display font-bold text-4xl text-[#001b31]/5 group-hover:text-[#2d6675]/15 transition-colors duration-300 select-none">03</span>
+          <div className="relative overflow-hidden bg-white rounded-2xl border border-[#D6E8E8] ambient-shadow p-7 flex flex-col gap-5 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+            <span className="absolute top-6 right-7 font-display font-bold text-4xl text-[#0B253A]/5 group-hover:text-[#159A9C]/15 transition-colors duration-300 select-none">03</span>
             <div>
-              <div className="w-10 h-[3px] bg-[#2d6675] rounded-full mb-4" />
-              <h3 className="font-display font-bold text-lg text-[#001b31]">Why Steam?</h3>
+              <div className="w-10 h-[3px] bg-[#159A9C] rounded-full mb-4" />
+              <h3 className="font-display font-bold text-lg text-[#0B253A]">Why Steam?</h3>
             </div>
             <div className="flex flex-col gap-3">
               {[
@@ -369,9 +367,9 @@ export default function HomePage() {
                 { label: 'Average dry time', val: '2–4 hrs' },
                 { label: 'Safe for kids & pets', val: '✓' },
               ].map((stat) => (
-                <div key={stat.label} className="flex items-center justify-between py-3 border-b border-[#ddeaf2] last:border-0 last:pb-0">
-                  <span className="text-sm text-[#43474d]">{stat.label}</span>
-                  <span className="text-base font-bold text-[#001b31]">{stat.val}</span>
+                <div key={stat.label} className="flex items-center justify-between py-3 border-b border-[#D6E8E8] last:border-0 last:pb-0">
+                  <span className="text-sm text-[#102A3A]">{stat.label}</span>
+                  <span className="text-base font-bold text-[#0B253A]">{stat.val}</span>
                 </div>
               ))}
             </div>
@@ -382,15 +380,15 @@ export default function HomePage() {
       {/* Residential · Families & Pets */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
         <div className="text-center mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675] mb-2 block">Who We Serve</span>
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31]">
-            Cleaning Built Around Your Life
+          <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-2 block">Who We Clean For</span>
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A]">
+            Homes, Families & Everything in Between
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Residential */}
-          <div className="group relative overflow-hidden rounded-3xl border border-[#d7e4ec] bg-white ambient-shadow flex flex-col">
+          <div className="group relative overflow-hidden rounded-3xl border border-[#D6E8E8] bg-white ambient-shadow flex flex-col">
             <div className="h-48 overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
@@ -401,21 +399,21 @@ export default function HomePage() {
             </div>
             <div className="p-8 md:p-10 flex flex-col flex-grow">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center text-[#2d6675]">
+                <div className="w-11 h-11 rounded-xl bg-[#F0FAFA] flex items-center justify-center text-[#159A9C]">
                   <HomeIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#2d6675]">Home</p>
-                  <h3 className="font-display font-bold text-xl text-[#001b31] leading-tight">Residential Carpet Cleaning</h3>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#159A9C]">Home</p>
+                  <h3 className="font-display font-bold text-xl text-[#0B253A] leading-tight">Residential Carpet Cleaning</h3>
                 </div>
               </div>
-              <p className="text-sm text-[#43474d] leading-relaxed mb-6">
+              <p className="text-sm text-[#102A3A] leading-relaxed mb-6">
                 From living rooms to hallways and stairs, carpets gradually darken in high-traffic areas. Our residential service brings life back to every room in your home.
               </p>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-8">
                 {['Living rooms', 'Family rooms', 'Bedrooms', 'Apartment carpets', 'Hallways & Stairs', 'Dining areas', 'High-traffic areas', 'Rental properties'].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-xs text-[#43474d]">
-                    <Check className="w-3.5 h-3.5 text-[#2d6675] shrink-0" />
+                  <div key={item} className="flex items-center gap-2 text-xs text-[#102A3A]">
+                    <Check className="w-3.5 h-3.5 text-[#159A9C] shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -423,7 +421,7 @@ export default function HomePage() {
               <div className="mt-auto">
                 <Link
                   href="/book-now"
-                  className="w-full py-3.5 bg-[#001b31] text-white text-center rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all block"
+                  className="w-full py-3.5 bg-[#0B253A] text-white text-center rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all block"
                 >
                   Book Residential Clean
                 </Link>
@@ -432,7 +430,7 @@ export default function HomePage() {
           </div>
 
           {/* Families & Pets */}
-          <div className="group relative overflow-hidden rounded-3xl border border-[#d7e4ec] bg-white ambient-shadow flex flex-col">
+          <div className="group relative overflow-hidden rounded-3xl border border-[#D6E8E8] bg-white ambient-shadow flex flex-col">
             <div className="h-48 overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
@@ -443,21 +441,21 @@ export default function HomePage() {
             </div>
             <div className="p-8 md:p-10 flex flex-col flex-grow">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-[#e9f6fd] flex items-center justify-center text-[#2d6675]">
+                <div className="w-11 h-11 rounded-xl bg-[#F0FAFA] flex items-center justify-center text-[#159A9C]">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#2d6675]">Families & Pets</p>
-                  <h3 className="font-display font-bold text-xl text-[#001b31] leading-tight">Carpet Cleaning for Families & Pets</h3>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#159A9C]">Families & Pets</p>
+                  <h3 className="font-display font-bold text-xl text-[#0B253A] leading-tight">Carpet Cleaning for Families & Pets</h3>
                 </div>
               </div>
-              <p className="text-sm text-[#43474d] leading-relaxed mb-6">
+              <p className="text-sm text-[#102A3A] leading-relaxed mb-6">
                 Homes with children and pets demand more from their carpets. We give extra attention to stubborn stains and odours — leaving carpets fresh and safe for the whole family.
               </p>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-8">
                 {['Pet accidents', 'Pet odours', 'Food & drink spills', 'Mud & outdoor soil', 'High-traffic marks', 'General household dirt'].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-xs text-[#43474d]">
-                    <Check className="w-3.5 h-3.5 text-[#2d6675] shrink-0" />
+                  <div key={item} className="flex items-center gap-2 text-xs text-[#102A3A]">
+                    <Check className="w-3.5 h-3.5 text-[#159A9C] shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -465,7 +463,7 @@ export default function HomePage() {
               <div className="mt-auto">
                 <Link
                   href="/services"
-                  className="w-full py-3.5 border border-[#001b31] text-[#001b31] text-center rounded-xl font-semibold text-sm hover:bg-[#e9f6fd] transition-colors block"
+                  className="w-full py-3.5 border border-[#0B253A] text-[#0B253A] text-center rounded-xl font-semibold text-sm hover:bg-[#F0FAFA] transition-colors block"
                 >
                   View Pet & Stain Treatments
                 </Link>
@@ -477,51 +475,51 @@ export default function HomePage() {
 
       {/* Commercial & Business Cleaning */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
-        <div className="relative overflow-hidden rounded-3xl bg-[#f4faff] border border-[#d7e4ec]">
+        <div className="relative overflow-hidden rounded-3xl bg-[#F7FAFA] border border-[#D6E8E8]">
           {/* accent stripe */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#001b31] via-[#0094B8] to-[#b4ebfd]" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0B253A] via-[#159A9C] to-[#E8F7F7]" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Left content */}
             <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#b4ebfd]/50 text-[#2d6675] text-xs font-bold uppercase tracking-widest mb-5 w-max">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#E8F7F7]/50 text-[#159A9C] text-xs font-bold uppercase tracking-widest mb-5 w-max">
                 Commercial
               </span>
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-5 leading-tight">
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-5 leading-tight">
                 Carpet Cleaning for<br />Brisbane Businesses
               </h2>
-              <p className="text-base text-[#43474d] leading-relaxed mb-8">
+              <p className="text-base text-[#102A3A] leading-relaxed mb-8">
                 Clean carpets make a noticeable difference in offices and commercial environments. Reception areas, hallways and meeting rooms quickly accumulate dirt — we restore them to a professional standard with minimal disruption.
               </p>
 
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {['Offices & Corporate Suites', 'Showrooms', 'Retail Businesses', 'Workplaces', 'Commercial Properties', 'Common Areas', 'Reception Areas', 'Meeting Rooms'].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-[#43474d]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#0094B8] shrink-0" />
+                  <div key={item} className="flex items-center gap-2 text-sm text-[#102A3A]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#159A9C] shrink-0" />
                     {item}
                   </div>
                 ))}
               </div>
 
-              <p className="text-xs text-[#73777e] mb-8 leading-relaxed">
+              <p className="text-xs text-[#60727F] mb-8 leading-relaxed">
                 Appointments can be arranged around your business operating hours to minimise workplace downtime.
               </p>
 
               <Link
                 href="/book-now"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#001b31] text-white rounded-xl font-bold text-sm hover:bg-[#12304a] transition-all w-max shadow-md"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0B253A] text-white rounded-xl font-bold text-sm hover:bg-[#159A9C] transition-all w-max shadow-md"
               >
                 Get a Commercial Quote <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Right — 8-step process */}
-            <div className="bg-white border-t lg:border-t-0 lg:border-l border-[#d7e4ec] p-8 md:p-12 lg:p-14">
+            <div className="bg-white border-t lg:border-t-0 lg:border-l border-[#D6E8E8] p-8 md:p-12 lg:p-14">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 rounded-xl bg-[#e9f6fd] flex items-center justify-center text-[#2d6675]">
+                <div className="w-10 h-10 rounded-xl bg-[#F0FAFA] flex items-center justify-center text-[#159A9C]">
                   <Building2 className="w-5 h-5" />
                 </div>
-                <h3 className="font-display font-bold text-xl text-[#001b31]">Our 8-Step Cleaning Approach</h3>
+                <h3 className="font-display font-bold text-xl text-[#0B253A]">Our 8-Step Cleaning Approach</h3>
               </div>
 
               <div className="space-y-4">
@@ -537,14 +535,14 @@ export default function HomePage() {
                 ].map((s, i) => (
                   <div key={s.step} className="flex items-start gap-4">
                     <div className="relative shrink-0">
-                      <span className="w-8 h-8 rounded-full bg-[#001b31] text-white text-xs font-bold flex items-center justify-center">
+                      <span className="w-8 h-8 rounded-full bg-[#0B253A] text-white text-xs font-bold flex items-center justify-center">
                         {s.step}
                       </span>
-                      {i < 7 && <div className="absolute left-1/2 -translate-x-1/2 top-8 w-px h-4 bg-[#ddeaf2]" />}
+                      {i < 7 && <div className="absolute left-1/2 -translate-x-1/2 top-8 w-px h-4 bg-[#D6E8E8]" />}
                     </div>
                     <div className="pb-1">
-                      <h4 className="text-sm font-bold text-[#001b31]">{s.title}</h4>
-                      <p className="text-xs text-[#73777e] mt-0.5">{s.desc}</p>
+                      <h4 className="text-sm font-bold text-[#0B253A]">{s.title}</h4>
+                      <p className="text-xs text-[#60727F] mt-0.5">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -557,10 +555,10 @@ export default function HomePage() {
       {/* Testimonial Highlights */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
         <div className="text-center mb-12">
-          <h2 className="font-display font-semibold text-3xl md:text-4xl text-[#001b31] mb-4">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl text-[#0B253A] mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-base text-[#43474d] max-w-xl mx-auto">
+          <p className="text-base text-[#102A3A] max-w-xl mx-auto">
             Real feedback from local Brisbane homeowners and businesses who trust us with their carpet & upholstery care.
           </p>
         </div>
@@ -573,18 +571,18 @@ export default function HomePage() {
 
       {/* Final Call to Action */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-20">
-        <div className="bg-[#001b31] text-white rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
+        <div className="bg-[#0B253A] text-white rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="font-display font-bold text-3xl md:text-5xl mb-6 leading-tight">
-              Ready for Fresh, Pristine Carpets in Brisbane?
+              Ready for Clean Carpets in Brisbane?
             </h2>
             <p className="text-base md:text-lg text-white/80 mb-8 leading-relaxed">
-              Book your professional steam carpet cleaning today in under 2 minutes.
+              Book online in a couple of minutes. No upfront payment, no fuss.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="/book-now"
-                className="px-8 py-4 bg-[#b4ebfd] text-[#001b31] rounded-lg font-semibold text-base hover:bg-white transition-all shadow-md"
+                className="px-8 py-4 bg-[#E8F7F7] text-[#0B253A] rounded-lg font-semibold text-base hover:bg-white transition-all shadow-md"
               >
                 Book Online Now
               </Link>

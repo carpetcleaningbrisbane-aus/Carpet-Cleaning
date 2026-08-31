@@ -28,24 +28,24 @@ export async function POST(req: NextRequest) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>New Booking Request</title>
 </head>
-<body style="margin:0;padding:0;background:#f4faff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4faff;padding:40px 0;">
+<body style="margin:0;padding:0;background:#F7FAFA;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7FAFA;padding:40px 0;">
     <tr>
       <td align="center">
         <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,27,49,0.10);">
 
           <!-- Header -->
           <tr>
-            <td style="background:#001b31;padding:32px 40px;text-align:center;">
-              <p style="margin:0 0 4px 0;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#b4ebfd;">Carpet Cleaner Brisbane</p>
+            <td style="background:#0B253A;padding:32px 40px;text-align:center;">
+              <p style="margin:0 0 4px 0;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E8F7F7;">Carpet Cleaner Brisbane</p>
               <h1 style="margin:0;font-size:24px;font-weight:800;color:#ffffff;">New Booking Request</h1>
             </td>
           </tr>
 
           <!-- Intro strip -->
           <tr>
-            <td style="background:#e9f6fd;padding:16px 40px;border-bottom:1px solid #d7e4ec;">
-              <p style="margin:0;font-size:13px;color:#2d6675;font-weight:600;">
+            <td style="background:#F0FAFA;padding:16px 40px;border-bottom:1px solid #D6E8E8;">
+              <p style="margin:0;font-size:13px;color:#159A9C;font-weight:600;">
                 A new booking has been submitted through the website.
               </p>
             </td>
@@ -56,30 +56,30 @@ export async function POST(req: NextRequest) {
             <td style="padding:36px 40px;">
 
               <!-- Services badge row -->
-              <p style="margin:0 0 10px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#73777e;">Services Requested</p>
+              <p style="margin:0 0 10px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#60727F;">Services Requested</p>
               <div style="margin-bottom:28px;">
                 ${(Array.isArray(serviceIds) ? serviceIds : [serviceIds]).map((s: string) =>
-                  `<span style="display:inline-block;background:#001b31;color:#b4ebfd;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;margin:3px 4px 3px 0;">${s.replace(/-/g,' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}</span>`
+                  `<span style="display:inline-block;background:#0B253A;color:#E8F7F7;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;margin:3px 4px 3px 0;">${s.replace(/-/g,' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}</span>`
                 ).join('')}
               </div>
 
               <!-- Booking details -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4faff;border-radius:12px;border:1px solid #ddeaf2;margin-bottom:28px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7FAFA;border-radius:12px;border:1px solid #D6E8E8;margin-bottom:28px;">
                 <tr>
                   <td style="padding:20px 24px;">
-                    <p style="margin:0 0 16px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#73777e;">Appointment Details</p>
+                    <p style="margin:0 0 16px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#60727F;">Appointment Details</p>
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="padding:7px 0;width:130px;font-size:13px;color:#73777e;font-weight:600;">Date</td>
-                        <td style="padding:7px 0;font-size:13px;color:#001b31;font-weight:700;">${preferredDate}</td>
+                        <td style="padding:7px 0;width:130px;font-size:13px;color:#60727F;font-weight:600;">Date</td>
+                        <td style="padding:7px 0;font-size:13px;color:#0B253A;font-weight:700;">${preferredDate}</td>
                       </tr>
                       <tr>
-                        <td style="padding:7px 0;font-size:13px;color:#73777e;font-weight:600;">Time Slot</td>
-                        <td style="padding:7px 0;font-size:13px;color:#001b31;">${preferredTime}</td>
+                        <td style="padding:7px 0;font-size:13px;color:#60727F;font-weight:600;">Time Slot</td>
+                        <td style="padding:7px 0;font-size:13px;color:#0B253A;">${preferredTime}</td>
                       </tr>
                       <tr>
-                        <td style="padding:7px 0;font-size:13px;color:#73777e;font-weight:600;">Address</td>
-                        <td style="padding:7px 0;font-size:13px;color:#001b31;">${address}</td>
+                        <td style="padding:7px 0;font-size:13px;color:#60727F;font-weight:600;">Address</td>
+                        <td style="padding:7px 0;font-size:13px;color:#0B253A;">${address}</td>
                       </tr>
                     </table>
                   </td>
@@ -87,24 +87,24 @@ export async function POST(req: NextRequest) {
               </table>
 
               <!-- Customer details -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4faff;border-radius:12px;border:1px solid #ddeaf2;margin-bottom:28px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7FAFA;border-radius:12px;border:1px solid #D6E8E8;margin-bottom:28px;">
                 <tr>
                   <td style="padding:20px 24px;">
-                    <p style="margin:0 0 16px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#73777e;">Customer Details</p>
+                    <p style="margin:0 0 16px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#60727F;">Customer Details</p>
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="padding:7px 0;width:130px;font-size:13px;color:#73777e;font-weight:600;">Full Name</td>
-                        <td style="padding:7px 0;font-size:13px;color:#001b31;font-weight:700;">${fullName}</td>
+                        <td style="padding:7px 0;width:130px;font-size:13px;color:#60727F;font-weight:600;">Full Name</td>
+                        <td style="padding:7px 0;font-size:13px;color:#0B253A;font-weight:700;">${fullName}</td>
                       </tr>
                       <tr>
-                        <td style="padding:7px 0;font-size:13px;color:#73777e;font-weight:600;">Email</td>
+                        <td style="padding:7px 0;font-size:13px;color:#60727F;font-weight:600;">Email</td>
                         <td style="padding:7px 0;font-size:13px;">
-                          <a href="mailto:${email}" style="color:#0094B8;text-decoration:none;">${email}</a>
+                          <a href="mailto:${email}" style="color:#159A9C;text-decoration:none;">${email}</a>
                         </td>
                       </tr>
                       <tr>
-                        <td style="padding:7px 0;font-size:13px;color:#73777e;font-weight:600;">Phone</td>
-                        <td style="padding:7px 0;font-size:13px;color:#001b31;">${phone}</td>
+                        <td style="padding:7px 0;font-size:13px;color:#60727F;font-weight:600;">Phone</td>
+                        <td style="padding:7px 0;font-size:13px;color:#0B253A;">${phone}</td>
                       </tr>
                     </table>
                   </td>
@@ -113,16 +113,16 @@ export async function POST(req: NextRequest) {
 
               ${notes ? `
               <!-- Notes -->
-              <p style="margin:0 0 10px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#73777e;">Special Instructions</p>
-              <div style="background:#f4faff;border-left:4px solid #0094B8;border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;">
-                <p style="margin:0;font-size:14px;color:#001b31;line-height:1.7;">${notes.replace(/\n/g, '<br/>')}</p>
+              <p style="margin:0 0 10px 0;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#60727F;">Special Instructions</p>
+              <div style="background:#F7FAFA;border-left:4px solid #159A9C;border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;">
+                <p style="margin:0;font-size:14px;color:#0B253A;line-height:1.7;">${notes.replace(/\n/g, '<br/>')}</p>
               </div>` : ''}
 
               <!-- CTA -->
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-                    <a href="mailto:${email}" style="display:inline-block;background:#001b31;color:#ffffff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;letter-spacing:0.5px;">
+                    <a href="mailto:${email}" style="display:inline-block;background:#0B253A;color:#ffffff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;letter-spacing:0.5px;">
                       Contact ${fullName} →
                     </a>
                   </td>
@@ -134,9 +134,9 @@ export async function POST(req: NextRequest) {
 
           <!-- Footer -->
           <tr>
-            <td style="background:#f4faff;border-top:1px solid #ddeaf2;padding:20px 40px;text-align:center;">
-              <p style="margin:0;font-size:11px;color:#73777e;">
-                Carpet Cleaner Brisbane &nbsp;·&nbsp; <a href="mailto:binodstha060@gmail.com" style="color:#0094B8;text-decoration:none;">binodstha060@gmail.com</a>
+            <td style="background:#F7FAFA;border-top:1px solid #D6E8E8;padding:20px 40px;text-align:center;">
+              <p style="margin:0;font-size:11px;color:#60727F;">
+                Carpet Cleaner Brisbane &nbsp;·&nbsp; <a href="mailto:binodstha060@gmail.com" style="color:#159A9C;text-decoration:none;">binodstha060@gmail.com</a>
               </p>
             </td>
           </tr>

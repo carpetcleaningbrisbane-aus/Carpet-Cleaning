@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#001b31] text-white w-full pt-20 pb-12 px-5 md:px-16 border-t border-[#12304a]">
+    <footer className="bg-[#0B253A] text-white w-full pt-20 pb-12 px-5 md:px-16 border-t border-[#159A9C]">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1 flex flex-col">
@@ -12,7 +12,7 @@ export default function Footer() {
             <Logo lightMode />
           </Link>
           <p className="font-body text-sm text-white/80 mb-6 leading-relaxed max-w-xs">
-            Elevating the standard of clean for homes that value professional serenity, meticulous care, and eco-friendly solutions.
+            Brisbane's trusted carpet cleaners for homes, rentals and offices. We show up on time, do the job properly, and leave your carpets looking the way they should.
           </p>
           <div className="flex gap-3">
             {/* Facebook */}
@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/* Services Column */}
         <div className="col-span-1">
-          <h4 className="font-semibold text-xs text-[#b4ebfd] uppercase tracking-widest mb-6">
+          <h4 className="font-semibold text-xs text-[#E8F7F7] uppercase tracking-widest mb-6">
             Services
           </h4>
           <ul className="flex flex-col gap-3 text-sm font-body">
@@ -80,7 +80,7 @@ export default function Footer() {
 
         {/* Company Column */}
         <div className="col-span-1">
-          <h4 className="font-semibold text-xs text-[#b4ebfd] uppercase tracking-widest mb-6">
+          <h4 className="font-semibold text-xs text-[#E8F7F7] uppercase tracking-widest mb-6">
             Company
           </h4>
           <ul className="flex flex-col gap-3 text-sm font-body">
@@ -104,20 +104,20 @@ export default function Footer() {
 
         {/* Contact Info + Map Column */}
         <div className="col-span-1">
-          <h4 className="font-semibold text-xs text-[#b4ebfd] uppercase tracking-widest mb-6">
+          <h4 className="font-semibold text-xs text-[#E8F7F7] uppercase tracking-widest mb-6">
             Contact & Support
           </h4>
           <ul className="flex flex-col gap-3 text-sm font-body text-white/80 mb-5">
             <li className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[#b4ebfd]" />
+              <Phone className="w-4 h-4 text-[#E8F7F7]" />
               <span>0435 071 625</span>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[#b4ebfd]" />
+              <Mail className="w-4 h-4 text-[#E8F7F7]" />
               <span>info.theexpertcleaner@gmail.com</span>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-[#b4ebfd] mt-1 shrink-0" />
+              <MapPin className="w-4 h-4 text-[#E8F7F7] mt-1 shrink-0" />
               <span>Brisbane City, QLD, Australia</span>
             </li>
           </ul>
@@ -127,7 +127,7 @@ export default function Footer() {
             href="https://www.google.com/maps/place/Brisbane+City+QLD,+Australia/@-27.4703947,153.0127565,3518m"
             target="_blank"
             rel="noopener noreferrer"
-            className="block group relative rounded-xl overflow-hidden border border-white/10 hover:border-[#b4ebfd]/40 transition-all"
+            className="block group relative rounded-xl overflow-hidden border border-white/10 hover:border-[#E8F7F7]/40 transition-all"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14142.816!2d153.0127565!3d-27.4703947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a045cf620bb%3A0x502a35af3de84c0!2sBrisbane+City+QLD!5e0!3m2!1sen!2sau!4v1"
@@ -140,10 +140,10 @@ export default function Footer() {
               title="Brisbane City location"
             />
             {/* Overlay label */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#001b31]/90 to-transparent px-3 py-2 flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#b4ebfd] shrink-0" />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0B253A]/90 to-transparent px-3 py-2 flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5 text-[#E8F7F7] shrink-0" />
               <span className="text-[11px] font-semibold text-white/90">Brisbane City, QLD</span>
-              <span className="ml-auto text-[10px] text-[#b4ebfd] group-hover:underline">View map →</span>
+              <span className="ml-auto text-[10px] text-[#E8F7F7] group-hover:underline">View map →</span>
             </div>
           </a>
         </div>

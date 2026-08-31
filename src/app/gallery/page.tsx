@@ -59,7 +59,7 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
   return (
     <div
       ref={containerRef}
-      className="relative h-64 md:h-80 overflow-hidden select-none cursor-col-resize bg-[#f4faff]"
+      className="relative h-64 md:h-80 overflow-hidden select-none cursor-col-resize bg-[#F7FAFA]"
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
@@ -101,7 +101,7 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
       >
-        <GripVertical className="w-5 h-5 text-[#2d6675]" />
+        <GripVertical className="w-5 h-5 text-[#159A9C]" />
       </div>
 
       {/* Labels */}
@@ -111,7 +111,7 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
         </span>
       </div>
       <div className="absolute top-4 right-4 pointer-events-none">
-        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#2d6675]/90 text-white rounded-full backdrop-blur-sm">
+        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#159A9C]/90 text-white rounded-full backdrop-blur-sm">
           After
         </span>
       </div>
@@ -120,9 +120,9 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
       {position === 50 && !isDragging && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg flex items-center gap-2 animate-pulse">
-            <ChevronLeft className="w-3.5 h-3.5 text-[#2d6675]" />
-            <span className="text-xs font-bold text-[#001b31]">Drag to compare</span>
-            <ChevronRight className="w-3.5 h-3.5 text-[#2d6675]" />
+            <ChevronLeft className="w-3.5 h-3.5 text-[#159A9C]" />
+            <span className="text-xs font-bold text-[#0B253A]">Drag to compare</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#159A9C]" />
           </div>
         </div>
       )}
@@ -161,7 +161,7 @@ export default function GalleryPage() {
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight drop-shadow-lg">
-            Before & After <span className="text-[#b4ebfd]">Showcase</span>
+            Before & After <span className="text-[#E8F7F7]">Showcase</span>
           </h1>
           <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             Drag the slider on each photo to reveal the transformation — real results from real Brisbane homes and businesses.
@@ -177,8 +177,8 @@ export default function GalleryPage() {
               key={tab.id}
               onClick={() => setFilter(tab.id)}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${filter === tab.id
-                ? 'bg-[#001b31] text-white shadow-md scale-105'
-                : 'bg-white text-[#43474d] hover:bg-[#e9f6fd] border border-[#d7e4ec]'
+                ? 'bg-[#0B253A] text-white shadow-md scale-105'
+                : 'bg-white text-[#102A3A] hover:bg-[#F0FAFA] border border-[#D6E8E8]'
                 }`}
             >
               {tab.label}
@@ -193,7 +193,7 @@ export default function GalleryPage() {
           {filteredItems.map((item, idx) => (
             <div
               key={item.id}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#d7e4ec] shadow-sm hover:shadow-xl hover:border-[#b1e8fa] transition-all duration-300"
+              className="group bg-white rounded-3xl overflow-hidden border border-[#D6E8E8] shadow-sm hover:shadow-xl hover:border-[#D1EFEF] transition-all duration-300"
             >
               {/* Drag-to-reveal slider */}
               <BeforeAfterSlider
@@ -209,40 +209,40 @@ export default function GalleryPage() {
                     <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full capitalize inline-block mb-2 ${CATEGORY_COLORS[item.category]}`}>
                       {item.category}
                     </span>
-                    <h3 className="font-display font-bold text-lg text-[#001b31] leading-snug">
+                    <h3 className="font-display font-bold text-lg text-[#0B253A] leading-snug">
                       {item.title}
                     </h3>
                   </div>
                   <button
                     onClick={() => setSelectedIdx(idx)}
-                    className="shrink-0 w-9 h-9 rounded-full bg-[#e9f6fd] flex items-center justify-center group-hover:bg-[#001b31] transition-colors duration-300"
+                    className="shrink-0 w-9 h-9 rounded-full bg-[#F0FAFA] flex items-center justify-center group-hover:bg-[#0B253A] transition-colors duration-300"
                     aria-label="Expand"
                   >
-                    <ArrowRight className="w-4 h-4 text-[#2d6675] group-hover:text-white transition-colors duration-300" />
+                    <ArrowRight className="w-4 h-4 text-[#159A9C] group-hover:text-white transition-colors duration-300" />
                   </button>
                 </div>
-                <p className="text-xs text-[#73777e] leading-relaxed">{item.description}</p>
+                <p className="text-xs text-[#60727F] leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         {filteredItems.length === 0 && (
-          <div className="text-center py-20 text-[#73777e]">
+          <div className="text-center py-20 text-[#60727F]">
             <p className="text-base">No results found for this category yet.</p>
           </div>
         )}
 
         {/* CTA */}
-        <div className="mt-16 relative overflow-hidden bg-[#001b31] rounded-3xl p-10 md:p-14 text-center">
-          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#0094B8]/20 blur-3xl pointer-events-none" />
+        <div className="mt-16 relative overflow-hidden bg-[#0B253A] rounded-3xl p-10 md:p-14 text-center">
+          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#159A9C]/20 blur-3xl pointer-events-none" />
           <div className="relative z-10">
             <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-3">Want Results Like These?</h3>
             <p className="text-white/65 text-sm mb-8 max-w-md mx-auto leading-relaxed">
               Book our certified cleaning team and experience the same transformation in your home or business.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/book-now" className="px-8 py-3.5 bg-[#b4ebfd] text-[#001b31] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md">
+              <Link href="/book-now" className="px-8 py-3.5 bg-[#E8F7F7] text-[#0B253A] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md">
                 Book Your Clean Now
               </Link>
               <Link href="/contact" className="px-8 py-3.5 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">
@@ -263,15 +263,15 @@ export default function GalleryPage() {
             className="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between px-7 py-5 border-b border-[#ddeaf2]">
+            <div className="flex items-center justify-between px-7 py-5 border-b border-[#D6E8E8]">
               <div className="flex items-center gap-3">
                 <span className={`text-xs font-bold px-3 py-1 rounded-full capitalize ${CATEGORY_COLORS[selectedItem.category]}`}>
                   {selectedItem.category}
                 </span>
-                <h3 className="font-display font-bold text-xl text-[#001b31]">{selectedItem.title}</h3>
+                <h3 className="font-display font-bold text-xl text-[#0B253A]">{selectedItem.title}</h3>
               </div>
-              <button onClick={closeModal} className="w-9 h-9 rounded-full bg-[#f4faff] hover:bg-[#e9f6fd] flex items-center justify-center transition-colors">
-                <X className="w-4 h-4 text-[#001b31]" />
+              <button onClick={closeModal} className="w-9 h-9 rounded-full bg-[#F7FAFA] hover:bg-[#F0FAFA] flex items-center justify-center transition-colors">
+                <X className="w-4 h-4 text-[#0B253A]" />
               </button>
             </div>
 
@@ -285,20 +285,20 @@ export default function GalleryPage() {
             </div>
 
             <div className="px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <p className="text-sm text-[#43474d] leading-relaxed max-w-lg">{selectedItem.description}</p>
+              <p className="text-sm text-[#102A3A] leading-relaxed max-w-lg">{selectedItem.description}</p>
               <Link
                 href="/book-now"
-                className="px-5 py-2.5 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all inline-flex items-center gap-2 shrink-0"
+                className="px-5 py-2.5 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all inline-flex items-center gap-2 shrink-0"
               >
                 Book This Service <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <button onClick={prevModal} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-[#e9f6fd] transition-colors">
-              <ChevronLeft className="w-5 h-5 text-[#001b31]" />
+            <button onClick={prevModal} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-[#F0FAFA] transition-colors">
+              <ChevronLeft className="w-5 h-5 text-[#0B253A]" />
             </button>
-            <button onClick={nextModal} className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-[#e9f6fd] transition-colors">
-              <ChevronRight className="w-5 h-5 text-[#001b31]" />
+            <button onClick={nextModal} className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-[#F0FAFA] transition-colors">
+              <ChevronRight className="w-5 h-5 text-[#0B253A]" />
             </button>
           </div>
         </div>

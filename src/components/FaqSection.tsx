@@ -6,52 +6,52 @@ import Link from 'next/link';
 
 const faqs = [
   {
-    q: 'How often should carpets be professionally cleaned?',
-    a: 'For many households, professional carpet cleaning every 6 to 12 months can be a useful routine. Homes with children, pets, allergies or heavy foot traffic may benefit from more frequent cleaning. The ideal frequency depends on your household, carpet type and level of use.',
+    q: 'How often should I get my carpets cleaned?',
+    a: 'Once or twice a year works for most households. If you have kids, pets, or a lot of foot traffic, every 6 months makes more sense. If it\'s just you or a couple, once a year is usually fine.',
   },
   {
     q: 'How long does carpet cleaning take?',
-    a: 'Cleaning time depends on the number of rooms, total carpeted area, carpet condition, level of soiling and number of stains requiring treatment. A small residential job can be completed relatively quickly, while larger homes and commercial properties require more time.',
+    a: 'A standard 3-bedroom house usually takes around 2 to 3 hours. It depends on room size, how many stains need treatment, and the state of the carpet.',
   },
   {
-    q: 'How long does carpet take to dry?',
-    a: 'Drying time varies depending on carpet thickness, ventilation, humidity, weather conditions and the cleaning process used. Good ventilation and airflow can help speed up drying significantly.',
+    q: 'How long until the carpet is dry?',
+    a: 'Usually 2 to 4 hours. Open windows, run a fan, or turn on the aircon and it dries faster. Thick carpet and humid days take longer.',
   },
   {
-    q: 'Can you remove old stains?',
-    a: 'Many common stains can be significantly improved or removed through professional treatment. Results vary depending on the stain, carpet fibre, age of the stain and previous treatments. Some permanent stains, dye damage or bleach marks may not be completely removable.',
+    q: 'Can you get out old stains?',
+    a: 'Often yes, sometimes partially, occasionally not at all — it depends on the stain type, the carpet fibre, and how long it\'s been there. We\'ll always give you an honest assessment before we start.',
   },
   {
-    q: 'Can you remove pet urine stains and odours?',
-    a: 'We provide targeted treatment for pet-related stains and odours. Results depend on how deeply the contamination has penetrated the carpet and underlying materials. Severe or long-standing contamination may require additional restoration work.',
+    q: 'Can you get rid of pet urine smell?',
+    a: 'Yes. We use enzyme treatment that breaks down the urine at a molecular level. If it\'s soaked through to the underlay, that needs treating too — otherwise the smell comes back.',
   },
   {
-    q: 'Is carpet cleaning safe for children and pets?',
-    a: 'We use carefully selected cleaning solutions suitable for residential environments. Children and pets should remain away from the cleaning area while the service is being performed and until the carpet is appropriately dry.',
+    q: 'Is it safe for my kids and pets after cleaning?',
+    a: 'Yes, once it\'s dry. Keep them off the carpet while it\'s still wet, then it\'s fine. We don\'t use anything harsh.',
   },
   {
-    q: 'Can you clean rental and end-of-lease properties?',
-    a: 'Yes. We provide carpet cleaning for rental properties and end-of-lease cleaning requirements to help meet real estate inspection standards.',
+    q: 'Do you do end-of-lease cleans?',
+    a: 'Yes. We clean to the standard property managers expect. We\'ve done plenty of them.',
   },
   {
-    q: 'Can carpet cleaning remove bad smells?',
-    a: 'Professional cleaning and odour treatment can address many common carpet odours caused by dirt, spills, pets and other contaminants. If the source of an odour is beneath the carpet or within the flooring, additional treatment may be necessary.',
+    q: 'Why did the stain come back after cleaning?',
+    a: 'That\'s called wicking — the stain was deeper than the surface and the residue moved back up while the carpet dried. Give us a call and we\'ll come back and treat it properly.',
   },
   {
-    q: 'Do I need to vacuum before the cleaner arrives?',
-    a: 'We carry out appropriate pre-vacuuming as part of the cleaning process. Removing personal items and loose objects beforehand helps the technician access carpeted areas more efficiently.',
-  },
-  {
-    q: 'Why does a stain sometimes come back after cleaning?',
-    a: 'Some stains reappear when residue from a deeper section of the carpet moves back toward the surface during drying. This is known as wicking, and certain stains may require additional treatment depending on their source and depth.',
+    q: 'Do I need to vacuum before you arrive?',
+    a: 'No, we vacuum as part of the process. Just clear the floor of toys, clothes and anything small — that helps us get to work straight away.',
   },
   {
     q: 'How do I know which service I need?',
-    a: 'For general dirt and deep cleaning, steam carpet cleaning is usually the best option. For stubborn stains or odours, targeted stain and odour treatment may be required. Rental properties can benefit from end-of-lease cleaning, while businesses can use our commercial cleaning service. If your carpet has been affected by water, contact us about water extraction as soon as possible.',
+    a: 'If it\'s general dirt and grime, steam cleaning is the go. Got a specific stain or smell? That\'s targeted treatment. Moving out of a rental? End-of-lease clean. Flooded? Water extraction. Not sure — just call and describe what\'s going on.',
   },
   {
-    q: 'Is professional carpet cleaning worth it?',
-    a: 'Professional cleaning provides a deeper clean than ordinary household maintenance. It can help remove accumulated dirt, refresh carpet appearance, address stains and odours, and maintain a cleaner indoor environment — often extending the life of your carpet.',
+    q: 'Is it actually worth paying for professional cleaning?',
+    a: 'If you\'ve got a carpet that vacuuming isn\'t fixing, or stains that have been there a while, yes. A professional clean gets out what a vacuum can\'t and often makes a noticeable difference to how the room looks and smells.',
+  },
+  {
+    q: 'Do you clean office and commercial carpets?',
+    a: 'Yes. We can work after hours or on weekends to avoid disrupting the business. Just let us know what works.',
   },
 ];
 
@@ -70,19 +70,19 @@ export default function FaqSection() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
         {/* Left sticky heading */}
         <div className="lg:col-span-1 lg:sticky lg:top-32">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#e9f6fd] rounded-full mb-4">
-            <MessageCircleQuestion className="w-4 h-4 text-[#2d6675]" />
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2d6675]">FAQ</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F0FAFA] rounded-full mb-4">
+            <MessageCircleQuestion className="w-4 h-4 text-[#159A9C]" />
+            <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C]">FAQ</span>
           </div>
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#001b31] mb-4 leading-tight">
-            Questions &<br />Answers
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-4 leading-tight">
+            Common<br />Questions
           </h2>
-          <p className="text-sm text-[#43474d] leading-relaxed mb-6">
-            Everything you need to know about our carpet cleaning services. Can't find your answer?
+          <p className="text-sm text-[#102A3A] leading-relaxed mb-6">
+            Things people usually ask before booking. Can't find what you need?
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all"
           >
             Ask Us Directly →
           </Link>
@@ -97,19 +97,19 @@ export default function FaqSection() {
                 key={idx}
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? 'border-[#b1e8fa] bg-[#f4faff] shadow-md'
-                    : 'border-[#d7e4ec] bg-white hover:border-[#b1e8fa]'
+                    ? 'border-[#D1EFEF] bg-[#F7FAFA] shadow-md'
+                    : 'border-[#D6E8E8] bg-white hover:border-[#D1EFEF]'
                 }`}
               >
                 <button
                   className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                 >
-                  <span className={`text-sm font-semibold leading-snug ${isOpen ? 'text-[#001b31]' : 'text-[#001b31]'}`}>
+                  <span className={`text-sm font-semibold leading-snug ${isOpen ? 'text-[#0B253A]' : 'text-[#0B253A]'}`}>
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#2d6675] shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-[#159A9C] shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
                 <div
@@ -117,7 +117,7 @@ export default function FaqSection() {
                     isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="px-6 pb-5 text-sm text-[#43474d] leading-relaxed border-t border-[#ddeaf2] pt-4">
+                  <p className="px-6 pb-5 text-sm text-[#102A3A] leading-relaxed border-t border-[#D6E8E8] pt-4">
                     {faq.a}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function FaqSection() {
           {faqs.length > DEFAULT_VISIBLE && (
             <button
               onClick={() => setShowAll(!showAll)}
-              className="w-full py-3.5 mt-2 rounded-2xl border border-dashed border-[#b1e8fa] text-sm font-semibold text-[#2d6675] hover:bg-[#e9f6fd] transition-colors"
+              className="w-full py-3.5 mt-2 rounded-2xl border border-dashed border-[#D1EFEF] text-sm font-semibold text-[#159A9C] hover:bg-[#F0FAFA] transition-colors"
             >
               {showAll ? '↑ Show fewer questions' : `↓ Show ${faqs.length - DEFAULT_VISIBLE} more questions`}
             </button>
