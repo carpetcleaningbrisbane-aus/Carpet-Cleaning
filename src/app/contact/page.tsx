@@ -111,8 +111,8 @@ export default function ContactPage() {
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-          {/* Left sidebar — contact info */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          {/* Left sidebar — contact info (shows BELOW form on mobile) */}
+          <div className="lg:col-span-2 flex flex-col gap-6 order-2 lg:order-1">
             {/* Info cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
               {contactItems.map((item) => (
@@ -146,8 +146,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right — form */}
-          <div className="lg:col-span-3">
+          {/* Right — form (shows FIRST on mobile) */}
+          <div className="lg:col-span-3 order-1 lg:order-2">
             <div className="bg-white rounded-3xl border border-[#d7e4ec] ambient-shadow overflow-hidden">
               {/* Form header strip */}
               <div className="bg-[#f4faff] border-b border-[#ddeaf2] px-8 md:px-10 py-6">

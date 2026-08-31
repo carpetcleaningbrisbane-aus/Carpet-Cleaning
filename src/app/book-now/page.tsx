@@ -363,7 +363,7 @@ function BookNowForm() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="px-6 py-3 border border-[#73777e] text-[#001b31] rounded-xl font-semibold text-sm hover:bg-[#e9f6fd] flex items-center gap-2"
+                  className="px-4 py-2.5 md:px-6 md:py-3 border border-[#73777e] text-[#001b31] rounded-xl font-semibold text-xs md:text-sm hover:bg-[#e9f6fd] flex items-center gap-2"
                 >
                   <ChevronLeft className="w-4 h-4" /> Previous
                 </button>
@@ -373,7 +373,7 @@ function BookNowForm() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-8 py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all flex items-center gap-2"
+                  className="px-5 py-2.5 md:px-8 md:py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#12304a] transition-all flex items-center gap-2"
                 >
                   Next Step <ChevronRight className="w-4 h-4" />
                 </button>
@@ -381,9 +381,11 @@ function BookNowForm() {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="px-8 py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-sm hover:bg-[#12304a] transition-all shadow-md flex items-center gap-2"
+                  className="px-4 py-2.5 md:px-8 md:py-3.5 bg-[#001b31] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#12304a] transition-all shadow-md flex items-center gap-2"
                 >
-                  Confirm & Reserve Booking <CheckCircle2 className="w-4 h-4" />
+                  <span className="hidden sm:inline">Confirm & Reserve Booking</span>
+                  <span className="sm:hidden">Confirm Booking</span>
+                  <CheckCircle2 className="w-4 h-4" />
                 </button>
               )}
             </div>
