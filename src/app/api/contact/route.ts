@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
           <tr>
             <td style="background:#F0FAFA;padding:16px 40px;border-bottom:1px solid #D6E8E8;">
               <p style="margin:0;font-size:13px;color:#159A9C;font-weight:600;">
-                📩 You have received a new enquiry from the website contact form.
+                 You have received a new enquiry from the website contact form.
               </p>
             </td>
           </tr>
