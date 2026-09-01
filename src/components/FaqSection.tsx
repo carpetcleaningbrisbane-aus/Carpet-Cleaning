@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: 'How long until the carpet is dry?',
-    a: 'Usually 2 to 4 hours. Open windows, run a fan, or turn on the aircon and it dries faster. Thick carpet and humid days take longer.',
+    a: 'Usually 4 to 6 hours. Open windows, run a fan, or turn on the aircon and it dries faster. Thick carpet and humid days take longer.',
   },
   {
     q: 'Can you get out old stains?',
@@ -27,19 +27,15 @@ const faqs = [
   },
   {
     q: 'Is it safe for my kids and pets after cleaning?',
-    a: 'Yes, once it\'s dry. Keep them off the carpet while it\'s still wet, then it\'s fine. We don\'t use anything harsh.',
+    a: 'Yes, We use eco-friendly solutions, these are safe for pets and kids.',
   },
   {
-    q: 'Do you do end-of-lease cleans?',
+    q: 'Do you do end-of-lease carpet cleaning?',
     a: 'Yes. We clean to the standard property managers expect. We\'ve done plenty of them.',
   },
   {
-    q: 'Why did the stain come back after cleaning?',
-    a: 'That\'s called wicking — the stain was deeper than the surface and the residue moved back up while the carpet dried. Give us a call and we\'ll come back and treat it properly.',
-  },
-  {
-    q: 'Do I need to vacuum before you arrive?',
-    a: 'No, we vacuum as part of the process. Just clear the floor of toys, clothes and anything small — that helps us get to work straight away.',
+    q: 'Why Choose Steam Carpet Cleaning Over Dry Cleaning?',
+    a: 'Steam carpet cleaning provides a deeper clean by using hot water extraction to reach deep into carpet fibres and remove embedded dirt, stains, allergens and odours. It is particularly effective for heavily soiled carpets and high-traffic areas, leaving carpets thoroughly cleaned and refreshed.',
   },
   {
     q: 'How do I know which service I need?',
