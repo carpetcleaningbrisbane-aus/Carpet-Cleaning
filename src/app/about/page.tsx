@@ -33,10 +33,10 @@ const PROCESS_STEPS = [
 ];
 
 const FEATURES = [
-  { icon: Droplets, title: 'Proper Equipment', desc: 'We use commercial-grade hot water extraction machines — not the supermarket hire ones. They heat the water properly and actually pull the dirt out rather than just pushing it around.' },
+  { icon: Droplets, title: 'Proper Equipment', desc: 'We use commercial-grade hot water extraction machines,  not the supermarket hire ones. They heat the water properly and actually pull the dirt out rather than just pushing it around.' },
   { icon: ShieldCheck, title: 'Safe Products', desc: 'Everything we use is fine for kids and pets once the carpet is dry. We don\'t use anything overpowering or likely to irritate anyone in the house.' },
-  { icon: Search, title: 'We Look Properly', desc: 'Before we start, we check the carpet — the fibre type, where the traffic marks are, what the stains might be. That way we\'re not guessing.' },
-  { icon: UserCheck, title: 'Straightforward Service', desc: 'We show up when we say we will, do the job, and let you know how it went. No hard sell, no surprise charges.' },
+  { icon: Search, title: 'We Look Properly', desc: 'Before we start, we check the carpet, the fibre type, where the traffic marks are, what the stains might be. That way we\'re not guessing.' },
+  { icon: UserCheck, title: 'No Hidden Charges', desc: 'The price we quote is the price you pay. No surprise fees, no unexpected costs, just clear, upfront pricing.' },
 ];
 
 const TAGS = [
