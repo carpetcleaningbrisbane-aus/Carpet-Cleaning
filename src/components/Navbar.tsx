@@ -9,6 +9,17 @@ import {
 } from 'lucide-react';
 import Logo from './Logo';
 
+/* ============================================================
+   🎨 NAVBAR COLOR CONTROL — edit these HEX values only.
+   Works with any 6-digit HEX (e.g. '#1A77BA', '#0B253A', '#DBEAFE').
+   
+   NOTE: Text/buttons are styled for medium/dark backgrounds
+   (white text). If you switch to a very LIGHT color, change the
+   text classes below from `text-white…` to `text-[#0B253A]…`.
+   ============================================================ */
+const NAV_BG = '#1A77BA';           // Navbar background at top of page
+const NAV_BG_SCROLLED = '#1668A3';  // Navbar background after scrolling (slightly darker)
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,11 +42,11 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-[#0B253A] shadow-lg py-3'
-            : 'bg-[#0B253A] shadow-md py-4 md:py-5'
-        }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+            ? 'shadow-lg py-3 border-b border-white/10'
+            : 'backdrop-blur-md shadow-md py-4 md:py-5'
+          }`}
+        style={{ backgroundColor: isScrolled ? NAV_BG_SCROLLED : `${NAV_BG}F2` }}
       >
         <div className="flex justify-between items-center px-5 md:px-16 max-w-[1280px] mx-auto">
 
@@ -61,11 +72,10 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`font-semibold text-sm tracking-wider uppercase transition-colors duration-200 ${
-                    isActive
-                      ? 'text-[#159A9C] border-b-2 border-[#159A9C] pb-1'
+                  className={`font-semibold text-sm tracking-wider uppercase transition-colors duration-200 ${isActive
+                      ? 'text-[#5EEAD4] border-b-2 border-[#5EEAD4] pb-1'
                       : 'text-white/75 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -77,7 +87,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link
               href="/book-now"
-              className="bg-[#159A9C] text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-white hover:text-[#0B253A] transition-all duration-200 shadow-md active:scale-95 inline-block"
+              className="bg-white text-[#1A77BA] px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#0B253A] hover:text-white transition-all duration-200 shadow-md active:scale-95 inline-block"
             >
               Book Now
             </Link>
@@ -93,11 +103,10 @@ export default function Navbar() {
         />
       )}
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — stays dark navy for contrast */}
       <div
-        className={`fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 bg-[#0B253A] shadow-2xl transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 bg-[#0B253A] shadow-2xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
           <Link href="/" onClick={() => setIsOpen(false)}>
@@ -120,11 +129,10 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
-                  isActive
+                className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm transition-all duration-200 ${isActive
                     ? 'bg-[#159A9C]/20 text-[#159A9C]'
                     : 'text-white/70 hover:bg-white/10 hover:text-white'
-                }`}
+                  }`}
               >
                 {link.name === 'Home' && <Home className="w-5 h-5 shrink-0" />}
                 {link.name === 'Services' && <Briefcase className="w-5 h-5 shrink-0" />}
