@@ -8,7 +8,7 @@ interface LogoProps {
 }
 
 export default function Logo({ className = '', iconOnly = false, lightMode = false }: LogoProps) {
-  const textColor = lightMode ? 'text-white' : 'text-[#0B253A]';
+  const textColor = lightMode ? 'text-white' : 'text-[#082B59]';
 
   return (
     <div className={`inline-flex items-center gap-3 ${className}`}>
@@ -23,7 +23,7 @@ export default function Logo({ className = '', iconOnly = false, lightMode = fal
 
       {!iconOnly && (
         <span className={`font-display font-semibold text-xl tracking-tight ${textColor}`}>
-          Carpet <span className="font-bold text-[#159A9C]">Cleaner</span>
+          Carpet <span className="font-bold text-[#00B8D9]">Cleaner</span>
         </span>
       )}
     </div>

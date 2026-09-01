@@ -17,8 +17,8 @@ import Logo from './Logo';
    (white text). If you switch to a very LIGHT color, change the
    text classes below from `text-white…` to `text-[#0B253A]…`.
    ============================================================ */
-const NAV_BG = '#1A77BA';           // Navbar background at top of page
-const NAV_BG_SCROLLED = '#1668A3';  // Navbar background after scrolling (slightly darker)
+const NAV_BG = '#1261A0';           // Navbar background at top of page
+const NAV_BG_SCROLLED = '#082B59';  // Navbar background after scrolling (slightly darker)
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +73,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={`font-semibold text-sm tracking-wider uppercase transition-colors duration-200 ${isActive
-                      ? 'text-[#5EEAD4] border-b-2 border-[#5EEAD4] pb-1'
+                      ? 'text-[#00B8D9] border-b-2 border-[#00B8D9] pb-1'
                       : 'text-white/75 hover:text-white'
                     }`}
                 >
@@ -87,7 +87,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link
               href="/book-now"
-              className="bg-white text-[#1A77BA] px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#0B253A] hover:text-white transition-all duration-200 shadow-md active:scale-95 inline-block"
+              className="bg-white text-[#1261A0] px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#082B59] hover:text-white transition-all duration-200 shadow-md active:scale-95 inline-block"
             >
               Book Now
             </Link>
@@ -105,7 +105,7 @@ export default function Navbar() {
 
       {/* Mobile drawer — stays dark navy for contrast */}
       <div
-        className={`fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 bg-[#0B253A] shadow-2xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 bg-[#082B59] shadow-2xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
       >
         <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
@@ -130,7 +130,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm transition-all duration-200 ${isActive
-                    ? 'bg-[#159A9C]/20 text-[#159A9C]'
+                    ? 'bg-[#00B8D9]/20 text-[#00B8D9]'
                     : 'text-white/70 hover:bg-white/10 hover:text-white'
                   }`}
               >
@@ -149,7 +149,7 @@ export default function Navbar() {
           <Link
             href="/book-now"
             onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 w-full bg-[#159A9C] text-white px-6 py-3.5 rounded-lg font-semibold text-sm hover:bg-white hover:text-[#0B253A] transition-colors"
+            className="flex items-center justify-center gap-2 w-full bg-[#00B8D9] text-white px-6 py-3.5 rounded-lg font-semibold text-sm hover:bg-white hover:text-[#082B59] transition-colors"
           >
             <CalendarCheck className="w-4 h-4" />
             Book Now

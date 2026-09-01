@@ -70,19 +70,19 @@ export default function FaqSection() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
         {/* Left sticky heading */}
         <div className="lg:col-span-1 lg:sticky lg:top-32">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F0FAFA] rounded-full mb-4">
-            <MessageCircleQuestion className="w-4 h-4 text-[#159A9C]" />
-            <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C]">FAQ</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F2F8FC] rounded-full mb-4">
+            <MessageCircleQuestion className="w-4 h-4 text-[#00B8D9]" />
+            <span className="text-xs font-bold uppercase tracking-widest text-[#00B8D9]">FAQ</span>
           </div>
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-4 leading-tight">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#082B59] mb-4 leading-tight">
             Common<br />Questions
           </h2>
-          <p className="text-sm text-[#102A3A] leading-relaxed mb-6">
+          <p className="text-sm text-[#082B59]/80 leading-relaxed mb-6">
             Things people usually ask before booking. Can't find what you need?
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-all"
           >
             Ask Us Directly →
           </Link>
@@ -97,19 +97,19 @@ export default function FaqSection() {
                 key={idx}
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? 'border-[#D1EFEF] bg-[#F7FAFA] shadow-md'
-                    : 'border-[#D6E8E8] bg-white hover:border-[#D1EFEF]'
+                    ? 'border-[#00B8D9]/30 bg-[#F2F8FC] shadow-md'
+                    : 'border-[#1261A0]/20 bg-white hover:border-[#00B8D9]/30'
                 }`}
               >
                 <button
                   className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                 >
-                  <span className={`text-sm font-semibold leading-snug ${isOpen ? 'text-[#0B253A]' : 'text-[#0B253A]'}`}>
+                  <span className={`text-sm font-semibold leading-snug ${isOpen ? 'text-[#082B59]' : 'text-[#082B59]'}`}>
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#159A9C] shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-[#00B8D9] shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
                 <div
@@ -117,7 +117,7 @@ export default function FaqSection() {
                     isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="px-6 pb-5 text-sm text-[#102A3A] leading-relaxed border-t border-[#D6E8E8] pt-4">
+                  <p className="px-6 pb-5 text-sm text-[#082B59]/80 leading-relaxed border-t border-[#1261A0]/15 pt-4">
                     {faq.a}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function FaqSection() {
           {faqs.length > DEFAULT_VISIBLE && (
             <button
               onClick={() => setShowAll(!showAll)}
-              className="w-full py-3.5 mt-2 rounded-2xl border border-dashed border-[#D1EFEF] text-sm font-semibold text-[#159A9C] hover:bg-[#F0FAFA] transition-colors"
+              className="w-full py-3.5 mt-2 rounded-2xl border border-dashed border-[#00B8D9]/30 text-sm font-semibold text-[#00B8D9] hover:bg-[#F2F8FC] transition-colors"
             >
               {showAll ? '↑ Show fewer questions' : `↓ Show ${faqs.length - DEFAULT_VISIBLE} more questions`}
             </button>

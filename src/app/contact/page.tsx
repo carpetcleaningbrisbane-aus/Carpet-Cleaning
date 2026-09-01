@@ -76,19 +76,19 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="pt-24 md:pt-32 pb-24 bg-[#F7FAFA]">
+    <div className="pt-24 md:pt-32 pb-24 bg-[#F2F8FC]">
 
       {/* Hero Banner */}
-      <section className="relative bg-[#0B253A] py-20 px-5 md:px-16 mb-20">
-        <div className="hidden md:block absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#159A9C]/15 blur-3xl pointer-events-none" />
-        <div className="hidden md:block absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#E8F7F7]/10 blur-3xl pointer-events-none" />
+      <section className="relative bg-[#082B59] py-20 px-5 md:px-16 mb-20">
+        <div className="hidden md:block absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#00B8D9]/15 blur-3xl pointer-events-none" />
+        <div className="hidden md:block absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#F2F8FC]/10 blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
-            <MessageSquare className="w-3.5 h-3.5 text-[#E8F7F7]" />
+            <MessageSquare className="w-3.5 h-3.5 text-[#F2F8FC]" />
             <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">We Are Here to Help</span>
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight">
-            Get In <span className="text-[#E8F7F7]">Touch</span>
+            Get In <span className="text-[#F2F8FC]">Touch</span>
           </h1>
           <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-10">
             Have questions about our services or want to get a quote? Send us a message and our team will respond within 2 business hours.
@@ -96,12 +96,12 @@ export default function ContactPage() {
           {/* Quick contact chips */}
           <div className="flex flex-wrap justify-center gap-3">
             <a href="tel:0435071625" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold">
-              <Phone className="w-4 h-4 text-[#E8F7F7]" /> 0435 071 625
+              <Phone className="w-4 h-4 text-[#F2F8FC]" /> 0435 071 625
             </a>
             <a href="mailto:info.theexpertcleaner@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold">
-              <Mail className="w-4 h-4 text-[#E8F7F7]" /> Email Us
+              <Mail className="w-4 h-4 text-[#F2F8FC]" /> Email Us
             </a>
-            <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E8F7F7] rounded-full text-[#0B253A] text-sm font-bold">
+            <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00B8D9] rounded-full text-white text-sm font-bold hover:bg-white hover:text-[#082B59] transition-all">
               Book Online <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
@@ -116,29 +116,29 @@ export default function ContactPage() {
             {/* Info cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
               {contactItems.map((item) => (
-                <div key={item.label} className="bg-white rounded-2xl border border-[#D6E8E8] p-5 flex items-start gap-4 ambient-shadow hover:border-[#D1EFEF] transition-all">
-                  <div className="w-11 h-11 rounded-xl bg-[#F0FAFA] flex items-center justify-center text-[#159A9C] shrink-0">
+                <div key={item.label} className="bg-white rounded-2xl border border-[#1261A0]/20 p-5 flex items-start gap-4 ambient-shadow hover:border-[#00B8D9]/30 transition-all">
+                  <div className="w-11 h-11 rounded-xl bg-[#F2F8FC] flex items-center justify-center text-[#00B8D9] shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#60727F] mb-1">{item.label}</p>
-                    <p className="text-sm font-bold text-[#0B253A]">{item.primary}</p>
-                    <p className="text-xs text-[#60727F] mt-0.5">{item.secondary}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#082B59]/60 mb-1">{item.label}</p>
+                    <p className="text-sm font-bold text-[#082B59]">{item.primary}</p>
+                    <p className="text-xs text-[#082B59]/60 mt-0.5">{item.secondary}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Book CTA card */}
-            <div className="bg-[#0B253A] rounded-2xl p-7 text-white relative overflow-hidden">
-              <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-[#159A9C]/20 blur-2xl pointer-events-none" />
+            <div className="bg-[#082B59] rounded-2xl p-7 text-white relative overflow-hidden">
+              <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-[#00B8D9]/20 blur-2xl pointer-events-none" />
               <div className="relative z-10">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#E8F7F7] mb-3">Skip the Queue</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-[#F2F8FC] mb-3">Skip the Queue</p>
                 <h3 className="font-display font-bold text-xl mb-3 leading-snug">Ready to book? Go online in 2 minutes.</h3>
                 <p className="text-white/60 text-xs mb-5 leading-relaxed">No upfront payment. Pick your service, date and time instantly.</p>
                 <Link
                   href="/book-now"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-[#E8F7F7] text-[#0B253A] rounded-xl font-bold text-sm hover:bg-white transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[#00B8D9] text-white rounded-xl font-bold text-sm hover:bg-white hover:text-[#082B59] transition-all"
                 >
                   Book Now <ChevronRight className="w-4 h-4" />
                 </Link>
@@ -148,29 +148,29 @@ export default function ContactPage() {
 
           {/* Right — form (shows FIRST on mobile) */}
           <div className="lg:col-span-3 order-1 lg:order-2">
-            <div className="bg-white rounded-3xl border border-[#D6E8E8] ambient-shadow overflow-hidden">
+            <div className="bg-white rounded-3xl border border-[#1261A0]/20 ambient-shadow overflow-hidden">
               {/* Form header strip */}
-              <div className="bg-[#F7FAFA] border-b border-[#D6E8E8] px-8 md:px-10 py-6">
-                <h2 className="font-display font-bold text-2xl text-[#0B253A]">Send Us a Message</h2>
-                <p className="text-sm text-[#60727F] mt-1">We'll get back to you within 2 business hours.</p>
+              <div className="bg-[#F2F8FC] border-b border-[#1261A0]/20 px-8 md:px-10 py-6">
+                <h2 className="font-display font-bold text-2xl text-[#082B59]">Send Us a Message</h2>
+                <p className="text-sm text-[#082B59]/60 mt-1">We'll get back to you within 2 business hours.</p>
               </div>
 
               <div className="px-8 md:px-10 py-8">
                 {status === 'success' ? (
                   <div className="text-center py-10 space-y-5">
-                    <div className="w-16 h-16 rounded-full bg-[#F0FAFA] border border-[#D1EFEF] flex items-center justify-center mx-auto">
-                      <CheckCircle2 className="w-8 h-8 text-[#159A9C]" />
+                    <div className="w-16 h-16 rounded-full bg-[#F2F8FC] border border-[#00B8D9]/30 flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="w-8 h-8 text-[#00B8D9]" />
                     </div>
-                    <h3 className="font-display font-bold text-2xl text-[#0B253A]">Thanks, we'll be in touch soon.</h3>
-                    <p className="text-sm text-[#102A3A] max-w-sm mx-auto leading-relaxed">
-                      Hi <span className="font-bold text-[#0B253A]">{formData.name}</span>, your message about <span className="font-semibold">{formData.service}</span> has come through. One of our team will get back to you at <span className="font-semibold text-[#0B253A]">{formData.email}</span> or <span className="font-semibold text-[#0B253A]">{formData.phone}</span> — usually within 2 business hours.
+                    <h3 className="font-display font-bold text-2xl text-[#082B59]">Thanks, we'll be in touch soon.</h3>
+                    <p className="text-sm text-[#082B59]/80 max-w-sm mx-auto leading-relaxed">
+                      Hi <span className="font-bold text-[#082B59]">{formData.name}</span>, your message about <span className="font-semibold">{formData.service}</span> has come through. One of our team will get back to you at <span className="font-semibold text-[#082B59]">{formData.email}</span> or <span className="font-semibold text-[#082B59]">{formData.phone}</span> — usually within 2 business hours.
                     </p>
                     <button
                       onClick={() => {
                         setStatus('idle');
                         setFormData({ name: '', email: '', phone: '', service: 'Steam Carpet Cleaning', message: '' });
                       }}
-                      className="px-6 py-3 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-colors"
+                      className="px-6 py-3 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-colors"
                     >
                       Send Another Message
                     </button>
@@ -186,26 +186,26 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">Full Name *</label>
+                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Full Name *</label>
                         <input
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Full Name"
-                          className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] bg-[#F7FAFA]/60 text-[#0B253A] text-sm focus:outline-none focus:border-[#159A9C] focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors"
                           required
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">Email Address *</label>
+                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Email Address *</label>
                         <input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="Email Address"
-                          className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] bg-[#F7FAFA]/60 text-[#0B253A] text-sm focus:outline-none focus:border-[#159A9C] focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors"
                           required
                         />
                       </div>
@@ -213,7 +213,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">Phone Number *</label>
+                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Phone Number *</label>
                         <input
                           type="tel"
                           inputMode="numeric"
@@ -224,17 +224,17 @@ export default function ContactPage() {
                             setFormData({ ...formData, phone: digits });
                           }}
                           placeholder="Phone Number"
-                          className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] bg-[#F7FAFA]/60 text-[#0B253A] text-sm focus:outline-none focus:border-[#159A9C] focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors"
                           required
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">Service Required</label>
+                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Service Required</label>
                         <select
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] bg-[#F7FAFA]/60 text-[#0B253A] text-sm focus:outline-none focus:border-[#159A9C] focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors"
                         >
                           <option>Steam Carpet Cleaning</option>
                           <option>End of Lease Cleaning</option>
@@ -248,14 +248,14 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">Your Message *</label>
+                      <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Your Message *</label>
                       <textarea
                         name="message"
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Your Message"
-                        className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] bg-[#F7FAFA]/60 text-[#0B253A] text-sm focus:outline-none focus:border-[#159A9C] focus:bg-white transition-colors resize-none"
+                        className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors resize-none"
                         required
                       />
                     </div>
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={status === 'submitting'}
-                      className="w-full py-4 bg-[#0B253A] text-white font-bold rounded-xl text-sm hover:bg-[#159A9C] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full py-4 bg-[#082B59] text-white font-bold rounded-xl text-sm hover:bg-[#00B8D9] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {status === 'submitting' ? (
                         <span className="flex items-center gap-2">

@@ -7,7 +7,7 @@ const reviews = [
     name: "Sarah Mitchell",
     username: "Brisbane Northside",
     initials: "SM",
-    color: "#159A9C",
+    color: "#00B8D9",
     body: "Honestly didn't think the carpet was salvageable. Steam clean brought it back — looks way better than I expected. Will definitely use again.",
     rating: 5,
     service: "Steam Carpet Cleaning",
@@ -16,7 +16,7 @@ const reviews = [
     name: "James Nguyen",
     username: "Sunnybank Hills, QLD",
     initials: "JN",
-    color: "#159A9C",
+    color: "#00B8D9",
     body: "End of lease job done the day before inspection. Got the full bond back, no issues. Property manager didn't flag anything.",
     rating: 5,
     service: "End of Lease Cleaning",
@@ -80,7 +80,7 @@ const ReviewCard = ({
   service: string;
 }) => {
   return (
-    <Card className="relative h-full w-80 cursor-pointer overflow-hidden border border-[#D6E8E8] bg-white shadow-none p-5 hover:shadow-md transition-shadow">
+    <Card className="relative h-full w-80 cursor-pointer overflow-hidden border border-[#1261A0]/20 bg-white shadow-none p-5 hover:shadow-md transition-shadow">
       <CardContent className="p-0 flex flex-col gap-3">
         <div className="flex flex-row items-center gap-3">
           <div
@@ -90,17 +90,17 @@ const ReviewCard = ({
             {initials}
           </div>
           <div className="flex flex-col">
-            <p className="text-sm font-bold text-[#0B253A]">{name}</p>
-            <p className="text-xs text-[#60727F]">{username}</p>
+            <p className="text-sm font-bold text-[#082B59]">{name}</p>
+            <p className="text-xs text-[#082B59]/60">{username}</p>
           </div>
         </div>
         <div className="flex items-center gap-1">
           {[...Array(rating)].map((_, i) => (
             <Star key={i} className="w-3.5 h-3.5 fill-[#E9B949] text-[#E9B949]" />
           ))}
-          <span className="text-[10px] text-[#60727F] ml-1 font-medium">{service}</span>
+          <span className="text-[10px] text-[#082B59]/60 ml-1 font-medium">{service}</span>
         </div>
-        <p className="text-sm text-[#102A3A] leading-relaxed">{body}</p>
+        <p className="text-sm text-[#082B59]/80 leading-relaxed">{body}</p>
       </CardContent>
     </Card>
   );
@@ -119,8 +119,8 @@ export default function TestimonialMarqueeDemo() {
           <ReviewCard key={review.name} {...review} />
         ))}
       </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-[#F7FAFA] to-transparent z-10"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-[#F7FAFA] to-transparent z-10"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white to-transparent z-10"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white to-transparent z-10"></div>
     </div>
   );
 }

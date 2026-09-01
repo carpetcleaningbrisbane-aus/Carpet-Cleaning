@@ -6,15 +6,15 @@ import { SERVICES } from '@/data/siteData';
 import { CheckCircle2, CalendarDays, Clock, User, Mail, Phone, MapPin, ClipboardList } from 'lucide-react';
 import Link from 'next/link';
 
-const inputCls = 'w-full px-4 py-3 rounded-lg border border-[#C8D4D4] bg-white text-sm text-[#102A3A] placeholder:text-[#60727F] focus:outline-none focus:border-[#159A9C] focus:ring-2 focus:ring-[#E8F7F7] transition-colors';
-const labelCls = 'block text-xs font-semibold text-[#0B253A] uppercase tracking-wider mb-1.5';
+const inputCls = 'w-full px-4 py-3 rounded-lg border border-[#1261A0]/20 bg-white text-sm text-[#082B59] placeholder:text-[#082B59]/40 focus:outline-none focus:border-[#00B8D9] focus:ring-2 focus:ring-[#F2F8FC] transition-colors';
+const labelCls = 'block text-xs font-semibold text-[#082B59] uppercase tracking-wider mb-1.5';
 
 function Field({ label, error, icon, children }: { label: string; error?: string; icon?: React.ReactNode; children: React.ReactNode }) {
   return (
     <div data-error={error ? 'true' : undefined}>
       <label className={labelCls}>{label}</label>
       <div className="relative">
-        {icon && <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#60727F] pointer-events-none">{icon}</span>}
+        {icon && <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#082B59]/40 pointer-events-none">{icon}</span>}
         <div className={icon ? '[&_input]:pl-10 [&_select]:pl-10 [&_textarea]:pl-10' : ''}>{children}</div>
       </div>
       {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
@@ -93,23 +93,23 @@ function BookNowForm() {
     return (
       <div className="pt-24 md:pt-32 pb-24">
         <div className="px-5 md:px-16 max-w-[680px] mx-auto">
-          <div className="bg-white p-10 md:p-14 rounded-2xl border border-[#D6E8E8] ambient-shadow text-center space-y-5">
-            <div className="w-14 h-14 rounded-full bg-[#E8F7F7] flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8 text-[#159A9C]" />
+          <div className="bg-white p-10 md:p-14 rounded-2xl border border-[#1261A0]/20 ambient-shadow text-center space-y-5">
+            <div className="w-14 h-14 rounded-full bg-[#F2F8FC] flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-8 h-8 text-[#00B8D9]" />
             </div>
-            <h2 className="font-display font-bold text-2xl text-[#0B253A]">Booking Request Received</h2>
-            <p className="text-sm text-[#102A3A] max-w-sm mx-auto leading-relaxed">
+            <h2 className="font-display font-bold text-2xl text-[#082B59]">Booking Request Received</h2>
+            <p className="text-sm text-[#082B59]/80 max-w-sm mx-auto leading-relaxed">
               Thanks <span className="font-semibold">{formData.fullName}</span>. We'll confirm your appointment via phone or email within a few hours.
             </p>
-            <div className="text-left bg-[#F0FAFA] rounded-xl border border-[#D1EFEF] p-5 max-w-sm mx-auto space-y-2.5 text-sm">
-              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Services</span><span className="font-semibold text-[#0B253A]">{selectedServices.map(s => s.title).join(', ')}</span></div>
-              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Date</span><span className="font-semibold text-[#0B253A]">{formData.preferredDate}</span></div>
-              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Time</span><span className="font-semibold text-[#0B253A]">{formData.preferredTime}</span></div>
-              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Address</span><span className="font-semibold text-[#0B253A]">{formData.address}</span></div>
-              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Contact</span><span className="font-semibold text-[#0B253A]">{formData.phone}</span></div>
+            <div className="text-left bg-[#F2F8FC] rounded-xl border border-[#1261A0]/20 p-5 max-w-sm mx-auto space-y-2.5 text-sm">
+              <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Services</span><span className="font-semibold text-[#082B59]">{selectedServices.map(s => s.title).join(', ')}</span></div>
+              <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Date</span><span className="font-semibold text-[#082B59]">{formData.preferredDate}</span></div>
+              <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Time</span><span className="font-semibold text-[#082B59]">{formData.preferredTime}</span></div>
+              <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Address</span><span className="font-semibold text-[#082B59]">{formData.address}</span></div>
+              <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Contact</span><span className="font-semibold text-[#082B59]">{formData.phone}</span></div>
             </div>
-            <p className="text-xs text-[#60727F]">Need to make changes? Call <span className="font-semibold text-[#0B253A]">0435 071 625</span></p>
-            <Link href="/" className="inline-block px-7 py-3 bg-[#0B253A] text-white rounded-lg font-semibold text-sm hover:bg-[#159A9C] transition-all">
+            <p className="text-xs text-[#082B59]/60">Need to make changes? Call <span className="font-semibold text-[#082B59]">0435 071 625</span></p>
+            <Link href="/" className="inline-block px-7 py-3 bg-[#082B59] text-white rounded-lg font-semibold text-sm hover:bg-[#00B8D9] transition-all">
               Return to Home
             </Link>
           </div>
@@ -122,9 +122,9 @@ function BookNowForm() {
     <div className="pt-24 md:pt-32 pb-24">
 
       {/* Hero */}
-      <section className="bg-[#0B253A] py-14 px-5 md:px-16 mb-10">
+      <section className="bg-[#082B59] py-14 px-5 md:px-16 mb-10">
         <div className="max-w-[1280px] mx-auto text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-3 block">Online Booking</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#00B8D9] mb-3 block">Online Booking</span>
           <h1 className="font-display font-bold text-3xl md:text-4xl text-white mb-3">Book Your Cleaning</h1>
           <p className="text-sm text-white/65 max-w-md mx-auto">No upfront payment required. We'll confirm within a few hours.</p>
         </div>
@@ -132,13 +132,13 @@ function BookNowForm() {
 
       <section className="px-5 md:px-16 max-w-[780px] mx-auto">
         <form onSubmit={handleSubmit} noValidate>
-          <div className="bg-white rounded-2xl border border-[#D6E8E8] ambient-shadow divide-y divide-[#D6E8E8]">
+          <div className="bg-white rounded-2xl border border-[#1261A0]/20 ambient-shadow divide-y divide-[#1261A0]/15">
 
             {/* ── 1. Select Services ── */}
             <div className="p-7 md:p-9">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-7 h-7 rounded-full bg-[#0B253A] text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
-                <h2 className="font-display font-bold text-lg text-[#0B253A]">Select Services</h2>
+                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Select Services</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5" data-error={errors.serviceIds ? 'true' : undefined}>
                 {SERVICES.map((s) => {
@@ -150,12 +150,12 @@ function BookNowForm() {
                       onClick={() => toggleService(s.id)}
                       className={`flex items-center gap-3 px-4 py-3 rounded-lg border text-left transition-all ${
                         isSelected
-                          ? 'border-[#159A9C] bg-[#F0FAFA] text-[#0B253A]'
-                          : 'border-[#C8D4D4] bg-white text-[#60727F] hover:border-[#159A9C]/60 hover:text-[#0B253A]'
+                          ? 'border-[#00B8D9] bg-[#F2F8FC] text-[#082B59]'
+                          : 'border-[#1261A0]/20 bg-white text-[#082B59]/60 hover:border-[#00B8D9]/60 hover:text-[#082B59]'
                       }`}
                     >
                       <span className={`w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${
-                        isSelected ? 'bg-[#159A9C] border-[#159A9C]' : 'border-[#C8D4D4]'
+                        isSelected ? 'bg-[#00B8D9] border-[#00B8D9]' : 'border-[#1261A0]/30'
                       }`}>
                         {isSelected && (
                           <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
@@ -174,8 +174,8 @@ function BookNowForm() {
             {/* ── 2. Preferred Date & Time ── */}
             <div className="p-7 md:p-9">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-7 h-7 rounded-full bg-[#0B253A] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
-                <h2 className="font-display font-bold text-lg text-[#0B253A]">Preferred Date & Time</h2>
+                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Preferred Date & Time</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
@@ -203,8 +203,8 @@ function BookNowForm() {
             {/* ── 3. Contact Details ── */}
             <div className="p-7 md:p-9">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-7 h-7 rounded-full bg-[#0B253A] text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
-                <h2 className="font-display font-bold text-lg text-[#0B253A]">Your Details</h2>
+                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Your Details</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
@@ -259,11 +259,11 @@ function BookNowForm() {
             </div>
 
             {/* ── Submit ── */}
-            <div className="p-7 md:p-9 bg-[#F7FAFA] rounded-b-2xl">
+            <div className="p-7 md:p-9 bg-[#F2F8FC] rounded-b-2xl">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-[#0B253A] text-white font-bold text-sm rounded-lg hover:bg-[#159A9C] transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full py-4 bg-[#082B59] text-white font-bold text-sm rounded-lg hover:bg-[#00B8D9] transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -288,7 +288,7 @@ function BookNowForm() {
 
 export default function BookNowPage() {
   return (
-    <Suspense fallback={<div className="pt-32 text-center text-[#102A3A]">Loading...</div>}>
+    <Suspense fallback={<div className="pt-32 text-center text-[#082B59]/80">Loading...</div>}>
       <BookNowForm />
     </Suspense>
   );

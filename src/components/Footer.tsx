@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B253A] text-white w-full pt-20 pb-12 px-5 md:px-16 border-t border-[#159A9C]">
+    <footer className="bg-[#082B59] text-white w-full pt-20 pb-12 px-5 md:px-16 border-t border-[#00B8D9]">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1 flex flex-col">
@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/* Services Column */}
         <div className="col-span-1">
-          <h4 className="font-semibold text-xs text-[#E8F7F7] uppercase tracking-widest mb-6">
+          <h4 className="font-semibold text-xs text-[#F2F8FC] uppercase tracking-widest mb-6">
             Services
           </h4>
           <ul className="flex flex-col gap-3 text-sm font-body">
@@ -80,7 +80,7 @@ export default function Footer() {
 
         {/* Company Column */}
         <div className="col-span-1">
-          <h4 className="font-semibold text-xs text-[#E8F7F7] uppercase tracking-widest mb-6">
+          <h4 className="font-semibold text-xs text-[#F2F8FC] uppercase tracking-widest mb-6">
             Company
           </h4>
           <ul className="flex flex-col gap-3 text-sm font-body">
@@ -104,20 +104,20 @@ export default function Footer() {
 
         {/* Contact Info Column */}
         <div className="col-span-1">
-          <h4 className="font-semibold text-xs text-[#E8F7F7] uppercase tracking-widest mb-6">
+          <h4 className="font-semibold text-xs text-[#F2F8FC] uppercase tracking-widest mb-6">
             Contact & Support
           </h4>
           <ul className="flex flex-col gap-4 text-sm font-body text-white/80">
             <li className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[#159A9C] shrink-0" />
+              <Phone className="w-4 h-4 text-[#00B8D9] shrink-0" />
               <span>0435 071 625</span>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[#159A9C] shrink-0" />
+              <Mail className="w-4 h-4 text-[#00B8D9] shrink-0" />
               <span>info.theexpertcleaner@gmail.com</span>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-[#159A9C] mt-0.5 shrink-0" />
+              <MapPin className="w-4 h-4 text-[#00B8D9] mt-0.5 shrink-0" />
               <span>Brisbane City, QLD, Australia</span>
             </li>
           </ul>

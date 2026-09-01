@@ -33,7 +33,7 @@ const services = [
     href: '/book-now?service=steam-carpet-cleaning',
     image: '/steam-carpet-service.jpg',
     icon: 'waves',
-    accent: '#F0FAFA',
+    accent: '#F2F8FC',
   },
   {
     id: 'end-of-lease-cleaning',
@@ -51,7 +51,7 @@ const services = [
     href: '/book-now?service=end-of-lease-cleaning',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
     icon: 'shield',
-    accent: '#F7FAFA',
+    accent: '#F2F8FC',
   },
   {
     id: 'commercial-cleaning',
@@ -69,7 +69,7 @@ const services = [
     href: '/book-now?service=commercial-cleaning',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80',
     icon: 'building',
-    accent: '#F0FAFA',
+    accent: '#F2F8FC',
   },
   {
     id: 'stain-spot-removal',
@@ -89,7 +89,7 @@ const services = [
     href: '/book-now?service=stain-spot-removal',
     image: '/stain-odour-removal.jpg',
     icon: 'eraser',
-    accent: '#F7FAFA',
+    accent: '#F2F8FC',
   },
   {
     id: 'carpet-shampooing',
@@ -107,7 +107,7 @@ const services = [
     href: '/book-now?service=carpet-shampooing',
     image: '/carpet-shampooing.jpg',
     icon: 'brush',
-    accent: '#F0FAFA',
+    accent: '#F2F8FC',
   },
   {
     id: 'water-extraction',
@@ -125,12 +125,12 @@ const services = [
     href: '/book-now?service=water-extraction',
     image: '/water-extraction.jpg',
     icon: 'droplets',
-    accent: '#F7FAFA',
+    accent: '#F2F8FC',
   },
 ];
 
 function ServiceIcon({ name }: { name: string }) {
-  const cls = 'w-5 h-5 text-[#159A9C]';
+  const cls = 'w-5 h-5 text-[#00B8D9]';
   if (name === 'waves') return <Waves className={cls} />;
   if (name === 'shield') return <ShieldCheck className={cls} />;
   if (name === 'building') return <Building2 className={cls} />;
@@ -157,14 +157,14 @@ export default function ServicesPage() {
           alt="Professional carpet cleaning services in Brisbane"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Neutral dark overlay — readable text, no blue tint */}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
+        {/* Navy overlay */}
+        <div className="absolute inset-0 bg-[#082B59]/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B59]/30 via-transparent to-[#082B59]/40" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
             Professional Carpet<br />
-            <span className="text-[#E8F7F7]">Cleaning Services</span>
+            <span className="text-[#F2F8FC]">Cleaning Services</span>
           </h1>
 
           <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
@@ -194,7 +194,7 @@ export default function ServicesPage() {
             <div
               key={service.id}
               id={service.id}
-              className="group grid grid-cols-1 lg:grid-cols-2 rounded-3xl border border-[#D6E8E8] overflow-hidden ambient-shadow bg-white transition-all duration-300 hover:shadow-xl hover:border-[#D1EFEF]"
+              className="group grid grid-cols-1 lg:grid-cols-2 rounded-3xl border border-[#1261A0]/20 overflow-hidden ambient-shadow bg-white transition-all duration-300 hover:shadow-xl hover:border-[#00B8D9]/30"
             >
               {/* Image — alternates left/right */}
               <div className={`relative h-64 md:h-80 lg:h-auto min-h-[320px] overflow-hidden ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
@@ -205,12 +205,12 @@ export default function ServicesPage() {
                 />
                 {/* gradient overlay */}
                 <div className={`absolute inset-0 ${isEven
-                  ? 'bg-gradient-to-r from-transparent to-[#0B253A]/10'
-                  : 'bg-gradient-to-l from-transparent to-[#0B253A]/10'
+                  ? 'bg-gradient-to-r from-transparent to-[#082B59]/10'
+                  : 'bg-gradient-to-l from-transparent to-[#082B59]/10'
                   }`} />
                 {/* tag badge on image */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#0B253A] rounded-full font-bold text-xs shadow-sm">
+                  <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#082B59] rounded-full font-bold text-xs shadow-sm">
                     {service.tag}
                   </span>
                 </div>
@@ -221,24 +221,24 @@ export default function ServicesPage() {
                 style={{ backgroundColor: service.accent }}
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-11 h-11 rounded-xl bg-white border border-[#D6E8E8] flex items-center justify-center shadow-sm">
+                  <div className="w-11 h-11 rounded-xl bg-white border border-[#1261A0]/20 flex items-center justify-center shadow-sm">
                     <ServiceIcon name={service.icon} />
                   </div>
-                  <div className="h-px flex-grow bg-[#D6E8E8]" />
+                  <div className="h-px flex-grow bg-[#1261A0]/20" />
                 </div>
 
-                <h2 className="font-display font-bold text-2xl md:text-3xl text-[#0B253A] mb-4 leading-tight">
+                <h2 className="font-display font-bold text-2xl md:text-3xl text-[#082B59] mb-4 leading-tight">
                   {service.title}
                 </h2>
-                <p className="text-sm md:text-base text-[#102A3A] mb-7 leading-relaxed">
+                <p className="text-sm md:text-base text-[#082B59]/80 mb-7 leading-relaxed">
                   {service.description}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
                   {service.features.map((f, i) => (
                     <div key={i} className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#159A9C] shrink-0" />
-                      <span className="text-xs text-[#102A3A]">{f}</span>
+                      <CheckCircle2 className="w-4 h-4 text-[#00B8D9] shrink-0" />
+                      <span className="text-xs text-[#082B59]">{f}</span>
                     </div>
                   ))}
                 </div>
@@ -246,7 +246,7 @@ export default function ServicesPage() {
                 <div>
                   <Link
                     href={service.href}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
                   >
                     {service.cta} <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -259,8 +259,8 @@ export default function ServicesPage() {
 
       {/* Bottom CTA */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mt-24">
-        <div className="bg-[#0B253A] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
-          <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#159A9C]/20 blur-3xl pointer-events-none" />
+        <div className="bg-[#082B59] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
+          <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#00B8D9]/20 blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4 leading-tight">
               Not sure which service you need?
@@ -271,7 +271,7 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="/book-now"
-                className="px-8 py-4 bg-[#E8F7F7] text-[#0B253A] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md"
+                className="px-8 py-4 bg-[#00B8D9] text-[#082B59] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md"
               >
                 Book Online Now
               </Link>
