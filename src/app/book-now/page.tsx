@@ -1,15 +1,29 @@
 'use client';
 
-import { useState, useEffect, useRef, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { SERVICES, LOCATIONS } from '@/data/siteData';
-import { CheckCircle2, ChevronRight, ChevronLeft, ShieldCheck } from 'lucide-react';
+import { SERVICES } from '@/data/siteData';
+import { CheckCircle2, CalendarDays, Clock, User, Mail, Phone, MapPin, ClipboardList } from 'lucide-react';
 import Link from 'next/link';
+
+const inputCls = 'w-full px-4 py-3 rounded-lg border border-[#C8D4D4] bg-white text-sm text-[#102A3A] placeholder:text-[#60727F] focus:outline-none focus:border-[#159A9C] focus:ring-2 focus:ring-[#E8F7F7] transition-colors';
+const labelCls = 'block text-xs font-semibold text-[#0B253A] uppercase tracking-wider mb-1.5';
+
+function Field({ label, error, icon, children }: { label: string; error?: string; icon?: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div data-error={error ? 'true' : undefined}>
+      <label className={labelCls}>{label}</label>
+      <div className="relative">
+        {icon && <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#60727F] pointer-events-none">{icon}</span>}
+        <div className={icon ? '[&_input]:pl-10 [&_select]:pl-10 [&_textarea]:pl-10' : ''}>{children}</div>
+      </div>
+      {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+    </div>
+  );
+}
 
 function BookNowForm() {
   const searchParams = useSearchParams();
-  const formTopRef = useRef<HTMLDivElement>(null);
-  const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState({
     serviceIds: ['steam-carpet-cleaning'] as string[],
     preferredDate: '',
@@ -20,10 +34,10 @@ function BookNowForm() {
     address: '',
     notes: '',
   });
-  const [emailError, setEmailError] = useState('');
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Pre-select service from query param e.g. /book-now?service=end-of-lease-cleaning
   useEffect(() => {
     const serviceParam = searchParams.get('service');
     if (serviceParam && SERVICES.find((s) => s.id === serviceParam)) {
@@ -40,372 +54,233 @@ function BookNowForm() {
         ? prev.serviceIds.filter((s) => s !== id)
         : [...prev.serviceIds, id],
     }));
+    setErrors((e) => ({ ...e, serviceIds: '' }));
   };
 
-  const isValidEmail = (email: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  const scrollToForm = () => {
-    if (formTopRef.current) {
-      formTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  const handleNext = () => {
-    if (step === 1 && formData.serviceIds.length === 0) return;
-    if (step === 2 && !formData.preferredDate) return;
-    if (step === 3) {
-      if (!formData.fullName || !formData.email || !formData.phone || !formData.address) return;
-      if (!isValidEmail(formData.email)) {
-        setEmailError('Please enter a valid email address.');
-        return;
-      }
-    }
-    setEmailError('');
-    if (step < 4) {
-      setStep(step + 1);
-      scrollToForm();
-    }
-  };
-
-  const handleBack = () => {
-    if (step > 1) {
-      setStep(step - 1);
-      scrollToForm();
-    }
+  const validate = () => {
+    const e: Record<string, string> = {};
+    if (formData.serviceIds.length === 0) e.serviceIds = 'Please select at least one service.';
+    if (!formData.preferredDate) e.preferredDate = 'Please select a date.';
+    if (!formData.fullName.trim()) e.fullName = 'Full name is required.';
+    if (!formData.email.trim()) e.email = 'Email is required.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) e.email = 'Please enter a valid email.';
+    if (!formData.phone.trim()) e.phone = 'Phone number is required.';
+    if (!formData.address.trim()) e.address = 'Property address is required.';
+    return e;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      document.querySelector('[data-error]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    setIsSubmitting(true);
     try {
       await fetch('/api/booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-    } catch {
-      // still show success to user even if email fails
-    }
+    } catch { /* show success anyway */ }
+    setIsSubmitting(false);
     setIsSubmitted(true);
   };
 
+  if (isSubmitted) {
+    return (
+      <div className="pt-24 md:pt-32 pb-24">
+        <div className="px-5 md:px-16 max-w-[680px] mx-auto">
+          <div className="bg-white p-10 md:p-14 rounded-2xl border border-[#D6E8E8] ambient-shadow text-center space-y-5">
+            <div className="w-14 h-14 rounded-full bg-[#E8F7F7] flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-8 h-8 text-[#159A9C]" />
+            </div>
+            <h2 className="font-display font-bold text-2xl text-[#0B253A]">Booking Request Received</h2>
+            <p className="text-sm text-[#102A3A] max-w-sm mx-auto leading-relaxed">
+              Thanks <span className="font-semibold">{formData.fullName}</span>. We'll confirm your appointment via phone or email within a few hours.
+            </p>
+            <div className="text-left bg-[#F0FAFA] rounded-xl border border-[#D1EFEF] p-5 max-w-sm mx-auto space-y-2.5 text-sm">
+              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Services</span><span className="font-semibold text-[#0B253A]">{selectedServices.map(s => s.title).join(', ')}</span></div>
+              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Date</span><span className="font-semibold text-[#0B253A]">{formData.preferredDate}</span></div>
+              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Time</span><span className="font-semibold text-[#0B253A]">{formData.preferredTime}</span></div>
+              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Address</span><span className="font-semibold text-[#0B253A]">{formData.address}</span></div>
+              <div className="flex gap-2"><span className="text-[#60727F] w-20 shrink-0">Contact</span><span className="font-semibold text-[#0B253A]">{formData.phone}</span></div>
+            </div>
+            <p className="text-xs text-[#60727F]">Need to make changes? Call <span className="font-semibold text-[#0B253A]">0435 071 625</span></p>
+            <Link href="/" className="inline-block px-7 py-3 bg-[#0B253A] text-white rounded-lg font-semibold text-sm hover:bg-[#159A9C] transition-all">
+              Return to Home
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="pt-24 md:pt-32 pb-24">
-      {/* Header */}
-      <section className="bg-[#F0FAFA] py-12 px-5 md:px-16 border-b border-[#D6E8E8] mb-12">
+
+      {/* Hero */}
+      <section className="bg-[#0B253A] py-14 px-5 md:px-16 mb-10">
         <div className="max-w-[1280px] mx-auto text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-2 block">
-            Instant Online Booking
-          </span>
-          <h1 className="font-display font-bold text-3xl md:text-5xl text-[#0B253A] mb-4">
-            Book Your Cleaning
-          </h1>
-          <p className="text-sm md:text-base text-[#102A3A] max-w-xl mx-auto">
-            Reserve your preferred date and time in 4 simple steps. No upfront payment required.
-          </p>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-3 block">Online Booking</span>
+          <h1 className="font-display font-bold text-3xl md:text-4xl text-white mb-3">Book Your Cleaning</h1>
+          <p className="text-sm text-white/65 max-w-md mx-auto">No upfront payment required. We'll confirm within a few hours.</p>
         </div>
       </section>
 
-      <section className="px-5 md:px-16 max-w-[960px] mx-auto">
-        {/* Scroll anchor */}
-        <div ref={formTopRef} className="scroll-mt-28" />
-        {/* Progress Bar */}
-        {!isSubmitted && (
-          <div className="mb-10">
-            <div className="flex justify-between items-center mb-4 text-xs font-bold text-[#0B253A]">
-              <span className={step >= 1 ? 'text-[#159A9C]' : ''}>1. Service</span>
-              <span className={step >= 2 ? 'text-[#159A9C]' : ''}>2. Schedule</span>
-              <span className={step >= 3 ? 'text-[#159A9C]' : ''}>3. Details</span>
-              <span className={step >= 4 ? 'text-[#159A9C]' : ''}>4. Summary</span>
-            </div>
-            <div className="w-full bg-[#D6E8E8] h-2.5 rounded-full overflow-hidden">
-              <div
-                className="bg-[#0B253A] h-full transition-all duration-300"
-                style={{ width: `${(step / 4) * 100}%` }}
-              />
-            </div>
-          </div>
-        )}
+      <section className="px-5 md:px-16 max-w-[780px] mx-auto">
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="bg-white rounded-2xl border border-[#D6E8E8] ambient-shadow divide-y divide-[#D6E8E8]">
 
-        {isSubmitted ? (
-          <div className="bg-white p-10 md:p-16 rounded-3xl border border-[#D6E8E8] ambient-shadow text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-[#E8F7F7]/50 text-[#159A9C] flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-10 h-10" />
-            </div>
-            <h2 className="font-display font-bold text-3xl text-[#0B253A]">
-              We've Got Your Booking!
-            </h2>
-            <p className="text-base text-[#102A3A] max-w-md mx-auto leading-relaxed">
-              Thanks, <span className="font-bold text-[#0B253A]">{formData.fullName}</span>. We've received your request and our team will review it shortly. We'll confirm your appointment via phone or email within a few hours.
-            </p>
-            <div className="p-6 bg-[#F0FAFA] rounded-2xl text-left max-w-md mx-auto text-sm space-y-2 border border-[#D1EFEF]">
-              <p><strong>Services:</strong> {selectedServices.map((s) => s.title).join(', ')}</p>
-              <p><strong>Preferred Date:</strong> {formData.preferredDate} — {formData.preferredTime}</p>
-              <p><strong>Address:</strong> {formData.address}</p>
-              <p><strong>We'll reach you at:</strong> {formData.phone} or {formData.email}</p>
-            </div>
-            <p className="text-xs text-[#60727F] max-w-sm mx-auto leading-relaxed">
-              If you need to make any changes or have questions before your appointment, feel free to call us directly on <span className="font-semibold text-[#0B253A]">0435 071 625</span>.
-            </p>
-            <div className="pt-4">
-              <Link
-                href="/"
-                className="px-8 py-3.5 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all"
-              >
-                Return to Home
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="bg-white p-8 md:p-12 rounded-3xl border border-[#D6E8E8] ambient-shadow">
-
-            {/* Step 1: Select Services (multi-select) */}
-            {step === 1 && (
-              <div className="space-y-6">
-                <div>
-                  <h3 className="font-display font-bold text-2xl text-[#0B253A]">
-                    Step 1: Choose Your Services
-                  </h3>
-                  <p className="text-sm text-[#60727F] mt-1">You can select multiple services.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {SERVICES.map((s) => {
-                    const isSelected = formData.serviceIds.includes(s.id);
-                    return (
-                      <div
-                        key={s.id}
-                        onClick={() => toggleService(s.id)}
-                        className={`p-5 rounded-2xl border cursor-pointer transition-all ${
-                          isSelected
-                            ? 'border-[#0B253A] bg-[#F0FAFA] shadow-md'
-                            : 'border-[#C8D4D4] bg-white hover:border-[#60727F]'
-                        }`}
-                      >
-                        <div className="flex items-start gap-3">
-                          {/* Checkbox indicator */}
-                          <div className={`mt-0.5 w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${
-                            isSelected ? 'bg-[#0B253A] border-[#0B253A]' : 'border-[#C8D4D4]'
-                          }`}>
-                            {isSelected && (
-                              <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
-                                <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
-                            )}
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-base text-[#0B253A]">{s.title}</h4>
-                            <p className="text-xs text-[#102A3A] leading-relaxed mt-1">{s.description}</p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                {formData.serviceIds.length === 0 && (
-                  <p className="text-xs text-red-500">Please select at least one service to continue.</p>
-                )}
+            {/* ── 1. Select Services ── */}
+            <div className="p-7 md:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-7 h-7 rounded-full bg-[#0B253A] text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
+                <h2 className="font-display font-bold text-lg text-[#0B253A]">Select Services</h2>
               </div>
-            )}
-
-            {/* Step 2: Date and Time */}
-            {step === 2 && (
-              <div className="space-y-6">
-                <h3 className="font-display font-bold text-2xl text-[#0B253A]">
-                  Step 2: Preferred Schedule
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
-                      Preferred Date *
-                    </label>
-                    <input
-                      type="date"
-                      value={formData.preferredDate}
-                      onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
-                      Time Slot
-                    </label>
-                    <select
-                      value={formData.preferredTime}
-                      onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
-                    >
-                      <option value="Morning (8:00 AM - 12:00 PM)">Morning (8:00 AM - 12:00 PM)</option>
-                      <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
-                      <option value="Late Afternoon (4:00 PM - 6:00 PM)">Late Afternoon (4:00 PM - 6:00 PM)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Step 3: Customer Details */}
-            {step === 3 && (
-              <div className="space-y-6">
-                <h3 className="font-display font-bold text-2xl text-[#0B253A]">
-                  Step 3: Customer Information
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="Full Name"
-                      className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => {
-                        setFormData({ ...formData, email: e.target.value });
-                        setEmailError('');
-                      }}
-                      placeholder="Email Address"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm ${
-                        emailError ? 'border-red-400' : 'border-[#C8D4D4]'
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5" data-error={errors.serviceIds ? 'true' : undefined}>
+                {SERVICES.map((s) => {
+                  const isSelected = formData.serviceIds.includes(s.id);
+                  return (
+                    <button
+                      type="button"
+                      key={s.id}
+                      onClick={() => toggleService(s.id)}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg border text-left transition-all ${
+                        isSelected
+                          ? 'border-[#159A9C] bg-[#F0FAFA] text-[#0B253A]'
+                          : 'border-[#C8D4D4] bg-white text-[#60727F] hover:border-[#159A9C]/60 hover:text-[#0B253A]'
                       }`}
-                      required
-                    />
-                    {emailError && (
-                      <p className="text-xs text-red-500 mt-1">{emailError}</p>
-                    )}
-                  </div>
-                </div>
+                    >
+                      <span className={`w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${
+                        isSelected ? 'bg-[#159A9C] border-[#159A9C]' : 'border-[#C8D4D4]'
+                      }`}>
+                        {isSelected && (
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
+                            <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                      </span>
+                      <span className="text-sm font-semibold">{s.title}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              {errors.serviceIds && <p className="text-xs text-red-500 mt-2">{errors.serviceIds}</p>}
+            </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
-                    Mobile Phone *
-                  </label>
+            {/* ── 2. Preferred Date & Time ── */}
+            <div className="p-7 md:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-7 h-7 rounded-full bg-[#0B253A] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
+                <h2 className="font-display font-bold text-lg text-[#0B253A]">Preferred Date & Time</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
+                  <input
+                    type="date"
+                    value={formData.preferredDate}
+                    onChange={(e) => { setFormData({ ...formData, preferredDate: e.target.value }); setErrors((er) => ({ ...er, preferredDate: '' })); }}
+                    className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
+                  />
+                </Field>
+                <Field label="Time Slot" icon={<Clock className="w-4 h-4" />}>
+                  <select
+                    value={formData.preferredTime}
+                    onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
+                    className={inputCls + ' pl-10'}
+                  >
+                    <option>Morning (8:00 AM - 12:00 PM)</option>
+                    <option>Afternoon (12:00 PM - 4:00 PM)</option>
+                    <option>Late Afternoon (4:00 PM - 6:00 PM)</option>
+                  </select>
+                </Field>
+              </div>
+            </div>
+
+            {/* ── 3. Contact Details ── */}
+            <div className="p-7 md:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-7 h-7 rounded-full bg-[#0B253A] text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
+                <h2 className="font-display font-bold text-lg text-[#0B253A]">Your Details</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
+                  <input
+                    type="text"
+                    value={formData.fullName}
+                    onChange={(e) => { setFormData({ ...formData, fullName: e.target.value }); setErrors((er) => ({ ...er, fullName: '' })); }}
+                    placeholder="Full Name"
+                    className={inputCls + ' pl-10' + (errors.fullName ? ' border-red-400' : '')}
+                  />
+                </Field>
+                <Field label="Email Address *" error={errors.email} icon={<Mail className="w-4 h-4" />}>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((er) => ({ ...er, email: '' })); }}
+                    placeholder="Email Address"
+                    className={inputCls + ' pl-10' + (errors.email ? ' border-red-400' : '')}
+                  />
+                </Field>
+                <Field label="Mobile Phone *" error={errors.phone} icon={<Phone className="w-4 h-4" />}>
                   <input
                     type="tel"
                     inputMode="numeric"
                     value={formData.phone}
-                    onChange={(e) => {
-                      // only allow digits
-                      const digits = e.target.value.replace(/\D/g, '');
-                      setFormData({ ...formData, phone: digits });
-                    }}
+                    onChange={(e) => { const d = e.target.value.replace(/\D/g, ''); setFormData({ ...formData, phone: d }); setErrors((er) => ({ ...er, phone: '' })); }}
                     placeholder="Phone Number"
-                    className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
-                    required
+                    className={inputCls + ' pl-10' + (errors.phone ? ' border-red-400' : '')}
                   />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
-                    Property Address *
-                  </label>
+                </Field>
+                <Field label="Property Address *" error={errors.address} icon={<MapPin className="w-4 h-4" />}>
                   <input
                     type="text"
                     value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                    onChange={(e) => { setFormData({ ...formData, address: e.target.value }); setErrors((er) => ({ ...er, address: '' })); }}
                     placeholder="Property Address"
-                    className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
-                    required
+                    className={inputCls + ' pl-10' + (errors.address ? ' border-red-400' : '')}
                   />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-[#0B253A] uppercase tracking-wider mb-2">
-                    Special Instructions / Stain Notes (Optional)
-                  </label>
+                </Field>
+              </div>
+              <div className="mt-5">
+                <Field label="Special Instructions (Optional)" icon={<ClipboardList className="w-4 h-4" />}>
                   <textarea
                     rows={3}
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    placeholder="Special Instructions (Optional)"
-                    className="w-full px-4 py-3 rounded-xl border border-[#C8D4D4] text-sm"
+                    placeholder="Specific stains, access notes, pets..."
+                    className={inputCls + ' pl-10 resize-none pt-3'}
                   />
-                </div>
+                </Field>
               </div>
-            )}
-
-            {/* Step 4: Summary */}
-            {step === 4 && (
-              <div className="space-y-6">
-                <h3 className="font-display font-bold text-2xl text-[#0B253A]">
-                  Step 4: Review Booking Summary
-                </h3>
-                <div className="bg-[#F0FAFA] p-6 rounded-2xl border border-[#D1EFEF] space-y-3 text-sm">
-                  <div className="flex justify-between border-b border-[#D6E8E8] pb-2">
-                    <span className="text-[#60727F]">Selected Services:</span>
-                    <span className="font-bold text-[#0B253A] text-right max-w-[60%]">
-                      {selectedServices.map((s) => s.title).join(', ')}
-                    </span>
-                  </div>
-                  <div className="flex justify-between border-b border-[#D6E8E8] pb-2">
-                    <span className="text-[#60727F]">Date & Time:</span>
-                    <span className="font-bold text-[#0B253A]">{formData.preferredDate} ({formData.preferredTime})</span>
-                  </div>
-                  <div className="flex justify-between border-b border-[#D6E8E8] pb-2">
-                    <span className="text-[#60727F]">Address:</span>
-                    <span className="font-bold text-[#0B253A]">{formData.address}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-[#60727F]">Contact Details:</span>
-                    <span className="font-bold text-[#0B253A]">{formData.fullName} ({formData.phone})</span>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-[#F7FAFA] rounded-xl border border-[#D6E8E8] flex items-center gap-3">
-                  <ShieldCheck className="w-6 h-6 text-[#159A9C] shrink-0" />
-                  <p className="text-xs text-[#102A3A]">
-                    No immediate charge. Our technician will confirm final scope on-site before commencing work.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* Step Navigation Controls */}
-            <div className="flex justify-between items-center mt-10 pt-6 border-t border-[#D6E8E8]">
-              {step > 1 ? (
-                <button
-                  type="button"
-                  onClick={handleBack}
-                  className="px-4 py-2.5 md:px-6 md:py-3 border border-[#60727F] text-[#0B253A] rounded-xl font-semibold text-xs md:text-sm hover:bg-[#F0FAFA] flex items-center gap-2"
-                >
-                  <ChevronLeft className="w-4 h-4" /> Previous
-                </button>
-              ) : <div />}
-
-              {step < 4 ? (
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  className="px-5 py-2.5 md:px-8 md:py-3.5 bg-[#0B253A] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#159A9C] transition-all flex items-center gap-2"
-                >
-                  Next Step <ChevronRight className="w-4 h-4" />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  className="px-4 py-2.5 md:px-8 md:py-3.5 bg-[#0B253A] text-white rounded-xl font-semibold text-xs md:text-sm hover:bg-[#159A9C] transition-all shadow-md flex items-center gap-2"
-                >
-                  <span className="hidden sm:inline">Confirm & Reserve Booking</span>
-                  <span className="sm:hidden">Confirm Booking</span>
-                  <CheckCircle2 className="w-4 h-4" />
-                </button>
-              )}
             </div>
+
+            {/* ── Submit ── */}
+            <div className="p-7 md:p-9 bg-[#F7FAFA] rounded-b-2xl">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-[#0B253A] text-white font-bold text-sm rounded-lg hover:bg-[#159A9C] transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  <>Confirm Booking <CheckCircle2 className="w-4 h-4" /></>
+                )}
+              </button>
+            </div>
+
           </div>
-        )}
+        </form>
       </section>
     </div>
   );
@@ -413,7 +288,7 @@ function BookNowForm() {
 
 export default function BookNowPage() {
   return (
-    <Suspense fallback={<div className="pt-32 text-center text-[#102A3A]">Loading booking form...</div>}>
+    <Suspense fallback={<div className="pt-32 text-center text-[#102A3A]">Loading...</div>}>
       <BookNowForm />
     </Suspense>
   );
