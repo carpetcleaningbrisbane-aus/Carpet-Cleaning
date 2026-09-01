@@ -71,13 +71,18 @@ export default function AboutPage() {
 
           {/* Quick-nav pills */}
           <div className="flex flex-wrap justify-center gap-2 mt-10">
-            {['Our Approach', 'Why Choose Us', 'Our Process', 'Service Areas'].map((label) => (
-              <span
+            {[
+              { label: 'Our Approach', href: '#our-approach' },
+              { label: 'Why Choose Us', href: '#why-choose-us' },
+              { label: 'Our Process', href: '#our-process' },
+            ].map(({ label, href }) => (
+              <a
                 key={label}
-                className="px-4 py-1.5 bg-white/10 border border-white/20 text-white text-xs font-semibold rounded-full backdrop-blur-sm"
+                href={href}
+                className="px-4 py-1.5 bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xs font-semibold rounded-full backdrop-blur-sm transition-all"
               >
                 {label}
-              </span>
+              </a>
             ))}
           </div>
         </div>
@@ -103,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       {/* Intro Section */}
-      <section className="px-5 md:px-16 max-w-[1280px] mx-auto py-28">
+      <section id="our-approach" className="px-5 md:px-16 max-w-[1280px] mx-auto py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#1261A0] mb-4 px-4 py-2 rounded-full bg-[#1261A0]/10">
@@ -170,7 +175,7 @@ export default function AboutPage() {
       </section>
 
       {/* Process Steps */}
-      <section className="bg-[#F2F8FC] py-28 px-5 md:px-16 border-y border-[#1261A0]/15">
+      <section id="our-process" className="bg-[#F2F8FC] py-28 px-5 md:px-16 border-y border-[#1261A0]/15">
         <div className="max-w-[1280px] mx-auto">
           <div className="text-center mb-20">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#1261A0] mb-4 px-4 py-2 rounded-full bg-[#1261A0]/10">
@@ -208,7 +213,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-white py-28 px-5 md:px-16">
+      <section id="why-choose-us" className="bg-white py-28 px-5 md:px-16">
         <div className="max-w-[1280px] mx-auto">
           <div className="text-center mb-20">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#1261A0] mb-4 px-4 py-2 rounded-full bg-[#1261A0]/10">
