@@ -102,50 +102,25 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact Info + Map Column */}
+        {/* Contact Info Column */}
         <div className="col-span-1">
           <h4 className="font-semibold text-xs text-[#E8F7F7] uppercase tracking-widest mb-6">
             Contact & Support
           </h4>
-          <ul className="flex flex-col gap-3 text-sm font-body text-white/80 mb-5">
+          <ul className="flex flex-col gap-4 text-sm font-body text-white/80">
             <li className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[#E8F7F7]" />
+              <Phone className="w-4 h-4 text-[#159A9C] shrink-0" />
               <span>0435 071 625</span>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[#E8F7F7]" />
+              <Mail className="w-4 h-4 text-[#159A9C] shrink-0" />
               <span>info.theexpertcleaner@gmail.com</span>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-[#E8F7F7] mt-1 shrink-0" />
+              <MapPin className="w-4 h-4 text-[#159A9C] mt-0.5 shrink-0" />
               <span>Brisbane City, QLD, Australia</span>
             </li>
           </ul>
-
-          {/* Mini Google Map */}
-          <a
-            href="https://www.google.com/maps/place/Brisbane+City+QLD,+Australia/@-27.4703947,153.0127565,3518m"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group relative rounded-xl overflow-hidden border border-white/10 hover:border-[#E8F7F7]/40 transition-all"
-          >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14142.816!2d153.0127565!3d-27.4703947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a045cf620bb%3A0x502a35af3de84c0!2sBrisbane+City+QLD!5e0!3m2!1sen!2sau!4v1"
-              width="100%"
-              height="140"
-              style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(180deg) saturate(0.6)' }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Brisbane City location"
-            />
-            {/* Overlay label */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0B253A]/90 to-transparent px-3 py-2 flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#E8F7F7] shrink-0" />
-              <span className="text-[11px] font-semibold text-white/90">Brisbane City, QLD</span>
-              <span className="ml-auto text-[10px] text-[#E8F7F7] group-hover:underline">View map →</span>
-            </div>
-          </a>
         </div>
       </div>
 

@@ -569,6 +569,50 @@ export default function HomePage() {
       {/* FAQ Section */}
       <FaqSection />
 
+      {/* Service Area Map */}
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          {/* Left — info */}
+          <div className="flex flex-col justify-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-3 block">Where We Work</span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-4 leading-tight">
+              Serving Brisbane & Surrounds
+            </h2>
+            <p className="text-sm text-[#60727F] leading-relaxed mb-6">
+              We cover Brisbane City and surrounding suburbs. Not sure if we service your area? Send us a message and we'll get back to you.
+            </p>
+            <div className="space-y-3 mb-8">
+              {['Brisbane City', 'Northside & Southside', 'Inner West & East', 'Bayside Suburbs', 'Logan & Redlands'].map((area) => (
+                <div key={area} className="flex items-center gap-2.5 text-sm text-[#102A3A]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#159A9C] shrink-0" />
+                  {area}
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B253A] text-white rounded-xl font-semibold text-sm hover:bg-[#159A9C] transition-all w-max"
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          {/* Right — full interactive map */}
+          <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-[#D6E8E8] ambient-shadow min-h-[380px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56571.233!2d153.0127565!3d-27.4703947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a045cf620bb%3A0x502a35af3de84c0!2sBrisbane+City+QLD!5e0!3m2!1sen!2sau!4v1"
+              width="100%"
+              height="100%"
+              style={{ border: 0, display: 'block', minHeight: '380px' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Carpet Cleaner Brisbane service area"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Final Call to Action */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-20">
         <div className="bg-[#0B253A] text-white rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
