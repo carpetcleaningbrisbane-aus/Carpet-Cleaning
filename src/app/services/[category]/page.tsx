@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
-import { CheckCircle2, ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -79,14 +79,22 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-3">Our {cat.title} Services</h2>
             <p className="text-sm text-[#60727F] max-w-xl">Everything you need — handled properly, every time.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cat.services.map((s, i) => (
-              <div key={i} className="bg-[#F7FAFA] rounded-2xl p-6 border border-[#D6E8E8] hover:border-[#159A9C]/40 hover:shadow-md transition-all group">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: `${cat.accentColor}18` }}>
-                  <CheckCircle2 className="w-4 h-4" style={{ color: cat.accentColor }} />
+              <div key={i} className="bg-white rounded-2xl border border-[#D6E8E8] overflow-hidden hover:shadow-lg hover:border-[#159A9C]/40 transition-all group">
+                {/* Image */}
+                <div className="h-44 overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <h3 className="font-bold text-base text-[#0B253A] mb-2">{s.title}</h3>
-                <p className="text-sm text-[#60727F] leading-relaxed">{s.description}</p>
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="font-bold text-base text-[#0B253A] mb-2">{s.title}</h3>
+                  <p className="text-sm text-[#60727F] leading-relaxed">{s.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -101,18 +109,34 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-3">Our Process</h2>
             <p className="text-sm text-[#60727F] max-w-lg mx-auto">A clear, step-by-step approach so you know exactly what to expect.</p>
           </div>
-          <div className="relative">
-            {/* connecting line */}
-            <div className="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px bg-[#D6E8E8] -translate-x-1/2" />
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 relative z-10">
-              {cat.process.map((p, i) => (
-                <div key={i} className="flex flex-col items-center text-center">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-base mb-4 shadow-md"
-                    style={{ backgroundColor: cat.accentColor }}>
-                    {p.step}
-                  </div>
-                  <h3 className="font-bold text-sm text-[#0B253A] mb-2">{p.title}</h3>
-                  <p className="text-xs text-[#60727F] leading-relaxed">{p.desc}</p>
+
+          {/* Steps — centered flex-wrap works for any count */}
+          <div className="flex flex-wrap justify-center gap-8">
+            {cat.process.map((p, i) => (
+              <div key={i} className="flex flex-col items-center text-center w-40">
+                {/* Number circle */}
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-base mb-4 shadow-md shrink-0"
+                  style={{ backgroundColor: cat.accentColor }}
+                >
+                  {p.step}
+                </div>
+                {/* Connector dot on all but last */}
+                <h3 className="font-bold text-sm text-[#0B253A] mb-2">{p.title}</h3>
+                <p className="text-xs text-[#60727F] leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Horizontal connector line between steps on desktop */}
+          <div className="hidden md:flex justify-center mt-0 -mt-[4.5rem] mb-16 pointer-events-none">
+            <div className="flex items-center gap-0">
+              {cat.process.map((_, i) => (
+                <div key={i} className="flex items-center">
+                  <div className="w-6 h-6 rounded-full border-2 shrink-0" style={{ borderColor: cat.accentColor, backgroundColor: `${cat.accentColor}20` }} />
+                  {i < cat.process.length - 1 && (
+                    <div className="w-28 h-px" style={{ backgroundColor: cat.accentColor, opacity: 0.3 }} />
+                  )}
                 </div>
               ))}
             </div>

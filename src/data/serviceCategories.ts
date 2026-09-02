@@ -1,6 +1,7 @@
 export interface SubService {
   title: string;
   description: string;
+  image: string;
 }
 
 export interface ProcessStep {
@@ -39,33 +40,33 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     services: [
       {
         title: 'Steam Carpet Cleaning',
-        description:
-          'Hot water extraction that gets deep into the fibres and pulls out embedded dirt, allergens and bacteria.',
+        description: 'Hot water extraction that gets deep into the fibres and pulls out embedded dirt, allergens and bacteria.',
+        image: '/steam-carpet-service.jpg',
       },
       {
         title: 'End of Lease Carpet Cleaning',
-        description:
-          'Cleaning to real estate inspection standard so you can hand over the property and get your bond back.',
+        description: 'Cleaning to real estate inspection standard so you can hand over the property and get your bond back.',
+        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Office & Commercial Carpet Cleaning',
-        description:
-          'Flexible after-hours service for offices, retail spaces and commercial premises with heavy foot traffic.',
+        description: 'Flexible after-hours service for offices, retail spaces and commercial premises with heavy foot traffic.',
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Stain & Odour Removal',
-        description:
-          'Targeted treatment for pet accidents, coffee, wine, food spills and persistent carpet odours.',
+        description: 'Targeted treatment for pet accidents, coffee, wine, food spills and persistent carpet odours.',
+        image: '/stain-odour-removal.jpg',
       },
       {
         title: 'Carpet Shampooing',
-        description:
-          'Deep agitation cleaning for heavily soiled carpets that need more than a standard steam treatment.',
+        description: 'Deep agitation cleaning for heavily soiled carpets that need more than a standard steam treatment.',
+        image: '/carpet-shampooing.jpg',
       },
       {
         title: 'Carpet Water Extraction',
-        description:
-          'Emergency extraction for water-damaged or flooded carpets to minimise lasting damage.',
+        description: 'Emergency extraction for water-damaged or flooded carpets to minimise lasting damage.',
+        image: '/water-extraction.jpg',
       },
     ],
     process: [
@@ -92,23 +93,23 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     services: [
       {
         title: 'Sheer Curtain Cleaning',
-        description:
-          'Gentle low-moisture cleaning for delicate sheer and voile curtains that maintains fabric integrity.',
+        description: 'Gentle low-moisture cleaning for delicate sheer and voile curtains that maintains fabric integrity.',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Heavy Curtain Cleaning',
-        description:
-          'Deep cleaning for thick drapes, blockout curtains and lined panels that collect more dust over time.',
+        description: 'Deep cleaning for thick drapes, blockout curtains and lined panels that collect more dust over time.',
+        image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Blind Cleaning',
-        description:
-          'Thorough cleaning for venetian, roller and vertical blinds — removing dust, grime and stains.',
+        description: 'Thorough cleaning for venetian, roller and vertical blinds — removing dust, grime and stains.',
+        image: 'https://images.unsplash.com/photo-1464082354059-27db6ce50048?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Curtain Stain Removal',
-        description:
-          'Targeted stain treatment for water marks, food stains and other fabric marks on curtain panels.',
+        description: 'Targeted stain treatment for water marks, food stains and other fabric marks on curtain panels.',
+        image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80',
       },
     ],
     process: [
@@ -133,23 +134,23 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     services: [
       {
         title: 'Steam Couch Cleaning',
-        description:
-          'Hot water extraction for fabric sofas and couches — removes deep-set dirt, allergens and odours.',
+        description: 'Hot water extraction for fabric sofas and couches — removes deep-set dirt, allergens and odours.',
+        image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Leather Couch Cleaning',
-        description:
-          'Specialist cleaning and conditioning for leather surfaces to remove grime without drying the material.',
+        description: 'Specialist cleaning and conditioning for leather surfaces to remove grime without drying the material.',
+        image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Pet Stain & Odour Couch Cleaning',
-        description:
-          'Enzyme-based treatment targeting pet urine, hair and biological odours in upholstered furniture.',
+        description: 'Enzyme-based treatment targeting pet urine, hair and biological odours in upholstered furniture.',
+        image: '/stain-odour-removal.jpg',
       },
       {
         title: 'Fabric Upholstery Cleaning',
-        description:
-          'Low-moisture cleaning suitable for microfibre, velvet, linen and other delicate upholstery fabrics.',
+        description: 'Low-moisture cleaning suitable for microfibre, velvet, linen and other delicate upholstery fabrics.',
+        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80',
       },
     ],
     process: [
@@ -174,28 +175,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     services: [
       {
         title: 'Burn Carpet Repair',
-        description:
-          'Precise patching for cigarette burns, heat marks and iron damage using matched carpet material.',
+        description: 'Precise patching for cigarette burns, heat marks and iron damage using matched carpet material.',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Carpet Hole Repair',
-        description:
-          'Seamless repair for holes, tears and cuts in carpet using donor material and professional techniques.',
+        description: 'Seamless repair for holes, tears and cuts in carpet using donor material and professional techniques.',
+        image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Fix Carpet Patch',
-        description:
-          'Targeted patch repairs for isolated areas of damage that would otherwise require a full replacement.',
+        description: 'Targeted patch repairs for isolated areas of damage that would otherwise require a full replacement.',
+        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Carpet Restretching',
-        description:
-          'Power-stretching to remove ripples, bubbles and loose edges — preventing trip hazards and extending carpet life.',
+        description: 'Power-stretching to remove ripples, bubbles and loose edges — preventing trip hazards and extending carpet life.',
+        image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80',
       },
       {
         title: 'Pet Damage Carpet Repair',
-        description:
-          'Repair for clawing, digging and fraying damage caused by pets, including edge and corner repairs.',
+        description: 'Repair for clawing, digging and fraying damage caused by pets, including edge and corner repairs.',
+        image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80',
       },
     ],
     process: [
