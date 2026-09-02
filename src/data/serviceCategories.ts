@@ -102,7 +102,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: 'Fresh, clean curtains without the hassle of taking them down.',
     description:
       'Curtains trap dust, allergens, cooking odours and mould over time. Our on-site curtain cleaning service uses low-moisture techniques that are safe for all fabric types — including sheers, heavy drapes and blinds.',
-    heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/curtain-cleaning.jpg',
     accentColor: '#7B5EA7',
     services: [
       {
@@ -198,7 +198,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: 'Repair and restore damaged carpet without replacing it.',
     description:
       "Carpet damage from burns, tears, pet clawing or loose edges doesn't always mean replacement. Our carpet repair specialists can patch, restretch and restore damaged areas so the carpet looks and functions like normal again.",
-    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/carpet-repair.jpg',
     accentColor: '#2A7A4B',
     services: [
       {
