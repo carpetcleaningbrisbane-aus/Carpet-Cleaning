@@ -1,3 +1,13 @@
+import livingRoomBefore from '@/assets/gallery/01-living-room-before.png';
+import livingRoomAfter from '@/assets/gallery/01-living-room-after.png';
+import hallwayBefore from '@/assets/gallery/02-hallway-before.png';
+import hallwayAfter from '@/assets/gallery/02-hallway-after.png';
+import bedroomBefore from '@/assets/gallery/03-bedroom-before.png';
+import bedroomAfter from '@/assets/gallery/03-bedroom-after.png';
+
+const imgSrc = (img: { src: string } | string): string =>
+  typeof img === 'string' ? img : img.src;
+
 export interface FAQ {
   q: string;
   a: string;
@@ -83,9 +93,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { step: '05', title: 'Final Walkthrough', desc: "We check the result with you before we leave. If something's not right, we fix it on the spot." },
     ],
     gallery: [
-      { before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80', label: 'Living Room Restoration' },
-      { before: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80', label: 'Red Wine Stain Removal' },
-      { before: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80', label: 'Deep Carpet Shampoo' },
+      { before: imgSrc(livingRoomBefore), after: imgSrc(livingRoomAfter), label: 'Living Room Carpet Deep Clean' },
+      { before: imgSrc(hallwayBefore), after: imgSrc(hallwayAfter), label: 'High-Traffic Hallway Transformation' },
+      { before: imgSrc(bedroomBefore), after: imgSrc(bedroomAfter), label: 'Bedroom Carpet Refresh' },
     ],
     faqs: [
       { q: 'How often should carpets be professionally cleaned?', a: 'Carpets should be professionally cleaned every 6–12 months, or more frequently for homes with pets, kids, or heavy foot traffic.' },
