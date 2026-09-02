@@ -18,7 +18,7 @@ import Logo from './Logo';
    text classes below from `text-white…` to `text-[#0B253A]…`.
    ============================================================ */
 const NAV_BG = '#1261A0';           // Navbar background at top of page
-const NAV_BG_SCROLLED = '#082B59';  // Navbar background after scrolling (slightly darker)
+const NAV_BG_SCROLLED = 'rgba(18, 97, 160, 0.9)';  // Translucent blue
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-            ? 'shadow-lg py-3 border-b border-white/10'
+            ? 'shadow-lg py-3 border-b border-white/20 backdrop-blur-lg'
             : 'backdrop-blur-md shadow-md py-4 md:py-5'
           }`}
         style={{ backgroundColor: isScrolled ? NAV_BG_SCROLLED : `${NAV_BG}F2` }}

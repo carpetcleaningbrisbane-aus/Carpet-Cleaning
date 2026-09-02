@@ -33,7 +33,8 @@ const services = [
     href: '/book-now?service=steam-carpet-cleaning',
     image: '/steam-carpet-service.jpg',
     icon: 'waves',
-    accent: '#F2F8FC',
+    accent: '#059669',
+    isDark: true,
   },
   {
     id: 'end-of-lease-cleaning',
@@ -51,7 +52,8 @@ const services = [
     href: '/book-now?service=end-of-lease-cleaning',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
     icon: 'shield',
-    accent: '#F2F8FC',
+    accent: '#FFFBEB',
+    isDark: false,
   },
   {
     id: 'commercial-cleaning',
@@ -69,7 +71,8 @@ const services = [
     href: '/book-now?service=commercial-cleaning',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80',
     icon: 'building',
-    accent: '#F2F8FC',
+    accent: '#1261A0',
+    isDark: true,
   },
   {
     id: 'stain-spot-removal',
@@ -89,7 +92,8 @@ const services = [
     href: '/book-now?service=stain-spot-removal',
     image: '/stain-odour-removal.jpg',
     icon: 'eraser',
-    accent: '#F2F8FC',
+    accent: '#082B59',
+    isDark: true,
   },
   {
     id: 'carpet-shampooing',
@@ -107,7 +111,8 @@ const services = [
     href: '/book-now?service=carpet-shampooing',
     image: '/carpet-shampooing.jpg',
     icon: 'brush',
-    accent: '#F2F8FC',
+    accent: '#FAF7F2',
+    isDark: false,
   },
   {
     id: 'water-extraction',
@@ -125,7 +130,8 @@ const services = [
     href: '/book-now?service=water-extraction',
     image: '/water-extraction.jpg',
     icon: 'droplets',
-    accent: '#F2F8FC',
+    accent: '#E8F8FA',
+    isDark: false,
   },
 ];
 
@@ -194,7 +200,7 @@ export default function ServicesPage() {
             <div
               key={service.id}
               id={service.id}
-              className="group grid grid-cols-1 lg:grid-cols-2 rounded-3xl border border-[#1261A0]/20 overflow-hidden ambient-shadow bg-white transition-all duration-300 hover:shadow-xl hover:border-[#00B8D9]/30"
+              className={`group grid grid-cols-1 lg:grid-cols-2 rounded-3xl overflow-hidden ambient-shadow transition-all duration-300 hover:shadow-xl ${service.isDark ? 'border border-[#00B8D9]/20 hover:border-[#00B8D9]/40' : 'border border-[#1261A0]/20 hover:border-[#00B8D9]/30 bg-white'}`}
             >
               {/* Image — alternates left/right */}
               <div className={`relative h-64 md:h-80 lg:h-auto min-h-[320px] overflow-hidden ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
@@ -221,16 +227,16 @@ export default function ServicesPage() {
                 style={{ backgroundColor: service.accent }}
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-11 h-11 rounded-xl bg-white border border-[#1261A0]/20 flex items-center justify-center shadow-sm">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center shadow-sm ${service.isDark ? 'bg-white/10 border border-white/20' : 'bg-white border border-[#1261A0]/20'}`}>
                     <ServiceIcon name={service.icon} />
                   </div>
-                  <div className="h-px flex-grow bg-[#1261A0]/20" />
+                  <div className={`h-px flex-grow ${service.isDark ? 'bg-white/10' : 'bg-[#1261A0]/20'}`} />
                 </div>
 
-                <h2 className="font-display font-bold text-2xl md:text-3xl text-[#082B59] mb-4 leading-tight">
+                <h2 className={`font-display font-bold text-2xl md:text-3xl mb-4 leading-tight ${service.isDark ? 'text-white' : 'text-[#082B59]'}`}>
                   {service.title}
                 </h2>
-                <p className="text-sm md:text-base text-[#082B59]/80 mb-7 leading-relaxed">
+                <p className={`text-sm md:text-base mb-7 leading-relaxed ${service.isDark ? 'text-white/80' : 'text-[#082B59]/80'}`}>
                   {service.description}
                 </p>
 
@@ -238,7 +244,7 @@ export default function ServicesPage() {
                   {service.features.map((f, i) => (
                     <div key={i} className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-[#00B8D9] shrink-0" />
-                      <span className="text-xs text-[#082B59]">{f}</span>
+                      <span className={`text-xs ${service.isDark ? 'text-white/90' : 'text-[#082B59]'}`}>{f}</span>
                     </div>
                   ))}
                 </div>
@@ -246,7 +252,7 @@ export default function ServicesPage() {
                 <div>
                   <Link
                     href={service.href}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                    className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 ${service.isDark ? 'bg-[#00B8D9] text-[#082B59] hover:bg-white' : 'bg-[#082B59] text-white hover:bg-[#00B8D9]'}`}
                   >
                     {service.cta} <ArrowRight className="w-4 h-4" />
                   </Link>

@@ -126,7 +126,7 @@ function BookNowForm() {
         <div className="max-w-[1280px] mx-auto text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-[#00B8D9] mb-3 block">Online Booking</span>
           <h1 className="font-display font-bold text-3xl md:text-4xl text-white mb-3">Book Your Cleaning</h1>
-          <p className="text-sm text-white/65 max-w-md mx-auto">No upfront payment required. We'll confirm within a few hours.</p>
+          <p className="text-sm text-white/70 max-w-md mx-auto">No upfront payment required. We'll confirm within a few hours.</p>
         </div>
       </section>
 
@@ -259,11 +259,11 @@ function BookNowForm() {
             </div>
 
             {/* ── Submit ── */}
-            <div className="p-7 md:p-9 bg-[#F2F8FC] rounded-b-2xl">
+            <div className="bg-[#F2F8FC] p-7 md:p-9 rounded-b-2xl">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-[#082B59] text-white font-bold text-sm rounded-lg hover:bg-[#00B8D9] transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full py-4 bg-[#082B59] text-white font-bold text-sm rounded-lg hover:bg-[#00B8D9] hover:text-[#082B59] transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 {isSubmitting ? (
                   <>

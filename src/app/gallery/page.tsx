@@ -14,10 +14,10 @@ const FILTERS = [
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
-  carpet:     'bg-[#1261A0]/10 text-[#1261A0]',
-  stain:      'bg-[#00B8D9]/10 text-[#082B59]',
+  carpet: 'bg-[#1261A0]/10 text-[#1261A0]',
+  stain: 'bg-[#00B8D9]/10 text-[#082B59]',
   upholstery: 'bg-[#082B59]/10 text-[#082B59]',
-  rug:        'bg-[#F2F8FC] text-[#1261A0] border border-[#1261A0]/20',
+  rug: 'bg-[#F2F8FC] text-[#1261A0] border border-[#1261A0]/20',
 };
 
 /* ── Drag-to-reveal Before/After Slider ── */
@@ -145,7 +145,7 @@ export default function GalleryPage() {
   const selectedItem = selectedIdx !== null ? filteredItems[selectedIdx] : null;
 
   return (
-    <div className="pt-24 md:pt-32 pb-24">
+    <div className="pt-24 md:pt-32 pb-0 bg-[#F2F8FC]">
 
       {/* Hero Banner — real photo background */}
       <section className="relative py-24 md:py-32 px-5 md:px-16 mb-16 overflow-hidden">
@@ -176,10 +176,11 @@ export default function GalleryPage() {
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${filter === tab.id
-                ? 'bg-[#082B59] text-white shadow-md scale-105'
-                : 'bg-white text-[#082B59] hover:bg-[#F2F8FC] border border-[#1261A0]/20'
-                }`}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                filter === tab.id
+                  ? 'bg-[#082B59] text-white shadow-md scale-105'
+                  : 'bg-white text-[#082B59] hover:bg-[#F2F8FC] border border-[#1261A0]/20'
+              }`}
             >
               {tab.label}
             </button>
@@ -234,24 +235,21 @@ export default function GalleryPage() {
         )}
 
         {/* CTA */}
-        <div className="mt-16 relative overflow-hidden bg-[#082B59] rounded-3xl p-10 md:p-14 text-center">
+        <div className="mt-16 relative overflow-hidden rounded-3xl bg-[#082B59] p-10 md:p-14 text-center">
           <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#00B8D9]/20 blur-3xl pointer-events-none" />
           <div className="relative z-10">
             <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-3">Want Results Like These?</h3>
-            <p className="text-white/65 text-sm mb-8 max-w-md mx-auto leading-relaxed">
+            <p className="text-sm mb-8 max-w-md mx-auto leading-relaxed text-white/80">
               Book our certified cleaning team and experience the same transformation in your home or business.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/book-now" className="px-8 py-3.5 bg-[#00B8D9] text-[#082B59] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md">
-                Book Your Clean Now
-              </Link>
-              <Link href="/contact" className="px-8 py-3.5 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">
-                Ask Us a Question
-              </Link>
+              <Link href="/book-now" className="px-8 py-3.5 bg-[#00B8D9] text-[#082B59] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md hover:-translate-y-0.5">Book Your Clean Now</Link>
+              <Link href="/contact" className="px-8 py-3.5 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">Ask Us a Question</Link>
             </div>
           </div>
         </div>
       </section>
+      <div className="h-24"></div>
 
       {/* Lightbox Modal */}
       {selectedItem && (
