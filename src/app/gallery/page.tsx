@@ -193,7 +193,12 @@ export default function GalleryPage() {
           {filteredItems.map((item, idx) => (
             <div
               key={item.id}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#1261A0]/20 shadow-sm hover:shadow-xl hover:border-[#00B8D9]/30 transition-all duration-300"
+              className={`group rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 ${
+                item.category === 'carpet'     ? 'bg-gradient-to-br from-[#E8F7F7] to-[#F0FAFA] border-[#159A9C]/25 hover:border-[#159A9C]/50' :
+                item.category === 'stain'      ? 'bg-gradient-to-br from-[#FEF3E8] to-[#FFF8F2] border-[#C07B40]/25 hover:border-[#C07B40]/50' :
+                item.category === 'upholstery' ? 'bg-gradient-to-br from-[#F3F0FF] to-[#FAF8FF] border-[#7B5EA7]/25 hover:border-[#7B5EA7]/50' :
+                                                 'bg-gradient-to-br from-[#EDFAF3] to-[#F5FFF8] border-[#2A7A4B]/25 hover:border-[#2A7A4B]/50'
+              }`}
             >
               {/* Drag-to-reveal slider */}
               <BeforeAfterSlider
