@@ -104,44 +104,28 @@ export default async function ServiceCategoryPage({ params }: Props) {
       </section>
 
       {/* ── Our Process ── */}
-      <section className="py-20 px-5 md:px-16" style={{ backgroundColor: '#F0FAFA' }}>
+      <section className="py-24 px-5 md:px-16" style={{ backgroundColor: '#F0FAFA' }}>
         <div className="max-w-[1280px] mx-auto">
-          <div className="mb-12 text-center">
-            <span className="text-xs font-bold uppercase tracking-widest mb-2 block" style={{ color: cat.accentColor }}>How It Works</span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-3">Our Process</h2>
+          <div className="mb-16 text-center">
+            <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: cat.accentColor }}>How It Works</span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-4">Our Process</h2>
             <p className="text-sm text-[#60727F] max-w-lg mx-auto">A clear, step-by-step approach so you know exactly what to expect.</p>
           </div>
 
-          {/* Steps — centered flex-wrap works for any count */}
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {cat.process.map((p, i) => (
-              <div key={i} className="flex flex-col items-center text-center w-40">
+              <div key={i} className="flex flex-col items-center text-center bg-white rounded-2xl border border-[#D6E8E8] p-8 w-full sm:w-56 md:w-60 shadow-sm hover:shadow-md transition-shadow">
                 {/* Number circle */}
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-base mb-4 shadow-md shrink-0"
+                  className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg mb-5 shadow-md"
                   style={{ backgroundColor: cat.accentColor }}
                 >
                   {p.step}
                 </div>
-                {/* Connector dot on all but last */}
-                <h3 className="font-bold text-sm text-[#0B253A] mb-2">{p.title}</h3>
-                <p className="text-xs text-[#60727F] leading-relaxed">{p.desc}</p>
+                <h3 className="font-bold text-base text-[#0B253A] mb-3 leading-snug">{p.title}</h3>
+                <p className="text-sm text-[#60727F] leading-relaxed">{p.desc}</p>
               </div>
             ))}
-          </div>
-
-          {/* Horizontal connector line between steps on desktop */}
-          <div className="hidden md:flex justify-center mt-0 -mt-[4.5rem] mb-16 pointer-events-none">
-            <div className="flex items-center gap-0">
-              {cat.process.map((_, i) => (
-                <div key={i} className="flex items-center">
-                  <div className="w-6 h-6 rounded-full border-2 shrink-0" style={{ borderColor: cat.accentColor, backgroundColor: `${cat.accentColor}20` }} />
-                  {i < cat.process.length - 1 && (
-                    <div className="w-28 h-px" style={{ backgroundColor: cat.accentColor, opacity: 0.3 }} />
-                  )}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
