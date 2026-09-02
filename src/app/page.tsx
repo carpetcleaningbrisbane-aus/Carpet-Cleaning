@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2,
-  Home as HomeIcon, ChevronRight,
+  Home as HomeIcon, ChevronRight, MapPin,
 } from "lucide-react";
 import TestimonialMarquee from "@/components/ui/marquee-01";
 import FaqSection from "@/components/FaqSection";
@@ -31,6 +31,26 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+const MAIN_AREAS = [
+  "Brisbane City",
+  "Northside & Southside",
+  "Inner West & East",
+  "Bayside Suburbs",
+  "Logan & Redlands",
+];
+
+const SUBURBS = [
+  "Brisbane CBD",
+  "Brisbane Western Suburbs",
+  "Brisbane Southside",
+  "Brisbane Northside",
+  "Wynnum",
+  "Redcliffe",
+  "Caboolture",
+  "Ipswich",
+  "Gold Coast",
+];
 
 export default function HomePage() {
   return (
@@ -629,47 +649,66 @@ export default function HomePage() {
 
         {/* Service Area Section */}
         <section className="bg-[#F2F8FC]">
-          <div className="px-5 md:px-16 max-w-[1280px] mx-auto py-24 md:py-32">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#1261A0] mb-3 block">Where We Work</span>
-                <h2 className="font-display font-bold text-3xl md:text-4xl text-[#082B59] mb-4 leading-tight">Serving Brisbane & Surrounds</h2>
-                <p className="text-sm text-[#082B59]/70 leading-relaxed mb-6">We cover Brisbane City and surrounding suburbs. Not sure if we service your area? Send us a message and we'll get back to you.</p>
-                <div className="space-y-3 mb-8">
-                  <div className="flex items-center gap-2.5 text-sm text-[#082B59]/80">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#00B8D9] shrink-0" /> Brisbane City
+          {/* Service Areas Above Map */}
+          <div className="px-5 md:px-16 max-w-[1280px] mx-auto py-20 md:py-24">
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#1261A0] mb-3 block">Where We Work</span>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-[#082B59] mb-4 leading-tight">Serving Brisbane & Surrounds</h2>
+              <p className="text-sm text-[#082B59]/70 leading-relaxed max-w-2xl mx-auto">We cover Brisbane City and surrounding suburbs. Not sure if we service your area? Send us a message and we'll get back to you.</p>
+            </div>
+
+            {/* Main Service Areas */}
+            <div className="mb-16">
+              <div className="flex flex-wrap justify-center gap-3 mb-10">
+                {MAIN_AREAS.map((area, index) => (
+                  <div
+                    key={area}
+                    className="group relative px-6 py-3 bg-[#082B59] text-white rounded-full font-semibold text-sm hover:bg-[#00B8D9] hover:text-[#082B59] transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-default"
+                  >
+                    <MapPin className="w-4 h-4 inline-block mr-2" />
+                    {area}
+                    <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <div className="flex items-center gap-2.5 text-sm text-[#082B59]/80">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#00B8D9] shrink-0" /> Northside & Southside
-                  </div>
-                  <div className="flex items-center gap-2.5 text-sm text-[#082B59]/80">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#00B8D9] shrink-0" /> Inner West & East
-                  </div>
-                  <div className="flex items-center gap-2.5 text-sm text-[#082B59]/80">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#00B8D9] shrink-0" /> Bayside Suburbs
-                  </div>
-                  <div className="flex items-center gap-2.5 text-sm text-[#082B59]/80">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#00B8D9] shrink-0" /> Logan & Redlands
-                  </div>
-                </div>
-                <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-[#1261A0] text-white rounded-xl font-bold text-sm hover:bg-[#082B59] transition-all w-max">Contact Us</Link>
+                ))}
               </div>
             </div>
 
-            {/* Full-width map */}
-            <div className="rounded-2xl overflow-hidden border border-[#E2EDF6] shadow-xl">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56571.233!2d153.0127565!3d-27.4703947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a045cf620bb%3A0x502a35af3de84c0!2sBrisbane+City+QLD!5e0!3m2!1sen!2sau!4v1"
-                width="100%"
-                height="460"
-                style={{ border: 0, display: "block" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Carpet Cleaner Brisbane service area"
-              />
+            {/* Suburbs We Cover */}
+            <div className="mb-12">
+              <div className="text-center mb-8">
+                <span className="inline-block px-4 py-1.5 bg-[#00B8D9]/10 text-[#00B8D9] text-xs font-bold uppercase tracking-widest rounded-full border border-[#00B8D9]/30">
+                  Suburbs We Cover
+                </span>
+              </div>
+              <div className="flex flex-wrap justify-center gap-3">
+                {SUBURBS.map((suburb, index) => (
+                  <div
+                    key={suburb}
+                    className="group px-5 py-2.5 bg-white border-2 border-[#1261A0]/20 text-[#082B59] rounded-xl font-medium text-sm hover:border-[#00B8D9] hover:bg-[#00B8D9] hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-md cursor-default"
+                  >
+                    {suburb}
+                  </div>
+                ))}
+              </div>
             </div>
 
+            <div className="text-center mt-12">
+              <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-[#1261A0] text-white rounded-xl font-bold text-base hover:bg-[#082B59] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+
+          {/* Full Width Map */}
+          <div className="w-full h-[500px] md:h-[600px] relative">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56571.233!2d153.0127565!3d-27.4703947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a045cf620bb%3A0x502a35af3de84c0!2sBrisbane+City+QLD!5e0!3m2!1sen!2sau!4v1"
+              className="absolute inset-0 w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Carpet Cleaner Brisbane service area"
+            />
           </div>
         </section>
 
