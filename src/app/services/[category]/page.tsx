@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -169,6 +169,29 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <Link href="/gallery" className="inline-flex items-center gap-2 text-sm font-semibold hover:underline" style={{ color: cat.accentColor }}>
               View full gallery <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="bg-white py-20 px-5 md:px-16">
+        <div className="max-w-[860px] mx-auto">
+          <div className="mb-10">
+            <span className="text-xs font-bold uppercase tracking-widest mb-2 block" style={{ color: cat.accentColor }}>FAQ</span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A]">Frequently Asked Questions</h2>
+          </div>
+          <div className="space-y-3">
+            {cat.faqs.map((faq, i) => (
+              <details key={i} className="group rounded-2xl border border-[#D6E8E8] bg-[#F7FAFA] overflow-hidden">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none font-semibold text-sm text-[#0B253A] hover:bg-[#F0FAFA] transition-colors">
+                  {faq.q}
+                  <ChevronDown className="w-4 h-4 shrink-0 text-[#60727F] transition-transform duration-200 group-open:rotate-180" />
+                </summary>
+                <div className="px-6 pb-5 pt-1 text-sm text-[#60727F] leading-relaxed border-t border-[#D6E8E8]">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>

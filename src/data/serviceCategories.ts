@@ -1,3 +1,8 @@
+export interface FAQ {
+  q: string;
+  a: string;
+}
+
 export interface SubService {
   title: string;
   description: string;
@@ -26,6 +31,7 @@ export interface ServiceCategory {
   services: SubService[];
   process: ProcessStep[];
   gallery: GalleryPreview[];
+  faqs: FAQ[];
 }
 
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
@@ -81,6 +87,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { before: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80', label: 'Red Wine Stain Removal' },
       { before: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80', label: 'Deep Carpet Shampoo' },
     ],
+    faqs: [
+      { q: 'How often should carpets be professionally cleaned?', a: 'Carpets should be professionally cleaned every 6–12 months, or more frequently for homes with pets, kids, or heavy foot traffic.' },
+      { q: 'Is steam carpet cleaning safe?', a: 'Yes. Steam cleaning is manufacturer-recommended and safe for most carpet types when done by trained professionals.' },
+      { q: 'How long does carpet drying take?', a: 'Most carpets dry within 3 to 4 hours, depending on the material and cleaning method used.' },
+      { q: 'Do you remove pet stains and odours?', a: 'Yes. Our deep steam cleaning and targeted treatments effectively remove pet stains, bacteria, and odours.' },
+      { q: 'What are your service areas?', a: 'We provide professional carpet cleaning across Brisbane, including Brisbane CBD, North Brisbane, South Brisbane, Eastern and Western suburbs, Moreton Bay, Logan, Redlands, Ipswich, and surrounding suburbs.' },
+      { q: 'Is your carpet cleaning eco-friendly?', a: 'Absolutely. We use safe, eco-friendly cleaning solutions suitable for kids and pets.' },
+    ],
   },
   {
     slug: 'curtain-cleaning',
@@ -122,6 +136,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { before: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=800&q=80', label: 'Sheer Curtain Clean' },
       { before: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80', label: 'Heavy Drape Refresh' },
     ],
+    faqs: [
+      { q: 'How often should I professionally clean my curtains?', a: 'For regular use, we recommend professional curtain cleaning every 6 to 12 months. Pet-filled or high-traffic households might require more frequent cleaning.' },
+      { q: 'What\'s the best way to clean delicate curtains?', a: 'Delicate curtains are best handled with curtain dry cleaning to preserve fabric integrity.' },
+      { q: 'How long does it take for curtains to dry?', a: 'Curtains typically dry within 4 to 6 hours using our fast-drying curtain washing process.' },
+      { q: 'Do you offer onsite curtain cleaning services?', a: 'Yes, we offer onsite curtain cleaning with professional curtain cleaning techniques.' },
+      { q: 'Can you remove mold from curtains?', a: 'Yes, our curtain steam cleaning process effectively removes mold while keeping the fabric safe.' },
+    ],
   },
   {
     slug: 'couch-cleaning',
@@ -162,6 +183,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     gallery: [
       { before: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80', label: 'Fabric Couch Deep Clean' },
       { before: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80', label: 'Pet Stain Treatment' },
+    ],
+    faqs: [
+      { q: 'How often should I get my couch professionally cleaned?', a: 'We recommend upholstery cleaning every 6 to 12 months, or sooner if there are spills, heavy foot traffic, or pets.' },
+      { q: 'Is the cleaning solution safe for pets and children?', a: 'Yes! Our sofa steam clean techniques neutralize pet odors and effectively remove stains.' },
+      { q: 'How long does the cleaning process take?', a: 'Most couch cleaning sessions take 1 to 2 hours, with drying time depending on the fabric type.' },
+      { q: 'What are your service areas?', a: 'We provide professional upholstery cleaning across Brisbane, including Brisbane CBD, North Brisbane, South Brisbane, Eastern and Western suburbs, Moreton Bay, Logan, Redlands, Ipswich, and surrounding suburbs.' },
+      { q: 'Will my couch shrink or fade after cleaning?', a: 'No, our gentle fabric sofa cleaning process ensures your couch retains its original colour and size without damage.' },
     ],
   },
   {
@@ -209,6 +237,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { before: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80', label: 'Burn Mark Repair' },
       { before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80', label: 'Carpet Restretch' },
     ],
+    faqs: [
+      { q: 'Can damaged carpet be repaired instead of replaced?', a: 'Yes. Most burns, tears, pet damage, stains, wrinkles, ripples and lifted carpet can be professionally repaired, saving you the cost of replacing the entire carpet.' },
+      { q: 'What types of carpet damage can you repair?', a: 'We specialise in carpet burn repair, rips & holes repair, pet damage, carpet patch repairs, carpet restretch, wrinkles, seams, loose carpet fixing, turn carpet, and water damaged carpet.' },
+      { q: 'How much does carpet repair cost in Brisbane?', a: 'The cost depends on the type and size of the damage. Repairs are generally much cheaper than replacing the entire carpet. We provide a free quote online.' },
+      { q: 'Can you repair pet-damaged carpet?', a: 'Yes. We repair carpet damaged by dogs and cats, including scratching, chewing, digging, torn carpet fibres and pet-related damage.' },
+      { q: 'Will the repaired area be visible?', a: 'Our goal is to make repairs blend as closely as possible with the surrounding carpet. In many cases, repairs are difficult to notice once completed.' },
+    ],
   },
   {
     slug: 'mattress-cleaning',
@@ -254,6 +289,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     gallery: [
       { before: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80', label: 'Mattress Stain Removal' },
       { before: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80', label: 'Deep Mattress Clean' },
+    ],
+    faqs: [
+      { q: 'How often should I have my mattress cleaned?', a: 'We recommend professional cleaning every 6 to 12 months for optimal hygiene.' },
+      { q: 'Does your cleaning remove dust mites and bacteria?', a: 'Yes! Our process effectively eliminates dust mites, bacteria, and allergens for a healthier sleep.' },
+      { q: 'Can you remove urine stains and odours?', a: 'Absolutely! We specialise in removing pet and human urine stains and neutralising odours.' },
+      { q: 'How long does it take for the mattress to dry?', a: 'Drying time varies, but most mattresses dry within 4 to 6 hours.' },
+      { q: 'Is the cleaning safe for memory foam mattresses?', a: 'Yes! We use a gentle yet effective process designed specifically for memory foam and all other mattress types.' },
     ],
   },
 ];
