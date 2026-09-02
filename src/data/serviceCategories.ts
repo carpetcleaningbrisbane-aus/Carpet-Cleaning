@@ -47,17 +47,17 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Steam Carpet Cleaning',
         description: 'Hot water extraction that gets deep into the fibres and pulls out embedded dirt, allergens and bacteria.',
-        image: '/steam-carpet-service.jpg',
+        image: '/services/steam-carpet-cleaning.jpg',
       },
       {
         title: 'End of Lease Carpet Cleaning',
         description: 'Cleaning to real estate inspection standard so you can hand over the property and get your bond back.',
-        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80',
+        image: '/services/end-of-lease-cleaning.jpg',
       },
       {
         title: 'Office & Commercial Carpet Cleaning',
         description: 'Flexible after-hours service for offices, retail spaces and commercial premises with heavy foot traffic.',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+        image: '/services/commercial-carpet-cleaning.jpg',
       },
       {
         title: 'Stain & Odour Removal',
@@ -72,7 +72,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Carpet Water Extraction',
         description: 'Emergency extraction for water-damaged or flooded carpets to minimise lasting damage.',
-        image: '/water-extraction.jpg',
+        image: '/services/carpet-water-extraction.jpg',
       },
     ],
     process: [
