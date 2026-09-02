@@ -120,13 +120,9 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <p className="text-sm text-white/70 max-w-lg mx-auto">A clear, step-by-step approach so you know exactly what to expect.</p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          <div className={`grid gap-4 md:gap-5 ${cat.process.length >= 5 ? 'grid-cols-2 lg:grid-cols-5' : 'grid-cols-2 lg:grid-cols-4'}`}>
             {cat.process.map((p, i) => (
-              <div key={i} className={`flex flex-col items-center text-center bg-white/15 backdrop-blur-sm rounded-2xl border border-white/25 p-6 w-full hover:bg-white/25 transition-all ${
-                cat.process.length >= 5
-                  ? 'sm:w-[calc(50%-8px)] lg:w-[calc(20%-16px)]'
-                  : 'sm:w-48 md:w-52'
-              }`}>
+              <div key={i} className="flex flex-col items-center text-center bg-white/15 backdrop-blur-sm rounded-2xl border border-white/25 p-6 hover:bg-white/25 transition-all">
                 {/* Number circle */}
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-lg mb-5 shadow-md bg-white"
