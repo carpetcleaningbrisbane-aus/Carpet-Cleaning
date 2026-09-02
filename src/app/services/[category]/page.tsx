@@ -84,7 +84,8 @@ export default async function ServiceCategoryPage({ params }: Props) {
             {cat.services.map((s, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl border border-[#D6E8E8] overflow-hidden hover:shadow-lg transition-all group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                className="rounded-2xl overflow-hidden hover:shadow-lg transition-all group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                style={{ backgroundColor: `${cat.accentColor}10`, border: `1px solid ${cat.accentColor}30` }}
               >
                 {/* Accent top stripe */}
                 <div className="h-1 w-full" style={{ backgroundColor: cat.accentColor }} />
@@ -111,26 +112,26 @@ export default async function ServiceCategoryPage({ params }: Props) {
       </section>
 
       {/* ── Our Process ── */}
-      <section className="py-24 px-5 md:px-16" style={{ backgroundColor: '#F0FAFA' }}>
+      <section className="py-24 px-5 md:px-16" style={{ backgroundColor: cat.accentColor }}>
         <div className="max-w-[1280px] mx-auto">
           <div className="mb-16 text-center">
-            <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: cat.accentColor }}>How It Works</span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-4">Our Process</h2>
-            <p className="text-sm text-[#60727F] max-w-lg mx-auto">A clear, step-by-step approach so you know exactly what to expect.</p>
+            <span className="text-xs font-bold uppercase tracking-widest mb-3 block text-white/70">How It Works</span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">Our Process</h2>
+            <p className="text-sm text-white/70 max-w-lg mx-auto">A clear, step-by-step approach so you know exactly what to expect.</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {cat.process.map((p, i) => (
-              <div key={i} className="flex flex-col items-center text-center bg-white rounded-2xl border border-[#D6E8E8] p-8 w-full sm:w-56 md:w-60 shadow-sm hover:shadow-md transition-shadow">
+              <div key={i} className="flex flex-col items-center text-center bg-white/15 backdrop-blur-sm rounded-2xl border border-white/25 p-8 w-full sm:w-56 md:w-60 hover:bg-white/25 transition-all">
                 {/* Number circle */}
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg mb-5 shadow-md"
-                  style={{ backgroundColor: cat.accentColor }}
+                  className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-lg mb-5 shadow-md bg-white"
+                  style={{ color: cat.accentColor }}
                 >
                   {p.step}
                 </div>
-                <h3 className="font-bold text-base text-[#0B253A] mb-3 leading-snug">{p.title}</h3>
-                <p className="text-sm text-[#60727F] leading-relaxed">{p.desc}</p>
+                <h3 className="font-bold text-base text-white mb-3 leading-snug">{p.title}</h3>
+                <p className="text-sm text-white/75 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
