@@ -174,7 +174,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="bg-white py-20 px-5 md:px-16">
+      <section className="py-20 px-5 md:px-16 border-t border-[#D6E8E8]" style={{ backgroundColor: '#F0FAFA' }}>
         <div className="max-w-[860px] mx-auto">
           <div className="mb-10">
             <span className="text-xs font-bold uppercase tracking-widest mb-2 block" style={{ color: cat.accentColor }}>FAQ</span>
