@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -23,9 +23,7 @@ const SERVICE_CATEGORIES = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -34,20 +32,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
-
   // Close on route change
   useEffect(() => {
-    setServicesOpen(false);
     setIsOpen(false);
   }, [pathname]);
 
@@ -88,40 +74,32 @@ export default function Navbar() {
               Home
             </Link>
 
-            {/* Services dropdown */}
-            <div ref={dropdownRef} className="relative">
-              <button
-                onClick={() => setServicesOpen((o) => !o)}
+            {/* Services — hover to open dropdown, click goes to hub */}
+            <div className="relative group">
+              <Link
+                href="/services"
                 className={`flex items-center gap-1 font-semibold text-sm tracking-wider uppercase transition-colors duration-200 ${
                   isServicesActive ? 'text-[#00B8D9] border-b-2 border-[#00B8D9] pb-1' : 'text-white/75 hover:text-white'
                 }`}
               >
                 Services
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
-              </button>
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
+              </Link>
 
-              {servicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-white rounded-2xl shadow-xl border border-[#D6E8E8] overflow-hidden z-50">
-                  <Link
-                    href="/services"
-                    className="block px-4 py-3 text-xs font-bold uppercase tracking-widest text-[#60727F] border-b border-[#F0FAFA] hover:bg-[#F7FAFA] transition-colors"
-                  >
-                    All Services
-                  </Link>
+              {/* Dropdown — shows on hover via group-hover */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="bg-white rounded-2xl shadow-xl border border-[#E0ECEC] overflow-hidden w-52 py-1">
                   {SERVICE_CATEGORIES.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="flex items-center gap-3 px-4 py-3 hover:bg-[#F7FAFA] transition-colors group"
+                      className="block px-5 py-2.5 text-sm text-[#0B253A] hover:bg-[#F0FAFA] hover:text-[#159A9C] transition-colors font-medium"
                     >
-                      <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: s.color }} />
-                      <span className="text-sm font-semibold text-[#0B253A] group-hover:text-[#159A9C] transition-colors">
-                        {s.name}
-                      </span>
+                      {s.name}
                     </Link>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
 
             {[
