@@ -79,10 +79,13 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-3">Our {cat.title} Services</h2>
             <p className="text-sm text-[#60727F] max-w-xl">Everything you need — handled properly, every time.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Use flex-wrap with justify-center so odd last items center naturally */}
+          <div className="flex flex-wrap justify-center gap-6">
             {cat.services.map((s, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-[#D6E8E8] overflow-hidden hover:shadow-lg hover:border-[#159A9C]/40 transition-all group">
-                {/* Image */}
+              <div
+                key={i}
+                className="bg-white rounded-2xl border border-[#D6E8E8] overflow-hidden hover:shadow-lg hover:border-[#159A9C]/40 transition-all group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              >
                 <div className="h-44 overflow-hidden">
                   <img
                     src={s.image}
@@ -90,7 +93,6 @@ export default async function ServiceCategoryPage({ params }: Props) {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                {/* Content */}
                 <div className="p-5">
                   <h3 className="font-bold text-base text-[#0B253A] mb-2">{s.title}</h3>
                   <p className="text-sm text-[#60727F] leading-relaxed">{s.description}</p>
