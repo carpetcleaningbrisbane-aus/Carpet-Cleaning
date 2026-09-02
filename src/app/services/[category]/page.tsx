@@ -84,8 +84,10 @@ export default async function ServiceCategoryPage({ params }: Props) {
             {cat.services.map((s, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl border border-[#D6E8E8] overflow-hidden hover:shadow-lg hover:border-[#159A9C]/40 transition-all group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                className="bg-white rounded-2xl border border-[#D6E8E8] overflow-hidden hover:shadow-lg transition-all group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
+                {/* Accent top stripe */}
+                <div className="h-1 w-full" style={{ backgroundColor: cat.accentColor }} />
                 <div className="h-44 overflow-hidden">
                   <img
                     src={s.image}
@@ -94,7 +96,12 @@ export default async function ServiceCategoryPage({ params }: Props) {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-base text-[#0B253A] mb-2">{s.title}</h3>
+                  <h3
+                    className="font-bold text-base mb-2"
+                    style={{ color: cat.accentColor }}
+                  >
+                    {s.title}
+                  </h3>
                   <p className="text-sm text-[#60727F] leading-relaxed">{s.description}</p>
                 </div>
               </div>
