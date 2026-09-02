@@ -637,7 +637,7 @@ export default function HomePage() {
               <h2 className="font-display font-bold text-3xl md:text-4xl text-[#082B59] mb-4">Carpet Cleaning Across Brisbane</h2>
               <p className="text-sm text-[#082B59]/70 mb-8 max-w-xl mx-auto">We service Brisbane City and all surrounding suburbs. Can&apos;t see your area? Give us a call and we&apos;ll let you know.</p>
               <div className="flex flex-wrap justify-center gap-2.5">
-                {['Brisbane CBD','Brisbane Western Suburbs','Brisbane Southside','Carpet Cleaning Brisbane Northside','Wynnum','Redcliffe','Caboolture','Ipswich','Gold Coast','North Brisbane','South Brisbane','East Brisbane','West Brisbane','Chermside','Zillmere','Aspley','Nundah','North Lakes','Stafford','Boondall','Virginia','Kedron','Sandgate','Carindale','Indooroopilly','Springfield'].map((area) => (
+                {['Brisbane CBD','Brisbane Western Suburbs','Brisbane Southside','Carpet Cleaning Brisbane Northside','Wynnum','Redcliffe','Caboolture','Ipswich','Gold Coast'].map((area) => (
                   <span key={area} className="px-4 py-2 bg-white border border-[#1261A0]/20 text-[#082B59] text-xs font-semibold rounded-full shadow-sm hover:border-[#1261A0]/50 hover:bg-[#E8F0FA] transition-all cursor-default">
                     {area}
                   </span>
