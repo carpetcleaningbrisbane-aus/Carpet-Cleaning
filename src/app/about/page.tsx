@@ -53,15 +53,15 @@ export default function AboutPage() {
       {/* Header Banner - Navy */}
       <section className="relative py-24 md:py-32 px-5 md:px-16 overflow-hidden">
         <img src={aboutBanner.src} alt="Professional carpet cleaners serving Brisbane" className="absolute inset-0 w-full h-full object-cover object-center" />
-        <div className="absolute inset-0 bg-[#082B59]/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B59]/30 via-transparent to-[#082B59]/40" />
+        {/* Subtle dark tint to ensure white text remains readable without hiding the image */}
+        <div className="absolute inset-0 bg-black/10" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
             Professional Carpet Cleaners<br />
             <span className="text-[#F2F8FC]">Serving Brisbane</span>
           </h1>
-          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+          <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
             A Brisbane carpet cleaning team that does the job properly. We work in homes, rentals and offices — and we show up when we say we will.
           </p>
 

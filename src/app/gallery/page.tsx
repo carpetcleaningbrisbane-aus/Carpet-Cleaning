@@ -106,12 +106,12 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
 
       {/* Labels */}
       <div className="absolute top-4 left-4 pointer-events-none">
-        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#082B59]/70 text-white rounded-full backdrop-blur-sm">
+        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#082B59]/70 text-white rounded-full">
           Before
         </span>
       </div>
       <div className="absolute top-4 right-4 pointer-events-none">
-        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#00B8D9]/90 text-white rounded-full backdrop-blur-sm">
+        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#00B8D9]/90 text-white rounded-full">
           After
         </span>
       </div>
@@ -119,7 +119,7 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
       {/* Drag hint — fades after first interaction */}
       {position === 50 && !isDragging && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg flex items-center gap-2 animate-pulse">
+          <div className="bg-white/90 rounded-full px-4 py-2 shadow-lg flex items-center gap-2 animate-pulse">
             <ChevronLeft className="w-3.5 h-3.5 text-[#00B8D9]" />
             <span className="text-xs font-bold text-[#082B59]">Drag to compare</span>
             <ChevronRight className="w-3.5 h-3.5 text-[#00B8D9]" />
@@ -155,15 +155,15 @@ export default function GalleryPage() {
           alt="Before and after carpet cleaning transformation in a Brisbane home"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Navy overlay */}
-        <div className="absolute inset-0 bg-[#082B59]/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B59]/30 via-transparent to-[#082B59]/45" />
+
+        {/* Subtle dark tint to ensure white text remains readable without hiding the image */}
+        <div className="absolute inset-0 bg-black/10" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight drop-shadow-lg">
             Before & After <span className="text-[#F2F8FC]">Showcase</span>
           </h1>
-          <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             Drag the slider on each photo to reveal the transformation — real results from real Brisbane homes and businesses.
           </p>
         </div>
@@ -176,11 +176,10 @@ export default function GalleryPage() {
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
-                filter === tab.id
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${filter === tab.id
                   ? 'bg-[#082B59] text-white shadow-md scale-105'
                   : 'bg-white text-[#082B59] hover:bg-[#F2F8FC] border border-[#1261A0]/20'
-              }`}
+                }`}
             >
               {tab.label}
             </button>
@@ -254,7 +253,7 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       {selectedItem && (
         <div
-          className="fixed inset-0 z-50 bg-[#082B59]/80 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#082B59]/80 flex items-center justify-center p-4"
           onClick={closeModal}
         >
           <div
