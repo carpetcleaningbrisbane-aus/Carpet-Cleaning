@@ -176,7 +176,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Services Section - Darker background and better text visibility */}
+        {/* Services Section - Removed blue overlay, added animations */}
         <section className="bg-[#DCE6F1] text-[#082B59] py-24 md:py-32">
           <div className="px-5 md:px-16 max-w-[1280px] mx-auto">
             <div className="text-center mb-16">
@@ -186,20 +186,48 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {CARPET_SERVICES.map((service, i) => (
-                <Link key={service.id} href={`/services#${service.id}`} className="group relative rounded-2xl overflow-hidden border border-[#1261A0]/20 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 min-h-[250px] flex bg-white">
-                  <img src={service.image.src} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  {/* Darker overlay for better text visibility */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#082B59]/70 via-[#082B59]/50 to-[#082B59]/30 transition-opacity duration-500 group-hover:opacity-95" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#082B59]/80 via-transparent to-transparent" />
-                  <span className="absolute top-7 right-8 font-display font-bold text-4xl text-white/20 group-hover:text-white/40 transition-colors duration-300 select-none">0{i + 1}</span>
-                  <div className="relative z-10 p-8 md:p-9 w-full flex flex-col justify-center">
-                    <div className="w-10 h-[3px] bg-[#00B8D9] rounded-full mb-4" />
-                    <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-2.5 leading-snug pr-14">{service.title}</h3>
-                    <p className="text-sm text-white/95 leading-relaxed mb-4 max-w-lg">{service.description}</p>
-                    <span className="inline-flex items-center gap-1 text-[#00B8D9] font-semibold text-sm w-max group-hover:gap-2.5 transition-all duration-300">
-                      Learn More <ChevronRight className="w-4 h-4" />
+                <Link
+                  key={service.id}
+                  href={`/services#${service.id}`}
+                  className="group relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 min-h-[280px] flex bg-white"
+                >
+                  {/* Image with scale animation */}
+                  <img
+                    src={service.image.src}
+                    alt={service.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+
+                  {/* Minimal dark overlay for text readability - removed blue tint */}
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-500" />
+
+                  {/* Animated number */}
+                  <span className="absolute top-7 right-8 font-display font-bold text-5xl text-white/20 group-hover:text-white/40 transition-all duration-500 select-none group-hover:scale-110 transform">
+                    0{i + 1}
+                  </span>
+
+                  {/* Content with animation */}
+                  <div className="relative z-10 p-8 md:p-9 w-full flex flex-col justify-center transform transition-all duration-500 group-hover:translate-y-0">
+                    {/* Animated line */}
+                    <div className="w-12 h-[3px] bg-[#00B8D9] rounded-full mb-4 transform transition-all duration-500 group-hover:w-20" />
+
+                    <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-3 leading-snug">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-sm text-white/90 leading-relaxed mb-5 max-w-lg opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                      {service.description}
+                    </p>
+
+                    {/* Animated Learn More button */}
+                    <span className="inline-flex items-center gap-2 text-[#00B8D9] font-semibold text-base w-max group-hover:gap-3 transition-all duration-300 transform group-hover:translate-x-2">
+                      Learn More
+                      <ChevronRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                   </div>
+
+                  {/* Hover border effect */}
+                  <div className="absolute inset-0 border-2 border-[#00B8D9]/0 group-hover:border-[#00B8D9]/30 rounded-2xl transition-all duration-500 pointer-events-none" />
                 </Link>
               ))}
             </div>
@@ -254,7 +282,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Fixed: Removed green overlay, using dark neutral overlay for better text visibility */}
             <div className="group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden border border-[#A7F3D0] ambient-shadow mb-8">
               <img src="/steam-cleaning.jpg" alt="Professional steam carpet cleaning in a Brisbane home" className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
 
