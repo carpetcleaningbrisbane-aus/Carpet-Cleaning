@@ -210,4 +210,50 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80', label: 'Carpet Restretch' },
     ],
   },
+  {
+    slug: 'mattress-cleaning',
+    title: 'Mattress Cleaning',
+    tagline: 'A cleaner, healthier mattress for a better night\'s sleep.',
+    description:
+      'Mattresses accumulate dust mites, dead skin cells, sweat, allergens and stains over time. Our professional mattress cleaning uses targeted treatments and steam to sanitise and refresh your mattress without harsh chemicals.',
+    heroImage: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80',
+    accentColor: '#1261A0',
+    services: [
+      {
+        title: 'Deep Mattress Cleaning',
+        description: 'Thorough hot water extraction cleaning that removes deep-set dirt, dust mites and biological buildup from within the mattress layers.',
+        image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Traditional Mattress Cleaning',
+        description: 'A classic dry-clean method suitable for mattresses that require low-moisture treatment to avoid fabric damage.',
+        image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Mattress Stain Removal',
+        description: 'Targeted treatment for urine, blood, sweat and other stubborn stains using enzyme-based cleaning solutions.',
+        image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Mattress Sanitizing',
+        description: 'UV and chemical sanitization to eliminate bacteria, dust mites and allergens — ideal for allergy sufferers and post-illness cleaning.',
+        image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Mattress Steam Cleaning',
+        description: 'High-temperature steam treatment that kills dust mites and bacteria while freshening the mattress fabric without chemical residue.',
+        image: 'https://images.unsplash.com/photo-1588117305388-c2631a279f82?auto=format&fit=crop&w=600&q=80',
+      },
+    ],
+    process: [
+      { step: '01', title: 'Initial Consultation', desc: 'We assess the mattress condition, fabric type, stains and specific concerns before selecting the right cleaning method.' },
+      { step: '02', title: 'Pre-Treatment', desc: 'Stains and problem areas are pre-treated with appropriate solutions to break down soiling before the main clean.' },
+      { step: '03', title: 'Deep Cleaning', desc: 'The mattress is cleaned using steam, hot water extraction or dry methods depending on the fabric and level of soiling.' },
+      { step: '04', title: 'Final Inspection', desc: 'We inspect the completed clean with you and ensure the mattress is left fresh, sanitised and ready to use.' },
+    ],
+    gallery: [
+      { before: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80', label: 'Mattress Stain Removal' },
+      { before: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80', label: 'Deep Mattress Clean' },
+    ],
+  },
 ];

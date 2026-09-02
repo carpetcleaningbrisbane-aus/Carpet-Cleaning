@@ -17,6 +17,7 @@ const SERVICE_CATEGORIES = [
   { name: 'Curtain Cleaning', href: '/services/curtain-cleaning', color: '#7B5EA7' },
   { name: 'Couch Cleaning', href: '/services/couch-cleaning', color: '#C07B40' },
   { name: 'Carpet Repair', href: '/services/carpet-repair', color: '#2A7A4B' },
+  { name: 'Mattress Cleaning', href: '/services/mattress-cleaning', color: '#1261A0' },
 ];
 
 export default function Navbar() {
