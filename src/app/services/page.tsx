@@ -1,297 +1,94 @@
 import Link from 'next/link';
-import { Waves, Eraser, Building2, ShieldCheck, Droplets, ArrowRight, CheckCircle2, Brush, Star } from 'lucide-react';
-import { Metadata } from 'next';
-import { BreadcrumbSchema } from '@/app/structured-data';
+import type { Metadata } from 'next';
+import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Carpet Cleaning Services Brisbane | Steam, Stain & Commercial',
-  description: 'Explore our full range of carpet cleaning services in Brisbane — steam cleaning, end of lease, commercial, stain & odour removal, carpet shampooing and water extraction.',
+  title: 'Cleaning Services Brisbane | Carpet, Curtain, Couch & Repair',
+  description: 'Professional carpet cleaning, curtain cleaning, couch cleaning and carpet repair services across Brisbane. Book online today.',
   alternates: { canonical: '/services' },
-  openGraph: {
-    title: 'Carpet Cleaning Services Brisbane | Steam, Stain & Commercial',
-    description: 'Professional carpet cleaning services in Brisbane for homes, rentals, offices and businesses. Steam cleaning, stain removal, end of lease and more.',
-    url: '/services',
-  },
 };
-
-const services = [
-  {
-    id: 'steam-carpet-cleaning',
-    tag: 'Deep Clean',
-    title: 'Steam Carpet Cleaning',
-    description:
-      'Carpets hold a surprising amount of dirt beneath their surface. Professional hot water extraction reaches deep into fibres to loosen and extract accumulated dust, allergens, food particles and contaminants that everyday vacuuming leaves behind.',
-    features: [
-      'Detailed carpet inspection',
-      'Pre-vacuuming & pre-treatment',
-      'Hot water extraction technology',
-      'Reduces allergens & dust buildup',
-      'Treats heavy-traffic areas',
-      'Efficient drying guidance',
-    ],
-    cta: 'Book Steam Cleaning',
-    href: '/book-now?service=steam-carpet-cleaning',
-    image: '/steam-carpet-service.jpg',
-    icon: 'waves',
-    accent: '#059669',
-    isDark: true,
-  },
-  {
-    id: 'end-of-lease-cleaning',
-    tag: 'Bond & Rental',
-    title: 'End of Lease Carpet Cleaning',
-    description:
-      'Moving out of a rental property is stressful. Our end-of-lease service targets dark traffic lanes, food spills, pet stains and general dirt to present carpets in their best condition before final inspection and property handover.',
-    features: [
-      'Final rental inspection ready',
-      'Property handover standard',
-      'Bond preparation clean',
-      'Real estate inspection grade',
-    ],
-    cta: 'Book End of Lease',
-    href: '/book-now?service=end-of-lease-cleaning',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
-    icon: 'shield',
-    accent: '#FFFBEB',
-    isDark: false,
-  },
-  {
-    id: 'commercial-cleaning',
-    tag: 'Commercial',
-    title: 'Office & Commercial Carpet Cleaning',
-    description:
-      'A clean workplace creates a better environment for everyone. Commercial carpets receive heavy daily traffic. We clean offices, reception areas, hallways, meeting rooms, retail spaces and showrooms with flexible scheduling to suit your business hours.',
-    features: [
-      'High-traffic corridor treatment',
-      'Flexible after-hours bookings',
-      'Removes trapped dust & odours',
-      'Maintains professional presentation',
-    ],
-    cta: 'Request Commercial Quote',
-    href: '/book-now?service=commercial-cleaning',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80',
-    icon: 'building',
-    accent: '#1261A0',
-    isDark: true,
-  },
-  {
-    id: 'stain-spot-removal',
-    tag: 'Targeted',
-    title: 'Stain & Odour Removal',
-    description:
-      'Specialised treatment for common carpet stains including coffee, wine, pet accidents and persistent odours. We assess stain type, carpet fibre and age before applying targeted neutralising pre-treatments and professional extraction.',
-    features: [
-      'Coffee & tea stains',
-      'Wine & juice marks',
-      'Pet urine & odours',
-      'Food & grease spills',
-      'Mud & tracked dirt',
-      'Biological odour treatment',
-    ],
-    cta: 'Book Stain Treatment',
-    href: '/book-now?service=stain-spot-removal',
-    image: '/stain-odour-removal.jpg',
-    icon: 'eraser',
-    accent: '#082B59',
-    isDark: true,
-  },
-  {
-    id: 'carpet-shampooing',
-    tag: 'Heavy Soil Care',
-    title: 'Carpet Shampooing',
-    description:
-      'A thorough cleaning process designed to loosen accumulated dirt, soil and grime from carpet fibres. Combines specialised cleaning products with professional agitation equipment to break down heavily soiled areas and refresh tired-looking carpets.',
-    features: [
-      'Initial carpet inspection',
-      'Dry soil removal pre-vacuum',
-      'Deep shampoo solution agitation',
-      'Professional extraction & rinse',
-    ],
-    cta: 'Book Carpet Shampooing',
-    href: '/book-now?service=carpet-shampooing',
-    image: '/carpet-shampooing.jpg',
-    icon: 'brush',
-    accent: '#FAF7F2',
-    isDark: false,
-  },
-  {
-    id: 'water-extraction',
-    tag: 'Emergency & Water Relief',
-    title: 'Carpet Water Extraction',
-    description:
-      'Water damage can happen unexpectedly from leaks, overflows or burst pipes. Our professional water extraction service uses high-power machinery to rapidly remove excess water from saturated carpet fibres and backing to assist the drying process.',
-    features: [
-      'Rapid moisture removal',
-      'Prevents musty odours',
-      'Leak & overflow response',
-      'Drying & ventilation guidance',
-    ],
-    cta: 'Request Water Extraction',
-    href: '/book-now?service=water-extraction',
-    image: '/water-extraction.jpg',
-    icon: 'droplets',
-    accent: '#E8F8FA',
-    isDark: false,
-  },
-];
-
-function ServiceIcon({ name }: { name: string }) {
-  const cls = 'w-5 h-5 text-[#00B8D9]';
-  if (name === 'waves') return <Waves className={cls} />;
-  if (name === 'shield') return <ShieldCheck className={cls} />;
-  if (name === 'building') return <Building2 className={cls} />;
-  if (name === 'eraser') return <Eraser className={cls} />;
-  if (name === 'brush') return <Brush className={cls} />;
-  if (name === 'droplets') return <Droplets className={cls} />;
-  return null;
-}
 
 export default function ServicesPage() {
   return (
-    <>
-      <BreadcrumbSchema items={[
-        { name: 'Home', url: 'https://[WEBSITE_URL]/' },
-        { name: 'Services', url: 'https://[WEBSITE_URL]/services' },
-      ]} />
     <div className="pt-24 md:pt-32 pb-24">
 
-      {/* Header Banner — real photo background */}
-      <section className="relative py-24 md:py-32 px-5 md:px-16 mb-20 overflow-hidden">
-        {/* Background photo */}
-        <img
-          src="/services-banner.png"
-          alt="Professional carpet cleaning services in Brisbane"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-        {/* Navy overlay */}
-        <div className="absolute inset-0 bg-[#082B59]/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B59]/30 via-transparent to-[#082B59]/40" />
-
-        <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
-            Professional Carpet<br />
-            <span className="text-[#F2F8FC]">Cleaning Services</span>
+      {/* Hero */}
+      <section className="bg-[#0B253A] py-20 px-5 md:px-16 mb-16">
+        <div className="max-w-[1280px] mx-auto text-center">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#159A9C] mb-3 block">Professional Cleaning</span>
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight">
+            Our Services
           </h1>
-
-          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-            A full range of professional carpet cleaning services for homes, rentals, offices and commercial spaces throughout Brisbane — from deep steam cleaning to emergency water extraction.
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
+            From carpet steam cleaning to couch restoration and carpet repair — we handle it all across Brisbane.
           </p>
-
-          {/* Quick-jump pills */}
-          <div className="flex flex-wrap justify-center gap-2 mt-10">
-            {services.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="px-4 py-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold rounded-full transition-all backdrop-blur-sm"
-              >
-                {s.tag}
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="px-5 md:px-16 max-w-[1280px] mx-auto space-y-12">
-        {services.map((service, idx) => {
-          const isEven = idx % 2 === 0;
-          return (
-            <div
-              key={service.id}
-              id={service.id}
-              className={`group grid grid-cols-1 lg:grid-cols-2 rounded-3xl overflow-hidden ambient-shadow transition-all duration-300 hover:shadow-xl ${service.isDark ? 'border border-[#00B8D9]/20 hover:border-[#00B8D9]/40' : 'border border-[#1261A0]/20 hover:border-[#00B8D9]/30 bg-white'}`}
+      {/* Categories */}
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {SERVICE_CATEGORIES.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/services/${cat.slug}`}
+              className="group relative rounded-3xl overflow-hidden border border-[#D6E8E8] bg-white hover:shadow-xl hover:border-[#159A9C]/40 transition-all duration-300"
             >
-              {/* Image — alternates left/right */}
-              <div className={`relative h-64 md:h-80 lg:h-auto min-h-[320px] overflow-hidden ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+              {/* Image */}
+              <div className="h-52 overflow-hidden">
                 <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src={cat.heroImage}
+                  alt={cat.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* gradient overlay */}
-                <div className={`absolute inset-0 ${isEven
-                  ? 'bg-gradient-to-r from-transparent to-[#082B59]/10'
-                  : 'bg-gradient-to-l from-transparent to-[#082B59]/10'
-                  }`} />
-                {/* tag badge on image */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#082B59] rounded-full font-bold text-xs shadow-sm">
-                    {service.tag}
-                  </span>
-                </div>
+                <div className="absolute inset-0 h-52 bg-gradient-to-b from-transparent to-[#0B253A]/30" />
               </div>
 
               {/* Content */}
-              <div className={`p-8 md:p-12 flex flex-col justify-center ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
-                style={{ backgroundColor: service.accent }}
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center shadow-sm ${service.isDark ? 'bg-white/10 border border-white/20' : 'bg-white border border-[#1261A0]/20'}`}>
-                    <ServiceIcon name={service.icon} />
-                  </div>
-                  <div className={`h-px flex-grow ${service.isDark ? 'bg-white/10' : 'bg-[#1261A0]/20'}`} />
+              <div className="p-7">
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3"
+                  style={{ backgroundColor: `${cat.accentColor}15`, color: cat.accentColor }}>
+                  {cat.services.length} Services
                 </div>
+                <h2 className="font-display font-bold text-2xl text-[#0B253A] mb-2">{cat.title}</h2>
+                <p className="text-sm text-[#60727F] mb-5 leading-relaxed">{cat.tagline}</p>
 
-                <h2 className={`font-display font-bold text-2xl md:text-3xl mb-4 leading-tight ${service.isDark ? 'text-white' : 'text-[#082B59]'}`}>
-                  {service.title}
-                </h2>
-                <p className={`text-sm md:text-base mb-7 leading-relaxed ${service.isDark ? 'text-white/80' : 'text-[#082B59]/80'}`}>
-                  {service.description}
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
-                  {service.features.map((f, i) => (
-                    <div key={i} className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#00B8D9] shrink-0" />
-                      <span className={`text-xs ${service.isDark ? 'text-white/90' : 'text-[#082B59]'}`}>{f}</span>
-                    </div>
+                {/* Sub-services preview */}
+                <ul className="space-y-1.5 mb-6">
+                  {cat.services.slice(0, 3).map((s, i) => (
+                    <li key={i} className="flex items-center gap-2 text-xs text-[#102A3A]">
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" style={{ color: cat.accentColor }} />
+                      {s.title}
+                    </li>
                   ))}
-                </div>
+                  {cat.services.length > 3 && (
+                    <li className="text-xs text-[#60727F] pl-5">+{cat.services.length - 3} more</li>
+                  )}
+                </ul>
 
-                <div>
-                  <Link
-                    href={service.href}
-                    className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 ${service.isDark ? 'bg-[#00B8D9] text-[#082B59] hover:bg-white' : 'bg-[#082B59] text-white hover:bg-[#00B8D9]'}`}
-                  >
-                    {service.cta} <ArrowRight className="w-4 h-4" />
-                  </Link>
+                <div className="flex items-center gap-2 font-semibold text-sm group-hover:gap-3 transition-all"
+                  style={{ color: cat.accentColor }}>
+                  View Service <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
-            </div>
-          );
-        })}
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Bottom CTA */}
-      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mt-24">
-        <div className="bg-[#082B59] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
-          <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#00B8D9]/20 blur-3xl pointer-events-none" />
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4 leading-tight">
-              Not sure which service you need?
-            </h2>
-            <p className="text-white/70 text-base mb-8 leading-relaxed">
-              Get in touch and we'll recommend the right solution for your carpet type, condition and budget.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/book-now"
-                className="px-8 py-4 bg-[#00B8D9] text-[#082B59] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md"
-              >
-                Book Online Now
-              </Link>
-              <Link
-                href="/contact"
-                className="px-8 py-4 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors"
-              >
-                Contact Us
-              </Link>
-            </div>
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto">
+        <div className="bg-[#0B253A] rounded-3xl p-10 md:p-14 text-center">
+          <h2 className="font-display font-bold text-3xl text-white mb-4">Not sure which service you need?</h2>
+          <p className="text-white/65 text-sm mb-8 max-w-md mx-auto">Get in touch and we'll point you in the right direction.</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/book-now" className="px-8 py-4 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">Book Now</Link>
+            <Link href="/contact" className="px-8 py-4 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">Contact Us</Link>
           </div>
         </div>
       </section>
+
     </div>
-    </>
   );
 }
