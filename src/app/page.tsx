@@ -368,23 +368,27 @@ export default function HomePage() {
                 <span className="absolute top-6 right-7 font-display font-bold text-4xl text-[#059669]/10 group-hover:text-[#059669]/20 transition-colors duration-300 select-none">03</span>
                 <div>
                   <div className="w-10 h-[3px] bg-[#059669] rounded-full mb-4" />
-                  <h3 className="font-display font-bold text-lg text-[#064E3B]">Why Steam?</h3>
+                  <h3 className="font-display font-bold text-lg text-[#064E3B]">Why Choose Us?</h3>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <div className="flex items-center justify-between py-3 border-b border-[#A7F3D0]">
-                    <span className="text-sm text-[#065F46]">Deeper than vacuuming</span>
-                    <span className="text-base font-bold text-[#064E3B]">5×</span>
-                  </div>
-                  <div className="flex items-center justify-between py-3 border-b border-[#A7F3D0]">
-                    <span className="text-sm text-[#065F46]">Allergen reduction</span>
-                    <span className="text-base font-bold text-[#064E3B]">99%</span>
-                  </div>
-                  <div className="flex items-center justify-between py-3 border-b border-[#A7F3D0]">
-                    <span className="text-sm text-[#065F46]">Hot water extraction</span>
+                  <div className="flex items-center justify-between py-2.5 border-b border-[#A7F3D0]">
+                    <span className="text-sm text-[#065F46]">Advance cleaning method</span>
                     <span className="text-base font-bold text-[#064E3B]">✓</span>
                   </div>
-                  <div className="flex items-center justify-between py-3">
-                    <span className="text-sm text-[#065F46]">Safe for kids & pets</span>
+                  <div className="flex items-center justify-between py-2.5 border-b border-[#A7F3D0]">
+                    <span className="text-sm text-[#065F46]">Brisbane locals</span>
+                    <span className="text-base font-bold text-[#064E3B]">✓</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2.5 border-b border-[#A7F3D0]">
+                    <span className="text-sm text-[#065F46]">Eco-Friendly solutions</span>
+                    <span className="text-base font-bold text-[#064E3B]">✓</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2.5 border-b border-[#A7F3D0]">
+                    <span className="text-sm text-[#065F46]">Affordable pricing</span>
+                    <span className="text-base font-bold text-[#064E3B]">✓</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2.5">
+                    <span className="text-sm text-[#065F46]">Professional Service</span>
                     <span className="text-base font-bold text-[#064E3B]">✓</span>
                   </div>
                 </div>
