@@ -2,7 +2,7 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
-  lightMode?: boolean;
+  lightMode?: boolean; // kept for compatibility, no longer changes appearance
 }
 
 export default function Logo({ className = '', lightMode = false }: LogoProps) {
@@ -11,9 +11,7 @@ export default function Logo({ className = '', lightMode = false }: LogoProps) {
       <img
         src="/logo.png"
         alt="Carpet Cleaning Brisbane"
-        className={`h-14 w-auto transition-transform duration-300 group-hover:scale-105 ${
-          lightMode ? 'brightness-0 invert' : ''
-        }`}
+        className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
       />
     </div>
   );
