@@ -85,11 +85,11 @@ export default function HomePage() {
                 <span className="text-[#1261A0]">Cleaning Brisbane</span>
               </h1>
               <p className="text-base md:text-lg text-[#082B59]/80 mb-8 leading-relaxed">
-                Dirty carpets are more than just an eyesore. We use professional hot water extraction to pull out the dirt, stains and allergens that vacuuming leaves behind — leaving your carpets clean, fresh and fast-drying.
+                Dirty carpets are more than just an eyesore. We use professional steam and hot water extraction to pull out the dirt, stains and allergens, leaving your carpets clean, fresh and fast-drying — that vacuuming leaves behind.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <Link href="/book-now" className="inline-flex justify-center items-center px-8 py-4 bg-[#1261A0] text-white rounded-lg font-semibold text-base hover:bg-[#00B8D9] transition-all shadow-lg shadow-[#1261A0]/20 hover:shadow-xl hover:-translate-y-0.5">
-                  Book a Cleaning
+                  Book Now
                 </Link>
                 <Link href="/services" className="inline-flex justify-center items-center px-8 py-4 border border-[#1261A0]/30 bg-white/70 backdrop-blur-sm text-[#082B59] rounded-lg font-semibold text-base hover:bg-white transition-colors">
                   Explore Our Services
@@ -241,7 +241,7 @@ export default function HomePage() {
         </section>
 
         {/* Booking Process Section */}
-        <section className="bg-[#FFFBEB] border-y border-[#F59E0B]/20">
+        <section className="bg-[#F2F8FC] border-y border-[#1261A0]/20">
           <div className="px-5 md:px-16 max-w-[1280px] mx-auto py-24 md:py-32">
             <div className="text-center mb-14">
               <span className="inline-block px-4 py-1.5 bg-[#FEF3C7] text-[#B45309] text-xs font-bold uppercase tracking-widest rounded-full mb-5 border border-[#F59E0B]/30 shadow-sm">Simple Process</span>
@@ -284,7 +284,7 @@ export default function HomePage() {
                 <p className="text-base text-[#065F46] leading-relaxed">We use hot water extraction — the industry standard for a reason. Heated water and non-toxic cleaning agents go deep into the carpet, then get pulled straight back out along with whatever was in there. Safe for children and pets.</p>
               </div>
               <Link href="/book-now" className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#059669] text-white rounded-xl font-bold text-sm hover:bg-[#047857] transition-colors w-max shadow-md shrink-0">
-                Book a Steam Clean <ChevronRight className="w-4 h-4" />
+                Book Online <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -301,7 +301,7 @@ export default function HomePage() {
                   <p className="text-white font-display font-bold text-2xl md:text-3xl lg:text-[34px] leading-tight mb-3">Reaches deeper than any vacuum can</p>
                   <p className="hidden md:block text-white/90 text-sm leading-relaxed mb-5">Heated water and eco-safe solution loosen deep-set grime, then high-power suction pulls dirt, moisture and allergens straight out of the pile.</p>
                   <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#059669] text-white rounded-lg font-bold text-sm hover:bg-[#047857] transition-colors shadow-lg">
-                    Book a Steam Clean <ChevronRight className="w-4 h-4" />
+                    Book Online <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -712,11 +712,11 @@ export default function HomePage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="bg-[#0F172A] text-white">
+        <section className="bg-[#082B59] text-white">
           <div className="px-5 md:px-16 max-w-[1280px] mx-auto py-24 md:py-32">
-            <div className="bg-gradient-to-r from-[#1E293B] to-[#0F172A] border border-white/10 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
-              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#059669]/20 blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-[#D97706]/20 blur-3xl pointer-events-none" />
+            <div className="bg-gradient-to-r from-[#0A3670] to-[#082B59] border border-white/10 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
+              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#00B8D9]/20 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-[#1261A0]/30 blur-3xl pointer-events-none" />
               <div className="relative z-10 max-w-2xl mx-auto">
                 <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#F59E0B] bg-[#F59E0B]/20 border border-[#F59E0B]/30 mb-6">Book Online</span>
                 <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-6 leading-tight">Ready for Clean Carpets in Brisbane?</h2>

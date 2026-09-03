@@ -90,7 +90,7 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-3">
               <MapPin className="w-4 h-4 text-[#00B8D9] mt-0.5 shrink-0" />
-              <span>Brisbane City, QLD, Australia</span>
+              <span>Brisbane City, Australia</span>
             </li>
           </ul>
         </div>
