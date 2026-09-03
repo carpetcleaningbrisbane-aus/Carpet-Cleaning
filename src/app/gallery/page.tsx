@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { GALLERY_ITEMS, GalleryItem } from '@/data/siteData';
-import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical, Sparkles } from 'lucide-react';
+import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical } from 'lucide-react';
 
 const FILTERS = [
   { id: 'all', label: 'All Results' },
@@ -159,8 +159,7 @@ export default function GalleryPage() {
         <div className="absolute inset-0 bg-black/55" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 rounded-full mb-5 backdrop-blur-sm">
-            <Sparkles className="w-3.5 h-3.5 text-white" />
+          <div className="inline-flex items-center px-4 py-1.5 bg-white/10 border border-white/20 rounded-full mb-5 backdrop-blur-sm">
             <span className="text-white/90 text-xs font-semibold uppercase tracking-widest">Real Transformations</span>
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
