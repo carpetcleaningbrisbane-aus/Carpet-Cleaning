@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Carpet Cleaner Brisbane',
-  description: 'Get in touch with Carpet Cleaner Brisbane. Call 0435 071 625, email us or send a message. We respond within 2 business hours.',
+  description: 'Get in touch with Carpet Cleaner Brisbane. Call 0405 849 841, email us or send a message. We respond within 2 business hours.',
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact Us | Carpet Cleaner Brisbane',

@@ -107,7 +107,7 @@ function BookNowForm() {
               <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Address</span><span className="font-semibold text-[#082B59]">{formData.address}</span></div>
               <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Contact</span><span className="font-semibold text-[#082B59]">{formData.phone}</span></div>
             </div>
-            <p className="text-xs text-[#082B59]/60">Need to make changes? Call <span className="font-semibold text-[#082B59]">0435 071 625</span></p>
+            <p className="text-xs text-[#082B59]/60">Need to make changes? Call <span className="font-semibold text-[#082B59]">0405 849 841</span></p>
             <Link href="/" className="inline-block px-7 py-3 bg-[#082B59] text-white rounded-lg font-semibold text-sm hover:bg-[#00B8D9] transition-all">
               Return to Home
             </Link>

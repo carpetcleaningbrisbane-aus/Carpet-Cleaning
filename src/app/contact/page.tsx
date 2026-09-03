@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle2, AlertCircle, MessageSquare, ChevronRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, MessageSquare, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
@@ -73,6 +73,9 @@ export default function ContactPage() {
             Have questions about our services or want to get a quote? Send us a message and our team will respond within 2 business hours.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
+            <a href="tel:0405849841" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
+              <Phone className="w-4 h-4 text-[#F2F8FC]" /> 0405 849 841
+            </a>
             <a href="mailto:info.carpetcleaninginbrisbane@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
               <Mail className="w-4 h-4 text-[#F2F8FC]" /> Email Us
             </a>
