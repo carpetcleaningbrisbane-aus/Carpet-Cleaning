@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2,
-  Home as HomeIcon, ChevronRight, MapPin,
+  Home as HomeIcon, ChevronRight,
 } from "lucide-react";
 import TestimonialMarquee from "@/components/ui/marquee-01";
 import FaqSection from "@/components/FaqSection";
@@ -31,14 +31,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
-const MAIN_AREAS = [
-  "Brisbane City",
-  "Northside & Southside",
-  "Inner West & East",
-  "Bayside Suburbs",
-  "Logan & Redlands",
-];
 
 const SUBURBS = [
   "Brisbane CBD",
@@ -660,28 +652,10 @@ export default function HomePage() {
               <p className="text-sm text-[#082B59]/70 leading-relaxed max-w-2xl mx-auto">We cover Brisbane City and surrounding suburbs. Not sure if we service your area? Send us a message and we'll get back to you.</p>
             </div>
 
-            {/* Main Service Areas */}
-            <div className="mb-16">
-              <div className="flex flex-wrap justify-center gap-3 mb-10">
-                {MAIN_AREAS.map((area, index) => (
-                  <div
-                    key={area}
-                    className="group relative px-6 py-3 bg-[#082B59] text-white rounded-full font-semibold text-sm hover:bg-[#00B8D9] hover:text-[#082B59] transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-default"
-                  >
-                    <MapPin className="w-4 h-4 inline-block mr-2" />
-                    {area}
-                    <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Suburbs We Cover */}
             <div className="mb-12">
               <div className="text-center mb-8">
-                <span className="inline-block px-4 py-1.5 bg-[#00B8D9]/10 text-[#00B8D9] text-xs font-bold uppercase tracking-widest rounded-full border border-[#00B8D9]/30">
-                  Suburbs We Cover
-                </span>
+
               </div>
               <div className="flex flex-wrap justify-center gap-3">
                 {SUBURBS.map((suburb, index) => (

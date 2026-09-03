@@ -110,7 +110,6 @@ export default function ContactPage() {
               <div className="relative z-10">
                 <p className="text-xs font-bold uppercase tracking-widest text-[#00B8D9] mb-3">Skip the Queue</p>
                 <h3 className="font-display font-bold text-xl mb-3 leading-snug">Ready to book? Go online in 2 minutes.</h3>
-                <p className="text-xs text-white/70 mb-5 leading-relaxed">No upfront payment. Pick your service, date and time instantly.</p>
                 <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-3 bg-[#00B8D9] text-[#082B59] rounded-xl font-bold text-sm hover:bg-white transition-all">
                   Book Now <ChevronRight className="w-4 h-4" />
                 </Link>

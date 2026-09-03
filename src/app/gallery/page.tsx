@@ -9,15 +9,19 @@ const FILTERS = [
   { id: 'all', label: 'All Results' },
   { id: 'carpet', label: 'Carpet' },
   { id: 'stain', label: 'Stain Removal' },
-  { id: 'upholstery', label: 'Upholstery' },
-  { id: 'rug', label: 'Rugs' },
+  { id: 'curtain', label: 'Curtains' },
+  { id: 'couch', label: 'Couch' },
+  { id: 'repair', label: 'Carpet Repair' },
+  { id: 'mattress', label: 'Mattress' },
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
   carpet: 'bg-[#1261A0]/10 text-[#1261A0]',
   stain: 'bg-[#00B8D9]/10 text-[#082B59]',
-  upholstery: 'bg-[#082B59]/10 text-[#082B59]',
-  rug: 'bg-[#F2F8FC] text-[#1261A0] border border-[#1261A0]/20',
+  curtain: 'bg-[#7B5EA7]/10 text-[#7B5EA7]',
+  couch: 'bg-[#C07B40]/10 text-[#C07B40]',
+  repair: 'bg-[#2A7A4B]/10 text-[#2A7A4B]',
+  mattress: 'bg-[#159A9C]/10 text-[#159A9C]',
 };
 
 /* ── Drag-to-reveal Before/After Slider ─ */
@@ -195,18 +199,32 @@ export default function GalleryPage() {
           {filteredItems.map((item, idx) => (
             <div
               key={item.id}
-              className={`group rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 ${item.category === 'carpet' ? 'bg-gradient-to-br from-[#E8F7F7] to-[#F0FAFA] border-[#159A9C]/25 hover:border-[#159A9C]/50' :
+              className={`group rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 ${
+                item.category === 'carpet' ? 'bg-gradient-to-br from-[#E8F7F7] to-[#F0FAFA] border-[#159A9C]/25 hover:border-[#159A9C]/50' :
                 item.category === 'stain' ? 'bg-gradient-to-br from-[#FEF3E8] to-[#FFF8F2] border-[#C07B40]/25 hover:border-[#C07B40]/50' :
-                  item.category === 'upholstery' ? 'bg-gradient-to-br from-[#F3F0FF] to-[#FAF8FF] border-[#7B5EA7]/25 hover:border-[#7B5EA7]/50' :
-                    'bg-gradient-to-br from-[#EDFAF3] to-[#F5FFF8] border-[#2A7A4B]/25 hover:border-[#2A7A4B]/50'
-                }`}
+                item.category === 'curtain' ? 'bg-gradient-to-br from-[#F3F0FF] to-[#FAF8FF] border-[#7B5EA7]/25 hover:border-[#7B5EA7]/50' :
+                item.category === 'couch' ? 'bg-gradient-to-br from-[#FEF3E8] to-[#FFF8F2] border-[#C07B40]/25 hover:border-[#C07B40]/50' :
+                item.category === 'repair' ? 'bg-gradient-to-br from-[#EDFAF3] to-[#F5FFF8] border-[#2A7A4B]/25 hover:border-[#2A7A4B]/50' :
+                item.category === 'mattress' ? 'bg-gradient-to-br from-[#E8F7F7] to-[#F0FAFA] border-[#159A9C]/25 hover:border-[#159A9C]/50' :
+                'bg-gradient-to-br from-[#E8F7F7] to-[#F0FAFA] border-[#159A9C]/25 hover:border-[#159A9C]/50'
+              }`}
             >
-              {/* Drag-to-reveal slider */}
-              <BeforeAfterSlider
-                beforeImage={item.beforeImage}
-                afterImage={item.afterImage}
-                title={item.title}
-              />
+              {/* Drag-to-reveal slider or single image */}
+              {item.singleImage ? (
+                <div className="h-64 md:h-80 overflow-hidden bg-[#F2F8FC]">
+                  <img
+                    src={item.singleImage}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : (
+                <BeforeAfterSlider
+                  beforeImage={item.beforeImage}
+                  afterImage={item.afterImage}
+                  title={item.title}
+                />
+              )}
 
               {/* Card footer */}
               <div className="p-6">
@@ -278,13 +296,23 @@ export default function GalleryPage() {
               </button>
             </div>
 
-            {/* Full slider in modal */}
+            {/* Full slider or single image in modal */}
             <div className="h-80 md:h-[420px]">
-              <BeforeAfterSlider
-                beforeImage={selectedItem.beforeImage}
-                afterImage={selectedItem.afterImage}
-                title={selectedItem.title}
-              />
+              {selectedItem.singleImage ? (
+                <div className="h-full overflow-hidden bg-[#F2F8FC]">
+                  <img
+                    src={selectedItem.singleImage}
+                    alt={selectedItem.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : (
+                <BeforeAfterSlider
+                  beforeImage={selectedItem.beforeImage}
+                  afterImage={selectedItem.afterImage}
+                  title={selectedItem.title}
+                />
+              )}
             </div>
 
             <div className="px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

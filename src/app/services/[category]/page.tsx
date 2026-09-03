@@ -55,7 +55,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
             {cat.title}
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight max-w-3xl">
-            {cat.title} in Brisbane
+            {cat.title} Brisbane
           </h1>
           <p className="text-base md:text-lg text-white/75 max-w-2xl mb-8 leading-relaxed">
             {cat.description}
@@ -67,6 +67,45 @@ export default async function ServiceCategoryPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* ── Why Choose Carpet Steam Cleaning (carpet-cleaning only) ── */}
+      {cat.slug === 'carpet-cleaning' && (
+        <section className="bg-[#F0FAFA] py-16 px-5 md:px-16 border-b border-[#D6E8E8]">
+          <div className="max-w-[1280px] mx-auto">
+            <div className="mb-10 text-center">
+              <span className="text-xs font-bold uppercase tracking-widest mb-2 block" style={{ color: cat.accentColor }}>
+                Why Steam Cleaning?
+              </span>
+              <h2 className="font-display font-bold text-2xl md:text-3xl text-[#0B253A] mb-3">
+                Why Choose Carpet Steam Cleaning?
+              </h2>
+              <p className="text-sm text-[#60727F] max-w-2xl mx-auto leading-relaxed">
+                Hot-water extraction is the most effective method for restoring and maintaining your carpets. Here&apos;s why it makes a difference:
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { title: 'Deep Cleaning', desc: 'Removes dirt, dust, and debris trapped deep inside carpet fibres.' },
+                { title: 'Effective Stain Removal', desc: 'Helps remove common stains, spills, and marks from carpet surfaces.' },
+                { title: 'Kills Allergens', desc: 'Hot-water extraction reduces dust mites, allergens, and bacteria.' },
+                { title: 'Freshens Your Carpet', desc: 'Removes unpleasant odours and leaves carpets feeling truly fresh.' },
+                { title: 'Improves Appearance', desc: 'Restores the carpet\'s look and helps revive flattened fibres.' },
+                { title: 'Extends Carpet Life', desc: 'Regular professional cleaning helps protect fibres and prolong lifespan.' },
+                { title: 'Healthier Environment', desc: 'Improves indoor cleanliness by removing accumulated contaminants.' },
+                { title: 'Professional Results', desc: 'Our equipment delivers a deeper clean than standard household vacuuming.' },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-2xl border border-[#D6E8E8] p-5 hover:shadow-md transition-shadow"
+                >
+                  <h3 className="font-bold text-sm text-[#0B253A] mb-1">{item.title}</h3>
+                  <p className="text-xs text-[#60727F] leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Our Services ── */}
       <section className="bg-white py-20 px-5 md:px-16">

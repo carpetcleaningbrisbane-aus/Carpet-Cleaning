@@ -40,9 +40,11 @@ export interface Service {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'carpet' | 'stain' | 'upholstery' | 'rug';
+  category: 'carpet' | 'stain' | 'curtain' | 'couch' | 'repair' | 'mattress';
   beforeImage: string;
   afterImage: string;
+  /** If set, renders as a single full image instead of a before/after slider */
+  singleImage?: string;
   description: string;
 }
 
@@ -211,7 +213,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '9',
     title: 'Office Carpet Cleaning',
-    category: 'upholstery',
+    category: 'carpet',
     beforeImage: imgSrc(officeCarpetBefore),
     afterImage: imgSrc(officeCarpetAfter),
     description: 'A busy office carpet cleaned to remove accumulated dirt from daily foot traffic. Professional steam cleaning refreshed the carpet and improved the overall appearance of the workplace.'
@@ -235,11 +237,91 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '12',
     title: 'Carpet Water Extraction',
-    category: 'rug',
+    category: 'carpet',
     beforeImage: imgSrc(waterExtractionBefore),
     afterImage: imgSrc(waterExtractionAfter),
     description: 'A water-affected carpet was treated with professional extraction equipment to remove excess moisture. The affected area was carefully assessed and extracted to assist the carpet drying and recovery process.'
-  }
+  },
+
+  // ── Curtain Cleaning ──
+  {
+    id: 'curtain-1',
+    title: 'Sheer Curtain Clean',
+    category: 'curtain',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/curtain/sheer-curtain-result.jpg',
+    description: 'Delicate sheer curtains cleaned on-site using low-moisture techniques to remove dust, allergens and accumulated grime while maintaining fabric integrity.'
+  },
+  {
+    id: 'curtain-2',
+    title: 'Heavy Drape Refresh',
+    category: 'curtain',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/curtain/heavy-drape-result.jpg',
+    description: 'Thick blockout and heavy lined drapes professionally cleaned to remove embedded dust, odours and staining — restored fresh and hanging in place.'
+  },
+
+  // ── Couch Cleaning ──
+  {
+    id: 'couch-1',
+    title: 'Fabric Couch Deep Clean',
+    category: 'couch',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/couch/fabric-couch-result.jpg',
+    description: 'A fabric sofa professionally steam cleaned to remove body oils, food spills and accumulated grime — leaving the upholstery fresh and revitalised.'
+  },
+  {
+    id: 'couch-2',
+    title: 'Pet Stain Couch Treatment',
+    category: 'couch',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/couch/pet-stain-couch-result.jpg',
+    description: 'Enzyme-based stain and odour treatment for a couch affected by pet accidents — targeting biological contaminants and persistent odours at the source.'
+  },
+
+  // ── Carpet Repair ──
+  {
+    id: 'repair-1',
+    title: 'Burn Mark Repair',
+    category: 'repair',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/carpet-repair/burn-mark-result.jpg',
+    description: 'A cigarette burn patch repaired using matched donor carpet material — blended seamlessly into the surrounding carpet for a near-invisible result.'
+  },
+  {
+    id: 'repair-2',
+    title: 'Carpet Restretch',
+    category: 'repair',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/carpet-repair/carpet-restretch-result.jpg',
+    description: 'Rippled and loose carpet power-stretched back to a flat, taut surface — eliminating trip hazards and restoring the carpet\'s original appearance.'
+  },
+
+  // ── Mattress Cleaning ──
+  {
+    id: 'mattress-1',
+    title: 'Mattress Stain Removal',
+    category: 'mattress',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/mattress/mattress-stain-result.jpg',
+    description: 'Stubborn stains treated with enzyme-based solutions and professional extraction — restoring a clean, hygienic surface for a healthier sleep environment.'
+  },
+  {
+    id: 'mattress-2',
+    title: 'Deep Mattress Clean',
+    category: 'mattress',
+    beforeImage: '',
+    afterImage: '',
+    singleImage: '/mattress/deep-mattress-result.jpg',
+    description: 'A full deep clean with hot water extraction and sanitisation — removing dust mites, allergens and accumulated grime from within the mattress layers.'
+  },
 ];
 
 export const REVIEWS: Review[] = [
