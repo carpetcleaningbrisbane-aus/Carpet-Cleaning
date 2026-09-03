@@ -61,7 +61,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
             {cat.description}
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/book-now" className="px-7 py-3.5 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">
+            <Link href={`/book-now?service=${cat.slug}`} className="px-7 py-3.5 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">
               Book Now
             </Link>
             <Link href="/contact" className="px-7 py-3.5 bg-white/10 border border-white/20 text-white rounded-xl font-semibold text-sm hover:bg-white/20 transition-all">
@@ -211,7 +211,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
           <h2 className="font-display font-bold text-3xl text-white mb-4">Ready to Book {cat.title}?</h2>
           <p className="text-white/65 text-base mb-8">No upfront payment. We'll confirm your booking within a few hours.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/book-now" className="px-8 py-4 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">Book Now</Link>
+            <Link href={`/book-now?service=${cat.slug}`} className="px-8 py-4 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">Book Now</Link>
             <Link href="/contact" className="px-8 py-4 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">Contact Us</Link>
           </div>
         </div>
