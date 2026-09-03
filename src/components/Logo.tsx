@@ -11,7 +11,7 @@ export default function Logo({ className = '', lightMode = false }: LogoProps) {
       <img
         src="/logo.png"
         alt="Carpet Cleaning Brisbane"
-        className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+        className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
       />
     </div>
   );
