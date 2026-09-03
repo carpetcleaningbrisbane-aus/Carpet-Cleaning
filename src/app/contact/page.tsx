@@ -70,7 +70,7 @@ export default function ContactPage() {
             Get In <span className="text-[#00B8D9]">Touch</span>
           </h1>
           <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-10">
-            Have questions about our services or want to get a quote? Send us a message and our team will respond within 2 business hours.
+            Have questions about our services or want to get a quote? Send us a message and our team will respond as soon as possible.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a href="tel:0405849841" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
@@ -122,7 +122,7 @@ export default function ContactPage() {
             <div className="bg-white rounded-3xl border border-[#1261A0]/20 ambient-shadow overflow-hidden">
               <div className="bg-[#F2F8FC] border-b border-[#1261A0]/20 px-8 md:px-10 py-6">
                 <h2 className="font-display font-bold text-2xl text-[#082B59]">Send Us a Message</h2>
-                <p className="text-sm text-[#082B59]/60 mt-1">We'll get back to you within 2 business hours.</p>
+                <p className="text-sm text-[#082B59]/60 mt-1">We'll get back to you shortly.</p>
               </div>
 
               <div className="px-8 md:px-10 py-8">
