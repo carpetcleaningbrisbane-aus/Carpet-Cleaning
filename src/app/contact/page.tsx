@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, AlertCircle, MessageSquare, ChevronRight } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, AlertCircle, MessageSquare, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
@@ -9,6 +9,7 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
+    address: '',
     service: 'Carpet Cleaning',
     message: '',
   });
@@ -49,10 +50,8 @@ export default function ContactPage() {
   };
 
   const contactItems = [
-    { icon: <Phone className="w-5 h-5" />, label: 'Call Us', primary: '0435 071 625', secondary: 'Mon–Sat: 7:00 AM – 7:00 PM' },
-    { icon: <Mail className="w-5 h-5" />, label: 'Email Support', primary: 'info.theexpertcleaner@gmail.com', secondary: 'Average response: 2 hours' },
+    { icon: <Mail className="w-5 h-5" />, label: 'Email Support', primary: 'info.carpetcleaninginbrisbane@gmail.com', secondary: 'Average response: 2 hours' },
     { icon: <MapPin className="w-5 h-5" />, label: 'Service Area', primary: 'Brisbane & Surrounds', secondary: 'Greater Brisbane Region' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Opening Hours', primary: 'Mon – Fri: 7am – 7pm', secondary: 'Sat: 8am – 5pm · Sun: Emergencies' },
   ];
 
   return (
@@ -74,10 +73,7 @@ export default function ContactPage() {
             Have questions about our services or want to get a quote? Send us a message and our team will respond within 2 business hours.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <a href="tel:0435071625" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
-              <Phone className="w-4 h-4 text-[#F2F8FC]" /> 0435 071 625
-            </a>
-            <a href="mailto:info.theexpertcleaner@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
+            <a href="mailto:info.carpetcleaninginbrisbane@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
               <Mail className="w-4 h-4 text-[#F2F8FC]" /> Email Us
             </a>
             <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00B8D9] rounded-full text-[#082B59] text-sm font-bold hover:bg-white hover:text-[#082B59] transition-all">
@@ -136,7 +132,7 @@ export default function ContactPage() {
                     <p className="text-sm text-[#082B59]/80 max-w-sm mx-auto leading-relaxed">
                       Hi <span className="font-bold text-[#082B59]">{formData.name}</span>, your message about <span className="font-semibold">{formData.service}</span> has come through. One of our team will get back to you at <span className="font-semibold text-[#082B59]">{formData.email}</span> or <span className="font-semibold text-[#082B59]">{formData.phone}</span> — usually within 2 business hours.
                     </p>
-                    <button onClick={() => { setStatus('idle'); setFormData({ name: '', email: '', phone: '', service: 'Carpet Cleaning', message: '' }); }} className="px-6 py-3 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-colors">
+                    <button onClick={() => { setStatus('idle'); setFormData({ name: '', email: '', phone: '', address: '', service: 'Carpet Cleaning', message: '' }); }} className="px-6 py-3 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-colors">
                       Send Another Message
                     </button>
                   </div>
@@ -154,7 +150,7 @@ export default function ContactPage() {
                         <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Full Name" className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors" required />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Email Address *</label>
+                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Email *</label>
                         <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors" required />
                       </div>
                     </div>
@@ -165,20 +161,25 @@ export default function ContactPage() {
                         <input type="tel" inputMode="numeric" name="phone" value={formData.phone} onChange={(e) => { const digits = e.target.value.replace(/\D/g, ''); setFormData({ ...formData, phone: digits }); }} placeholder="Phone Number" className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors" required />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Service Required</label>
-                        <select name="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors">
-                          <option>Carpet Cleaning</option>
-                          <option>Curtain Cleaning</option>
-                          <option>Couch Cleaning</option>
-                          <option>Carpet Repair</option>
-                          <option>Mattress Cleaning</option>
-                          <option>Other / Not Sure</option>
-                        </select>
+                        <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Address</label>
+                        <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Your Address" className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors" />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Your Message *</label>
+                      <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Service Required</label>
+                      <select name="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors">
+                        <option>Carpet Cleaning</option>
+                        <option>Curtain Cleaning</option>
+                        <option>Couch Cleaning</option>
+                        <option>Carpet Repair</option>
+                        <option>Mattress Cleaning</option>
+                        <option>Other / Not Sure</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Your Message</label>
                       <textarea name="message" rows={5} value={formData.message} onChange={handleChange} placeholder="Your Message" className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors resize-none" required />
                     </div>
 

@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { SERVICES } from '@/data/siteData';
-import { CheckCircle2, CalendarDays, Clock, User, Mail, Phone, MapPin, ClipboardList } from 'lucide-react';
+import { CheckCircle2, CalendarDays, User, Mail, Phone, MapPin, ClipboardList } from 'lucide-react';
 import Link from 'next/link';
 
 const inputCls = 'w-full px-4 py-3 rounded-lg border border-[#1261A0]/20 bg-white text-sm text-[#082B59] placeholder:text-[#082B59]/40 focus:outline-none focus:border-[#00B8D9] focus:ring-2 focus:ring-[#F2F8FC] transition-colors';
@@ -104,7 +104,6 @@ function BookNowForm() {
             <div className="text-left bg-[#F2F8FC] rounded-xl border border-[#1261A0]/20 p-5 max-w-sm mx-auto space-y-2.5 text-sm">
               <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Services</span><span className="font-semibold text-[#082B59]">{selectedServices.map(s => s.title).join(', ')}</span></div>
               <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Date</span><span className="font-semibold text-[#082B59]">{formData.preferredDate}</span></div>
-              <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Time</span><span className="font-semibold text-[#082B59]">{formData.preferredTime}</span></div>
               <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Address</span><span className="font-semibold text-[#082B59]">{formData.address}</span></div>
               <div className="flex gap-2"><span className="text-[#082B59]/60 w-20 shrink-0">Contact</span><span className="font-semibold text-[#082B59]">{formData.phone}</span></div>
             </div>
@@ -171,11 +170,11 @@ function BookNowForm() {
               {errors.serviceIds && <p className="text-xs text-red-500 mt-2">{errors.serviceIds}</p>}
             </div>
 
-            {/* ── 2. Preferred Date & Time ── */}
+            {/* ── 2. Preferred Date ── */}
             <div className="p-7 md:p-9">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
-                <h2 className="font-display font-bold text-lg text-[#082B59]">Preferred Date & Time</h2>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Preferred Date</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
@@ -185,17 +184,6 @@ function BookNowForm() {
                     onChange={(e) => { setFormData({ ...formData, preferredDate: e.target.value }); setErrors((er) => ({ ...er, preferredDate: '' })); }}
                     className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
                   />
-                </Field>
-                <Field label="Time Slot" icon={<Clock className="w-4 h-4" />}>
-                  <select
-                    value={formData.preferredTime}
-                    onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                    className={inputCls + ' pl-10'}
-                  >
-                    <option>Morning (8:00 AM - 12:00 PM)</option>
-                    <option>Afternoon (12:00 PM - 4:00 PM)</option>
-                    <option>Late Afternoon (4:00 PM - 6:00 PM)</option>
-                  </select>
                 </Field>
               </div>
             </div>

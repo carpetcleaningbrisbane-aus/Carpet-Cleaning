@@ -10,7 +10,7 @@ export function LocalBusinessSchema() {
     name: 'Carpet Cleaner Brisbane',
     url: '${SITE_URL}',
     telephone: '0435071625',
-    email: 'info.theexpertcleaner@gmail.com',
+    email: 'info.carpetcleaninginbrisbane@gmail.com',
     image: '${SITE_URL}/hero.jpg',
     description: 'Professional carpet cleaning services in Brisbane including steam cleaning, stain and odour removal, end of lease cleaning, commercial carpet cleaning and water extraction.',
     address: {
