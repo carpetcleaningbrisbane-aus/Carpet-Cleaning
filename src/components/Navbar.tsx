@@ -42,8 +42,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'shadow-lg py-3 border-b border-white/20 backdrop-blur-lg' : 'backdrop-blur-md shadow-md py-4 md:py-5'
+        className={`sticky top-0 w-full z-50 py-4 md:py-5 transition-shadow duration-300 ${
+          isScrolled ? 'shadow-lg border-b border-white/20 backdrop-blur-lg' : 'backdrop-blur-md shadow-md'
         }`}
         style={{ backgroundColor: isScrolled ? NAV_BG_SCROLLED : `${NAV_BG}F2` }}
       >
