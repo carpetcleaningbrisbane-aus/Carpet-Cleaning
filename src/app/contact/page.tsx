@@ -50,7 +50,7 @@ export default function ContactPage() {
   };
 
   const contactItems = [
-    { icon: <Mail className="w-5 h-5" />, label: 'Email Support', primary: 'info.theexpertcleaner@gmail.com', secondary: 'Average response: 2 hours' },
+    { icon: <Mail className="w-5 h-5" />, label: 'Email Support', primary: 'info.carpetcleaninginbrisbane@gmail.com', secondary: 'Average response: 2 hours' },
     { icon: <MapPin className="w-5 h-5" />, label: 'Service Area', primary: 'Brisbane & Surrounds', secondary: 'Greater Brisbane Region' },
   ];
 
@@ -73,7 +73,7 @@ export default function ContactPage() {
             Have questions about our services or want to get a quote? Send us a message and our team will respond within 2 business hours.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <a href="mailto:info.theexpertcleaner@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
+            <a href="mailto:info.carpetcleaninginbrisbane@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
               <Mail className="w-4 h-4 text-[#F2F8FC]" /> Email Us
             </a>
             <Link href="/book-now" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00B8D9] rounded-full text-[#082B59] text-sm font-bold hover:bg-white hover:text-[#082B59] transition-all">
