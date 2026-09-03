@@ -49,19 +49,10 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center px-5 md:px-16 max-w-[1280px] mx-auto">
 
-          {/* Logo & mobile toggle */}
-          <div className="flex items-center gap-4">
-            <button
-              aria-label="Open menu"
-              className="md:hidden text-white/80 hover:text-white focus:outline-none p-1"
-              onClick={() => setIsOpen(true)}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-            <Link href="/" className="group">
-              <Logo lightMode />
-            </Link>
-          </div>
+          {/* Logo */}
+          <Link href="/" className="group">
+            <Logo lightMode />
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-7">
@@ -119,14 +110,21 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Book Now */}
-          <div className="flex items-center">
+          {/* Right section: Book Now (desktop only) & Hamburger menu (mobile only) */}
+          <div className="flex items-center gap-4">
             <Link
               href="/book-now"
-              className="bg-white text-[#1261A0] px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#082B59] hover:text-white transition-all duration-200 shadow-md active:scale-95 inline-block"
+              className="hidden md:inline-block bg-white text-[#1261A0] px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#082B59] hover:text-white transition-all duration-200 shadow-md active:scale-95"
             >
               Book Now
             </Link>
+            <button
+              aria-label="Open menu"
+              className="md:hidden text-white/80 hover:text-white focus:outline-none p-1"
+              onClick={() => setIsOpen(true)}
+            >
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
         </div>
       </header>
