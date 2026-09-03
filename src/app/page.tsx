@@ -68,7 +68,7 @@ export default function HomePage() {
           {/* Left-to-right gradient — content on left, image visible on right */}
           <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/5" />
 
-          <div className="relative z-10 px-5 md:px-16 max-w-[1280px] mx-auto w-full pt-28 pb-20 md:pt-36 md:pb-28">
+          <div className="relative z-10 px-5 md:px-16 max-w-[1280px] mx-auto w-full py-16 md:py-24">
             <div className="max-w-xl">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 rounded-full mb-6 border border-[#1261A0]/20 backdrop-blur-sm">
                 <div className="flex text-[#FFB020]">

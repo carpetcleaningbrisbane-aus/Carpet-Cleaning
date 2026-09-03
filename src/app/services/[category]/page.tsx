@@ -31,7 +31,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
   const otherCategories = SERVICE_CATEGORIES.filter((c) => c.slug !== category);
 
   return (
-    <div className="pt-24 md:pt-32 pb-24">
+    <div className="pb-24">
 
       {/* ── Hero ── */}
       <section className="relative py-20 md:py-28 px-5 md:px-16 overflow-hidden mb-0">

@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled ? 'shadow-lg py-3 border-b border-white/20 backdrop-blur-lg' : 'backdrop-blur-md shadow-md py-4 md:py-5'
         }`}
         style={{ backgroundColor: isScrolled ? NAV_BG_SCROLLED : `${NAV_BG}F2` }}

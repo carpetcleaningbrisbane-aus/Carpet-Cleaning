@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="pt-24 md:pt-32 pb-24">
+    <div className="pb-24">
 
       {/* Hero */}
       <section className="bg-[#0B253A] py-20 px-5 md:px-16 mb-16">

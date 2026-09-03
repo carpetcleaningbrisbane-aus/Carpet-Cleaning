@@ -119,7 +119,7 @@ function BookNowForm() {
   }
 
   return (
-    <div className="pt-24 md:pt-32 pb-24">
+    <div className="pb-24">
 
       {/* Hero */}
       <section className="bg-[#082B59] py-14 px-5 md:px-16 mb-10">

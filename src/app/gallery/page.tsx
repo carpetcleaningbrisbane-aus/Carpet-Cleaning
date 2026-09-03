@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { GALLERY_ITEMS, GalleryItem } from '@/data/siteData';
-import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical } from 'lucide-react';
+import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical, Sparkles } from 'lucide-react';
 
 const FILTERS = [
   { id: 'all', label: 'All Results' },
@@ -20,7 +20,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   rug: 'bg-[#F2F8FC] text-[#1261A0] border border-[#1261A0]/20',
 };
 
-/* ── Drag-to-reveal Before/After Slider ── */
+/* ── Drag-to-reveal Before/After Slider ─ */
 function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: string; afterImage: string; title: string }) {
   const [position, setPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -145,40 +145,43 @@ export default function GalleryPage() {
   const selectedItem = selectedIdx !== null ? filteredItems[selectedIdx] : null;
 
   return (
-    <div className="pt-24 md:pt-32 pb-0 bg-[#F2F8FC]">
+    <div className="pb-0 bg-[#F2F8FC]">
 
-      {/* Hero Banner — real photo background */}
-      <section className="relative py-24 md:py-32 px-5 md:px-16 mb-16 overflow-hidden">
-        {/* Background photo */}
+      {/* Hero Banner */}
+      <section className="relative py-16 md:py-24 px-5 md:px-16 mb-12 overflow-hidden bg-black/90">
+        {/* Background photo - natural colors without bluish tone */}
         <img
           src="/gallery-banner.png"
           alt="Before and after carpet cleaning transformation in a Brisbane home"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-
-        {/* Subtle dark tint to ensure white text remains readable without hiding the image */}
-        <div className="absolute inset-0 bg-black/10" />
+        {/* Neutral dark overlay for readable text without bluish tint */}
+        <div className="absolute inset-0 bg-black/55" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight drop-shadow-lg">
-            Before & After <span className="text-[#F2F8FC]">Showcase</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 rounded-full mb-5 backdrop-blur-sm">
+            <Sparkles className="w-3.5 h-3.5 text-white" />
+            <span className="text-white/90 text-xs font-semibold uppercase tracking-widest">Real Transformations</span>
+          </div>
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
+            Before & After Showcase
           </h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
             Drag the slider on each photo to reveal the transformation — real results from real Brisbane homes and businesses.
           </p>
         </div>
       </section>
 
       {/* Filter Tabs */}
-      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-10">
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-8">
         <div className="flex flex-wrap justify-center gap-3">
           {FILTERS.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${filter === tab.id
-                  ? 'bg-[#082B59] text-white shadow-md scale-105'
-                  : 'bg-white text-[#082B59] hover:bg-[#F2F8FC] border border-[#1261A0]/20'
+                ? 'bg-[#082B59] text-white shadow-md scale-105'
+                : 'bg-white text-[#082B59] hover:bg-[#F2F8FC] border border-[#1261A0]/20'
                 }`}
             >
               {tab.label}
@@ -193,12 +196,11 @@ export default function GalleryPage() {
           {filteredItems.map((item, idx) => (
             <div
               key={item.id}
-              className={`group rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 ${
-                item.category === 'carpet'     ? 'bg-gradient-to-br from-[#E8F7F7] to-[#F0FAFA] border-[#159A9C]/25 hover:border-[#159A9C]/50' :
-                item.category === 'stain'      ? 'bg-gradient-to-br from-[#FEF3E8] to-[#FFF8F2] border-[#C07B40]/25 hover:border-[#C07B40]/50' :
-                item.category === 'upholstery' ? 'bg-gradient-to-br from-[#F3F0FF] to-[#FAF8FF] border-[#7B5EA7]/25 hover:border-[#7B5EA7]/50' :
-                                                 'bg-gradient-to-br from-[#EDFAF3] to-[#F5FFF8] border-[#2A7A4B]/25 hover:border-[#2A7A4B]/50'
-              }`}
+              className={`group rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 ${item.category === 'carpet' ? 'bg-gradient-to-br from-[#E8F7F7] to-[#F0FAFA] border-[#159A9C]/25 hover:border-[#159A9C]/50' :
+                item.category === 'stain' ? 'bg-gradient-to-br from-[#FEF3E8] to-[#FFF8F2] border-[#C07B40]/25 hover:border-[#C07B40]/50' :
+                  item.category === 'upholstery' ? 'bg-gradient-to-br from-[#F3F0FF] to-[#FAF8FF] border-[#7B5EA7]/25 hover:border-[#7B5EA7]/50' :
+                    'bg-gradient-to-br from-[#EDFAF3] to-[#F5FFF8] border-[#2A7A4B]/25 hover:border-[#2A7A4B]/50'
+                }`}
             >
               {/* Drag-to-reveal slider */}
               <BeforeAfterSlider
@@ -239,7 +241,7 @@ export default function GalleryPage() {
         )}
 
         {/* CTA */}
-        <div className="mt-16 relative overflow-hidden rounded-3xl bg-[#082B59] p-10 md:p-14 text-center">
+        <div className="mt-12 relative overflow-hidden rounded-3xl bg-[#082B59] p-10 md:p-14 text-center">
           <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#00B8D9]/20 blur-3xl pointer-events-none" />
           <div className="relative z-10">
             <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-3">Want Results Like These?</h3>
@@ -253,7 +255,7 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
-      <div className="h-24"></div>
+      <div className="h-12"></div>
 
       {/* Lightbox Modal */}
       {selectedItem && (
