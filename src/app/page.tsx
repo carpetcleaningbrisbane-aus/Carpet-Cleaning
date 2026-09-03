@@ -531,7 +531,7 @@ export default function HomePage() {
                   </div>
                   <p className="text-xs text-white/70 mb-8 leading-relaxed">Appointments can be arranged around your business operating hours to minimise workplace downtime.</p>
                   <Link href="/book-now" className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#00B8D9] text-[#082B59] rounded-xl font-bold text-sm hover:bg-white transition-all w-max shadow-md">
-                    Get a Commercial Quote <ChevronRight className="w-4 h-4" />
+                    Book Now <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
                 <div className="bg-[#0A3670] border-t lg:border-t-0 lg:border-l border-white/10 p-8 md:p-12 lg:p-14">

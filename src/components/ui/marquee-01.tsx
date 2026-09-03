@@ -1,6 +1,8 @@
+'use client';
+
+import { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Marquee } from "@/components/ui/marquee-01-utils/marquee";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const reviews = [
   {
@@ -16,7 +18,7 @@ const reviews = [
     name: "James Nguyen",
     username: "Sunnybank Hills, QLD",
     initials: "JN",
-    color: "#00B8D9",
+    color: "#1261A0",
     body: "End of lease job done the day before inspection. Got the full bond back, no issues. Property manager didn't flag anything.",
     rating: 5,
     service: "End of Lease Cleaning",
@@ -57,10 +59,25 @@ const reviews = [
     rating: 5,
     service: "Commercial Cleaning",
   },
+  {
+    name: "David Miller",
+    username: "Paddington, Brisbane",
+    initials: "DM",
+    color: "#159A9C",
+    body: "Our modular lounge had stubborn coffee and grease stains. The upholstery cleaning made it look brand new without fading the fabric.",
+    rating: 5,
+    service: "Couch & Upholstery Cleaning",
+  },
+  {
+    name: "Emma Watson",
+    username: "Ascot, QLD",
+    initials: "EW",
+    color: "#D97706",
+    body: "Had a bad burn mark from an iron in the master bedroom. They patched it seamlessly using spare carpet from the closet. Can't even spot the repair!",
+    rating: 5,
+    service: "Carpet Repair",
+  },
 ];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({
   initials,
@@ -80,47 +97,170 @@ const ReviewCard = ({
   service: string;
 }) => {
   return (
-    <Card className="relative h-full w-80 cursor-pointer overflow-hidden border border-[#1261A0]/20 bg-white shadow-none p-5 hover:shadow-md transition-shadow">
-      <CardContent className="p-0 flex flex-col gap-3">
-        <div className="flex flex-row items-center gap-3">
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white text-sm font-bold"
-            style={{ backgroundColor: color }}
-          >
-            {initials}
+    <Card className="h-full w-full overflow-hidden border border-[#1261A0]/20 bg-white shadow-sm hover:shadow-md transition-all p-6 rounded-2xl flex flex-col justify-between">
+      <CardContent className="p-0 flex flex-col gap-4">
+        <div className="flex flex-row items-center justify-between gap-2">
+          <div className="flex items-center gap-3">
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white text-xs font-bold shadow-sm"
+              style={{ backgroundColor: color }}
+            >
+              {initials}
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm font-bold text-[#082B59] line-clamp-1">{name}</p>
+              <p className="text-xs text-[#082B59]/60 line-clamp-1">{username}</p>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <p className="text-sm font-bold text-[#082B59]">{name}</p>
-            <p className="text-xs text-[#082B59]/60">{username}</p>
-          </div>
+          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#1261A0]/10 text-[#1261A0] shrink-0">
+            {service}
+          </span>
         </div>
+
         <div className="flex items-center gap-1">
           {[...Array(rating)].map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-[#E9B949] text-[#E9B949]" />
+            <Star key={i} className="w-4 h-4 fill-[#FFB020] text-[#FFB020]" />
           ))}
-          <span className="text-[10px] text-[#082B59]/60 ml-1 font-medium">{service}</span>
         </div>
-        <p className="text-sm text-[#082B59]/80 leading-relaxed">{body}</p>
+
+        <p className="text-sm text-[#082B59]/80 leading-relaxed italic">
+          "{body}"
+        </p>
       </CardContent>
     </Card>
   );
 };
 
-export default function TestimonialMarqueeDemo() {
+export default function TestimonialSlider() {
+  const [cardsToShow, setCardsToShow] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCardsToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setCardsToShow(2);
+      } else {
+        setCardsToShow(3);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, reviews.length - cardsToShow);
+
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [maxIndex, currentIndex]);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [maxIndex]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [maxIndex]);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide, isHovered]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 50) {
+      nextSlide();
+    } else if (distance < -50) {
+      prevSlide();
+    }
+  };
+
+  const dotsCount = maxIndex + 1;
+
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-4">
-      <Marquee pauseOnHover className="[--duration:35s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.name} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:35s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.name} {...review} />
-        ))}
-      </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white to-transparent z-10"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white to-transparent z-10"></div>
+    <div
+      className="relative w-full max-w-[1280px] mx-auto px-2 sm:px-4"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Slider Window */}
+      <div
+        className="overflow-hidden py-4 px-1 cursor-grab active:cursor-grabbing select-none"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)` }}
+        >
+          {reviews.map((review, idx) => (
+            <div
+              key={idx}
+              className="shrink-0 px-2 sm:px-3"
+              style={{ width: `${100 / cardsToShow}%` }}
+            >
+              <ReviewCard {...review} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Slider Controls */}
+      <div className="flex items-center justify-between mt-6 px-2">
+        <button
+          onClick={prevSlide}
+          aria-label="Previous review"
+          className="p-2.5 rounded-full bg-white border border-[#1261A0]/20 text-[#082B59] hover:bg-[#1261A0] hover:text-white transition-all shadow-sm active:scale-95 flex items-center justify-center cursor-pointer"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        {/* Pagination Dots */}
+        <div className="flex items-center gap-2">
+          {Array.from({ length: dotsCount }).map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                currentIndex === idx
+                  ? 'w-8 bg-[#1261A0]'
+                  : 'w-2.5 bg-[#1261A0]/30 hover:bg-[#1261A0]/60'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={nextSlide}
+          aria-label="Next review"
+          className="p-2.5 rounded-full bg-white border border-[#1261A0]/20 text-[#082B59] hover:bg-[#1261A0] hover:text-white transition-all shadow-sm active:scale-95 flex items-center justify-center cursor-pointer"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
     </div>
   );
 }

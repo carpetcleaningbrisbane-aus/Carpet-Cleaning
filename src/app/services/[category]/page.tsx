@@ -64,9 +64,6 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <Link href={`/book-now?service=${cat.slug}`} className="px-7 py-3.5 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">
               Book Now
             </Link>
-            <Link href="/contact" className="px-7 py-3.5 bg-white/10 border border-white/20 text-white rounded-xl font-semibold text-sm hover:bg-white/20 transition-all">
-              Get a Quote
-            </Link>
           </div>
         </div>
       </section>
