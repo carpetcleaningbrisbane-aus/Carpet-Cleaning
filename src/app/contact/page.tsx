@@ -9,7 +9,7 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
-    service: 'Steam Carpet Cleaning',
+    service: 'Carpet Cleaning',
     message: '',
   });
 
@@ -136,7 +136,7 @@ export default function ContactPage() {
                     <p className="text-sm text-[#082B59]/80 max-w-sm mx-auto leading-relaxed">
                       Hi <span className="font-bold text-[#082B59]">{formData.name}</span>, your message about <span className="font-semibold">{formData.service}</span> has come through. One of our team will get back to you at <span className="font-semibold text-[#082B59]">{formData.email}</span> or <span className="font-semibold text-[#082B59]">{formData.phone}</span> — usually within 2 business hours.
                     </p>
-                    <button onClick={() => { setStatus('idle'); setFormData({ name: '', email: '', phone: '', service: 'Steam Carpet Cleaning', message: '' }); }} className="px-6 py-3 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-colors">
+                    <button onClick={() => { setStatus('idle'); setFormData({ name: '', email: '', phone: '', service: 'Carpet Cleaning', message: '' }); }} className="px-6 py-3 bg-[#082B59] text-white rounded-xl font-semibold text-sm hover:bg-[#00B8D9] transition-colors">
                       Send Another Message
                     </button>
                   </div>
@@ -167,12 +167,11 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-xs font-bold text-[#082B59] uppercase tracking-wider mb-2">Service Required</label>
                         <select name="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-[#1261A0]/20 bg-[#F2F8FC]/60 text-[#082B59] text-sm focus:outline-none focus:border-[#00B8D9] focus:bg-white transition-colors">
-                          <option>Steam Carpet Cleaning</option>
-                          <option>End of Lease Cleaning</option>
-                          <option>Office & Commercial Cleaning</option>
-                          <option>Stain & Odour Removal</option>
-                          <option>Carpet Shampooing</option>
-                          <option>Carpet Water Extraction</option>
+                          <option>Carpet Cleaning</option>
+                          <option>Curtain Cleaning</option>
+                          <option>Couch Cleaning</option>
+                          <option>Carpet Repair</option>
+                          <option>Mattress Cleaning</option>
                           <option>Other / Not Sure</option>
                         </select>
                       </div>

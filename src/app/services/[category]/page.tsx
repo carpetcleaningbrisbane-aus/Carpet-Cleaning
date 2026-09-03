@@ -89,11 +89,12 @@ export default async function ServiceCategoryPage({ params }: Props) {
               >
                 {/* Accent top stripe */}
                 <div className="h-1 w-full" style={{ backgroundColor: cat.accentColor }} />
-                <div className="h-44 overflow-hidden">
+                <div className="h-56 overflow-hidden">
                   <img
                     src={s.image}
                     alt={s.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={s.objectPosition ? { objectPosition: s.objectPosition } : undefined}
                   />
                 </div>
                 <div className="p-5">
@@ -149,16 +150,24 @@ export default async function ServiceCategoryPage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {cat.gallery.map((g, i) => (
               <div key={i} className="rounded-2xl overflow-hidden border border-[#D6E8E8] shadow-sm">
-                <div className="grid grid-cols-2 h-56">
-                  <div className="relative overflow-hidden">
-                    <img src={g.before} alt={`${g.label} before`} className="w-full h-full object-cover" />
-                    <span className="absolute top-3 left-3 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded-full">Before</span>
+                {g.single ? (
+                  /* Single full image */
+                  <div className="h-72 overflow-hidden">
+                    <img src={g.single} alt={g.label} className="w-full h-full object-cover" />
                   </div>
-                  <div className="relative overflow-hidden border-l border-white">
-                    <img src={g.after} alt={`${g.label} after`} className="w-full h-full object-cover" />
-                    <span className="absolute top-3 right-3 text-white text-[10px] font-bold px-2 py-1 rounded-full" style={{ backgroundColor: cat.accentColor }}>After</span>
+                ) : (
+                  /* Before / After split */
+                  <div className="grid grid-cols-2 h-72">
+                    <div className="relative overflow-hidden">
+                      <img src={g.before} alt={`${g.label} before`} className="w-full h-full object-cover" />
+                      <span className="absolute top-3 left-3 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded-full">Before</span>
+                    </div>
+                    <div className="relative overflow-hidden border-l border-white">
+                      <img src={g.after} alt={`${g.label} after`} className="w-full h-full object-cover" />
+                      <span className="absolute top-3 right-3 text-white text-[10px] font-bold px-2 py-1 rounded-full" style={{ backgroundColor: cat.accentColor }}>After</span>
+                    </div>
                   </div>
-                </div>
+                )}
                 <div className="px-5 py-3 bg-[#F7FAFA]">
                   <p className="text-sm font-semibold text-[#0B253A]">{g.label}</p>
                 </div>

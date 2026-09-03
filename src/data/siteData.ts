@@ -78,105 +78,60 @@ export interface TeamMember {
 
 export const SERVICES: Service[] = [
   {
-    id: 'steam-carpet-cleaning',
-    title: 'Steam Carpet Cleaning',
+    id: 'carpet-cleaning',
+    title: 'Carpet Cleaning',
     tag: 'Deep Clean',
-    description: 'Professional hot water extraction reaches deep into carpet fibres to loosen and extract accumulated dust, allergens, food particles and contaminants that everyday vacuuming leaves behind.',
-    longDescription: 'Our primary carpet cleaning process uses professional hot water extraction. Heated water and a cleaning solution are injected deep into carpet fibres, then powerfully extracted along with loosened dirt, moisture and contaminants.',
+    description: 'Professional hot water extraction to remove dirt, allergens and stains from all carpet types in homes and businesses.',
+    longDescription: 'Our carpet cleaning uses hot water extraction to restore your carpets to a fresh, clean condition.',
     iconName: 'Waves',
     price: '',
-    features: [
-      'Detailed carpet inspection',
-      'Pre-vacuuming & pre-treatment',
-      'Hot water extraction technology',
-      'Reduces allergens & dust buildup',
-      'Treats heavy-traffic areas',
-      'Efficient drying guidance',
-    ],
+    features: ['Steam cleaning', 'End of lease', 'Stain removal', 'Commercial cleaning'],
     image: '/steam-carpet-service.jpg'
   },
   {
-    id: 'end-of-lease-cleaning',
-    title: 'End of Lease Cleaning',
-    tag: 'Bond & Rental',
-    description: 'Our end-of-lease service targets dark traffic lanes, food spills, pet stains and general dirt to present carpets in their best condition before final inspection and property handover.',
-    longDescription: 'Moving out of a rental property is stressful. We provide thorough carpet cleaning tailored to meet real estate inspection standards and help with bond return.',
+    id: 'curtain-cleaning',
+    title: 'Curtain Cleaning',
+    tag: 'Fabric Care',
+    description: 'On-site curtain cleaning using low-moisture techniques safe for all fabric types including sheers, drapes and blinds.',
+    longDescription: 'Curtains trap dust, allergens and odours. We clean them on-site without taking them down.',
+    iconName: 'Sparkles',
+    price: '',
+    features: ['Sheer & heavy curtains', 'Blind cleaning', 'Stain removal', 'On-site service'],
+    image: '/curtain-cleaning.jpg'
+  },
+  {
+    id: 'couch-cleaning',
+    title: 'Couch Cleaning',
+    tag: 'Upholstery',
+    description: 'Professional sofa and upholstery cleaning for fabric, leather and microfibre surfaces - removes stains, odours and allergens.',
+    longDescription: 'We safely lift body oils, pet dander, food spills and grime from all upholstery types.',
+    iconName: 'Armchair',
+    price: '',
+    features: ['Fabric & leather', 'Pet stain treatment', 'Odour removal', 'Steam cleaning'],
+    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'carpet-repair',
+    title: 'Carpet Repair',
+    tag: 'Restoration',
+    description: 'Repair burns, holes, tears, pet damage and loose edges - often for much less than the cost of replacement.',
+    longDescription: 'Our carpet repair specialists can patch, restretch and restore damaged areas so carpet looks normal again.',
+    iconName: 'CheckCircle2',
+    price: '',
+    features: ['Burn & hole repair', 'Restretching', 'Pet damage', 'Patch repairs'],
+    image: '/carpet-repair.jpg'
+  },
+  {
+    id: 'mattress-cleaning',
+    title: 'Mattress Cleaning',
+    tag: 'Sanitise',
+    description: 'Deep cleaning and sanitisation to eliminate dust mites, allergens, stains and odours for a healthier sleep environment.',
+    longDescription: 'Mattresses accumulate dust mites, stains and bacteria. We clean and sanitise for a healthier sleep.',
     iconName: 'ShieldCheck',
     price: '',
-    features: [
-      'Final rental inspection ready',
-      'Property handover standard',
-      'Bond preparation clean',
-      'Real estate inspection grade',
-    ],
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80'
+    features: ['Deep steam cleaning', 'Stain removal', 'Sanitising', 'Odour treatment'],
+    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80'
   },
-  {
-    id: 'commercial-cleaning',
-    title: 'Office & Commercial Cleaning',
-    tag: 'Commercial',
-    description: 'We clean offices, reception areas, hallways, meeting rooms, retail spaces and showrooms with flexible scheduling to suit your business hours.',
-    longDescription: 'A clean workplace creates a better environment for everyone. Commercial carpets receive heavy daily traffic and require professional treatment to maintain a professional appearance.',
-    iconName: 'Building2',
-    price: '',
-    features: [
-      'High-traffic corridor treatment',
-      'Flexible after-hours bookings',
-      'Removes trapped dust & odours',
-      'Maintains professional presentation',
-    ],
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'stain-spot-removal',
-    title: 'Stain & Odour Removal',
-    tag: 'Targeted',
-    description: 'Specialised treatment for common carpet stains including coffee, wine, pet accidents and persistent odours using targeted neutralising pre-treatments.',
-    longDescription: 'We assess stain type, carpet fibre and age before applying targeted neutralising pre-treatments and professional extraction to address common carpet stains and odours.',
-    iconName: 'Eraser',
-    price: '',
-    features: [
-      'Coffee & tea stain treatment',
-      'Wine & juice mark removal',
-      'Pet urine & odour treatment',
-      'Food & grease spill removal',
-      'Mud & tracked dirt treatment',
-      'Biological odour neutralisation',
-    ],
-    image: '/stain-odour-removal.jpg'
-  },
-  {
-    id: 'carpet-shampooing',
-    title: 'Carpet Shampooing',
-    tag: 'Heavy Soil Care',
-    description: 'Combines specialised cleaning products with professional agitation equipment to break down heavily soiled areas and refresh tired-looking carpets.',
-    longDescription: 'A thorough cleaning process designed to loosen accumulated dirt, soil and grime from carpet fibres through specialised shampoo solutions and professional agitation equipment.',
-    iconName: 'Brush',
-    price: '',
-    features: [
-      'Initial carpet inspection',
-      'Dry soil removal pre-vacuum',
-      'Deep shampoo solution agitation',
-      'Professional extraction & rinse',
-    ],
-    image: '/carpet-shampooing.jpg'
-  },
-  {
-    id: 'water-extraction',
-    title: 'Carpet Water Extraction',
-    tag: 'Emergency & Water Relief',
-    description: 'High-power extraction machinery rapidly removes excess water from saturated carpet fibres and backing following leaks, overflows or water damage.',
-    longDescription: 'Water damage can happen unexpectedly. Our professional water extraction service uses high-power machinery to rapidly remove excess water from saturated carpet fibres and backing to assist the drying process.',
-    iconName: 'Droplets',
-    price: '',
-    features: [
-      'Rapid moisture removal',
-      'Prevents musty odours',
-      'Leak & overflow response',
-      'Drying & ventilation guidance',
-    ],
-    image: '/water-extraction.jpg'
-  }
 ];
 
 const imgSrc = (img: any): string => (typeof img === 'string' ? img : img.src);

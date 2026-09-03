@@ -289,7 +289,7 @@ export default function HomePage() {
             </div>
 
             <div className="group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden border border-[#A7F3D0] ambient-shadow mb-8">
-              <img src="/steam-cleaning.jpg" alt="Professional steam carpet cleaning in a Brisbane home" className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
+              <img src="/steam-banner.jpg" alt="Professional steam carpet cleaning in a Brisbane home" className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105" />
 
               {/* Dark neutral overlay instead of green */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
@@ -403,7 +403,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="group relative overflow-hidden rounded-3xl border border-[#1261A0]/10 bg-[#F2F8FC] shadow-sm hover:shadow-xl hover:border-[#00B8D9]/30 transition-all duration-300 flex flex-col">
                 <div className="h-48 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Residential carpet cleaning" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src="/residential-home.jpg" alt="Residential carpet cleaning" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-[#F2F8FC]/90" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">

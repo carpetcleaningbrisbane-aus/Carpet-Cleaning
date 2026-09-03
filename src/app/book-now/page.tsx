@@ -25,7 +25,7 @@ function Field({ label, error, icon, children }: { label: string; error?: string
 function BookNowForm() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
-    serviceIds: ['steam-carpet-cleaning'] as string[],
+    serviceIds: ['carpet-cleaning'] as string[],
     preferredDate: '',
     preferredTime: 'Morning (8:00 AM - 12:00 PM)',
     fullName: '',
