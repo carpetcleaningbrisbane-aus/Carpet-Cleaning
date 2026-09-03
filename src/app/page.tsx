@@ -49,7 +49,6 @@ const SUBURBS = [
   "Redcliffe",
   "Caboolture",
   "Ipswich",
-  "Gold Coast",
 ];
 
 export default function HomePage() {
