@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, AlertCircle, MessageSquare, ChevronRight } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, AlertCircle, MessageSquare, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
@@ -49,10 +49,8 @@ export default function ContactPage() {
   };
 
   const contactItems = [
-    { icon: <Phone className="w-5 h-5" />, label: 'Call Us', primary: '0435 071 625', secondary: 'Mon–Sat: 7:00 AM – 7:00 PM' },
     { icon: <Mail className="w-5 h-5" />, label: 'Email Support', primary: 'info.theexpertcleaner@gmail.com', secondary: 'Average response: 2 hours' },
     { icon: <MapPin className="w-5 h-5" />, label: 'Service Area', primary: 'Brisbane & Surrounds', secondary: 'Greater Brisbane Region' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Opening Hours', primary: 'Mon – Fri: 7am – 7pm', secondary: 'Sat: 8am – 5pm · Sun: Emergencies' },
   ];
 
   return (
@@ -74,9 +72,6 @@ export default function ContactPage() {
             Have questions about our services or want to get a quote? Send us a message and our team will respond within 2 business hours.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <a href="tel:0435071625" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
-              <Phone className="w-4 h-4 text-[#F2F8FC]" /> 0435 071 625
-            </a>
             <a href="mailto:info.theexpertcleaner@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full text-white text-sm font-semibold hover:bg-white/20 transition-all">
               <Mail className="w-4 h-4 text-[#F2F8FC]" /> Email Us
             </a>
