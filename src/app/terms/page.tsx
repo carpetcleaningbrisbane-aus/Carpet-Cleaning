@@ -16,7 +16,7 @@ export default function TermsPage() {
 
       <div className="space-y-6 text-sm text-[#082B59]/80 leading-relaxed">
         <p>
-          Welcome to Carpet Cleaner. By accessing our website or booking our services, you agree to comply with and be bound by the following terms and conditions.
+          Welcome to Carpet Cleaning Brisbane. By accessing our website or booking our services, you agree to comply with and be bound by the following terms and conditions.
         </p>
 
         <h2 className="font-display font-bold text-xl text-[#082B59] pt-4">1. Service Quotations & On-Site Scope</h2>
@@ -26,12 +26,12 @@ export default function TermsPage() {
 
         <h2 className="font-display font-bold text-xl text-[#082B59] pt-4">2. Satisfaction Guarantee & Re-Cleans</h2>
         <p>
-          We offer a 100% Satisfaction Guarantee. If you are unsatisfied with a cleaned area or if a property manager flags carpet issues within 72 hours, we will re-clean the affected areas free of charge.
+          We offer guaranteed Satisfaction for all our services, except if operator inform there is no guarantee for particular situation after inspection to the site.
         </p>
 
         <h2 className="font-display font-bold text-xl text-[#082B59] pt-4">3. Cancellations & Rescheduling</h2>
         <p>
-          Appointments can be rescheduled or cancelled free of charge up to 24 hours prior to the scheduled service time.
+          Less than 24 hr notice for cancellation apply $99 cancellation charge and after operator visit on site and cancel the service apply $120 call out fee.
         </p>
 
         <div className="pt-8 border-t border-[#1261A0]/20">
