@@ -102,7 +102,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     faqs: [
       { q: 'How often should carpets be professionally cleaned?', a: 'Carpets should be professionally cleaned every 6–12 months, or more frequently for homes with pets, kids, or heavy foot traffic.' },
       { q: 'Is steam carpet cleaning safe?', a: 'Yes. Steam cleaning is manufacturer-recommended and safe for most carpet types when done by trained professionals.' },
-      { q: 'How long does carpet drying take?', a: 'Most carpets dry within 3 to 4 hours, depending on the material and cleaning method used.' },
+      { q: 'How long does carpet drying take?', a: 'Most carpets dry within 4 to 6 hours, depending on the material and cleaning method used.' },
       { q: 'Do you remove pet stains and odours?', a: 'Yes. Our deep steam cleaning and targeted treatments effectively remove pet stains, bacteria, and odours.' },
       { q: 'What are your service areas?', a: 'We provide professional carpet cleaning across Brisbane, including Brisbane CBD, North Brisbane, South Brisbane, Eastern and Western suburbs, Moreton Bay, Logan, Redlands, Ipswich, and surrounding suburbs.' },
       { q: 'Is your carpet cleaning eco-friendly?', a: 'Absolutely. We use safe, eco-friendly cleaning solutions suitable for kids and pets.' },
