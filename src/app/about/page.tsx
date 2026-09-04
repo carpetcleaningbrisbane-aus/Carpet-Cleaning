@@ -252,7 +252,7 @@ export default function AboutPage() {
                 Experience the difference of a truly professional clean. Book your service today and let us restore the serenity of your home.
               </p>
               <Link href="/contact" className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#00B8D9] text-[#082B59] font-bold rounded-xl hover:bg-white transition-colors duration-300 shadow-lg hover:shadow-xl group">
-                Book Your Clean Today
+                Book Online
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
