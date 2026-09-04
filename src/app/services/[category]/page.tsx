@@ -73,9 +73,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
         <section className="bg-[#F0FAFA] py-16 px-5 md:px-16 border-b border-[#D6E8E8]">
           <div className="max-w-[1280px] mx-auto">
             <div className="mb-10 text-center">
-              <span className="text-xs font-bold uppercase tracking-widest mb-2 block" style={{ color: cat.accentColor }}>
-                Why Steam Cleaning?
-              </span>
+
               <h2 className="font-display font-bold text-2xl md:text-3xl text-[#0B253A] mb-3">
                 Why Choose Carpet Steam Cleaning?
               </h2>
