@@ -87,20 +87,6 @@ export default function HomePage() {
                   Explore Our Services
                 </Link>
               </div>
-              <div className="grid grid-cols-3 gap-4 pt-8 border-t border-[#1261A0]/20">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-[#00B8D9]" />
-                  <span className="text-xs font-semibold text-[#082B59]">Deep Extraction</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-[#00B8D9]" />
-                  <span className="text-xs font-semibold text-[#082B59]">Fast Drying</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Award className="w-5 h-5 text-[#00B8D9]" />
-                  <span className="text-xs font-semibold text-[#082B59]">End of Lease</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>
