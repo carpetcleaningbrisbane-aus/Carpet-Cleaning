@@ -153,7 +153,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { q: 'What\'s the best way to clean delicate curtains?', a: 'Delicate curtains are best handled with curtain dry cleaning to preserve fabric integrity.' },
       { q: 'How long does it take for curtains to dry?', a: 'Curtains typically dry within 4 to 6 hours using our fast-drying curtain washing process.' },
       { q: 'Do you offer onsite curtain cleaning services?', a: 'Yes, we offer onsite curtain cleaning with professional curtain cleaning techniques.' },
-      { q: 'Can you remove mold from curtains?', a: 'Yes, our curtain steam cleaning process effectively removes mold while keeping the fabric safe.' },
+      { q: 'Can you remove mold from curtains?', a: 'Yes, we apply best solution to rectify the problem.' },
     ],
   },
   {
