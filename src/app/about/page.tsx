@@ -181,7 +181,8 @@ export default function AboutPage() {
                   href="/contact"
                   className="group inline-flex self-start items-center gap-3 px-8 py-3.5 bg-[#00B8D9] text-[#082B59] font-bold rounded-xl hover:bg-white transition-colors duration-300 shadow-lg"
                 >
-                  Book Your Clean
+                  Book Online
+
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
