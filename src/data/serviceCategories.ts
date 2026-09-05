@@ -1,9 +1,9 @@
-import livingRoomBefore from '@/assets/gallery/01-living-room-before.png';
-import livingRoomAfter from '@/assets/gallery/01-living-room-after.png';
-import hallwayBefore from '@/assets/gallery/02-hallway-before.png';
-import hallwayAfter from '@/assets/gallery/02-hallway-after.png';
-import bedroomBefore from '@/assets/gallery/03-bedroom-before.png';
-import bedroomAfter from '@/assets/gallery/03-bedroom-after.png';
+import livingRoomBefore from '@/assets/gallery/01-living-room-before.webp';
+import livingRoomAfter from '@/assets/gallery/01-living-room-after.webp';
+import hallwayBefore from '@/assets/gallery/02-hallway-before.webp';
+import hallwayAfter from '@/assets/gallery/02-hallway-after.webp';
+import bedroomBefore from '@/assets/gallery/03-bedroom-before.webp';
+import bedroomAfter from '@/assets/gallery/03-bedroom-after.webp';
 
 const imgSrc = (img: { src: string } | string): string =>
   typeof img === 'string' ? img : img.src;
@@ -53,38 +53,38 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: 'Deep clean for every carpet in your home or business.',
     description:
       "Brisbane's climate and everyday foot traffic leave carpets harbouring dirt, allergens and stains that regular vacuuming can't reach. Our professional carpet cleaning uses hot water extraction to restore your carpets to a fresh, clean condition.",
-    heroImage: '/steam-cleaning.jpg',
+    heroImage: '/steam-cleaning.webp',
     accentColor: '#159A9C',
     services: [
       {
         title: 'Steam Carpet Cleaning',
         description: 'Hot water extraction that gets deep into the fibres and pulls out embedded dirt, allergens and bacteria.',
-        image: '/services/steam-carpet-cleaning.jpg',
+        image: '/services/steam-carpet-cleaning.webp',
       },
       {
         title: 'End of Lease Carpet Cleaning',
         description: 'Cleaning to real estate inspection standard so you can hand over the property and get your bond back.',
-        image: '/services/end-of-lease-cleaning.jpg',
+        image: '/services/end-of-lease-cleaning.webp',
       },
       {
         title: 'Office & Commercial Carpet Cleaning',
         description: 'Flexible after-hours service for offices, retail spaces and commercial premises with heavy foot traffic.',
-        image: '/services/commercial-carpet-cleaning.jpg',
+        image: '/services/commercial-carpet-cleaning.webp',
       },
       {
         title: 'Stain & Odour Removal',
         description: 'Targeted treatment for pet accidents, coffee, wine, food spills and persistent carpet odours.',
-        image: '/stain-odour-removal.jpg',
+        image: '/stain-odour-removal.webp',
       },
       {
         title: 'Carpet Shampooing',
         description: 'Deep agitation cleaning for heavily soiled carpets that need more than a standard steam treatment.',
-        image: '/carpet-shampooing.jpg',
+        image: '/carpet-shampooing.webp',
       },
       {
         title: 'Carpet Water Extraction',
         description: 'Emergency extraction for water-damaged or flooded carpets to minimise lasting damage.',
-        image: '/services/carpet-water-extraction.jpg',
+        image: '/services/carpet-water-extraction.webp',
       },
     ],
     process: [
@@ -114,28 +114,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: 'Fresh, clean curtains without the hassle of taking them down.',
     description:
       'Curtains trap dust, allergens, cooking odours and mould over time. Our on-site curtain cleaning service uses low-moisture techniques that are safe for all fabric types — including sheers, heavy drapes and blinds.',
-    heroImage: '/curtain-cleaning.jpg',
+    heroImage: '/curtain-cleaning.webp',
     accentColor: '#7B5EA7',
     services: [
       {
         title: 'Sheer Curtain Cleaning',
         description: 'Gentle low-moisture cleaning for delicate sheer and voile curtains that maintains fabric integrity.',
-        image: '/curtain/sheer-curtain-cleaning.jpg',
+        image: '/curtain/sheer-curtain-cleaning.webp',
       },
       {
         title: 'Heavy Curtain Cleaning',
         description: 'Deep cleaning for thick drapes, blockout curtains and lined panels that collect more dust over time.',
-        image: '/curtain/heavy-curtain-cleaning.jpg',
+        image: '/curtain/heavy-curtain-cleaning.webp',
       },
       {
         title: 'Blind Cleaning',
         description: 'Thorough cleaning for venetian, roller and vertical blinds — removing dust, grime and stains.',
-        image: '/curtain/blind-cleaning.jpg',
+        image: '/curtain/blind-cleaning.webp',
       },
       {
         title: 'Curtain Stain Removal',
         description: 'Targeted stain treatment for water marks, food stains and other fabric marks on curtain panels.',
-        image: '/curtain/curtain-stain-removal.jpg',
+        image: '/curtain/curtain-stain-removal.webp',
       },
     ],
     process: [
@@ -145,8 +145,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { step: '04', title: 'Final Check', desc: 'We inspect the result and ensure curtains are left hanging fresh and looking their best.' },
     ],
     gallery: [
-      { before: '', after: '', single: '/curtain/sheer-curtain-result.jpg', label: 'Sheer Curtain Clean' },
-      { before: '', after: '', single: '/curtain/heavy-drape-result.jpg', label: 'Heavy Drape Refresh' },
+      { before: '', after: '', single: '/curtain/sheer-curtain-result.webp', label: 'Sheer Curtain Clean' },
+      { before: '', after: '', single: '/curtain/heavy-drape-result.webp', label: 'Heavy Drape Refresh' },
     ],
     faqs: [
       { q: 'How often should I professionally clean my curtains?', a: 'For regular use, we recommend professional curtain cleaning every 6 to 12 months. Pet-filled or high-traffic households might require more frequent cleaning.' },
@@ -168,22 +168,22 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Steam Couch Cleaning',
         description: 'Hot water extraction for fabric sofas and couches — removes deep-set dirt, allergens and odours.',
-        image: '/couch/steam-couch-cleaning.jpg',
+        image: '/couch/steam-couch-cleaning.webp',
       },
       {
         title: 'Leather Couch Cleaning',
         description: 'Specialist cleaning and conditioning for leather surfaces to remove grime without drying the material.',
-        image: '/couch/leather-couch-cleaning.jpg',
+        image: '/couch/leather-couch-cleaning.webp',
       },
       {
         title: 'Pet Stain & Odour Couch Cleaning',
         description: 'Enzyme-based treatment targeting pet urine, hair and biological odours in upholstered furniture.',
-        image: '/couch/pet-stain-couch-cleaning.jpg',
+        image: '/couch/pet-stain-couch-cleaning.webp',
       },
       {
         title: 'Fabric Upholstery Cleaning',
         description: 'Low-moisture cleaning suitable for microfibre, velvet, linen and other delicate upholstery fabrics.',
-        image: '/couch/fabric-upholstery-cleaning.jpg',
+        image: '/couch/fabric-upholstery-cleaning.webp',
       },
     ],
     process: [
@@ -193,8 +193,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { step: '04', title: 'Final Inspection', desc: 'We review the cleaned upholstery with you and address any remaining marks before finishing.' },
     ],
     gallery: [
-      { before: '', after: '', single: '/couch/fabric-couch-result.jpg', label: 'Fabric Couch Deep Clean' },
-      { before: '', after: '', single: '/couch/pet-stain-couch-result.jpg', label: 'Pet Stain Treatment' },
+      { before: '', after: '', single: '/couch/fabric-couch-result.webp', label: 'Fabric Couch Deep Clean' },
+      { before: '', after: '', single: '/couch/pet-stain-couch-result.webp', label: 'Pet Stain Treatment' },
     ],
     faqs: [
       { q: 'How often should I get my couch professionally cleaned?', a: 'We recommend upholstery cleaning every 6 to 12 months, or sooner if there are spills, heavy foot traffic, or pets.' },
@@ -210,33 +210,33 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: 'Repair and restore damaged carpet without replacing it.',
     description:
       "Carpet damage from burns, tears, pet clawing or loose edges doesn't always mean replacement. Our carpet repair specialists can patch, restretch and restore damaged areas so the carpet looks and functions like normal again.",
-    heroImage: '/carpet-repair.jpg',
+    heroImage: '/carpet-repair.webp',
     accentColor: '#2A7A4B',
     services: [
       {
         title: 'Burn Carpet Repair',
         description: 'Precise patching for cigarette burns, heat marks and iron damage using matched carpet material.',
-        image: '/carpet-repair/burn-carpet-repair.jpg',
+        image: '/carpet-repair/burn-carpet-repair.webp',
       },
       {
         title: 'Carpet Hole Repair',
         description: 'Seamless repair for holes, tears and cuts in carpet using donor material and professional techniques.',
-        image: '/carpet-repair/carpet-hole-repair.jpg',
+        image: '/carpet-repair/carpet-hole-repair.webp',
       },
       {
         title: 'Fix Carpet Patch',
         description: 'Targeted patch repairs for isolated areas of damage that would otherwise require a full replacement.',
-        image: '/carpet-repair/fix-carpet-patch.jpg',
+        image: '/carpet-repair/fix-carpet-patch.webp',
       },
       {
         title: 'Carpet Restretching',
         description: 'Power-stretching to remove ripples, bubbles and loose edges — preventing trip hazards and extending carpet life.',
-        image: '/carpet-repair/carpet-restretching.jpg',
+        image: '/carpet-repair/carpet-restretching.webp',
       },
       {
         title: 'Pet Damage Carpet Repair',
         description: 'Repair for clawing, digging and fraying damage caused by pets, including edge and corner repairs.',
-        image: '/carpet-repair/pet-damage-carpet-repair.jpg',
+        image: '/carpet-repair/pet-damage-carpet-repair.webp',
       },
     ],
     process: [
@@ -246,8 +246,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { step: '04', title: 'Final Review', desc: 'The completed repair is reviewed to ensure it blends with the surrounding carpet and the area is clean.' },
     ],
     gallery: [
-      { before: '', after: '', single: '/carpet-repair/burn-mark-result.jpg', label: 'Burn Mark Repair' },
-      { before: '', after: '', single: '/carpet-repair/carpet-restretch-result.jpg', label: 'Carpet Restretch' },
+      { before: '', after: '', single: '/carpet-repair/burn-mark-result.webp', label: 'Burn Mark Repair' },
+      { before: '', after: '', single: '/carpet-repair/carpet-restretch-result.webp', label: 'Carpet Restretch' },
     ],
     faqs: [
       { q: 'Can damaged carpet be repaired instead of replaced?', a: 'Yes. Most burns, tears, pet damage, stains, wrinkles, ripples and lifted carpet can be professionally repaired, saving you the cost of replacing the entire carpet.' },
@@ -269,28 +269,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Deep Mattress Cleaning',
         description: 'Thorough hot water extraction cleaning that removes deep-set dirt, dust mites and biological buildup from within the mattress layers.',
-        image: '/mattress/deep-mattress-cleaning.jpg',
+        image: '/mattress/deep-mattress-cleaning.webp',
       },
       {
         title: 'Traditional Mattress Cleaning',
         description: 'A classic dry-clean method suitable for mattresses that require low-moisture treatment to avoid fabric damage.',
-        image: '/mattress/traditional-mattress-cleaning.jpg',
+        image: '/mattress/traditional-mattress-cleaning.webp',
       },
       {
         title: 'Mattress Stain Removal',
         description: 'Targeted treatment for urine, blood, sweat and other stubborn stains using enzyme-based cleaning solutions.',
-        image: '/mattress/mattress-stain-removal.jpg',
+        image: '/mattress/mattress-stain-removal.webp',
       },
       {
         title: 'Mattress Sanitizing',
         description: 'UV and chemical sanitization to eliminate bacteria, dust mites and allergens — ideal for allergy sufferers and post-illness cleaning.',
-        image: '/mattress/mattress-sanitizing.jpg',
+        image: '/mattress/mattress-sanitizing.webp',
         objectPosition: 'top',
       },
       {
         title: 'Mattress Steam Cleaning',
         description: 'High-temperature steam treatment that kills dust mites and bacteria while freshening the mattress fabric without chemical residue.',
-        image: '/mattress/mattress-steam-cleaning.jpg',
+        image: '/mattress/mattress-steam-cleaning.webp',
       },
     ],
     process: [
@@ -300,8 +300,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { step: '04', title: 'Final Inspection', desc: 'We inspect the completed clean with you and ensure the mattress is left fresh, sanitised and ready to use.' },
     ],
     gallery: [
-      { before: '', after: '', single: '/mattress/mattress-stain-result.jpg', label: 'Mattress Stain Removal' },
-      { before: '', after: '', single: '/mattress/deep-mattress-result.jpg', label: 'Deep Mattress Clean' },
+      { before: '', after: '', single: '/mattress/mattress-stain-result.webp', label: 'Mattress Stain Removal' },
+      { before: '', after: '', single: '/mattress/deep-mattress-result.webp', label: 'Deep Mattress Clean' },
     ],
     faqs: [
       { q: 'How often should I have my mattress cleaned?', a: 'We recommend professional cleaning every 6 to 12 months for optimal hygiene.' },

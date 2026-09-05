@@ -26,7 +26,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 /* ── Drag-to-reveal Before/After Slider ─ */
-function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: string; afterImage: string; title: string }) {
+function BeforeAfterSlider({ beforeImage, afterImage, title, isFirst = false }: { beforeImage: string; afterImage: string; title: string; isFirst?: boolean }) {
   const [position, setPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -72,9 +72,13 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
       onTouchEnd={onMouseUp}
     >
       {/* AFTER image — full width base */}
-      <img
+      <NextImage
         src={afterImage}
         alt={`${title} after`}
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        loading={isFirst ? "eager" : "lazy"}
+        priority={isFirst}
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         draggable={false}
       />
@@ -84,11 +88,14 @@ function BeforeAfterSlider({ beforeImage, afterImage, title }: { beforeImage: st
         className="absolute inset-0 overflow-hidden pointer-events-none"
         style={{ width: `${position}%` }}
       >
-        <img
+        <NextImage
           src={beforeImage}
           alt={`${title} before`}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading={isFirst ? "eager" : "lazy"}
+          priority={isFirst}
           className="absolute inset-0 h-full object-cover pointer-events-none"
-          style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100%', maxWidth: 'none' }}
           draggable={false}
         />
       </div>
@@ -221,6 +228,8 @@ export default function GalleryPage() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    priority={idx === 0}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -229,6 +238,7 @@ export default function GalleryPage() {
                   beforeImage={item.beforeImage}
                   afterImage={item.afterImage}
                   title={item.title}
+                  isFirst={idx === 0}
                 />
               )}
 

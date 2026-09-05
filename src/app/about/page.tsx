@@ -5,7 +5,7 @@ import {
   ShieldCheck, HeartHandshake, CheckCircle2, Droplets, Search,
   UserCheck, Quote, ArrowRight, Leaf, Award, Clock, ClipboardCheck
 } from 'lucide-react';
-import aboutBanner from '@/assets/about/about_banner.png';
+import aboutBanner from '@/assets/about/about_banner.webp';
 
 export const metadata: Metadata = {
   title: 'About Us | Professional Carpet Cleaners in Brisbane',
