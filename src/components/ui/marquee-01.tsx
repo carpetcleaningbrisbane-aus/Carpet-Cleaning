@@ -139,18 +139,24 @@ export default function TestimonialSlider() {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   useEffect(() => {
+    let rafId: number;
     const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setCardsToShow(1);
-      } else if (window.innerWidth < 1024) {
-        setCardsToShow(2);
-      } else {
-        setCardsToShow(3);
-      }
+      rafId = requestAnimationFrame(() => {
+        if (window.innerWidth < 640) {
+          setCardsToShow(1);
+        } else if (window.innerWidth < 1024) {
+          setCardsToShow(2);
+        } else {
+          setCardsToShow(3);
+        }
+      });
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const maxIndex = Math.max(0, reviews.length - cardsToShow);
