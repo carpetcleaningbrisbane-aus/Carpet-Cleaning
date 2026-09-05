@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { Metadata } from 'next';
 import {
   ShieldCheck, HeartHandshake, CheckCircle2, Droplets, Search,
@@ -55,7 +56,14 @@ export default function AboutPage() {
 
       {/* Header Banner - Navy */}
       <section className="relative py-24 md:py-32 px-5 md:px-16 overflow-hidden">
-        <img src={aboutBanner.src} alt="Professional carpet cleaners serving Brisbane" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <NextImage 
+          src={aboutBanner} 
+          alt="Professional carpet cleaners serving Brisbane" 
+          fill
+          priority
+          sizes="100vw"
+          className="absolute inset-0 w-full h-full object-cover object-center" 
+        />
         {/* Subtle dark tint to ensure white text remains readable without hiding the image */}
         <div className="absolute inset-0 bg-black/10" />
 

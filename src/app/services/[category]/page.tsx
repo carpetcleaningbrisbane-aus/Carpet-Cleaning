@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react';
@@ -35,9 +36,12 @@ export default async function ServiceCategoryPage({ params }: Props) {
 
       {/* ── Hero ── */}
       <section className="relative py-20 md:py-28 px-5 md:px-16 overflow-hidden mb-0">
-        <img
-          src={cat.heroImage}
+        <NextImage
+          src={cat.heroImage.replace(/\.(jpg|png)$/, '.webp')}
           alt={cat.title}
+          fill
+          priority
+          sizes="100vw"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-[#0B253A]/70" />
@@ -123,10 +127,12 @@ export default async function ServiceCategoryPage({ params }: Props) {
               >
                 {/* Accent top stripe */}
                 <div className="h-1 w-full" style={{ backgroundColor: cat.accentColor }} />
-                <div className="h-56 overflow-hidden">
-                  <img
+                <div className="h-56 overflow-hidden relative">
+                  <NextImage
                     src={s.image}
                     alt={s.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     style={s.objectPosition ? { objectPosition: s.objectPosition } : undefined}
                   />
@@ -186,19 +192,19 @@ export default async function ServiceCategoryPage({ params }: Props) {
               <div key={i} className="rounded-2xl overflow-hidden border border-[#D6E8E8] shadow-sm">
                 {g.single ? (
                   /* Single full image */
-                  <div className="h-72 overflow-hidden">
-                    <img src={g.single} alt={g.label} className="w-full h-full object-cover" />
+                  <div className="h-72 overflow-hidden relative">
+                    <NextImage src={g.single} alt={g.label} fill sizes="(max-width: 768px) 100vw, 50vw" className="w-full h-full object-cover" />
                   </div>
                 ) : (
                   /* Before / After split */
                   <div className="grid grid-cols-2 h-72">
                     <div className="relative overflow-hidden">
-                      <img src={g.before} alt={`${g.label} before`} className="w-full h-full object-cover" />
-                      <span className="absolute top-3 left-3 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded-full">Before</span>
+                      <NextImage src={g.before} alt={`${g.label} before`} fill sizes="(max-width: 768px) 50vw, 25vw" className="w-full h-full object-cover" />
+                      <span className="absolute top-3 left-3 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded-full z-10">Before</span>
                     </div>
                     <div className="relative overflow-hidden border-l border-white">
-                      <img src={g.after} alt={`${g.label} after`} className="w-full h-full object-cover" />
-                      <span className="absolute top-3 right-3 text-white text-[10px] font-bold px-2 py-1 rounded-full" style={{ backgroundColor: cat.accentColor }}>After</span>
+                      <NextImage src={g.after} alt={`${g.label} after`} fill sizes="(max-width: 768px) 50vw, 25vw" className="w-full h-full object-cover" />
+                      <span className="absolute top-3 right-3 text-white text-[10px] font-bold px-2 py-1 rounded-full z-10" style={{ backgroundColor: cat.accentColor }}>After</span>
                     </div>
                   </div>
                 )}

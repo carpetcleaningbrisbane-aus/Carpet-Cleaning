@@ -1,0 +1,9 @@
+# Browserslist configuration for modern browsers
+chrome >= 90
+edge >= 90
+firefox >= 88
+safari >= 14.1
+ios >= 14.5
+not dead
+not ie 11
+not op_mini all

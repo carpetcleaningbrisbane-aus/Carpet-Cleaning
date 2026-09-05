@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -36,13 +37,15 @@ export default function ServicesPage() {
               className="group relative rounded-3xl overflow-hidden border border-[#D6E8E8] bg-white hover:shadow-xl hover:border-[#159A9C]/40 transition-all duration-300"
             >
               {/* Image */}
-              <div className="h-52 overflow-hidden">
-                <img
-                  src={cat.heroImage}
+              <div className="h-52 overflow-hidden relative">
+                <Image
+                  src={cat.heroImage.replace(/\.(jpg|png)$/, '.webp')}
                   alt={cat.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 h-52 bg-gradient-to-b from-transparent to-[#0B253A]/30" />
+                <div className="absolute inset-0 h-52 bg-gradient-to-b from-transparent to-[#0B253A]/30 z-10" />
               </div>
 
               {/* Content */}

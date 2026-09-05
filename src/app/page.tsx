@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import {
   Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2,
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/hero.jpg",
+        url: "/hero.webp",
         width: 1200,
         height: 630,
         alt: "Professional carpet cleaning service in Brisbane",
@@ -52,9 +53,13 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden">
           {/* Background image */}
-          <img
-            src="/hero.jpg"
+          <Image
+            src="/hero.webp"
             alt="Professional carpet cleaning Brisbane"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
           {/* Left-to-right gradient — content on left, image visible on right */}
@@ -154,7 +159,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="relative h-[400px] lg:h-[480px] rounded-2xl overflow-hidden shadow-xl border-2 border-[#1261A0]/40">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Deep Carpet Cleaning for Homes and Businesses" className="w-full h-full object-cover" />
+                <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Deep Carpet Cleaning for Homes and Businesses" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -176,9 +181,11 @@ export default function HomePage() {
                   className="group relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 min-h-[280px] flex bg-white"
                 >
                   {/* Image with scale animation */}
-                  <img
-                    src={service.heroImage}
+                  <Image
+                    src={service.heroImage.replace(/\.(jpg|png)$/, '.webp')}
                     alt={service.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
 
@@ -267,7 +274,7 @@ export default function HomePage() {
             </div>
 
             <div className="group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden border border-[#A7F3D0] ambient-shadow mb-8">
-              <img src="/steam-banner.jpg" alt="Professional steam carpet cleaning in a Brisbane home" className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105" />
+              <Image src="/steam-banner.webp" alt="Professional steam carpet cleaning in a Brisbane home" fill sizes="100vw" className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105" />
 
               {/* Dark neutral overlay instead of green */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
@@ -384,9 +391,9 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="group relative overflow-hidden rounded-3xl border border-[#1261A0]/10 bg-[#F2F8FC] shadow-sm hover:shadow-xl hover:border-[#00B8D9]/30 transition-all duration-300 flex flex-col">
-                <div className="h-48 overflow-hidden">
-                  <img src="/residential-home.jpg" alt="Residential carpet cleaning" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-[#F2F8FC]/90" />
+                <div className="h-48 overflow-hidden relative">
+                  <Image src="/residential-home.webp" alt="Residential carpet cleaning" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-[#F2F8FC]/90 z-10" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 mb-5">
@@ -432,9 +439,9 @@ export default function HomePage() {
               </div>
 
               <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0A3670] shadow-xl flex flex-col">
-                <div className="h-48 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80" alt="Pet friendly carpet cleaning" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-[#0A3670]/70" />
+                <div className="h-48 overflow-hidden relative">
+                  <Image src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80" alt="Pet friendly carpet cleaning" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-[#0A3670]/70 z-10" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 mb-5">

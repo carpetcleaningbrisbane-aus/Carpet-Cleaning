@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Professional carpet cleaning services in Brisbane. Steam cleaning, stain & odour removal, end of lease, commercial and water extraction.',
     images: [
       {
-        url: '/hero.jpg',
+        url: '/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Professional carpet cleaning service in Brisbane',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Carpet Cleaner Brisbane | Professional Steam Carpet Cleaning',
     description: 'Professional carpet cleaning in Brisbane. Steam cleaning, stain removal, end of lease & commercial services.',
-    images: ['/hero.jpg'],
+    images: ['/hero.webp'],
   },
 };
 
@@ -58,6 +58,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
+      </head>
       <body className="bg-[#F2F8FC] text-[#082B59] antialiased flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">{children}</main>

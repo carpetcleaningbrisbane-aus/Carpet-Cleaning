@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { GALLERY_ITEMS, GalleryItem } from '@/data/siteData';
 import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical } from 'lucide-react';
 
@@ -154,9 +155,12 @@ export default function GalleryPage() {
       {/* Hero Banner */}
       <section className="relative py-16 md:py-24 px-5 md:px-16 mb-12 overflow-hidden bg-black/90">
         {/* Background photo - natural colors without bluish tone */}
-        <img
-          src="/gallery-banner.png"
+        <NextImage
+          src="/gallery-banner.webp"
           alt="Before and after carpet cleaning transformation in a Brisbane home"
+          fill
+          priority
+          sizes="100vw"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Neutral dark overlay for readable text without bluish tint */}
@@ -211,10 +215,12 @@ export default function GalleryPage() {
             >
               {/* Drag-to-reveal slider or single image */}
               {item.singleImage ? (
-                <div className="h-64 md:h-80 overflow-hidden bg-[#F2F8FC]">
-                  <img
+                <div className="h-64 md:h-80 overflow-hidden bg-[#F2F8FC] relative">
+                  <NextImage
                     src={item.singleImage}
                     alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -299,10 +305,12 @@ export default function GalleryPage() {
             {/* Full slider or single image in modal */}
             <div className="h-80 md:h-[420px]">
               {selectedItem.singleImage ? (
-                <div className="h-full overflow-hidden bg-[#F2F8FC]">
-                  <img
+                <div className="h-full overflow-hidden bg-[#F2F8FC] relative">
+                  <NextImage
                     src={selectedItem.singleImage}
                     alt={selectedItem.title}
+                    fill
+                    sizes="80vw"
                     className="w-full h-full object-cover"
                   />
                 </div>
