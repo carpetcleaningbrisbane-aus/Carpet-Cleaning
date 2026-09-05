@@ -250,7 +250,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'curtain',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/curtain/sheer-curtain-result.jpg',
+    singleImage: '/curtain/sheer-curtain-result.webp',
     description: 'Delicate sheer curtains cleaned on-site using low-moisture techniques to remove dust, allergens and accumulated grime while maintaining fabric integrity.'
   },
   {
@@ -259,7 +259,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'curtain',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/curtain/heavy-drape-result.jpg',
+    singleImage: '/curtain/heavy-drape-result.webp',
     description: 'Thick blockout and heavy lined drapes professionally cleaned to remove embedded dust, odours and staining — restored fresh and hanging in place.'
   },
 
@@ -270,7 +270,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'couch',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/couch/fabric-couch-result.jpg',
+    singleImage: '/couch/fabric-couch-result.webp',
     description: 'A fabric sofa professionally steam cleaned to remove body oils, food spills and accumulated grime — leaving the upholstery fresh and revitalised.'
   },
   {
@@ -279,7 +279,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'couch',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/couch/pet-stain-couch-result.jpg',
+    singleImage: '/couch/pet-stain-couch-result.webp',
     description: 'Enzyme-based stain and odour treatment for a couch affected by pet accidents — targeting biological contaminants and persistent odours at the source.'
   },
 
@@ -290,7 +290,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'repair',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/carpet-repair/burn-mark-result.jpg',
+    singleImage: '/carpet-repair/burn-mark-result.webp',
     description: 'A cigarette burn patch repaired using matched donor carpet material — blended seamlessly into the surrounding carpet for a near-invisible result.'
   },
   {
@@ -299,7 +299,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'repair',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/carpet-repair/carpet-restretch-result.jpg',
+    singleImage: '/carpet-repair/carpet-restretch-result.webp',
     description: 'Rippled and loose carpet power-stretched back to a flat, taut surface — eliminating trip hazards and restoring the carpet\'s original appearance.'
   },
 
@@ -310,7 +310,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'mattress',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/mattress/mattress-stain-result.jpg',
+    singleImage: '/mattress/mattress-stain-result.webp',
     description: 'Stubborn stains treated with enzyme-based solutions and professional extraction — restoring a clean, hygienic surface for a healthier sleep environment.'
   },
   {
@@ -319,7 +319,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'mattress',
     beforeImage: '',
     afterImage: '',
-    singleImage: '/mattress/deep-mattress-result.jpg',
+    singleImage: '/mattress/deep-mattress-result.webp',
     description: 'A full deep clean with hot water extraction and sanitisation — removing dust mites, allergens and accumulated grime from within the mattress layers.'
   },
 ];
