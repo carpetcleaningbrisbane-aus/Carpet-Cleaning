@@ -1,7 +1,24 @@
 import type { Metadata } from 'next';
+import { Playfair_Display, Montserrat } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-body',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
@@ -57,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${playfair.variable} ${montserrat.variable}`}>
       <head>
         <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
