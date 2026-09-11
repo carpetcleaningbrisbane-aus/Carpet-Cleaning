@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import {
   Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2,
-  Home as HomeIcon, ChevronRight,
+  Home as HomeIcon, ChevronRight, Phone,
 } from "lucide-react";
 import TestimonialMarquee from "@/components/ui/marquee-01";
 import FaqSection from "@/components/FaqSection";
@@ -88,9 +88,10 @@ export default function HomePage() {
                 <Link href="/book-now" className="inline-flex justify-center items-center px-8 py-4 bg-[#1261A0] text-white rounded-lg font-semibold text-base hover:bg-[#00B8D9] transition-all shadow-lg shadow-[#1261A0]/20 hover:shadow-xl hover:-translate-y-0.5">
                   Book Now
                 </Link>
-                <Link href="/services" className="inline-flex justify-center items-center px-8 py-4 border border-[#1261A0]/30 bg-white/70 backdrop-blur-sm text-[#082B59] rounded-lg font-semibold text-base hover:bg-white transition-colors">
-                  Explore Our Services
-                </Link>
+                <a href="tel:0405849841" className="inline-flex justify-center items-center gap-2 px-8 py-4 border border-[#1261A0]/30 bg-white/70 backdrop-blur-sm text-[#082B59] rounded-lg font-semibold text-base hover:bg-white transition-colors">
+                  <Phone className="w-4 h-4" />
+                  Call Now
+                </a>
               </div>
             </div>
           </div>
