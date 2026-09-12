@@ -76,7 +76,10 @@ export default function AboutPage() {
             A Brisbane carpet cleaning team that does the job properly. We work in homes, rentals and offices — and we show up when we say we will.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-2 mt-10">
+          <div className="flex flex-wrap justify-center items-center gap-3 mt-10">
+            <Link href="/book-now" className="px-6 py-2 bg-[#00B8D9] text-[#082B59] font-bold text-xs rounded-full hover:bg-white transition-all shadow-md">
+              Book Online Now
+            </Link>
             {[
               { label: 'Our Approach', href: '#our-approach' },
               { label: 'Why Choose Us', href: '#why-choose-us' },
@@ -227,6 +230,12 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ol>
+
+                <div className="mt-8 text-center">
+                  <Link href="/book-now" className="inline-flex items-center gap-2 px-6 py-3 bg-[#00B8D9] text-[#082B59] font-bold text-xs md:text-sm rounded-xl hover:bg-white transition-all shadow-md">
+                    Book This 8-Step Clean <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -259,6 +268,12 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/book-now" className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D97706] text-white font-bold text-sm rounded-xl hover:bg-[#B45309] transition-all shadow-md hover:-translate-y-0.5">
+              Book Your Service Today <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

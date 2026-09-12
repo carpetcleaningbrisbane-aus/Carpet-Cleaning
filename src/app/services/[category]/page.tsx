@@ -176,6 +176,12 @@ export default async function ServiceCategoryPage({ params }: Props) {
               </div>
             ))}
           </div>
+
+          <div className="mt-12 text-center">
+            <Link href={`/book-now?service=${cat.slug}`} className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">
+              Book {cat.title} Now <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -241,6 +247,12 @@ export default async function ServiceCategoryPage({ params }: Props) {
                 </div>
               </details>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link href={`/book-now?service=${cat.slug}`} className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0B253A] text-white rounded-xl font-bold text-sm hover:bg-[#159A9C] transition-colors shadow-sm">
+              Ready to Book? Book Online <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

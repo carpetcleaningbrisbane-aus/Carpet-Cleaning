@@ -21,9 +21,12 @@ export default function ServicesPage() {
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight">
             Our Services
           </h1>
-          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-8">
             From carpet steam cleaning to couch restoration and carpet repair — we handle it all across Brisbane.
           </p>
+          <Link href="/book-now" className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#159A9C] text-white rounded-xl font-bold text-sm hover:bg-white hover:text-[#0B253A] transition-all shadow-lg">
+            Book Online Now <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
@@ -31,13 +34,12 @@ export default function ServicesPage() {
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {SERVICE_CATEGORIES.map((cat) => (
-            <Link
+            <div
               key={cat.slug}
-              href={`/services/${cat.slug}`}
-              className="group relative rounded-3xl overflow-hidden border border-[#D6E8E8] bg-white hover:shadow-xl hover:border-[#159A9C]/40 transition-all duration-300"
+              className="group relative rounded-3xl overflow-hidden border border-[#D6E8E8] bg-white hover:shadow-xl hover:border-[#159A9C]/40 transition-all duration-300 flex flex-col"
             >
               {/* Image */}
-              <div className="h-52 overflow-hidden relative">
+              <Link href={`/services/${cat.slug}`} className="h-52 overflow-hidden relative block">
                 <Image
                   src={cat.heroImage.replace(/\.(jpg|png)$/, '.webp')}
                   alt={cat.title}
@@ -46,15 +48,17 @@ export default function ServicesPage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 h-52 bg-gradient-to-b from-transparent to-[#0B253A]/30 z-10" />
-              </div>
+              </Link>
 
               {/* Content */}
-              <div className="p-7">
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3"
+              <div className="p-7 flex flex-col flex-grow">
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3 w-max"
                   style={{ backgroundColor: `${cat.accentColor}15`, color: cat.accentColor }}>
                   {cat.services.length} Services
                 </div>
-                <h2 className="font-display font-bold text-2xl text-[#0B253A] mb-2">{cat.title}</h2>
+                <h2 className="font-display font-bold text-2xl text-[#0B253A] mb-2">
+                  <Link href={`/services/${cat.slug}`} className="hover:underline">{cat.title}</Link>
+                </h2>
                 <p className="text-sm text-[#60727F] mb-5 leading-relaxed">{cat.tagline}</p>
 
                 {/* Sub-services preview */}
@@ -70,12 +74,18 @@ export default function ServicesPage() {
                   )}
                 </ul>
 
-                <div className="flex items-center gap-2 font-semibold text-sm group-hover:gap-3 transition-all"
-                  style={{ color: cat.accentColor }}>
-                  View Service <ArrowRight className="w-4 h-4" />
+                <div className="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-gray-100">
+                  <Link href={`/services/${cat.slug}`} className="flex items-center gap-2 font-semibold text-sm hover:gap-3 transition-all"
+                    style={{ color: cat.accentColor }}>
+                    View Service <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link href="/book-now" className="px-4 py-2 text-white font-bold text-xs rounded-lg transition-all shadow-sm hover:opacity-90"
+                    style={{ backgroundColor: cat.accentColor }}>
+                    Book Now
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>

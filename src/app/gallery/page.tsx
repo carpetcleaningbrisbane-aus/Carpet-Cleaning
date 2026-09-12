@@ -180,9 +180,12 @@ export default function GalleryPage() {
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
             Before & After Showcase
           </h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed mb-6">
             Drag the slider on each photo to reveal the transformation — real results from real Brisbane homes and businesses.
           </p>
+          <Link href="/book-now" className="inline-flex items-center gap-2 px-7 py-3 bg-[#00B8D9] text-[#082B59] font-bold text-xs md:text-sm rounded-full hover:bg-white transition-all shadow-md">
+            Book Your Clean Now <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 

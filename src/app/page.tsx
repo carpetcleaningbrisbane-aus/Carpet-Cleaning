@@ -211,11 +211,16 @@ export default function HomePage() {
                       {service.tagline}
                     </p>
 
-                    {/* Animated Learn More button */}
-                    <span className="inline-flex items-center gap-2 text-[#00B8D9] font-semibold text-base w-max group-hover:gap-3 transition-all duration-300 transform group-hover:translate-x-2">
-                      Learn More
-                      <ChevronRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
+                    {/* Animated Learn More & Book Now button */}
+                    <div className="flex items-center gap-3">
+                      <span className="inline-flex items-center gap-1.5 text-[#00B8D9] font-semibold text-sm group-hover:gap-2 transition-all duration-300 transform group-hover:translate-x-1">
+                        Learn More
+                        <ChevronRight className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 bg-[#00B8D9] text-[#082B59] text-xs font-extrabold rounded-md shadow-sm group-hover:bg-white transition-colors duration-300">
+                        Book Now
+                      </span>
+                    </div>
                   </div>
 
                   {/* Hover border effect */}
@@ -255,6 +260,12 @@ export default function HomePage() {
                 <h3 className="font-display font-bold text-lg text-[#78350F] mb-2">Enjoy</h3>
                 <p className="text-sm text-[#92400E] leading-relaxed">Inspect the finished result and enjoy a fresher-looking space.</p>
               </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/book-now" className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D97706] text-white rounded-xl font-bold text-sm hover:bg-[#B45309] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                Book Your Preferred Slot <ChevronRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </section>

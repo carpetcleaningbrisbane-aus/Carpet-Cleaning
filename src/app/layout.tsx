@@ -4,6 +4,7 @@ import { Playfair_Display, Montserrat } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingBookingCTA from '@/components/FloatingBookingCTA';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -122,6 +123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <main className="flex-grow">{children}</main>
 
+        <FloatingBookingCTA />
         <Footer />
       </body>
     </html>
