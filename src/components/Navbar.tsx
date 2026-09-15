@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Menu, X, Home, Briefcase, Image as ImageIcon,
-  Info, Mail, CalendarCheck, ChevronDown,
+  Info, Mail, CalendarCheck, ChevronDown, BookOpen,
 } from 'lucide-react';
 import Logo from './Logo';
 
@@ -96,6 +96,7 @@ export default function Navbar() {
             {[
               { name: 'Gallery', href: '/gallery' },
               { name: 'About Us', href: '/about' },
+              { name: 'Blog', href: '/blog' },
               { name: 'Contact', href: '/contact' },
             ].map((link) => (
               <Link
@@ -114,7 +115,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/book-now"
-              className="hidden md:inline-block bg-white text-[#1261A0] px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#082B59] hover:text-white transition-all duration-200 shadow-md active:scale-95"
+              className="hidden md:inline-block bg-white text-[#1261A0] px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-xs md:text-sm hover:bg-[#082B59] hover:text-[#00B8D9] transition-all duration-200 shadow-md active:scale-95"
             >
               Book Now
             </Link>
@@ -188,6 +189,7 @@ export default function Navbar() {
           {[
             { name: 'Gallery', href: '/gallery', icon: <ImageIcon className="w-5 h-5 shrink-0" /> },
             { name: 'About Us', href: '/about', icon: <Info className="w-5 h-5 shrink-0" /> },
+            { name: 'Blog', href: '/blog', icon: <BookOpen className="w-5 h-5 shrink-0" /> },
             { name: 'Contact', href: '/contact', icon: <Mail className="w-5 h-5 shrink-0" /> },
           ].map((link) => (
             <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)}

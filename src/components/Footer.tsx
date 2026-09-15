@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#082B59] text-white w-full pt-20 pb-12 px-5 md:px-16 border-t border-[#00B8D9]">
+    <footer className="bg-[#082B59] text-white w-full pt-20 pb-28 md:pb-32 px-5 md:px-16 border-t border-[#00B8D9]">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1 flex flex-col">
@@ -67,6 +67,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/blog" className="text-white/80 hover:text-white transition-colors">
+                Blog & Advice
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="text-white/80 hover:text-white transition-colors">
                 Contact Us
               </Link>
@@ -96,13 +101,14 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Bottom Legal & Copyright Bar - Shifted away from bottom-right floating CTA */}
       <div className="max-w-[1280px] mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/70">
         <p>© 2026 Carpet Cleaning Brisbane. All rights reserved.</p>
-        <div className="flex items-center gap-6">
-          <Link href="/privacy" className="hover:text-white transition-colors">
+        <div className="flex items-center gap-6 sm:pr-48">
+          <Link href="/privacy" className="hover:text-white transition-colors font-medium underline-offset-4 hover:underline">
             Privacy Policy
           </Link>
-          <Link href="/terms" className="hover:text-white transition-colors">
+          <Link href="/terms" className="hover:text-white transition-colors font-medium underline-offset-4 hover:underline">
             Terms of Service
           </Link>
         </div>
