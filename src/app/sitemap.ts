@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next';
+import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.carpetcleaningbrisbane.com.au';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
       lastModified: new Date(),
@@ -58,17 +59,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    {
-      url: `${BASE_URL}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${BASE_URL}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
   ];
+
+  const categoryPages: MetadataRoute.Sitemap = SERVICE_CATEGORIES.map((cat) => ({
+    url: `${BASE_URL}/services/${cat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
+  return [...staticPages, ...categoryPages];
 }

@@ -31,6 +31,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${post.title} | Carpet Cleaning Brisbane`,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      title: `${post.title} | Carpet Cleaning Brisbane`,
+      description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      images: [post.image],
+    },
   };
 }
 

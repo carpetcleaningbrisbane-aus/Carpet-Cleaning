@@ -6,12 +6,12 @@ export function LocalBusinessSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': '${SITE_URL}/#business',
-    name: 'Carpet Cleaner Brisbane',
-    url: '${SITE_URL}',
+    '@id': `${SITE_URL}/#business`,
+    name: 'Carpet Cleaning Brisbane',
+    url: `${SITE_URL}`,
     telephone: '0405849841',
     email: 'info.carpetcleaninginbrisbane@gmail.com',
-    image: '${SITE_URL}/hero.webp',
+    image: `${SITE_URL}/hero.webp`,
     description: 'Professional carpet cleaning services in Brisbane including steam cleaning, stain and odour removal, end of lease cleaning, commercial carpet cleaning and water extraction.',
     address: {
       '@type': 'PostalAddress',
@@ -68,15 +68,15 @@ export function WebSiteSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': '${SITE_URL}/#website',
-    name: 'Carpet Cleaner Brisbane',
-    url: '${SITE_URL}',
+    '@id': `${SITE_URL}/#website`,
+    name: 'Carpet Cleaning Brisbane',
+    url: `${SITE_URL}`,
     description: 'Professional carpet cleaning services in Brisbane',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: '${SITE_URL}/services',
+        urlTemplate: `${SITE_URL}/services`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -99,8 +99,8 @@ export function ServiceSchema({ name, description, serviceId }: { name: string; 
     url: `${SITE_URL}/services#${serviceId}`,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Carpet Cleaner Brisbane',
-      url: '${SITE_URL}',
+      name: 'Carpet Cleaning Brisbane',
+      url: `${SITE_URL}`,
     },
     areaServed: {
       '@type': 'City',

@@ -4,6 +4,7 @@ import NextImage from 'next/image';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react';
+import { BreadcrumbSchema, FAQSchema } from '@/app/structured-data';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -17,10 +18,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const cat = SERVICE_CATEGORIES.find((c) => c.slug === category);
   if (!cat) return {};
+  const title = cat.metaTitle || `${cat.title} Brisbane | Expert Cleaning Services`;
+  const description = cat.metaDescription || cat.description;
   return {
-    title: `${cat.title} Brisbane | Expert Cleaning Services`,
-    description: cat.description,
+    title,
+    description,
     alternates: { canonical: `/services/${cat.slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `/services/${cat.slug}`,
+    },
   };
 }
 
@@ -31,14 +39,24 @@ export default async function ServiceCategoryPage({ params }: Props) {
 
   const otherCategories = SERVICE_CATEGORIES.filter((c) => c.slug !== category);
 
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.carpetcleaningbrisbane.com.au';
+
   return (
     <div className="pb-24">
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Services', url: `${SITE_URL}/services` },
+          { name: cat.title, url: `${SITE_URL}/services/${cat.slug}` },
+        ]}
+      />
+      <FAQSchema />
 
       {/* ── Hero ── */}
       <section className="relative py-20 md:py-28 px-5 md:px-16 overflow-hidden mb-0">
         <NextImage
           src={cat.heroImage.replace(/\.(jpg|png)$/, '.webp')}
-          alt={cat.title}
+          alt={`Professional ${cat.title} services in Brisbane by certified cleaning technicians`}
           fill
           priority
           sizes="100vw"
@@ -130,7 +148,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
                 <div className="h-56 overflow-hidden relative">
                   <NextImage
                     src={s.image}
-                    alt={s.title}
+                    alt={`${s.title} and restoration process for Brisbane homes and commercial properties`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -199,17 +217,17 @@ export default async function ServiceCategoryPage({ params }: Props) {
                 {g.single ? (
                   /* Single full image */
                   <div className="h-72 overflow-hidden relative">
-                    <NextImage src={g.single} alt={g.label} fill sizes="(max-width: 768px) 100vw, 50vw" className="w-full h-full object-cover" />
+                    <NextImage src={g.single} alt={`${g.label} completed transformation for residential interior in Brisbane`} fill sizes="(max-width: 768px) 100vw, 50vw" className="w-full h-full object-cover" />
                   </div>
                 ) : (
                   /* Before / After split */
                   <div className="grid grid-cols-2 h-72">
                     <div className="relative overflow-hidden">
-                      <NextImage src={g.before} alt={`${g.label} before`} fill sizes="(max-width: 768px) 50vw, 25vw" className="w-full h-full object-cover" />
+                      <NextImage src={g.before} alt={`Before professional treatment: ${g.label.toLowerCase()} with heavy staining and dirt`} fill sizes="(max-width: 768px) 50vw, 25vw" className="w-full h-full object-cover" />
                       <span className="absolute top-3 left-3 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded-full z-10">Before</span>
                     </div>
                     <div className="relative overflow-hidden border-l border-white">
-                      <NextImage src={g.after} alt={`${g.label} after`} fill sizes="(max-width: 768px) 50vw, 25vw" className="w-full h-full object-cover" />
+                      <NextImage src={g.after} alt={`After professional treatment: ${g.label.toLowerCase()} fully cleaned, sanitised, and restored`} fill sizes="(max-width: 768px) 50vw, 25vw" className="w-full h-full object-cover" />
                       <span className="absolute top-3 right-3 text-white text-[10px] font-bold px-2 py-1 rounded-full z-10" style={{ backgroundColor: cat.accentColor }}>After</span>
                     </div>
                   </div>

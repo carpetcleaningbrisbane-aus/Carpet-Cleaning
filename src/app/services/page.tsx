@@ -5,9 +5,14 @@ import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cleaning Services Brisbane | Carpet, Curtain, Couch & Repair',
-  description: 'Professional carpet cleaning, curtain cleaning, couch cleaning and carpet repair services across Brisbane. Book online today.',
+  title: 'Cleaning Services in Brisbane | Carpets, Couch and Curtain',
+  description: 'Professional steam cleaning in Brisbane. We handle carpet, couch, mattress, & rug cleaning plus carpet repair. Get a free quote today!',
   alternates: { canonical: '/services' },
+  openGraph: {
+    title: 'Cleaning Services in Brisbane | Carpets, Couch and Curtain',
+    description: 'Professional steam cleaning in Brisbane. We handle carpet, couch, mattress, & rug cleaning plus carpet repair. Get a free quote today!',
+    url: '/services',
+  },
 };
 
 export default function ServicesPage() {
@@ -42,7 +47,7 @@ export default function ServicesPage() {
               <Link href={`/services/${cat.slug}`} className="h-52 overflow-hidden relative block">
                 <Image
                   src={cat.heroImage.replace(/\.(jpg|png)$/, '.webp')}
-                  alt={cat.title}
+                  alt={`Professional ${cat.title} services in Brisbane by certified cleaning technicians`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

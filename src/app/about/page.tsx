@@ -8,12 +8,12 @@ import {
 import aboutBanner from '@/assets/about/about_banner.webp';
 
 export const metadata: Metadata = {
-  title: 'About Us | Professional Carpet Cleaners in Brisbane',
-  description: 'Learn about Carpet Cleaner Brisbane — a professional carpet cleaning team serving homes, rentals and businesses across Brisbane with eco-friendly steam cleaning.',
+  title: 'About Carpet Cleaning Brisbane | Cleaning Company In Brisbane',
+  description: 'Learn about Carpet Cleaning Brisbane. Professional, eco-friendly steam cleaning for homes & offices across Brisbane. Book your service today!',
   alternates: { canonical: '/about' },
   openGraph: {
-    title: 'About Us | Professional Carpet Cleaners in Brisbane',
-    description: 'Professional carpet cleaning team serving homes, rentals and businesses across Brisbane. Eco-friendly solutions, fully insured, locally based.',
+    title: 'About Carpet Cleaning Brisbane | Cleaning Company In Brisbane',
+    description: 'Learn about Carpet Cleaning Brisbane. Professional, eco-friendly steam cleaning for homes & offices across Brisbane. Book your service today!',
     url: '/about',
   },
 };
@@ -58,7 +58,7 @@ export default function AboutPage() {
       <section className="relative py-24 md:py-32 px-5 md:px-16 overflow-hidden">
         <NextImage 
           src={aboutBanner} 
-          alt="Professional carpet cleaners serving Brisbane" 
+          alt="Experienced carpet cleaning team with professional hot water extraction equipment in Brisbane" 
           fill
           priority
           sizes="100vw"

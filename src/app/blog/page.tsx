@@ -5,9 +5,16 @@ import { Metadata } from 'next';
 import { getAuthorizedBlogPosts } from '@/data/blogs';
 
 export const metadata: Metadata = {
-  title: 'Blog & Cleaning Tips | Carpet Cleaning Brisbane',
-  description: 'Read easy carpet cleaning tips, maintenance guides, and expert advice for Brisbane homes.',
+  title: 'Carpet Care Blog & Advice | Carpet Cleaning Brisbane',
+  description:
+    'Expert carpet care tips, maintenance advice, & cleaning guides for Brisbane homes. Learn how to protect your carpets from humidity & dirt!',
   alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'Carpet Care Blog & Advice | Carpet Cleaning Brisbane',
+    description:
+      'Expert carpet care tips, maintenance advice, & cleaning guides for Brisbane homes. Learn how to protect your carpets from humidity & dirt!',
+    url: '/blog',
+  },
 };
 
 export default function BlogPage() {

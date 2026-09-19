@@ -13,21 +13,21 @@ import {
 import { SERVICE_CATEGORIES } from "@/data/serviceCategories";
 
 export const metadata: Metadata = {
-  title: "Professional Carpet Cleaning Brisbane | Steam & Stain Removal",
+  title: "Carpet Cleaning Brisbane | Steam & Stain Removal From $99",
   description:
-    "Expert carpet cleaning in Brisbane. Steam cleaning, stain removal, end of lease, pet odour & commercial services. Fast drying, eco-friendly. Book online today.",
+    "We offer residential and commercial carpet cleaning across Brisbane from $99. Safe, fast-drying steam cleaning for homes & offices. Book now!",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Professional Carpet Cleaning Brisbane | Steam & Stain Removal",
+    title: "Carpet Cleaning Brisbane | Steam & Stain Removal From $99",
     description:
-      "Expert carpet cleaning in Brisbane. Steam cleaning, stain removal, end of lease, pet odour & commercial services. Book online today.",
+      "We offer residential and commercial carpet cleaning across Brisbane from $99. Safe, fast-drying steam cleaning for homes & offices. Book now!",
     url: "/",
     images: [
       {
         url: "/hero.webp",
         width: 1200,
         height: 630,
-        alt: "Professional carpet cleaning service in Brisbane",
+        alt: "Professional steam carpet cleaning technician treating high-traffic living room carpet in Brisbane",
       },
     ],
   },
@@ -55,7 +55,7 @@ export default function HomePage() {
           {/* Background image */}
           <Image
             src="/hero.webp"
-            alt="Professional carpet cleaning Brisbane"
+            alt="Professional steam carpet cleaning technician treating high-traffic living room carpet in Brisbane"
             fill
             priority
             fetchPriority="high"
@@ -160,7 +160,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="relative h-[400px] lg:h-[480px] rounded-2xl overflow-hidden shadow-xl border-2 border-[#1261A0]/40">
-                <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Deep Carpet Cleaning for Homes and Businesses" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover" />
+                <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Thorough hot water extraction carpet steam cleaning in a modern residential interior" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -184,7 +184,7 @@ export default function HomePage() {
                   {/* Image with scale animation */}
                   <Image
                     src={service.heroImage.replace(/\.(jpg|png)$/, '.webp')}
-                    alt={service.title}
+                    alt={`Professional ${service.title.toLowerCase()} service in Brisbane - before and after results`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -286,7 +286,7 @@ export default function HomePage() {
             </div>
 
             <div className="group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden border border-[#A7F3D0] ambient-shadow mb-8">
-              <Image src="/steam-banner.webp" alt="Professional steam carpet cleaning in a Brisbane home" fill sizes="100vw" className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105" />
+              <Image src="/steam-banner.webp" alt="Industrial hot water extraction steam cleaning wand extracting deep dirt from wool carpet" fill sizes="100vw" className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105" />
 
               {/* Dark neutral overlay instead of green */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
@@ -404,7 +404,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="group relative overflow-hidden rounded-3xl border border-[#1261A0]/10 bg-[#F2F8FC] shadow-sm hover:shadow-xl hover:border-[#00B8D9]/30 transition-all duration-300 flex flex-col">
                 <div className="h-48 overflow-hidden relative">
-                  <Image src="/residential-home.webp" alt="Residential carpet cleaning" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <Image src="/residential-home.webp" alt="Sunlit residential living room with freshly steam cleaned, stain-free beige carpet" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-[#F2F8FC]/90 z-10" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">
@@ -452,7 +452,7 @@ export default function HomePage() {
 
               <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0A3670] shadow-xl flex flex-col">
                 <div className="h-48 overflow-hidden relative">
-                  <Image src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80" alt="Pet friendly carpet cleaning" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <Image src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80" alt="Golden dog sitting on a clean, sanitised carpet free of pet stains and pet odours" fill sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 h-48 bg-gradient-to-b from-transparent to-[#0A3670]/70 z-10" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">

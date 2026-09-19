@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Book Carpet Cleaning Brisbane | Online Booking',
-  description: 'Book your professional carpet cleaning in Brisbane online in minutes. Choose your service, date and time. No upfront payment required.',
+  title: 'Get a Quote & Book Online | Carpet Cleaning Brisbane',
+  description:
+    'Get a quote & book professional carpet cleaning in Brisbane online. No upfront payment required. Instant scheduling for homes & offices!',
   alternates: { canonical: '/book-now' },
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: 'Book Carpet Cleaning Brisbane | Online Booking',
-    description: 'Book professional carpet cleaning in Brisbane online. Choose your service, preferred date and time. Fast, easy and no upfront payment.',
+    title: 'Get a Quote & Book Online | Carpet Cleaning Brisbane',
+    description:
+      'Get a quote & book professional carpet cleaning in Brisbane online. No upfront payment required. Instant scheduling for homes & offices!',
     url: '/book-now',
   },
 };

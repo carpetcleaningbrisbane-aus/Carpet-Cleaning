@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Carpet Cleaner Brisbane',
-  description: 'Get in touch with Carpet Cleaner Brisbane. Call 0405 849 841, email us or send a message. We respond within 2 business hours.',
+  title: 'Contact Carpet Cleaning Brisbane | Get Expert Advice',
+  description:
+    'Contact Carpet Cleaning Brisbane for professional advice & service inquiries. Call 0405 849 841 or send us a message online today!',
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact Us | Carpet Cleaner Brisbane',
-    description: 'Get in touch with our Brisbane carpet cleaning team. Call, email or send a message — we respond within 2 business hours.',
+    title: 'Contact Carpet Cleaning Brisbane | Get Expert Advice',
+    description:
+      'Contact Carpet Cleaning Brisbane for professional advice & service inquiries. Call 0405 849 841 or send us a message online today!',
     url: '/contact',
   },
 };

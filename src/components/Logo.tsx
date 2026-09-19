@@ -11,7 +11,7 @@ export default function Logo({ className = '', lightMode = false }: LogoProps) {
     <div className={`inline-flex items-center shrink-0 ${className}`}>
       <Image
         src="/logo.webp"
-        alt="Carpet Cleaning Brisbane"
+        alt="Carpet Cleaning Brisbane Logo"
         width={160}
         height={80}
         priority
