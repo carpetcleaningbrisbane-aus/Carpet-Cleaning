@@ -133,66 +133,11 @@ function BookNowForm() {
         <form onSubmit={handleSubmit} noValidate>
           <div className="bg-white rounded-2xl border border-[#1261A0]/20 ambient-shadow divide-y divide-[#1261A0]/15">
 
-            {/* ── 1. Select Services ── */}
+            {/* ── 1. Personal Details ── */}
             <div className="p-7 md:p-9">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
-                <h2 className="font-display font-bold text-lg text-[#082B59]">Select Services</h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5" data-error={errors.serviceIds ? 'true' : undefined}>
-                {SERVICES.map((s) => {
-                  const isSelected = formData.serviceIds.includes(s.id);
-                  return (
-                    <button
-                      type="button"
-                      key={s.id}
-                      onClick={() => toggleService(s.id)}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-lg border text-left transition-all ${
-                        isSelected
-                          ? 'border-[#00B8D9] bg-[#F2F8FC] text-[#082B59]'
-                          : 'border-[#1261A0]/20 bg-white text-[#082B59]/60 hover:border-[#00B8D9]/60 hover:text-[#082B59]'
-                      }`}
-                    >
-                      <span className={`w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${
-                        isSelected ? 'bg-[#00B8D9] border-[#00B8D9]' : 'border-[#1261A0]/30'
-                      }`}>
-                        {isSelected && (
-                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
-                            <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        )}
-                      </span>
-                      <span className="text-sm font-semibold">{s.title}</span>
-                    </button>
-                  );
-                })}
-              </div>
-              {errors.serviceIds && <p className="text-xs text-red-500 mt-2">{errors.serviceIds}</p>}
-            </div>
-
-            {/* ── 2. Preferred Date ── */}
-            <div className="p-7 md:p-9">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
-                <h2 className="font-display font-bold text-lg text-[#082B59]">Preferred Date</h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
-                  <input
-                    type="date"
-                    value={formData.preferredDate}
-                    onChange={(e) => { setFormData({ ...formData, preferredDate: e.target.value }); setErrors((er) => ({ ...er, preferredDate: '' })); }}
-                    className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
-                  />
-                </Field>
-              </div>
-            </div>
-
-            {/* ── 3. Contact Details ── */}
-            <div className="p-7 md:p-9">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
-                <h2 className="font-display font-bold text-lg text-[#082B59]">Your Details</h2>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Personal Details</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
@@ -233,17 +178,89 @@ function BookNowForm() {
                   />
                 </Field>
               </div>
-              <div className="mt-5">
-                <Field label="Special Instructions (Optional)" icon={<ClipboardList className="w-4 h-4" />}>
-                  <textarea
-                    rows={3}
-                    value={formData.notes}
-                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    placeholder="Specific stains, access notes, pets..."
-                    className={inputCls + ' pl-10 resize-none pt-3'}
+            </div>
+
+            {/* ── 2. Preferred Date ── */}
+            <div className="p-7 md:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Preferred Date</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
+                  <input
+                    type="date"
+                    value={formData.preferredDate}
+                    onChange={(e) => { setFormData({ ...formData, preferredDate: e.target.value }); setErrors((er) => ({ ...er, preferredDate: '' })); }}
+                    className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
                   />
                 </Field>
+                <Field label="Preferred Time" icon={<CalendarDays className="w-4 h-4" />}>
+                  <select
+                    value={formData.preferredTime}
+                    onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
+                    className={inputCls + ' pl-10 appearance-none bg-white'}
+                  >
+                    <option value="Morning (8:00 AM - 12:00 PM)">Morning (8:00 AM - 12:00 PM)</option>
+                    <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
+                    <option value="Flexible / Any Time">Flexible / Any Time</option>
+                  </select>
+                </Field>
               </div>
+            </div>
+
+            {/* ── 3. Select Services ── */}
+            <div className="p-7 md:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Select Services</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5" data-error={errors.serviceIds ? 'true' : undefined}>
+                {SERVICES.map((s) => {
+                  const isSelected = formData.serviceIds.includes(s.id);
+                  return (
+                    <button
+                      type="button"
+                      key={s.id}
+                      onClick={() => toggleService(s.id)}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg border text-left transition-all ${
+                        isSelected
+                          ? 'border-[#00B8D9] bg-[#F2F8FC] text-[#082B59]'
+                          : 'border-[#1261A0]/20 bg-white text-[#082B59]/60 hover:border-[#00B8D9]/60 hover:text-[#082B59]'
+                      }`}
+                    >
+                      <span className={`w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${
+                        isSelected ? 'bg-[#00B8D9] border-[#00B8D9]' : 'border-[#1261A0]/30'
+                      }`}>
+                        {isSelected && (
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
+                            <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                      </span>
+                      <span className="text-sm font-semibold">{s.title}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              {errors.serviceIds && <p className="text-xs text-red-500 mt-2">{errors.serviceIds}</p>}
+            </div>
+
+            {/* ── 4. Special Instructions (Optional) ── */}
+            <div className="p-7 md:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">4</div>
+                <h2 className="font-display font-bold text-lg text-[#082B59]">Special Instructions (Optional)</h2>
+              </div>
+              <Field label="Additional Details" icon={<ClipboardList className="w-4 h-4" />}>
+                <textarea
+                  rows={3}
+                  value={formData.notes}
+                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                  placeholder="Specific stains, access notes, parking instructions, pets, etc."
+                  className={inputCls + ' pl-10 resize-none pt-3'}
+                />
+              </Field>
             </div>
 
             {/* ── Submit ── */}
