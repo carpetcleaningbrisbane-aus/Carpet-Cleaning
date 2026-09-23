@@ -189,25 +189,57 @@ export default function BookingForm({
   ════════════════════════════════════════ */
   if (compact) {
     return (
+      <div className="max-w-[780px] mx-auto">
       <form onSubmit={handleSubmit} noValidate>
         <div className="bg-white rounded-xl border border-[#1261A0]/20 shadow-sm divide-y divide-[#1261A0]/10">
 
-          {/* Row 1 — Service dropdown + Date side by side */}
+          {/* Row 1 — Name + Email */}
           <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {/* Service dropdown */}
-            <Field label="Service *" error={errors.serviceIds} icon={<ChevronDown className="w-4 h-4" />}>
-              <select
-                value={formData.serviceIds[0] ?? ''}
-                onChange={(e) => handleServiceChange(e.target.value)}
-                className={inputCls + ' pl-10 appearance-none' + (errors.serviceIds ? ' border-red-400' : '')}
-              >
-                {SERVICES.map((s) => (
-                  <option key={s.id} value={s.id}>{s.title}</option>
-                ))}
-              </select>
+            <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
+              <input
+                type="text"
+                value={formData.fullName}
+                onChange={(e) => { setFormData({ ...formData, fullName: e.target.value }); setErrors((er) => ({ ...er, fullName: '' })); }}
+                placeholder="Full Name"
+                className={inputCls + ' pl-10' + (errors.fullName ? ' border-red-400' : '')}
+              />
             </Field>
+            <Field label="Email Address *" error={errors.email} icon={<Mail className="w-4 h-4" />}>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((er) => ({ ...er, email: '' })); }}
+                placeholder="Email Address"
+                className={inputCls + ' pl-10' + (errors.email ? ' border-red-400' : '')}
+              />
+            </Field>
+          </div>
 
-            {/* Date */}
+          {/* Row 2 — Phone + Address */}
+          <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Field label="Mobile Phone *" error={errors.phone} icon={<Phone className="w-4 h-4" />}>
+              <input
+                type="tel"
+                inputMode="numeric"
+                value={formData.phone}
+                onChange={(e) => { const d = e.target.value.replace(/\D/g, ''); setFormData({ ...formData, phone: d }); setErrors((er) => ({ ...er, phone: '' })); }}
+                placeholder="Phone Number"
+                className={inputCls + ' pl-10' + (errors.phone ? ' border-red-400' : '')}
+              />
+            </Field>
+            <Field label="Property Address *" error={errors.address} icon={<MapPin className="w-4 h-4" />}>
+              <input
+                type="text"
+                value={formData.address}
+                onChange={(e) => { setFormData({ ...formData, address: e.target.value }); setErrors((er) => ({ ...er, address: '' })); }}
+                placeholder="Property Address"
+                className={inputCls + ' pl-10' + (errors.address ? ' border-red-400' : '')}
+              />
+            </Field>
+          </div>
+
+          {/* Row 3 — Date + Service dropdown */}
+          <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Field label="Preferred Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
               <input
                 type="date"
@@ -219,50 +251,16 @@ export default function BookingForm({
                 className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
               />
             </Field>
-          </div>
-
-          {/* Row 2 — Name + Phone */}
-          <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
-              <input
-                type="text"
-                value={formData.fullName}
-                onChange={(e) => { setFormData({ ...formData, fullName: e.target.value }); setErrors((er) => ({ ...er, fullName: '' })); }}
-                placeholder="Full Name"
-                className={inputCls + ' pl-10' + (errors.fullName ? ' border-red-400' : '')}
-              />
-            </Field>
-            <Field label="Mobile Phone *" error={errors.phone} icon={<Phone className="w-4 h-4" />}>
-              <input
-                type="tel"
-                inputMode="numeric"
-                value={formData.phone}
-                onChange={(e) => { const d = e.target.value.replace(/\D/g, ''); setFormData({ ...formData, phone: d }); setErrors((er) => ({ ...er, phone: '' })); }}
-                placeholder="Phone Number"
-                className={inputCls + ' pl-10' + (errors.phone ? ' border-red-400' : '')}
-              />
-            </Field>
-          </div>
-
-          {/* Row 3 — Email + Address */}
-          <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Field label="Email *" error={errors.email} icon={<Mail className="w-4 h-4" />}>
-              <input
-                type="email"
-                value={formData.email}
-                onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((er) => ({ ...er, email: '' })); }}
-                placeholder="Email Address"
-                className={inputCls + ' pl-10' + (errors.email ? ' border-red-400' : '')}
-              />
-            </Field>
-            <Field label="Property Address *" error={errors.address} icon={<MapPin className="w-4 h-4" />}>
-              <input
-                type="text"
-                value={formData.address}
-                onChange={(e) => { setFormData({ ...formData, address: e.target.value }); setErrors((er) => ({ ...er, address: '' })); }}
-                placeholder="Property Address"
-                className={inputCls + ' pl-10' + (errors.address ? ' border-red-400' : '')}
-              />
+            <Field label="Service *" error={errors.serviceIds} icon={<ChevronDown className="w-4 h-4" />}>
+              <select
+                value={formData.serviceIds[0] ?? ''}
+                onChange={(e) => handleServiceChange(e.target.value)}
+                className={inputCls + ' pl-10 appearance-none' + (errors.serviceIds ? ' border-red-400' : '')}
+              >
+                {SERVICES.map((s) => (
+                  <option key={s.id} value={s.id}>{s.title}</option>
+                ))}
+              </select>
             </Field>
           </div>
 
@@ -305,6 +303,7 @@ export default function BookingForm({
 
         </div>
       </form>
+      </div>
     );
   }
 
@@ -330,64 +329,11 @@ export default function BookingForm({
       <form onSubmit={handleSubmit} noValidate>
         <div className="bg-white rounded-2xl border border-[#1261A0]/20 shadow-sm divide-y divide-[#1261A0]/15">
 
-          {/* ── 1. Select Services ── */}
+          {/* ── 1. Personal Details ── */}
           <div className="p-7 md:p-9">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
-              <h3 className="font-display font-bold text-lg text-[#082B59]">Select Services</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5" data-error={errors.serviceIds ? 'true' : undefined}>
-              {SERVICES.map((s) => {
-                const isSelected = formData.serviceIds.includes(s.id);
-                return (
-                  <button
-                    type="button"
-                    key={s.id}
-                    onClick={() => toggleService(s.id)}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-lg border text-left transition-all ${
-                      isSelected
-                        ? 'border-[#00B8D9] bg-[#F2F8FC] text-[#082B59]'
-                        : 'border-[#1261A0]/20 bg-white text-[#082B59]/60 hover:border-[#00B8D9]/60 hover:text-[#082B59]'
-                    }`}
-                  >
-                    <span className={`w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${isSelected ? 'bg-[#00B8D9] border-[#00B8D9]' : 'border-[#1261A0]/30'}`}>
-                      {isSelected && (
-                        <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
-                          <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      )}
-                    </span>
-                    <span className="text-sm font-semibold">{s.title}</span>
-                  </button>
-                );
-              })}
-            </div>
-            {errors.serviceIds && <p className="text-xs text-red-500 mt-2">{errors.serviceIds}</p>}
-          </div>
-
-          {/* ── 2. Preferred Date ── */}
-          <div className="p-7 md:p-9">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
-              <h3 className="font-display font-bold text-lg text-[#082B59]">Preferred Date</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
-                <input
-                  type="date"
-                  value={formData.preferredDate}
-                  onChange={(e) => { setFormData({ ...formData, preferredDate: e.target.value }); setErrors((er) => ({ ...er, preferredDate: '' })); }}
-                  className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
-                />
-              </Field>
-            </div>
-          </div>
-
-          {/* ── 3. Contact Details ── */}
-          <div className="p-7 md:p-9">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
-              <h3 className="font-display font-bold text-lg text-[#082B59]">Your Details</h3>
+              <h3 className="font-display font-bold text-lg text-[#082B59]">Personal Details</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
@@ -428,17 +374,76 @@ export default function BookingForm({
                 />
               </Field>
             </div>
-            <div className="mt-5">
-              <Field label="Special Instructions (Optional)" icon={<ClipboardList className="w-4 h-4" />}>
-                <textarea
-                  rows={3}
-                  value={formData.notes}
-                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  placeholder="Specific stains, access notes, pets..."
-                  className={inputCls + ' pl-10 resize-none pt-3'}
+          </div>
+
+          {/* ── 2. Preferred Date ── */}
+          <div className="p-7 md:p-9">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
+              <h3 className="font-display font-bold text-lg text-[#082B59]">Preferred Date</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
+                <input
+                  type="date"
+                  value={formData.preferredDate}
+                  onChange={(e) => { setFormData({ ...formData, preferredDate: e.target.value }); setErrors((er) => ({ ...er, preferredDate: '' })); }}
+                  className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
                 />
               </Field>
             </div>
+          </div>
+
+          {/* ── 3. Select Services ── */}
+          <div className="p-7 md:p-9">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
+              <h3 className="font-display font-bold text-lg text-[#082B59]">Select Services</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5" data-error={errors.serviceIds ? 'true' : undefined}>
+              {SERVICES.map((s) => {
+                const isSelected = formData.serviceIds.includes(s.id);
+                return (
+                  <button
+                    type="button"
+                    key={s.id}
+                    onClick={() => toggleService(s.id)}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg border text-left transition-all ${
+                      isSelected
+                        ? 'border-[#00B8D9] bg-[#F2F8FC] text-[#082B59]'
+                        : 'border-[#1261A0]/20 bg-white text-[#082B59]/60 hover:border-[#00B8D9]/60 hover:text-[#082B59]'
+                    }`}
+                  >
+                    <span className={`w-4 h-4 rounded border-2 shrink-0 flex items-center justify-center transition-all ${isSelected ? 'bg-[#00B8D9] border-[#00B8D9]' : 'border-[#1261A0]/30'}`}>
+                      {isSelected && (
+                        <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
+                          <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                    </span>
+                    <span className="text-sm font-semibold">{s.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+            {errors.serviceIds && <p className="text-xs text-red-500 mt-2">{errors.serviceIds}</p>}
+          </div>
+
+          {/* ── 4. Special Instructions ── */}
+          <div className="p-7 md:p-9">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">4</div>
+              <h3 className="font-display font-bold text-lg text-[#082B59]">Special Instructions (Optional)</h3>
+            </div>
+            <Field label="Additional Details" icon={<ClipboardList className="w-4 h-4" />}>
+              <textarea
+                rows={3}
+                value={formData.notes}
+                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                placeholder="Specific stains, access notes, parking instructions, pets, etc."
+                className={inputCls + ' pl-10 resize-none pt-3'}
+              />
+            </Field>
           </div>
 
           {/* ── Submit ── */}

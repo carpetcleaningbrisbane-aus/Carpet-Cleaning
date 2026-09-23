@@ -208,24 +208,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Booking Form */}
-      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-12">
-        <div className="bg-[#F2F8FC] rounded-3xl border border-[#1261A0]/15 p-8 md:p-14">
-          <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#1261A0] bg-[#1261A0]/10 border border-[#1261A0]/20 mb-4">
-              Online Booking
-            </span>
-            <h3 className="font-display font-bold text-2xl md:text-3xl text-[#082B59] mb-3">
-              Want Results Like These?
-            </h3>
-            <p className="text-sm text-[#082B59]/70 max-w-md mx-auto leading-relaxed">
-              Book our certified cleaning team and experience the same transformation in your home or business.
-            </p>
-          </div>
-          <BookingForm heading="" subheading="" />
-        </div>
-      </section>
-
       {/* Gallery Grid */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -296,6 +278,25 @@ export default function GalleryPage() {
         )}
 
       </section>
+
+      {/* Booking Form */}
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mt-12 mb-12">
+        <div className="bg-[#F2F8FC] rounded-3xl border border-[#1261A0]/15 p-8 md:p-14">
+          <div className="text-center mb-8">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#1261A0] bg-[#1261A0]/10 border border-[#1261A0]/20 mb-4">
+              Online Booking
+            </span>
+            <h3 className="font-display font-bold text-2xl md:text-3xl text-[#082B59] mb-3">
+              Want Results Like These?
+            </h3>
+            <p className="text-sm text-[#082B59]/70 max-w-md mx-auto leading-relaxed">
+              Book our certified cleaning team and experience the same transformation in your home or business.
+            </p>
+          </div>
+          <BookingForm compact heading="" subheading="" />
+        </div>
+      </section>
+
       <div className="h-12"></div>
 
       {/* Lightbox Modal */}

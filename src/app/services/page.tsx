@@ -50,7 +50,7 @@ export default function ServicesPage() {
               Choose your service, pick a preferred date, and we&apos;ll confirm your appointment within a few hours.
             </p>
           </div>
-          <BookingForm heading="" subheading="" />
+          <BookingForm compact heading="" subheading="" />
         </div>
       </section>
 

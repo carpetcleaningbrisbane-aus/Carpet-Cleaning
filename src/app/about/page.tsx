@@ -257,7 +257,7 @@ export default function AboutPage() {
               Book your service below. No upfront payment — we&apos;ll confirm within a few hours.
             </p>
           </div>
-          <BookingForm heading="" subheading="" />
+          <BookingForm compact heading="" subheading="" />
         </div>
       </section>
 

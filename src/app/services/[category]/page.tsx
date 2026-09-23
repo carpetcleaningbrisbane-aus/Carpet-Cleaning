@@ -264,7 +264,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
               No upfront payment. Pick a date and we&apos;ll confirm within a few hours.
             </p>
           </div>
-          <BookingForm defaultService={cat.slug} heading="" subheading="" />
+          <BookingForm compact defaultService={cat.slug} heading="" subheading="" />
         </div>
       </section>
 
