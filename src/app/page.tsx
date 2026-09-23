@@ -730,6 +730,24 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Bottom Booking Form */}
+        <section className="bg-[#F2F8FC] py-20 md:py-28 px-5 md:px-16">
+          <div className="max-w-[1280px] mx-auto">
+            <div className="text-center mb-10">
+              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#1261A0] bg-[#1261A0]/10 border border-[#1261A0]/20 mb-4">
+                Online Booking
+              </span>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-[#082B59] mb-3">
+                Book Your Carpet Cleaning
+              </h2>
+              <p className="text-sm text-[#082B59]/70 max-w-md mx-auto">
+                No upfront payment. Choose your service, pick a date, and we&apos;ll confirm within a few hours.
+              </p>
+            </div>
+            <BookingForm compact heading="" subheading="" />
+          </div>
+        </section>
       </div>
     </>
   );
