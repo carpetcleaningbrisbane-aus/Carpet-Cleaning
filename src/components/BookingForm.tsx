@@ -17,15 +17,17 @@ function Field({
   error,
   icon,
   children,
+  fieldId,
 }: {
   label: string;
   error?: string;
   icon?: React.ReactNode;
   children: React.ReactNode;
+  fieldId?: string;
 }) {
   return (
     <div data-error={error ? 'true' : undefined}>
-      <label className={labelCls}>{label}</label>
+      <label htmlFor={fieldId} className={labelCls}>{label}</label>
       <div className="relative">
         {icon && (
           <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#082B59]/40 pointer-events-none">
@@ -195,8 +197,9 @@ export default function BookingForm({
 
           {/* Row 1 — Name + Email */}
           <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
+            <Field fieldId="c-fullName" label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
               <input
+                id="c-fullName"
                 type="text"
                 value={formData.fullName}
                 onChange={(e) => { setFormData({ ...formData, fullName: e.target.value }); setErrors((er) => ({ ...er, fullName: '' })); }}
@@ -204,8 +207,9 @@ export default function BookingForm({
                 className={inputCls + ' pl-10' + (errors.fullName ? ' border-red-400' : '')}
               />
             </Field>
-            <Field label="Email Address *" error={errors.email} icon={<Mail className="w-4 h-4" />}>
+            <Field fieldId="c-email" label="Email Address *" error={errors.email} icon={<Mail className="w-4 h-4" />}>
               <input
+                id="c-email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((er) => ({ ...er, email: '' })); }}
@@ -217,8 +221,9 @@ export default function BookingForm({
 
           {/* Row 2 — Phone + Address */}
           <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Field label="Mobile Phone *" error={errors.phone} icon={<Phone className="w-4 h-4" />}>
+            <Field fieldId="c-phone" label="Mobile Phone *" error={errors.phone} icon={<Phone className="w-4 h-4" />}>
               <input
+                id="c-phone"
                 type="tel"
                 inputMode="numeric"
                 value={formData.phone}
@@ -227,8 +232,9 @@ export default function BookingForm({
                 className={inputCls + ' pl-10' + (errors.phone ? ' border-red-400' : '')}
               />
             </Field>
-            <Field label="Property Address *" error={errors.address} icon={<MapPin className="w-4 h-4" />}>
+            <Field fieldId="c-address" label="Property Address *" error={errors.address} icon={<MapPin className="w-4 h-4" />}>
               <input
+                id="c-address"
                 type="text"
                 value={formData.address}
                 onChange={(e) => { setFormData({ ...formData, address: e.target.value }); setErrors((er) => ({ ...er, address: '' })); }}
@@ -240,8 +246,9 @@ export default function BookingForm({
 
           {/* Row 3 — Date + Service dropdown */}
           <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Field label="Preferred Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
+            <Field fieldId="c-date" label="Preferred Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
               <input
+                id="c-date"
                 type="date"
                 value={formData.preferredDate}
                 onChange={(e) => {
@@ -251,8 +258,9 @@ export default function BookingForm({
                 className={inputCls + ' pl-10' + (errors.preferredDate ? ' border-red-400' : '')}
               />
             </Field>
-            <Field label="Service *" error={errors.serviceIds} icon={<ChevronDown className="w-4 h-4" />}>
+            <Field fieldId="c-service" label="Service *" error={errors.serviceIds} icon={<ChevronDown className="w-4 h-4" />}>
               <select
+                id="c-service"
                 value={formData.serviceIds[0] ?? ''}
                 onChange={(e) => handleServiceChange(e.target.value)}
                 className={inputCls + ' pl-10 appearance-none' + (errors.serviceIds ? ' border-red-400' : '')}
@@ -266,8 +274,9 @@ export default function BookingForm({
 
           {/* Row 4 — Message */}
           <div className="p-4">
-            <Field label="Message (Optional)" icon={<ClipboardList className="w-4 h-4" />}>
+            <Field fieldId="c-notes" label="Message (Optional)" icon={<ClipboardList className="w-4 h-4" />}>
               <textarea
+                id="c-notes"
                 rows={3}
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
@@ -336,8 +345,9 @@ export default function BookingForm({
               <h3 className="font-display font-bold text-lg text-[#082B59]">Personal Details</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <Field label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
+              <Field fieldId="f-fullName" label="Full Name *" error={errors.fullName} icon={<User className="w-4 h-4" />}>
                 <input
+                  id="f-fullName"
                   type="text"
                   value={formData.fullName}
                   onChange={(e) => { setFormData({ ...formData, fullName: e.target.value }); setErrors((er) => ({ ...er, fullName: '' })); }}
@@ -345,8 +355,9 @@ export default function BookingForm({
                   className={inputCls + ' pl-10' + (errors.fullName ? ' border-red-400' : '')}
                 />
               </Field>
-              <Field label="Email Address *" error={errors.email} icon={<Mail className="w-4 h-4" />}>
+              <Field fieldId="f-email" label="Email Address *" error={errors.email} icon={<Mail className="w-4 h-4" />}>
                 <input
+                  id="f-email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((er) => ({ ...er, email: '' })); }}
@@ -354,8 +365,9 @@ export default function BookingForm({
                   className={inputCls + ' pl-10' + (errors.email ? ' border-red-400' : '')}
                 />
               </Field>
-              <Field label="Mobile Phone *" error={errors.phone} icon={<Phone className="w-4 h-4" />}>
+              <Field fieldId="f-phone" label="Mobile Phone *" error={errors.phone} icon={<Phone className="w-4 h-4" />}>
                 <input
+                  id="f-phone"
                   type="tel"
                   inputMode="numeric"
                   value={formData.phone}
@@ -364,8 +376,9 @@ export default function BookingForm({
                   className={inputCls + ' pl-10' + (errors.phone ? ' border-red-400' : '')}
                 />
               </Field>
-              <Field label="Property Address *" error={errors.address} icon={<MapPin className="w-4 h-4" />}>
+              <Field fieldId="f-address" label="Property Address *" error={errors.address} icon={<MapPin className="w-4 h-4" />}>
                 <input
+                  id="f-address"
                   type="text"
                   value={formData.address}
                   onChange={(e) => { setFormData({ ...formData, address: e.target.value }); setErrors((er) => ({ ...er, address: '' })); }}
@@ -383,8 +396,9 @@ export default function BookingForm({
               <h3 className="font-display font-bold text-lg text-[#082B59]">Preferred Date</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <Field label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
+              <Field fieldId="f-date" label="Date *" error={errors.preferredDate} icon={<CalendarDays className="w-4 h-4" />}>
                 <input
+                  id="f-date"
                   type="date"
                   value={formData.preferredDate}
                   onChange={(e) => { setFormData({ ...formData, preferredDate: e.target.value }); setErrors((er) => ({ ...er, preferredDate: '' })); }}
@@ -435,8 +449,9 @@ export default function BookingForm({
               <div className="w-7 h-7 rounded-full bg-[#082B59] text-white text-xs font-bold flex items-center justify-center shrink-0">4</div>
               <h3 className="font-display font-bold text-lg text-[#082B59]">Special Instructions (Optional)</h3>
             </div>
-            <Field label="Additional Details" icon={<ClipboardList className="w-4 h-4" />}>
+            <Field fieldId="f-notes" label="Additional Details" icon={<ClipboardList className="w-4 h-4" />}>
               <textarea
+                id="f-notes"
                 rows={3}
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
