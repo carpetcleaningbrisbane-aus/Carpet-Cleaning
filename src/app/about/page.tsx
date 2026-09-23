@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import NextImage from 'next/image';
+import BookingForm from '@/components/BookingForm';
 import { Metadata } from 'next';
 import {
-  ShieldCheck, HeartHandshake, CheckCircle2, Droplets, Search,
+  ShieldCheck, CheckCircle2, Droplets, Search,
   UserCheck, Quote, ArrowRight, Leaf, Award, Clock, ClipboardCheck
 } from 'lucide-react';
 import aboutBanner from '@/assets/about/about_banner.webp';
@@ -233,6 +234,24 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Booking Form */}
+      <section className="bg-[#F2F8FC] px-5 md:px-16 py-20 md:py-28">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#1261A0] bg-[#1261A0]/10 border border-[#1261A0]/20 mb-4">
+              Online Booking
+            </span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#082B59] mb-3">
+              Ready for Fresher, Cleaner Carpets?
+            </h2>
+            <p className="text-sm text-[#082B59]/70 max-w-md mx-auto">
+              Book your service below. No upfront payment — we&apos;ll confirm within a few hours.
+            </p>
+          </div>
+          <BookingForm heading="" subheading="" />
+        </div>
+      </section>
+
       {/* Why Choose Us - Warm Amber Theme */}
       <section id="why-choose-us" className="bg-[#FFFBEB] py-28 px-5 md:px-16 border-y border-[#F59E0B]/20">
         <div className="max-w-[1280px] mx-auto">
@@ -276,29 +295,6 @@ export default function AboutPage() {
                 "Inviting a cleaner into your home requires trust. We aim to provide a professional, respectful service from the initial inspection right through to the final walkthrough."
               </blockquote>
               <div className="w-24 h-1.5 bg-[#34D399] mx-auto rounded-full"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA - Navy */}
-      <section className="bg-[#082B59] px-5 md:px-16 py-16 text-center">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="bg-[#1261A0] rounded-3xl p-12 md:p-20 border border-[#00B8D9]/30">
-            <div className="max-w-2xl mx-auto">
-              <div className="w-16 h-16 rounded-2xl bg-[#00B8D9] flex items-center justify-center mx-auto mb-8 shadow-lg">
-                <HeartHandshake className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-6">
-                Ready for Fresher, Cleaner Carpets?
-              </h2>
-              <p className="text-base text-white/90 mb-10 leading-relaxed text-lg">
-                Experience the difference of a truly professional clean. Book your service today and let us restore the serenity of your home.
-              </p>
-              <Link href="/contact" className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#00B8D9] text-[#082B59] font-bold rounded-xl hover:bg-white transition-colors duration-300 shadow-lg hover:shadow-xl group">
-                Book Online
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
           </div>
         </div>

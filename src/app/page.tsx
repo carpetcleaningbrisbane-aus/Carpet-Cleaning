@@ -3,10 +3,11 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import {
   Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2,
-  Home as HomeIcon, ChevronRight, Phone,
+  Home as HomeIcon, ChevronRight,
 } from "lucide-react";
 import TestimonialMarquee from "@/components/ui/marquee-01";
 import FaqSection from "@/components/FaqSection";
+import BookingForm from "@/components/BookingForm";
 import {
   LocalBusinessSchema, WebSiteSchema, FAQSchema,
 } from "@/app/structured-data";
@@ -51,8 +52,8 @@ export default function HomePage() {
       <div className="min-h-screen">
 
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-          {/* Background image */}
+        <section className="relative overflow-hidden">
+          {/* Background image — shifted left so the cleaning area is visible on the left */}
           <Image
             src="/hero.webp"
             alt="Professional carpet cleaning Brisbane"
@@ -60,39 +61,56 @@ export default function HomePage() {
             priority
             fetchPriority="high"
             sizes="100vw"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-[60%_center]"
           />
-          {/* Left-to-right gradient — content on left, image visible on right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/5" />
+          {/* Right-to-left: image visible on LEFT, white fade on RIGHT for the form */}
+          <div className="absolute inset-0 bg-gradient-to-l from-white/98 via-white/90 to-white/5" />
 
-          <div className="relative z-10 px-5 md:px-16 max-w-[1280px] mx-auto w-full py-16 md:py-24">
-            <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 rounded-full mb-6 border border-[#1261A0]/20 backdrop-blur-sm">
-                <div className="flex text-[#FFB020]">
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
+          <div className="relative z-10 px-5 md:px-16 max-w-[1280px] mx-auto w-full py-14 md:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+              {/* LEFT — headline + description + trust chips */}
+              <div className="flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full mb-5 border border-[#1261A0]/20 backdrop-blur-sm w-max">
+                  <div className="flex text-[#FFB020]">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
+                  <span className="font-semibold text-xs text-[#082B59] uppercase tracking-widest ml-1">
+                    Trusted Brisbane Carpet Cleaners
+                  </span>
                 </div>
-                <span className="font-semibold text-xs text-[#082B59] uppercase tracking-widest ml-1">Trusted Brisbane Carpet Cleaners</span>
+
+                <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-[#082B59] mb-5 leading-[1.15] tracking-tight">
+                  Professional Carpet <br />
+                  <span className="text-[#1261A0]">Cleaning Brisbane</span>
+                </h1>
+                <p className="text-base md:text-lg text-[#082B59]/80 mb-7 leading-relaxed max-w-lg">
+                  Dirty carpets are more than just an eyesore. We use professional steam and hot water extraction to pull out the dirt, stains and allergens, leaving your carpets clean, fresh and fast-drying.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  {['Eco-Friendly', 'Fast Drying', 'No Upfront Payment', 'Same-Day Available'].map((chip) => (
+                    <span key={chip} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-[#1261A0]/20 rounded-full text-xs font-semibold text-[#082B59]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00B8D9]" /> {chip}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-[#082B59] mb-6 leading-[1.15] tracking-tight">
-                Professional Carpet <br />
-                <span className="text-[#1261A0]">Cleaning Brisbane</span>
-              </h1>
-              <p className="text-base md:text-lg text-[#082B59]/80 mb-8 leading-relaxed">
-                Dirty carpets are more than just an eyesore. We use professional steam and hot water extraction to pull out the dirt, stains and allergens, leaving your carpets clean, fresh and fast-drying — that vacuuming leaves behind.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Link href="/book-now" className="inline-flex justify-center items-center px-8 py-4 bg-[#1261A0] text-white rounded-lg font-semibold text-base hover:bg-[#00B8D9] transition-all shadow-lg shadow-[#1261A0]/20 hover:shadow-xl hover:-translate-y-0.5">
-                  Book Now
-                </Link>
-                <a href="tel:0405849841" className="inline-flex justify-center items-center gap-2 px-8 py-4 border border-[#1261A0]/30 bg-white/70 backdrop-blur-sm text-[#082B59] rounded-lg font-semibold text-base hover:bg-white transition-colors">
-                  <Phone className="w-4 h-4" />
-                  Call Now
-                </a>
+
+              {/* RIGHT — compact booking form, no dark header */}
+              <div className="w-full">
+                <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-[#1261A0]/15 p-5">
+                  <p className="font-display font-bold text-lg text-[#082B59] mb-4">
+                    Book Your Cleaning
+                  </p>
+                  <BookingForm compact defaultService="carpet-cleaning" heading="" subheading="" />
+                </div>
               </div>
+
             </div>
           </div>
         </section>

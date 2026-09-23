@@ -4,6 +4,7 @@ import NextImage from 'next/image';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react';
+import BookingForm from '@/components/BookingForm';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -222,6 +223,27 @@ export default async function ServiceCategoryPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ── Booking Form ── */}
+      <section className="py-20 px-5 md:px-16 bg-[#F0FAFA] border-t border-[#D6E8E8]">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="text-center mb-10">
+            <span
+              className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+              style={{ backgroundColor: `${cat.accentColor}15`, color: cat.accentColor, border: `1px solid ${cat.accentColor}30` }}
+            >
+              Online Booking
+            </span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-3">
+              Book {cat.title} in Brisbane
+            </h2>
+            <p className="text-sm text-[#60727F] max-w-md mx-auto">
+              No upfront payment. Pick a date and we&apos;ll confirm within a few hours.
+            </p>
+          </div>
+          <BookingForm defaultService={cat.slug} heading="" subheading="" />
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="py-20 px-5 md:px-16 border-t border-[#D6E8E8]" style={{ backgroundColor: '#F0FAFA' }}>
         <div className="max-w-[860px] mx-auto">
@@ -241,18 +263,6 @@ export default async function ServiceCategoryPage({ params }: Props) {
                 </div>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-20 px-5 md:px-16 bg-[#0B253A]">
-        <div className="max-w-[680px] mx-auto text-center">
-          <h2 className="font-display font-bold text-3xl text-white mb-4">Ready to Book {cat.title}?</h2>
-          <p className="text-white/65 text-base mb-8">No upfront payment. We'll confirm your booking within a few hours.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href={`/book-now?service=${cat.slug}`} className="px-8 py-4 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">Book Now</Link>
-            <Link href="/contact" className="px-8 py-4 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">Contact Us</Link>
           </div>
         </div>
       </section>

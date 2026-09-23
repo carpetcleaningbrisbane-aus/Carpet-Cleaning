@@ -5,6 +5,7 @@ import Link from 'next/link';
 import NextImage from 'next/image';
 import { GALLERY_ITEMS, GalleryItem } from '@/data/siteData';
 import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical } from 'lucide-react';
+import BookingForm from '@/components/BookingForm';
 
 const FILTERS = [
   { id: 'all', label: 'All Results' },
@@ -204,6 +205,24 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      {/* Booking Form */}
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-12">
+        <div className="bg-[#F2F8FC] rounded-3xl border border-[#1261A0]/15 p-8 md:p-14">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#1261A0] bg-[#1261A0]/10 border border-[#1261A0]/20 mb-4">
+              Online Booking
+            </span>
+            <h3 className="font-display font-bold text-2xl md:text-3xl text-[#082B59] mb-3">
+              Want Results Like These?
+            </h3>
+            <p className="text-sm text-[#082B59]/70 max-w-md mx-auto leading-relaxed">
+              Book our certified cleaning team and experience the same transformation in your home or business.
+            </p>
+          </div>
+          <BookingForm heading="" subheading="" />
+        </div>
+      </section>
+
       {/* Gallery Grid */}
       <section className="px-5 md:px-16 max-w-[1280px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -273,20 +292,6 @@ export default function GalleryPage() {
           </div>
         )}
 
-        {/* CTA */}
-        <div className="mt-12 relative overflow-hidden rounded-3xl bg-[#082B59] p-10 md:p-14 text-center">
-          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#00B8D9]/20 blur-3xl pointer-events-none" />
-          <div className="relative z-10">
-            <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-3">Want Results Like These?</h3>
-            <p className="text-sm mb-8 max-w-md mx-auto leading-relaxed text-white/80">
-              Book our certified cleaning team and experience the same transformation in your home or business.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/book-now" className="px-8 py-3.5 bg-[#00B8D9] text-[#082B59] rounded-xl font-bold text-sm hover:bg-white transition-all shadow-md hover:-translate-y-0.5">Book Your Clean Now</Link>
-              <Link href="/contact" className="px-8 py-3.5 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">Ask Us a Question</Link>
-            </div>
-          </div>
-        </div>
       </section>
       <div className="h-12"></div>
 

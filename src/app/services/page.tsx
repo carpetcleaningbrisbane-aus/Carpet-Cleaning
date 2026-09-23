@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import BookingForm from '@/components/BookingForm';
 
 export const metadata: Metadata = {
   title: 'Cleaning Services Brisbane | Carpet, Curtain, Couch & Repair',
@@ -24,6 +25,24 @@ export default function ServicesPage() {
           <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
             From carpet steam cleaning to couch restoration and carpet repair — we handle it all across Brisbane.
           </p>
+        </div>
+      </section>
+
+      {/* Booking Form */}
+      <section className="px-5 md:px-16 max-w-[1280px] mx-auto mb-16">
+        <div className="bg-[#F0FAFA] rounded-3xl border border-[#D6E8E8] p-8 md:p-14">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#159A9C] bg-[#159A9C]/10 border border-[#159A9C]/25 mb-4">
+              Online Booking
+            </span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#0B253A] mb-3">
+              Book a Service Today
+            </h2>
+            <p className="text-sm text-[#60727F] max-w-md mx-auto">
+              Choose your service, pick a preferred date, and we&apos;ll confirm your appointment within a few hours.
+            </p>
+          </div>
+          <BookingForm heading="" subheading="" />
         </div>
       </section>
 
@@ -77,18 +96,6 @@ export default function ServicesPage() {
               </div>
             </Link>
           ))}
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="px-5 md:px-16 max-w-[1280px] mx-auto">
-        <div className="bg-[#0B253A] rounded-3xl p-10 md:p-14 text-center">
-          <h2 className="font-display font-bold text-3xl text-white mb-4">Not sure which service you need?</h2>
-          <p className="text-white/65 text-sm mb-8 max-w-md mx-auto">Get in touch and we'll point you in the right direction.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/book-now" className="px-8 py-4 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">Book Now</Link>
-            <Link href="/contact" className="px-8 py-4 border border-white/30 text-white rounded-xl font-semibold text-sm hover:bg-white/10 transition-colors">Contact Us</Link>
-          </div>
         </div>
       </section>
 
