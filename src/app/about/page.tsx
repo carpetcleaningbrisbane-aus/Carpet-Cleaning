@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import NextImage from 'next/image';
-import BookingForm from '@/components/BookingForm';
+import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
+const BookingForm = dynamic(() => import('@/components/BookingForm'));
 import {
   ShieldCheck, CheckCircle2, Droplets, Search,
   UserCheck, Quote, ArrowRight, Leaf, Award, Clock, ClipboardCheck

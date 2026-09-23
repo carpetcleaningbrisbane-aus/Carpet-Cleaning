@@ -7,7 +7,8 @@ import {
 } from "lucide-react";
 import TestimonialMarquee from "@/components/ui/marquee-01";
 import FaqSection from "@/components/FaqSection";
-import BookingForm from "@/components/BookingForm";
+import dynamic from "next/dynamic";
+const BookingForm = dynamic(() => import("@/components/BookingForm"));
 import {
   LocalBusinessSchema, WebSiteSchema, FAQSchema,
 } from "@/app/structured-data";

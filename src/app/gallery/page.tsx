@@ -5,7 +5,8 @@ import Link from 'next/link';
 import NextImage from 'next/image';
 import { GALLERY_ITEMS, GalleryItem } from '@/data/siteData';
 import { ArrowRight, X, ChevronLeft, ChevronRight, Star, GripVertical } from 'lucide-react';
-import BookingForm from '@/components/BookingForm';
+import dynamic from 'next/dynamic';
+const BookingForm = dynamic(() => import('@/components/BookingForm'), { ssr: false });
 
 const FILTERS = [
   { id: 'all', label: 'All Results' },

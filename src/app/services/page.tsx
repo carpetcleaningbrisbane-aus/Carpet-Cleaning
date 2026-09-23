@@ -3,7 +3,8 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import BookingForm from '@/components/BookingForm';
+import dynamic from 'next/dynamic';
+const BookingForm = dynamic(() => import('@/components/BookingForm'));
 
 export const metadata: Metadata = {
   title: 'Cleaning Services in Brisbane | Carpets, Couch and Curtain',

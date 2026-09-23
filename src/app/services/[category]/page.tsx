@@ -4,7 +4,8 @@ import NextImage from 'next/image';
 import type { Metadata } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
 import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react';
-import BookingForm from '@/components/BookingForm';
+import dynamic from 'next/dynamic';
+const BookingForm = dynamic(() => import('@/components/BookingForm'));
 import { BreadcrumbSchema, FAQSchema } from '@/app/structured-data';
 
 interface Props {
