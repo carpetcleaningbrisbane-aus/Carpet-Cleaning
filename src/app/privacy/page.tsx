@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: 'Read the Privacy Policy for Carpet Cleaner Brisbane. Learn how we collect, use and protect your personal information.',
   alternates: { canonical: '/privacy' },
   robots: { index: false, follow: false },
+  openGraph: {
+    title: 'Privacy Policy | Carpet Cleaner Brisbane',
+    description: 'Read the Privacy Policy for Carpet Cleaner Brisbane. Learn how we collect, use and protect your personal information.',
+    url: '/privacy',
+  },
 };
 
 export default function PrivacyPage() {

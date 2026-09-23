@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: 'Read the Terms of Service for Carpet Cleaner Brisbane. Understand our service terms, conditions and customer responsibilities.',
   alternates: { canonical: '/terms' },
   robots: { index: false, follow: false },
+  openGraph: {
+    title: 'Terms of Service | Carpet Cleaner Brisbane',
+    description: 'Read the Terms of Service for Carpet Cleaner Brisbane. Understand our service terms, conditions and customer responsibilities.',
+    url: '/terms',
+  },
 };
 
 export default function TermsPage() {

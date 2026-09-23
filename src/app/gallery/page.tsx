@@ -75,7 +75,7 @@ function BeforeAfterSlider({ beforeImage, afterImage, title, isFirst = false }: 
       {/* AFTER image — full width base */}
       <NextImage
         src={afterImage}
-        alt={`${title} after`}
+        alt={`After clean: ${title} thoroughly restored with steam cleaning and hot water extraction`}
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
         loading={isFirst ? "eager" : "lazy"}
@@ -91,7 +91,7 @@ function BeforeAfterSlider({ beforeImage, afterImage, title, isFirst = false }: 
       >
         <NextImage
           src={beforeImage}
-          alt={`${title} before`}
+          alt={`Before clean: ${title} showing accumulated grime, stains, and wear in Brisbane property`}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           loading={isFirst ? "eager" : "lazy"}
@@ -165,7 +165,7 @@ export default function GalleryPage() {
         {/* Background photo - natural colors without bluish tone */}
         <NextImage
           src="/gallery-banner.webp"
-          alt="Before and after carpet cleaning transformation in a Brisbane home"
+          alt="Split comparison showing dirty vs clean carpet restoration in a Brisbane home"
           fill
           priority
           sizes="100vw"
@@ -181,9 +181,12 @@ export default function GalleryPage() {
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
             Before & After Showcase
           </h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed mb-6">
             Drag the slider on each photo to reveal the transformation — real results from real Brisbane homes and businesses.
           </p>
+          <Link href="/book-now" className="inline-flex items-center gap-2 px-7 py-3 bg-[#00B8D9] text-[#082B59] font-bold text-xs md:text-sm rounded-full hover:bg-white transition-all shadow-md">
+            Book Your Clean Now <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
@@ -244,7 +247,7 @@ export default function GalleryPage() {
                 <div className="h-64 md:h-80 overflow-hidden bg-[#F2F8FC] relative">
                   <NextImage
                     src={item.singleImage}
-                    alt={item.title}
+                    alt={`${item.title} - Professional cleaning result in Brisbane QLD`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     loading={idx === 0 ? "eager" : "lazy"}
@@ -323,7 +326,7 @@ export default function GalleryPage() {
                 <div className="h-full overflow-hidden bg-[#F2F8FC] relative">
                   <NextImage
                     src={selectedItem.singleImage}
-                    alt={selectedItem.title}
+                    alt={`High-resolution preview of ${selectedItem.title} after professional deep cleaning`}
                     fill
                     sizes="80vw"
                     className="w-full h-full object-cover"

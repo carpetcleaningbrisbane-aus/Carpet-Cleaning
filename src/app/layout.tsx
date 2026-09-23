@@ -4,6 +4,10 @@ import { Playfair_Display, Montserrat } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingBookingCTA from '@/components/FloatingBookingCTA';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.carpetcleaningbrisbane.com.au';
+
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -22,18 +26,16 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Carpet Cleaner Brisbane | Professional Steam Carpet Cleaning',
-    template: '%s | Carpet Cleaner Brisbane',
+    default: 'Carpet Cleaning Brisbane | Steam & Stain Removal From $99',
+    template: '%s',
   },
   description:
-    'Professional carpet cleaning services in Brisbane. Steam cleaning, stain & odour removal, end of lease, commercial and water extraction. Fast drying, eco-friendly solutions.',
-  authors: [{ name: 'Carpet Cleaner Brisbane' }],
-  creator: 'Carpet Cleaner Brisbane',
-  publisher: 'Carpet Cleaner Brisbane',
+    'We offer residential and commercial carpet cleaning across Brisbane from $99. Safe, fast-drying steam cleaning for homes & offices. Book now!',
+  authors: [{ name: 'Carpet Cleaning Brisbane' }],
+  creator: 'Carpet Cleaning Brisbane',
+  publisher: 'Carpet Cleaning Brisbane',
   robots: {
     index: true,
     follow: true,
@@ -46,30 +48,30 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://[WEBSITE_URL]',
+    canonical: SITE_URL,
   },
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    url: 'https://[WEBSITE_URL]',
-    siteName: 'Carpet Cleaner Brisbane',
-    title: 'Carpet Cleaner Brisbane | Professional Steam Carpet Cleaning',
+    url: SITE_URL,
+    siteName: 'Carpet Cleaning Brisbane',
+    title: 'Carpet Cleaning Brisbane | Steam & Stain Removal From $99',
     description:
-      'Professional carpet cleaning services in Brisbane. Steam cleaning, stain & odour removal, end of lease, commercial and water extraction.',
+      'We offer residential and commercial carpet cleaning across Brisbane from $99. Safe, fast-drying steam cleaning for homes & offices. Book now!',
     images: [
       {
         url: '/hero.webp',
         width: 1200,
         height: 630,
-        alt: 'Professional carpet cleaning service in Brisbane',
+        alt: 'Professional steam carpet cleaning technician treating high-traffic living room carpet in Brisbane',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Carpet Cleaner Brisbane | Professional Steam Carpet Cleaning',
+    title: 'Carpet Cleaning Brisbane | Steam & Stain Removal From $99',
     description:
-      'Professional carpet cleaning in Brisbane. Steam cleaning, stain removal, end of lease & commercial services.',
+      'We offer residential and commercial carpet cleaning across Brisbane from $99. Safe, fast-drying steam cleaning for homes & offices. Book now!',
     images: ['/hero.webp'],
   },
 };
@@ -81,7 +83,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-AU"
       className={`scroll-smooth ${playfair.variable} ${montserrat.variable}`}
     >
       <head>
@@ -122,6 +124,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <main className="flex-grow">{children}</main>
 
+        <FloatingBookingCTA />
         <Footer />
       </body>
     </html>

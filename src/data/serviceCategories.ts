@@ -36,6 +36,8 @@ export interface GalleryPreview {
 export interface ServiceCategory {
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   tagline: string;
   description: string;
   heroImage: string;
@@ -50,6 +52,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'carpet-cleaning',
     title: 'Carpet Cleaning',
+    metaTitle: 'Carpet Cleaning Brisbane | Expert Steam & Stain Removal',
+    metaDescription:
+      'Professional carpet steam cleaning in Brisbane. Deep hot water extraction for stains, odours & bond cleans...',
     tagline: 'Deep clean for every carpet in your home or business.',
     description:
       "Brisbane's climate and everyday foot traffic leave carpets harbouring dirt, allergens and stains that regular vacuuming can't reach. Our professional carpet cleaning uses hot water extraction to restore your carpets to a fresh, clean condition.",
@@ -111,6 +116,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'curtain-cleaning',
     title: 'Curtain Cleaning',
+    metaTitle: 'Curtain Cleaning Brisbane | Onsite Drape & Blind Care',
+    metaDescription:
+      'Expert curtain cleaning in Brisbane. We clean sheers, heavy drapes, and blinds onsite...',
     tagline: 'Fresh, clean curtains without the hassle of taking them down.',
     description:
       'Curtains trap dust, allergens, cooking odours and mould over time. Our on-site curtain cleaning service uses low-moisture techniques that are safe for all fabric types — including sheers, heavy drapes and blinds.',
@@ -159,6 +167,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'couch-cleaning',
     title: 'Couch Cleaning',
+    metaTitle: 'Couch Cleaning Brisbane | Expert Steam & Stain Removal',
+    metaDescription:
+      'Top-rated couch steam cleaning across Brisbane. Deep clean sofas, lounges & recliners...',
     tagline: 'Restore your sofa to a fresh, hygienic condition.',
     description:
       'Sofas and upholstered furniture absorb body oils, pet dander, food spills and everyday grime. Our upholstery cleaning service safely lifts this buildup from fabric, leather and microfibre surfaces.',
@@ -207,6 +218,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'carpet-repair',
     title: 'Carpet Repair',
+    metaTitle: 'Carpet Repair in Brisbane | Restretching & Patching Experts',
+    metaDescription:
+      'Fix carpet tears, holes, burns, and ripples in Brisbane homes...',
     tagline: 'Repair and restore damaged carpet without replacing it.',
     description:
       "Carpet damage from burns, tears, pet clawing or loose edges doesn't always mean replacement. Our carpet repair specialists can patch, restretch and restore damaged areas so the carpet looks and functions like normal again.",
@@ -260,6 +274,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'mattress-cleaning',
     title: 'Mattress Cleaning',
+    metaTitle: 'Mattress Cleaning in Brisbane | Deep Steam Clean From $99',
+    metaDescription:
+      'Top-rated mattress steam cleaning across Brisbane starting at $99...',
     tagline: 'A cleaner, healthier mattress for a better night\'s sleep.',
     description:
       'Mattresses accumulate dust mites, dead skin cells, sweat, allergens and stains over time. Our professional mattress cleaning uses targeted treatments and steam to sanitise and refresh your mattress without harsh chemicals.',
