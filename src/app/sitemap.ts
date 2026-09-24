@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SERVICE_CATEGORIES } from '@/data/serviceCategories';
+import { getAuthorizedBlogPosts } from '@/data/blogs';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.carpetcleaningbrisbane.com.au';
 
@@ -47,19 +48,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    {
-      url: `${BASE_URL}/blog/how-often-should-you-clean-carpets-brisbane`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/blog/why-brisbane-humidity-demands-carpet-steam-cleaning`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
   ];
+
+  const blogPages: MetadataRoute.Sitemap = getAuthorizedBlogPosts().map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
 
   const categoryPages: MetadataRoute.Sitemap = SERVICE_CATEGORIES.map((cat) => ({
     url: `${BASE_URL}/services/${cat.slug}`,
@@ -68,5 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticPages, ...categoryPages];
+  return [...staticPages, ...blogPages, ...categoryPages];
 }
+
