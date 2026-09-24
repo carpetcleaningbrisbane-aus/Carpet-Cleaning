@@ -5,10 +5,10 @@ import {
   Star, ShieldCheck, CheckCircle2, Award, Clock, Check, Building2,
   Home as HomeIcon, ChevronRight,
 } from "lucide-react";
-import TestimonialMarquee from "@/components/ui/marquee-01";
-import FaqSection from "@/components/FaqSection";
 import dynamic from "next/dynamic";
 const BookingForm = dynamic(() => import("@/components/BookingForm"));
+const TestimonialMarquee = dynamic(() => import("@/components/ui/marquee-01"));
+const FaqSection = dynamic(() => import("@/components/FaqSection"));
 import {
   LocalBusinessSchema, WebSiteSchema, FAQSchema,
 } from "@/app/structured-data";

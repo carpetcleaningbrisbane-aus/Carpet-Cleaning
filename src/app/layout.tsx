@@ -4,7 +4,8 @@ import { Playfair_Display, Montserrat } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import FloatingBookingCTA from '@/components/FloatingBookingCTA';
+import dynamic from 'next/dynamic';
+const FloatingBookingCTA = dynamic(() => import('@/components/FloatingBookingCTA'));
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.carpetcleaningbrisbane.com.au';
 
