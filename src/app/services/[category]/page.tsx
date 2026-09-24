@@ -55,17 +55,19 @@ export default async function ServiceCategoryPage({ params }: Props) {
       <FAQSchema />
 
       {/* ── Hero ── */}
-      <section className="relative py-20 md:py-28 px-5 md:px-16 overflow-hidden mb-0">
+      <section className="relative overflow-hidden">
         <NextImage
           src={cat.heroImage.replace(/\.(jpg|png)$/, '.webp')}
           alt={`Professional ${cat.title} services in Brisbane by certified cleaning technicians`}
           fill
           priority
           sizes="100vw"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[60%_center]"
         />
-        <div className="absolute inset-0 bg-[#0B253A]/70" />
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+        {/* Left-to-right: dark on left for text readability, fades right for form card */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B253A]/90 via-[#0B253A]/75 to-[#0B253A]/30" />
+
+        <div className="relative z-10 px-5 md:px-16 max-w-[1280px] mx-auto w-full py-14 md:py-20">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-white/60 text-xs mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -74,20 +76,40 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <ChevronRight className="w-3 h-3" />
             <span className="text-white">{cat.title}</span>
           </div>
-          <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 text-white"
-            style={{ backgroundColor: `${cat.accentColor}30`, border: `1px solid ${cat.accentColor}60`, color: cat.accentColor === '#159A9C' ? '#5DD5D7' : '#fff' }}>
-            {cat.title}
-          </div>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight max-w-3xl">
-            {cat.title} Brisbane
-          </h1>
-          <p className="text-base md:text-lg text-white/75 max-w-2xl mb-8 leading-relaxed">
-            {cat.description}
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link href={`/book-now?service=${cat.slug}`} className="px-7 py-3.5 bg-white text-[#0B253A] rounded-xl font-bold text-sm hover:bg-[#F0FAFA] transition-all shadow-md">
-              Book Now
-            </Link>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            {/* LEFT — title + description + trust chips */}
+            <div>
+              <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 text-white"
+                style={{ backgroundColor: `${cat.accentColor}30`, border: `1px solid ${cat.accentColor}60`, color: cat.accentColor === '#159A9C' ? '#5DD5D7' : '#fff' }}>
+                {cat.title}
+              </div>
+              <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 leading-tight max-w-xl">
+                {cat.title} Brisbane
+              </h1>
+              <p className="text-base md:text-lg text-white/75 max-w-xl mb-8 leading-relaxed">
+                {cat.description}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {['No Upfront Payment', 'Fast Drying', 'Eco-Friendly', 'Same-Day Available'].map((chip) => (
+                  <span key={chip} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-xs font-semibold text-white">
+                    ✓ {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT — compact booking form */}
+            <div className="w-full">
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 p-5">
+                <p className="font-display font-bold text-lg text-[#082B59] mb-4">
+                  Book Your Cleaning
+                </p>
+                <BookingForm compact defaultService={cat.slug} heading="" subheading="" />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
